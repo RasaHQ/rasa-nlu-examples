@@ -20,10 +20,10 @@ tokenizer = WhitespaceTokenizer()
 featurizer = FastTextFeaturizer(component_config=config)
 
 combinations = it.product(
-    [f for f in dense_feature_checks],
+    [f for f in dense_feature_checks] + [f for f in dense_feature_checks],
     [tokenizer],
     [featurizer],
-    ["", "hello", "hello there"]
+    ["", "hello", "hello there", "hello there again", "this is quite interesting", "dude", "foo", "bar", "buzz"]
 )
 
 

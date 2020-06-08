@@ -1,0 +1,19 @@
+language: en
+
+pipeline:
+- name: WhitespaceTokenizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: rasa_nlu_examples.featurizers.dense_featurizer.fasttext.FastTextFeaturizer
+  cache_dir: "tests/data"
+  file: "custom_fasttext_model.bin"
+- name: DIETClassifier
+  epochs: 1
+
+policies:
+  - name: MemoizationPolicy
+  - name: KerasPolicy
+  - name: MappingPolicy

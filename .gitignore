@@ -112,3 +112,5 @@ dmypy.json
 
 .idea
 tests/data/*.bin
+models/*.tar.gz
+results/*
