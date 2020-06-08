@@ -27,7 +27,6 @@ class FastTextFeaturizer(DenseFeaturizer):
         return ["fasttext"]
 
     defaults = {"file": None, "cache_dir": None}
-    language_list = ["en"]
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
