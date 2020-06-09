@@ -33,10 +33,10 @@ class Printer(Component):
         return False
 
     def train(
-            self,
-            training_data: TrainingData,
-            config: Optional[RasaNLUModelConfig] = None,
-            **kwargs: Any,
+        self,
+        training_data: TrainingData,
+        config: Optional[RasaNLUModelConfig] = None,
+        **kwargs: Any,
     ) -> None:
         pass
 
@@ -58,12 +58,12 @@ class Printer(Component):
 
     @classmethod
     def load(
-            cls,
-            meta: Dict[Text, Any],
-            model_dir: Optional[Text] = None,
-            model_metadata: Optional["Metadata"] = None,
-            cached_component: Optional["Component"] = None,
-            **kwargs: Any,
+        cls,
+        meta: Dict[Text, Any],
+        model_dir: Optional[Text] = None,
+        model_metadata: Optional["Metadata"] = None,
+        cached_component: Optional["Component"] = None,
+        **kwargs: Any,
     ) -> "Component":
         """Load this component from file."""
 
