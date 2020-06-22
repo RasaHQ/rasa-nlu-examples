@@ -43,11 +43,11 @@ class BPEmbFeaturizer(DenseFeaturizer):
 
     defaults = {
         # specifies the language of the subword segmentation model
-        "lang": "de",
+        "lang": "en",
         # specifies the dimension of the subword embeddings
-        "dim": 50,
+        "dim": 25,
         # specifies the vocabulary size of the segmentation model
-        "vs": 10000,
+        "vs": 1000,
         # if set to True and the given vocabulary size can't be loaded for the given
         # model, the closest size is chosen
         "vs_fallback": True,
