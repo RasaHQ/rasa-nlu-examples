@@ -2,7 +2,7 @@ import subprocess
 
 import pytest
 
-filepaths = ["tests/configs/fasttext-config.yml"]
+filepaths = ["fasttext-config.yml"]
 
 
 @pytest.mark.parametrize("fp", filepaths)
@@ -14,7 +14,7 @@ def test_run_train_command(fp):
         "-u",
         "tests/data/nlu.md",
         "--config",
-        fp,
+        f"tests/configs/{fp}",
         "--cross-validation",
         "--runs",
         "1",
