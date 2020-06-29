@@ -32,7 +32,7 @@ def test_component_adds_features(tokenizer, featurizer, msg):
 
 
 def test_component_does_not_remove_features(tokenizer, featurizer, msg):
-    """If there are no features we need to add them"""
+    """If there are features we need to add not remove them"""
     message = Message(msg)
     tokens = tokenizer.tokenize(message, attribute=TEXT)
     tokens = Tokenizer.add_cls_token(tokens, attribute=TEXT)
