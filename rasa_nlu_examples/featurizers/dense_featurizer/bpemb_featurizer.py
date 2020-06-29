@@ -67,7 +67,6 @@ class BPEmbFeaturizer(DenseFeaturizer):
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
-        print(component_config)
 
         self.model = BPEmb(
             lang=self.component_config["lang"],
