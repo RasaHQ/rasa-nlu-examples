@@ -7,7 +7,7 @@ pipeline:
   analyzer: char_wb
   min_ngram: 1
   max_ngram: 4
-- name: rasa_nlu_examples.featurizers.dense_featurizer.FastTextFeaturizer
+- name: rasa_nlu_examples.featurizers.dense.FastTextFeaturizer
   cache_dir: "tests/data"
   file: "custom_fasttext_model.bin"
 - name: DIETClassifier

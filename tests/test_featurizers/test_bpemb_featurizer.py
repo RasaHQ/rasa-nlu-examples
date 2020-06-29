@@ -4,7 +4,7 @@ import pathlib
 import pytest
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
 
-from rasa_nlu_examples.featurizers.dense_featurizer import BytePairFeaturizer
+from rasa_nlu_examples.featurizers.dense import BytePairFeaturizer
 from .featurizer_checks import dense_feature_checks
 
 test_folder = pathlib.Path(__file__).parent.parent.absolute()
