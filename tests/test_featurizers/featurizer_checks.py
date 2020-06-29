@@ -1,14 +1,8 @@
-import numpy as np
 import pytest
 
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
-from rasa.nlu.training_data import TrainingData
-from rasa.nlu.tokenizers.convert_tokenizer import ConveRTTokenizer
-from rasa.nlu.constants import TEXT, DENSE_FEATURE_NAMES, TOKENS_NAMES, RESPONSE, INTENT
+from rasa.nlu.constants import TEXT, DENSE_FEATURE_NAMES, TOKENS_NAMES
 from rasa.nlu.training_data import Message
-from rasa.nlu.config import RasaNLUModelConfig
-from rasa.nlu.featurizers.dense_featurizer.convert_featurizer import ConveRTFeaturizer
-from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
 
 
 def test_component_raises_error_no_tokens(tokenizer, featurizer, msg):
