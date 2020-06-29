@@ -2,6 +2,7 @@ import typing
 from typing import Any, Optional, Text, Dict, List, Type
 from bpemb import BPEmb
 import numpy as np
+from pathlib import Path
 
 from rasa.nlu.components import Component
 from rasa.nlu.featurizers.featurizer import DenseFeaturizer
@@ -14,31 +15,15 @@ if typing.TYPE_CHECKING:
 from rasa.nlu.constants import DENSE_FEATURE_NAMES, DENSE_FEATURIZABLE_ATTRIBUTES, TEXT
 
 
-class BPEmbConfigError(ValueError):
-    """
-    Full documentation: https://github.com/bheinzerling/bpemb
-    """
-
-
 class BPEmbFeaturizer(DenseFeaturizer):
     """This component adds BPEmb features."""
 
-
-
     @classmethod
     def required_components(cls) -> List[Type[Component]]:
-        """
-
-        :return:
-        """
         return [Tokenizer]
 
     @classmethod
     def required_packages(cls) -> List[Text]:
-        """
-
-        :return:
-        """
         return ["bpemb"]
 
     defaults = {
@@ -52,7 +37,7 @@ class BPEmbFeaturizer(DenseFeaturizer):
         # model, the closest size is chosen
         "vs_fallback": True,
         # specifies the folder in which downloaded BPEmb files will be cached
-        "cache_dir": None,
+        "cache_dir": Path.home() / Path(".cache/bpemb"),
         # specifies the path to a custom SentencePiece model file
         "model_file": None,
         # specifies the path to a custom embedding file. Supported formats are Word2Vec
@@ -81,23 +66,15 @@ class BPEmbFeaturizer(DenseFeaturizer):
                      'mus', 'ady', 'en', 'lg', 'xal', 'gu', 'pt', 'xh', 'szl', 'chr']
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
-        """
-
-        :param component_config:
-        """
         super().__init__(component_config)
 
-        try:
-            self.model = BPEmb(
-                lang=self.component_config["lang"],
-                dim=self.component_config["dim"],
-                vs=self.component_config["vs"],
-                vs_fallback=self.component_config["vs_fallback"],
-                cache_dir=self.component_config["cache_dir"],
-            )
-        except:
-            raise BPEmbConfigError(
-                'The config {} provided doesn\'t match current requirements.'.format(component_config))
+        self.model = BPEmb(
+            lang=self.component_config["lang"],
+            dim=self.component_config["dim"],
+            vs=self.component_config["vs"],
+            vs_fallback=self.component_config["vs_fallback"],
+            cache_dir=self.component_config["cache_dir"],
+        )
 
     def train(
         self,
@@ -105,24 +82,11 @@ class BPEmbFeaturizer(DenseFeaturizer):
         config: Optional[RasaNLUModelConfig] = None,
         **kwargs: Any,
     ) -> None:
-        """
-
-        :param training_data:
-        :param config:
-        :param kwargs:
-        :return:
-        """
         for example in training_data.intent_examples:
             for attribute in DENSE_FEATURIZABLE_ATTRIBUTES:
                 self.set_bpemb_features(example, attribute)
 
     def create_word_vector(self, document):
-        """
-
-        :param document:
-        :return:
-        """
-
         encoded_ids = self.model.encode_ids(document)
         if encoded_ids:
             return self.model.vectors[encoded_ids[0]]
@@ -130,13 +94,6 @@ class BPEmbFeaturizer(DenseFeaturizer):
         return np.zeros((self.component_config["dim"],), dtype=np.float32)
 
     def set_bpemb_features(self, message: Message, attribute: Text = TEXT):
-        """
-
-        :param message:
-        :param attribute:
-        :return:
-        """
-
         text_vector = self.create_word_vector(document=message.text)
         word_vectors = [
             self.create_word_vector(document=t.text)
@@ -150,23 +107,10 @@ class BPEmbFeaturizer(DenseFeaturizer):
         )
         message.set(DENSE_FEATURE_NAMES[attribute], features)
 
-
     def process(self, message: Message, **kwargs: Any) -> None:
-        """
-
-        :param message:
-        :param kwargs:
-        :return:
-        """
         self.set_bpemb_features(message)
 
     def persist(self, file_name: Text, model_dir: Text) -> Optional[Dict[Text, Any]]:
-        """
-
-        :param file_name:
-        :param model_dir:
-        :return:
-        """
         pass
 
     @classmethod
@@ -178,8 +122,6 @@ class BPEmbFeaturizer(DenseFeaturizer):
         cached_component: Optional["Component"] = None,
         **kwargs: Any,
     ) -> "Component":
-        """Load this component from file."""
-
         if cached_component:
             return cached_component
         else:
