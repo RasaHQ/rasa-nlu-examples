@@ -4,7 +4,7 @@ import pathlib
 import pytest
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
 
-from rasa_nlu_examples.featurizers.dense_featurizer.fasttext import FastTextFeaturizer
+from rasa_nlu_examples.featurizers.dense.fasttext import FastTextFeaturizer
 from .featurizer_checks import dense_feature_checks
 
 test_folder = pathlib.Path(__file__).parent.parent.absolute()
@@ -20,7 +20,7 @@ tokenizer = WhitespaceTokenizer()
 featurizer = FastTextFeaturizer(component_config=config)
 
 combinations = it.product(
-    [f for f in dense_feature_checks] + [f for f in dense_feature_checks],
+    [f for f in dense_feature_checks],
     [tokenizer],
     [featurizer],
     ["", "hello", "hello there", "hello there again", "this is quite interesting", "dude", "foo", "bar", "buzz"]
