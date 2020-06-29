@@ -16,5 +16,5 @@ The following components are implemented.
 
 ### Dense Featurizers 
 
-- `rasa_nlu_examples.featurizers.dense_featurizer.FastText`: fasttext word embeddings
-- `rasa_nlu_examples.featurizers.dense_featurizer.bpemb_featurizer`: Pretrained BPEmb word embeddings
+- `rasa_nlu_examples.featurizers.dense_featurizer.FastTextFeaturizer`: fasttext word embeddings [link](https://fasttext.cc/)
+- `rasa_nlu_examples.featurizers.dense_featurizer.BytePairFeaturizer`: pretrained byte-pair word embeddings [link](https://nlp.h-its.org/bpemb/)

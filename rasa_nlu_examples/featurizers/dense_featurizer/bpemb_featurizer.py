@@ -15,7 +15,7 @@ if typing.TYPE_CHECKING:
 from rasa.nlu.constants import DENSE_FEATURE_NAMES, DENSE_FEATURIZABLE_ATTRIBUTES, TEXT
 
 
-class BPEmbFeaturizer(DenseFeaturizer):
+class BytePairFeaturizer(DenseFeaturizer):
     """This component adds BPEmb features."""
 
     @classmethod

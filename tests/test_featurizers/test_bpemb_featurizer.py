@@ -4,7 +4,7 @@ import pathlib
 import pytest
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
 
-from rasa_nlu_examples.featurizers.dense_featurizer import BPEmbFeaturizer
+from rasa_nlu_examples.featurizers.dense_featurizer import BytePairFeaturizer
 from .featurizer_checks import dense_feature_checks
 
 test_folder = pathlib.Path(__file__).parent.parent.absolute()
@@ -13,10 +13,10 @@ file_name = "custom_fasttext_model.bin"
 
 config = dict(lang="en", vs=1000, dim=25, vs_fallback=True)
 tokenizer = WhitespaceTokenizer()
-featurizer = BPEmbFeaturizer(component_config=config)
+featurizer = BytePairFeaturizer(component_config=config)
 
 combinations = it.product(
-    [f for f in dense_feature_checks] + [f for f in dense_feature_checks],
+    [f for f in dense_feature_checks],
     [tokenizer],
     [featurizer],
     ["", "hello", "hello there", "hello there again", "this is quite interesting", "dude", "foo", "bar", "buzz"]
