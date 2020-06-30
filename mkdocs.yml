@@ -1,0 +1,26 @@
+site_name: Rasa NLU Examples
+extra_css: [style.css]
+repo_url: https://github.com/RasaHQ/rasa-nlu-examples
+site_url: https://rasahq.github.io/whatlies/
+site_description: A collection of open source Rasa compatible NLU components.
+site_author: Vincent D. Warmerdam @ Rasa Research
+
+nav:
+  - Home: index.md
+plugins:
+  - mkdocstrings
+  - search
+copyright: Copyright &copy; 2020 <a href="https://twitter.com/Rasa_HQ">Rasa</a>
+theme:
+  name: material
+  favicon: images/cog.png
+  logo:
+    icon: album
+  feature:
+    tabs: true
+  palette:
+    primary: white
+    accent: purple
+markdown_extensions:
+  - toc:
+      permalink: true
