@@ -12,7 +12,39 @@ if typing.TYPE_CHECKING:
 
 
 class Printer(Component):
-    """A component that prints the message. Useful for debugging while running `rasa shell`."""
+    """
+    A component that prints the message. Useful for debugging while running `rasa shell`.
+
+    **Configurable Variables:**
+
+    - alias: gives an extra name to the componentn and adds an extra message that is printed
+
+    Usage:
+
+    ```yml
+    language: en
+
+    pipeline:
+    - name: WhitespaceTokenizer
+    - name: LexicalSyntacticFeaturizer
+    - name: rasa_nlu_examples.meta.Printer
+      alias: before count vectors
+    - name: CountVectorsFeaturizer
+      analyzer: char_wb
+      min_ngram: 1
+      max_ngram: 4
+    - name: rasa_nlu_examples.meta.Printer
+      alias: after count vectors
+    - name: DIETClassifier
+      epochs: 1
+
+    policies:
+      - name: MemoizationPolicy
+      - name: KerasPolicy
+      - name: MappingPolicy
+    ```
+
+    """
 
     @classmethod
     def required_components(cls) -> List[Type[Component]]:

@@ -1,14 +1,20 @@
-site_name: Rasa NLU Examples
+site_name: Rasa NLU docs
 extra_css: [style.css]
 repo_url: https://github.com/RasaHQ/rasa-nlu-examples
-site_url: https://rasahq.github.io/whatlies/
+site_url: https://rasahq.github.io/rasa-nlu-examples/
 site_description: A collection of open source Rasa compatible NLU components.
 site_author: Vincent D. Warmerdam @ Rasa Research
 
 nav:
   - Home: index.md
+  - Usage:
+      - Meta:
+        - Printer: docs/meta/printer.md
+      - Featurizers:
+        - FastTextFeaturizer: docs/featurizer/fasttext.md
+        - BytePairFeaturizer: docs/featurizer/bytepair.md
+
 plugins:
-  - mkdocstrings
   - search
 copyright: Copyright &copy; 2020 <a href="https://twitter.com/Rasa_HQ">Rasa</a>
 theme:
@@ -22,5 +28,7 @@ theme:
     primary: white
     accent: purple
 markdown_extensions:
+  - codehilite
+  - admonition
   - toc:
       permalink: true
