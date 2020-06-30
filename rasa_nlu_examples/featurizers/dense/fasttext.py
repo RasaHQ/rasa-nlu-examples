@@ -1,4 +1,5 @@
 import os
+import typing
 from typing import Any, Optional, Text, Dict, List, Type
 
 import fasttext
@@ -9,6 +10,8 @@ from rasa.nlu.config import RasaNLUModelConfig
 from rasa.nlu.training_data import Message, TrainingData
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
 
+if typing.TYPE_CHECKING:
+    from rasa.nlu.model import Metadata
 from rasa.nlu.constants import DENSE_FEATURE_NAMES, DENSE_FEATURIZABLE_ATTRIBUTES, TEXT
 
 

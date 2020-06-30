@@ -1,3 +1,4 @@
+import typing
 from pathlib import Path
 from typing import Any, Optional, Text, Dict, List, Type
 
@@ -9,6 +10,9 @@ from rasa.nlu.config import RasaNLUModelConfig
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
 from rasa.nlu.training_data import Message, TrainingData
 from rasa.nlu.featurizers.featurizer import DenseFeaturizer
+
+if typing.TYPE_CHECKING:
+    from rasa.nlu.model import Metadata
 from rasa.nlu.constants import DENSE_FEATURE_NAMES, DENSE_FEATURIZABLE_ATTRIBUTES, TEXT
 
 
