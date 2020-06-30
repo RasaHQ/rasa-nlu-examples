@@ -1,4 +1,4 @@
-site_name: Rasa NLU docs
+site_name: Rasa NLU Examples
 extra_css: [style.css]
 repo_url: https://github.com/RasaHQ/rasa-nlu-examples
 site_url: https://rasahq.github.io/rasa-nlu-examples/
