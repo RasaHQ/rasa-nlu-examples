@@ -1,12 +1,11 @@
 # Rasa NLU Examples
 
-<img src="square-logo.svg" width=200 height=200 align="right">
+<img src="square-logo.svg" width=150 height=150 align="right">
 
-This repository contains some example components meant for educational/inspirational
+This repository contains some example components meant for educational and inspirational
 purposes. These are components that we open source to encourage experimentation but
 these are components that are **not officially supported**. There will be some tests
-as well as some documentation but this project should be considered a community project,
-not something that is part of core Rasa.
+and some documentation but this is a community project, not something that is part of core Rasa.
 
 # Components
 

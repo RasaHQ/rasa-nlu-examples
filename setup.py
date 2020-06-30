@@ -6,9 +6,9 @@ dev_packages = [
     "flake8>=3.6.0",
     "pytest==4.0.2",
     "pytest-xdist==1.32.0",
-    "mkdocs==1.1",
-    "mkdocs-material==4.6.3",
-    "mkdocstrings==0.8.0",
+    "mkdocs>=1.1",
+    "mkdocs-material>=4.6.3",
+    "pymdown-extensions>=7.1",
 ]
 
 

@@ -8,6 +8,7 @@ site_author: Vincent D. Warmerdam @ Rasa Research
 nav:
   - Home: index.md
   - Usage:
+      - Benchmarking Guide: benchmarking.md
       - Meta:
         - Printer: docs/meta/printer.md
       - Featurizers:
@@ -19,16 +20,15 @@ plugins:
 copyright: Copyright &copy; 2020 <a href="https://twitter.com/Rasa_HQ">Rasa</a>
 theme:
   name: material
-  favicon: images/cog.png
-  logo:
-    icon: album
-  feature:
-    tabs: true
+  features:
+    - tabs
+    - instant
   palette:
     primary: white
     accent: purple
 markdown_extensions:
   - codehilite
+  - pymdownx.tabbed
   - admonition
   - toc:
       permalink: true
