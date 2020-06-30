@@ -1,9 +1,9 @@
+import os
 import typing
 from typing import Any, Optional, Text, Dict, List, Type
+
 import fasttext
 import numpy as np
-import os
-
 from rasa.nlu.components import Component
 from rasa.nlu.featurizers.featurizer import DenseFeaturizer
 from rasa.nlu.config import RasaNLUModelConfig

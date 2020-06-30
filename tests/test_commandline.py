@@ -3,7 +3,9 @@ import subprocess
 import pytest
 
 
-@pytest.mark.parametrize("fp", ["fasttext-config.yml", "printer-config.yml"])
+@pytest.mark.parametrize(
+    "fp", ["fasttext-config.yml", "printer-config.yml", "bytepair-config.yml"]
+)
 def test_run_train_command(fp):
     cmd = [
         "rasa",

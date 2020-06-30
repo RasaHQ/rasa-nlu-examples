@@ -3,6 +3,7 @@ import pytest
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
 from rasa.nlu.constants import TEXT, DENSE_FEATURE_NAMES, TOKENS_NAMES
 from rasa.nlu.training_data import Message
+import itertools as it
 
 
 def test_component_raises_error_no_tokens(tokenizer, featurizer, msg):
@@ -49,5 +50,23 @@ def test_component_does_not_remove_features(tokenizer, featurizer, msg):
 dense_feature_checks = (
     test_component_adds_features,
     test_component_does_not_remove_features,
-    test_component_raises_error_no_tokens
+    test_component_raises_error_no_tokens,
 )
+
+
+def dense_standard_test_combinations(
+    tokenizer, featurizer, messages=None, feature_checks=dense_feature_checks
+):
+    if not messages:
+        messages = [
+            "",
+            "hello",
+            "hello there",
+            "hello there again",
+            "this is quite interesting",
+            "dude",
+            "foo",
+            "bar",
+            "buzz",
+        ]
+    return it.product([f for f in feature_checks], [tokenizer], [featurizer], messages)
