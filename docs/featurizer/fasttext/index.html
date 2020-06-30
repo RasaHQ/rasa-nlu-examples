@@ -13,6 +13,8 @@
         <meta name="description" content="A collection of open source Rasa compatible NLU components.">
       
       
+        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/fasttext/">
+      
       
         <meta name="author" content="Vincent D. Warmerdam @ Rasa Research">
       
@@ -35,18 +37,18 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="/rasa-nlu-examples/images/cog.png">
+      <link rel="shortcut icon" href="../../../images/cog.png">
       <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
     
     
       
-        <title>Rasa NLU docs</title>
+        <title>FastTextFeaturizer - Rasa NLU docs</title>
       
     
     
-      <link rel="stylesheet" href="/rasa-nlu-examples/assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.adb8469c.css">
       
-        <link rel="stylesheet" href="/rasa-nlu-examples/assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -55,7 +57,7 @@
       
     
     
-      <script src="/rasa-nlu-examples/assets/javascripts/modernizr.86422ebf.js"></script>
+      <script src="../../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -64,10 +66,10 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="/rasa-nlu-examples/assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="/rasa-nlu-examples/style.css">
+      <link rel="stylesheet" href="../../../style.css">
     
     
       
@@ -91,6 +93,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#configurable-variables" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -113,7 +119,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                
+                FastTextFeaturizer
               
             </span>
           
@@ -181,14 +187,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="/rasa-nlu-examples/." class="md-tabs__link md-tabs__link--active">
+      <a href="../../.." class="md-tabs__link">
         Home
       </a>
     
@@ -200,7 +208,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="/rasa-nlu-examples/benchmarking/" class="md-tabs__link">
+        <a href="../../../benchmarking/" class="md-tabs__link md-tabs__link--active">
           Usage
         </a>
       
@@ -257,7 +265,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/rasa-nlu-examples/." title="Home" class="md-nav__link">
+    <a href="../../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -267,10 +275,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Usage
@@ -288,7 +298,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/rasa-nlu-examples/benchmarking/" title="Benchmarking Guide" class="md-nav__link">
+    <a href="../../../benchmarking/" title="Benchmarking Guide" class="md-nav__link">
       Benchmarking Guide
     </a>
   </li>
@@ -319,7 +329,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/rasa-nlu-examples/docs/meta/printer/" title="Printer" class="md-nav__link">
+    <a href="../../meta/printer/" title="Printer" class="md-nav__link">
       Printer
     </a>
   </li>
@@ -334,10 +344,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
     
     <label class="md-nav__link" for="nav-2-3">
       Featurizers
@@ -353,11 +365,52 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="/rasa-nlu-examples/docs/featurizer/fasttext/" title="FastTextFeaturizer" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        FastTextFeaturizer
+      </label>
+    
+    <a href="./" title="FastTextFeaturizer" class="md-nav__link md-nav__link--active">
       FastTextFeaturizer
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configurable-variables" class="md-nav__link">
+    Configurable Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-usage" class="md-nav__link">
+    Base Usage
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -367,7 +420,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/rasa-nlu-examples/docs/featurizer/bytepair/" title="BytePairFeaturizer" class="md-nav__link">
+    <a href="../bytepair/" title="BytePairFeaturizer" class="md-nav__link">
       BytePairFeaturizer
     </a>
   </li>
@@ -390,12 +443,90 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configurable-variables" class="md-nav__link">
+    Configurable Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-usage" class="md-nav__link">
+    Base Usage
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/featurizer/fasttext.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>FastTextFeaturizer</h1>
+                
+                <p>Here's an example configuration file that demonstrates how the fasttext featurizer works.
+Note that this featurizer is a <em>dense</em> featurizer.</p>
+<p>Fasttext supports 157 languages and you can download the embeddings
+<a href="https://fasttext.cc/docs/en/crawl-vectors.html">here</a>. Note that these files unzipped can be about 6-7Gb.</p>
+<h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>cache_dir</strong>: pass it the name of the directory where you've downloaded the embeddings</li>
+<li><strong>file</strong>: pass it the name the file that contains the word embeddings</li>
+</ul>
+<h2 id="base-usage">Base Usage<a class="headerlink" href="#base-usage" title="Permanent link">&para;</a></h2>
+<p>The configuration file below demonstrates how you might use the fasttext embeddings. In this example
+we're building a pipeline for the Dutch language and we're assuming that the embeddings have been
+downloaded beforehand and save over at <code>downloaded/beforehand/cc.nl.300.bin</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nl</span>
 
+<span class="nt">pipeline</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LexicalSyntacticFeaturizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
+  <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
+  <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.featurizers.dense.FastTextFeaturizer</span>
+  <span class="nt">cache_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">downloaded/beforehand</span>
+  <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cc.nl.300.bin</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
+  <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+
+<span class="nt">policies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MemoizationPolicy</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">KerasPolicy</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MappingPolicy</span>
+</code></pre></div>
+                
+                  
+                
+                
+              
               
                 
 
@@ -408,6 +539,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../meta/printer/" title="Printer" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Printer
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../bytepair/" title="BytePairFeaturizer" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                BytePairFeaturizer
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -430,9 +596,9 @@
       
     </div>
     
-      <script src="/rasa-nlu-examples/assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"/rasa-nlu-examples/"}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
       
     
   </body>
