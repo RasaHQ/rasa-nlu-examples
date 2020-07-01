@@ -1,6 +1,6 @@
-# Rasa NLU Examples
+<img src="square-logo.svg" width=40 height=40 style="margin: 10px;" align="right">
 
-<img src="square-logo.svg" width=150 height=150 align="right">
+# Rasa NLU Examples
 
 This repository contains some example components meant for educational and inspirational
 purposes. These are components that we open source to encourage experimentation but
@@ -16,6 +16,7 @@ The following components are implemented.
 #### `rasa_nlu_examples.meta.Printer` [docs](docs/meta/printer/)
 
 This component will print what each featurizer adds to the NLU message. Very useful for debugging.
+You can find a tutorial on it [here](https://blog.rasa.com/custom-printer-component/).
 
 ## Dense Featurizers
 

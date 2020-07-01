@@ -1,4 +1,5 @@
 Here's an example configuration file that demonstrates how the custom printer component works.
+You can find a tutorial on the component [here](https://blog.rasa.com/custom-printer-component/).
 
 ## Configurable Variables
 

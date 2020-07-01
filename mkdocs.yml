@@ -7,6 +7,7 @@ site_author: Vincent D. Warmerdam @ Rasa Research
 
 nav:
   - Home: index.md
+  - Contributing: contributing.md
   - Usage:
       - Benchmarking Guide: benchmarking.md
       - Meta:
