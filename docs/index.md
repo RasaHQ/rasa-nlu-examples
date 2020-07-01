@@ -1,29 +1,31 @@
-<img src="square-logo.svg" width=200 height=200 align="right">
+<img src="square-logo.svg" width=40 height=40 style="margin: 10px;" align="right">
 
-This repository contains some example components meant for educational/inspirational
+# Rasa NLU Examples
+
+This repository contains some example components meant for educational and inspirational
 purposes. These are components that we open source to encourage experimentation but
 these are components that are **not officially supported**. There will be some tests
-as well as some documentation but this project should be considered a community project,
-not something that is part of core Rasa.
+and some documentation but this is a community project, not something that is part of core Rasa.
 
 # Components
 
 The following components are implemented.
 
-### Meta
+## Meta
 
-#### `rasa_nlu_examples.meta.Printer`
+#### `rasa_nlu_examples.meta.Printer` [docs](docs/meta/printer/)
 
-This component will print what each featurizer adds to the NLU message. Very useful for debugging
+This component will print what each featurizer adds to the NLU message. Very useful for debugging.
+You can find a tutorial on it [here](https://blog.rasa.com/custom-printer-component/).
 
-### Dense Featurizers
+## Dense Featurizers
 
-#### `rasa_nlu_examples.featurizers.dense.FastTextFeaturizer`
+#### `rasa_nlu_examples.featurizers.dense.FastTextFeaturizer` [docs](docs/featurizer/fasttext/)
 
 These are the pretrained embeddings from FastText, see for more info [here](https://fasttext.cc/).
 These are available in 157 languages, see [here](https://fasttext.cc/docs/en/crawl-vectors.html#models).
 
-#### `rasa_nlu_examples.featurizers.dense.BytePairFeaturizer`
+#### `rasa_nlu_examples.featurizers.dense.BytePairFeaturizer` [docs](docs/featurizer/bytepair/)
 
 These BytePair embeddings are specialized subword embeddings that are built to be lightweight.
 See [this link](https://nlp.h-its.org/bpemb/) for more information. These are available in 227 languages and
