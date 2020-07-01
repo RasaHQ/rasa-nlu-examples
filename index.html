@@ -171,6 +171,8 @@
 
       
         
+      
+        
   
   
     <li class="md-tabs__item">
@@ -247,18 +249,30 @@
       
 
 
+  <li class="md-nav__item">
+    <a href="contributing/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-2">
+    <label class="md-nav__link" for="nav-3">
       Usage
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Usage" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
+      <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
@@ -286,16 +300,16 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
-    <label class="md-nav__link" for="nav-2-2">
+    <label class="md-nav__link" for="nav-3-2">
       Meta
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Meta" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-2">
+      <label class="md-nav__title" for="nav-3-2">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
@@ -328,16 +342,16 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
     
-    <label class="md-nav__link" for="nav-2-3">
+    <label class="md-nav__link" for="nav-3-3">
       Featurizers
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Featurizers" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-3">
+      <label class="md-nav__title" for="nav-3-3">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
@@ -415,8 +429,8 @@
                   
                 
                 
-                <h1 id="rasa-nlu-examples">Rasa NLU Examples<a class="headerlink" href="#rasa-nlu-examples" title="Permanent link">&para;</a></h1>
-<p><img src="square-logo.svg" width=150 height=150 align="right"></p>
+                <p><img src="square-logo.svg" width=40 height=40 style="margin: 10px;" align="right"></p>
+<h1 id="rasa-nlu-examples">Rasa NLU Examples<a class="headerlink" href="#rasa-nlu-examples" title="Permanent link">&para;</a></h1>
 <p>This repository contains some example components meant for educational and inspirational
 purposes. These are components that we open source to encourage experimentation but
 these are components that are <strong>not officially supported</strong>. There will be some tests
@@ -425,7 +439,8 @@ and some documentation but this is a community project, not something that is pa
 <p>The following components are implemented.</p>
 <h2 id="meta">Meta<a class="headerlink" href="#meta" title="Permanent link">&para;</a></h2>
 <h4 id="rasa_nlu_examplesmetaprinter-docs"><code>rasa_nlu_examples.meta.Printer</code> <a href="docs/meta/printer/">docs</a><a class="headerlink" href="#rasa_nlu_examplesmetaprinter-docs" title="Permanent link">&para;</a></h4>
-<p>This component will print what each featurizer adds to the NLU message. Very useful for debugging.</p>
+<p>This component will print what each featurizer adds to the NLU message. Very useful for debugging.
+You can find a tutorial on it <a href="https://blog.rasa.com/custom-printer-component/">here</a>.</p>
 <h2 id="dense-featurizers">Dense Featurizers<a class="headerlink" href="#dense-featurizers" title="Permanent link">&para;</a></h2>
 <h4 id="rasa_nlu_examplesfeaturizersdensefasttextfeaturizer-docs"><code>rasa_nlu_examples.featurizers.dense.FastTextFeaturizer</code> <a href="docs/featurizer/fasttext/">docs</a><a class="headerlink" href="#rasa_nlu_examplesfeaturizersdensefasttextfeaturizer-docs" title="Permanent link">&para;</a></h4>
 <p>These are the pretrained embeddings from FastText, see for more info <a href="https://fasttext.cc/">here</a>.
@@ -434,15 +449,6 @@ These are available in 157 languages, see <a href="https://fasttext.cc/docs/en/c
 <p>These BytePair embeddings are specialized subword embeddings that are built to be lightweight.
 See <a href="https://nlp.h-its.org/bpemb/">this link</a> for more information. These are available in 227 languages and
 you can specify the subword vocabulary size as well as the dimensionality.</p>
-<h1 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h1>
-<p>This is an experimental project but we would like to keep the project structured. </p>
-<h2 id="adding-a-new-component">Adding a new Component<a class="headerlink" href="#adding-a-new-component" title="Permanent link">&para;</a></h2>
-<ol>
-<li>If you want to contribute a new component please make an issue first so we can discuss it. </li>
-<li>Think about unit tests. We prefer to standardise unit tests as much as possible but there may be specific things 
-you'd like to check for. </li>
-<li>New tools that are added here need to be plausibly useful. For example, we won't be able to accept </li>
-</ol>
                 
               
               
@@ -462,13 +468,13 @@ you'd like to check for. </li>
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
         
-          <a href="benchmarking/" title="Benchmarking Guide" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="contributing/" title="Contributing" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Benchmarking Guide
+                Contributing
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
