@@ -4,7 +4,7 @@ import pathlib
 if __name__ == "__main__":
     # This script adds a small fasttext model that is used in testing.
     # Otherwise we might need to download 6Gb files just for unit tests.
-    if not pathlib.Path("tests", "data", "fasttext-dummy-data.txt").exists():
+    if not pathlib.Path("tests", "data", "custom_fasttext_model.bin").exists():
         model = fasttext.train_unsupervised(
             "tests/data/fasttext-dummy-data.txt", model="cbow", dim=10
         )
