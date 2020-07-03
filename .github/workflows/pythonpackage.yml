@@ -31,4 +31,7 @@ jobs:
       run: |
         black --check --diff --target-version py37 rasa_nlu_examples
         flake8 rasa_nlu_examples tests
+        ls -lhat tests/data
+        chmod 775 tests/data/custom_fasttext_model.bin
+        ls -lhat tests/data
         pytest
