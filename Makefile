@@ -8,7 +8,7 @@ test:
 	pytest -n 2
 
 style:
-	black --check rasa_nlu_examples
+	black --check --diff rasa_nlu_examples
 	flake8 rasa_nlu_examples tests
 
 types:
