@@ -26,8 +26,13 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -e "."
-        pip install flake8 pytest
+        pip install flake8 pytest black
     - name: Test with pytest
       run: |
+        black --check --diff --target-version py37 rasa_nlu_examples
+        flake8 rasa_nlu_examples tests
+        ls -lhat tests/data
         python tests/prepare_everything.py
-        pytest --verbose
+        chmod 775 tests/data/custom_fasttext_model.bin
+        ls -lhat tests/data
+        pytest

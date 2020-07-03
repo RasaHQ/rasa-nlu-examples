@@ -1,7 +1,17 @@
+install:
+	python -m pip install -e .
+	pre-commit install
+	python tests/prepare_everything.py
+
 test:
-	pytest -n 2
+	python tests/prepare_everything.py
+	pytest
 
-flake:
-	flake8
+style:
+	black --check --diff --target-version py37 rasa_nlu_examples
+	flake8 rasa_nlu_examples tests
 
-check: test
+types:
+	pytype --keep-going rasa_nlu_examples --python-version 3.7 -j 16
+
+check: style types test
