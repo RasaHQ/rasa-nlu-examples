@@ -11,7 +11,12 @@ from rasa.nlu.config import RasaNLUModelConfig
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
 from rasa.nlu.training_data import Message, TrainingData
 from rasa.nlu.featurizers.featurizer import DenseFeaturizer
-from rasa.nlu.constants import DENSE_FEATURE_NAMES, DENSE_FEATURIZABLE_ATTRIBUTES, TEXT
+from rasa.nlu.constants import (
+    DENSE_FEATURE_NAMES,
+    DENSE_FEATURIZABLE_ATTRIBUTES,
+    TEXT,
+    TOKENS_NAMES,
+)
 
 if typing.TYPE_CHECKING:
     from rasa.nlu.model import Metadata
@@ -364,6 +369,11 @@ class BytePairFeaturizer(DenseFeaturizer):
         return np.zeros((self.component_config["dim"],), dtype=np.float32)
 
     def set_bpemb_features(self, message: Message, attribute: Text = TEXT) -> None:
+        tokens = message.get(TOKENS_NAMES[attribute])
+
+        if not tokens:
+            return None
+
         text_vector = self.create_word_vector(document=message.text)
         word_vectors = [
             self.create_word_vector(document=t.text)

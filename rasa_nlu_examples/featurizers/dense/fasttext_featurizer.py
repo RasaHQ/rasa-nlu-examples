@@ -10,7 +10,7 @@ from rasa.nlu.featurizers.featurizer import DenseFeaturizer
 from rasa.nlu.config import RasaNLUModelConfig
 from rasa.nlu.training_data import Message, TrainingData
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
-from rasa.nlu.constants import DENSE_FEATURE_NAMES, DENSE_FEATURIZABLE_ATTRIBUTES, TEXT
+from rasa.nlu.constants import DENSE_FEATURE_NAMES, DENSE_FEATURIZABLE_ATTRIBUTES, TEXT, TOKENS_NAMES
 
 
 if typing.TYPE_CHECKING:
@@ -47,6 +47,11 @@ class FastTextFeaturizer(DenseFeaturizer):
                 self.set_fasttext_features(example, attribute)
 
     def set_fasttext_features(self, message: Message, attribute: Text = TEXT) -> None:
+        tokens = message.get(TOKENS_NAMES[attribute])
+
+        if not tokens:
+            return None
+
         text_vector = self.model.get_word_vector(message.text)
         word_vectors = [
             self.model.get_word_vector(t.text)
