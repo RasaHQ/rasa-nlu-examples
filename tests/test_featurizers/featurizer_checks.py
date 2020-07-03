@@ -1,5 +1,3 @@
-import pytest
-
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
 from rasa.nlu.constants import TEXT, DENSE_FEATURE_NAMES, TOKENS_NAMES
 from rasa.nlu.training_data import Message
@@ -49,7 +47,7 @@ dense_feature_checks = (
     test_component_adds_features,
     test_component_does_not_remove_features,
     test_component_no_features_on_no_tokens,
-    test_component_requires_tokenizer
+    test_component_requires_tokenizer,
 )
 
 
