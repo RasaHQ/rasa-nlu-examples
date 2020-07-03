@@ -4,6 +4,9 @@ base_packages = ["rasa==1.10.1", "fasttext==0.9.2", "bpemb==0.3.0"]
 
 dev_packages = [
     "flake8>=3.6.0",
+    "black>=19.0.0",
+    "pre-commit>=2.5.1",
+    "pytype>=2020.0.0",
     "pytest==4.0.2",
     "pytest-xdist==1.32.0",
     "mkdocs>=1.1",
