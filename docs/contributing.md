@@ -1,12 +1,14 @@
 # Contributing Guide
 
+## Ways you can Contribute
+
 We're open to contributions and there are many ways that you can make a contribution.
 
-## Open an Issue
+### Open an Issue
 
 Did you find a bug? Please let us know! You can submit an issue [here](https://github.com/RasaHQ/rasa-nlu-examples/issues).
 
-## Share an Observation
+### Share an Observation
 
 If the tools that we offer here turn out to be useful then we'd love to hear about it.
 The research team will consider all feedback and we're especially keen to hear feedback
@@ -15,7 +17,7 @@ either on [the github issue list](https://github.com/RasaHQ/rasa-nlu-examples/is
 on [the Rasa forum](forum.rasa.com/). Be sure to ping `koaning` on the forum if you mention
 this project, he's the maintainer.
 
-## Adding a new Component
+### Adding a new Component
 
 There's a balance between allowing experimentation and maintaining all the code.
 So we've come up with the following checklist.
@@ -27,3 +29,26 @@ appropriate.
 we won't be able to accept a component that adds noise to the features.
 3. Think about unit tests. We prefer to standardise unit tests as much
 as possible but there may be specific things you'd like to check for.
+
+## Testing
+
+To run the tests locally you'll need to run a script beforehand.
+
+```
+python tests/prepare_everything.py
+```
+
+This will prepare the filesystem for testing. We do this to prevent the need of downloading
+very large word embeddings locally and in CI. Fasttext can be 6-7 GB and we don't want to pull such a
+payload at every CI step. You can also prepare files locally by installing all dependencies
+via the `Makefile`.
+
+```
+make install
+```
+
+You can also run all style and type checking mechanisms locally via the `Makefile`.
+
+```
+make check
+```
