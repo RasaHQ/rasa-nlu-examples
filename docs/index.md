@@ -9,6 +9,10 @@ and some documentation but this is a community project, not something that is pa
 
 ## Components
 
+The goal of these tools will be to be compatible with the most recent version of 
+rasa only. You may need to point to an older release of the project if you want
+it to be compatible with an older version of Rasa. 
+
 The following components are implemented.
 
 ### Meta

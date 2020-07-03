@@ -29,7 +29,8 @@ You should now be able to run configuration files like this one;
       epochs: 200
     </code></pre>
 
-    Assuming this file is named `basic-config.yml` you can run this pipeline as a benchmark via;
+    Assuming this file is named `basic-config.yml` you can run this pipeline as a benchmark by running this 
+    command from the project directory;
 
     <pre><code>rasa test nlu --config basic-config.yml \
               --cross-validation --runs 1 --folds 2 \
@@ -58,7 +59,8 @@ You should now be able to run configuration files like this one;
       epochs: 200
     </code></pre>
 
-    Assuming this file is named `basic-bytepair-config.yml` you can run it as a benchmark via;
+    Assuming this file is named `basic-bytepair-config.yml` you can run it as a benchmark by running this 
+    command from the project directory;
 
     <pre><code>rasa test nlu --config basic-bytepair-config.yml \
               --cross-validation --runs 1 --folds 2 \
@@ -87,7 +89,8 @@ You should now be able to run configuration files like this one;
       epochs: 200
     </code></pre>
 
-    Assuming this file is named `medium-bytepair-config.yml` you can run it as a benchmark via;
+    Assuming this file is named `medium-bytepair-config.yml` you can run it as a benchmark by running this 
+    command from the project directory;
 
     <pre><code>rasa test nlu --config medium-bytepair-config.yml \
               --cross-validation --runs 1 --folds 2 \
@@ -116,7 +119,8 @@ You should now be able to run configuration files like this one;
       epochs: 200
     </code></pre>
 
-    Assuming this file is named `large-bytepair-config.yml` you can run this benchmark via;
+    Assuming this file is named `large-bytepair-config.yml` you can run this benchmark by running this 
+    command from the project directory;
 
     <pre><code>rasa test nlu --config large-bytepair-config.yml \
               --cross-validation --runs 1 --folds 2 \
