@@ -5,7 +5,7 @@ install:
 
 test:
 	python tests/prepare_everything.py
-	pytest -n 2
+	pytest
 
 style:
 	black --check --diff --target-version py37 rasa_nlu_examples
