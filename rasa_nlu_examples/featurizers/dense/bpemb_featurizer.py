@@ -5,15 +5,16 @@ from typing import Any, Optional, Text, Dict, List, Type
 import numpy as np
 from bpemb import BPEmb
 
+import rasa.utils.train_utils as train_utils
 from rasa.nlu.components import Component
 from rasa.nlu.config import RasaNLUModelConfig
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
 from rasa.nlu.training_data import Message, TrainingData
 from rasa.nlu.featurizers.featurizer import DenseFeaturizer
+from rasa.nlu.constants import DENSE_FEATURE_NAMES, DENSE_FEATURIZABLE_ATTRIBUTES, TEXT
 
 if typing.TYPE_CHECKING:
     from rasa.nlu.model import Metadata
-from rasa.nlu.constants import DENSE_FEATURE_NAMES, DENSE_FEATURIZABLE_ATTRIBUTES, TEXT
 
 
 class BytePairFeaturizer(DenseFeaturizer):
@@ -355,19 +356,18 @@ class BytePairFeaturizer(DenseFeaturizer):
             for attribute in DENSE_FEATURIZABLE_ATTRIBUTES:
                 self.set_bpemb_features(example, attribute)
 
-    def create_word_vector(self, document):
+    def create_word_vector(self, document: Text) -> np.ndarray:
         encoded_ids = self.model.encode_ids(document)
         if encoded_ids:
             return self.model.vectors[encoded_ids[0]]
 
         return np.zeros((self.component_config["dim"],), dtype=np.float32)
 
-    def set_bpemb_features(self, message: Message, attribute: Text = TEXT):
+    def set_bpemb_features(self, message: Message, attribute: Text = TEXT) -> None:
         text_vector = self.create_word_vector(document=message.text)
         word_vectors = [
             self.create_word_vector(document=t.text)
-            for t in message.data["tokens"]
-            if t.text != "__CLS__"
+            for t in train_utils.tokens_without_cls(message, attribute)
         ]
         X = np.array(word_vectors + [text_vector])
 
@@ -393,5 +393,5 @@ class BytePairFeaturizer(DenseFeaturizer):
     ) -> "Component":
         if cached_component:
             return cached_component
-        else:
-            return cls(meta)
+
+        return cls(meta)

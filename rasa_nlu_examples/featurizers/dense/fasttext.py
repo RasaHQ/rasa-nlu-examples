@@ -4,15 +4,17 @@ from typing import Any, Optional, Text, Dict, List, Type
 
 import fasttext
 import numpy as np
+import rasa.utils.train_utils as train_utils
 from rasa.nlu.components import Component
 from rasa.nlu.featurizers.featurizer import DenseFeaturizer
 from rasa.nlu.config import RasaNLUModelConfig
 from rasa.nlu.training_data import Message, TrainingData
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
+from rasa.nlu.constants import DENSE_FEATURE_NAMES, DENSE_FEATURIZABLE_ATTRIBUTES, TEXT
+
 
 if typing.TYPE_CHECKING:
     from rasa.nlu.model import Metadata
-from rasa.nlu.constants import DENSE_FEATURE_NAMES, DENSE_FEATURIZABLE_ATTRIBUTES, TEXT
 
 
 class FastTextFeaturizer(DenseFeaturizer):
@@ -44,12 +46,11 @@ class FastTextFeaturizer(DenseFeaturizer):
             for attribute in DENSE_FEATURIZABLE_ATTRIBUTES:
                 self.set_fasttext_features(example, attribute)
 
-    def set_fasttext_features(self, message: Message, attribute: Text = TEXT):
+    def set_fasttext_features(self, message: Message, attribute: Text = TEXT) -> None:
         text_vector = self.model.get_word_vector(message.text)
         word_vectors = [
             self.model.get_word_vector(t.text)
-            for t in message.data["tokens"]
-            if t.text != "__CLS__"
+            for t in train_utils.tokens_without_cls(message, attribute)
         ]
         X = np.array(word_vectors + [text_vector])  # remember, we need one for __CLS__
 
@@ -77,5 +78,5 @@ class FastTextFeaturizer(DenseFeaturizer):
 
         if cached_component:
             return cached_component
-        else:
-            return cls(meta)
+
+        return cls(meta)
