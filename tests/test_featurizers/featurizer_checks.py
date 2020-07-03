@@ -7,16 +7,17 @@ import itertools as it
 
 
 def test_component_raises_error_no_tokens(tokenizer, featurizer, msg):
-    """The component needs to throw an error if there are no tokens."""
+    """The component does not set any dense features if there are no tokens."""
     # we expect a tokenizer to be a required component
     req_components = featurizer.__class__.required_components()
     predicate = [c == Tokenizer for c in req_components]
     assert any(predicate)
 
-    # we expect an error to occur here
+    # featurizer should not set any dense features
     message = Message(msg)
-    with pytest.raises(KeyError):
-        featurizer.process(message)
+    featurizer.process(message)
+    vectors = message.get(DENSE_FEATURE_NAMES[TEXT])
+    assert vectors is None
 
 
 def test_component_adds_features(tokenizer, featurizer, msg):
@@ -55,7 +56,6 @@ def dense_standard_test_combinations(
 ):
     if not messages:
         messages = [
-            "",
             "hello",
             "hello there",
             "hello there again",
