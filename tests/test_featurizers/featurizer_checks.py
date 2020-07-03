@@ -6,14 +6,15 @@ from rasa.nlu.training_data import Message
 import itertools as it
 
 
-def test_component_raises_error_no_tokens(tokenizer, featurizer, msg):
-    """The component does not set any dense features if there are no tokens."""
-    # we expect a tokenizer to be a required component
+def test_component_requires_tokenizer(tokenizer, featurizer, msg):
+    """The component should have a tokenizer in its required components."""
     req_components = featurizer.__class__.required_components()
     predicate = [c == Tokenizer for c in req_components]
     assert any(predicate)
 
-    # featurizer should not set any dense features
+
+def test_component_no_features_on_no_tokens(tokenizer, featurizer, msg):
+    """The component does not set any dense features if there are no tokens."""
     message = Message(msg)
     featurizer.process(message)
     vectors = message.get(DENSE_FEATURE_NAMES[TEXT])
@@ -47,7 +48,8 @@ def test_component_does_not_remove_features(tokenizer, featurizer, msg):
 dense_feature_checks = (
     test_component_adds_features,
     test_component_does_not_remove_features,
-    test_component_raises_error_no_tokens,
+    test_component_no_features_on_no_tokens,
+    test_component_requires_tokenizer
 )
 
 
