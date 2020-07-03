@@ -4,7 +4,7 @@ import pytest
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
 
 from .featurizer_checks import dense_standard_test_combinations
-from rasa_nlu_examples.featurizers.dense.fasttext import FastTextFeaturizer
+from rasa_nlu_examples.featurizers.dense.fasttext_featurizer import FastTextFeaturizer
 
 test_folder = pathlib.Path(__file__).parent.parent.absolute()
 cache_dir = str(test_folder / "data")

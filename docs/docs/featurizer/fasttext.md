@@ -7,7 +7,7 @@ Fasttext supports 157 languages and you can download the embeddings
 ## Configurable Variables
 
 - **cache_dir**: pass it the name of the directory where you've downloaded the embeddings
-- **file**: pass it the name the file that contains the word embeddings
+- **file**: pass it the name of the file that contains the word embeddings
 
 ## Base Usage
 
