@@ -7,6 +7,10 @@ purposes. These are components that we open source to encourage experimentation 
 these are components that are **not officially supported**. There will be some tests
 and some documentation but this is a community project, not something that is part of core Rasa.
 
+The goal of these tools will be to be compatible with the most recent version of 
+rasa only. You may need to point to an older release of the project if you want
+it to be compatible with an older version of Rasa. 
+
 # Components
 
 The following components are implemented.
