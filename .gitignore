@@ -114,3 +114,4 @@ dmypy.json
 tests/data/*.bin
 models/*.tar.gz
 results/*
+/.pytype/
