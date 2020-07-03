@@ -57,7 +57,7 @@ class Printer(Component):
         super().__init__(component_config)
 
     @staticmethod
-    def _is_list_tokens(v):
+    def _is_list_tokens(v: Any) -> bool:
         if isinstance(v, List):
             if len(v) > 0:
                 if isinstance(v[0], Token):
@@ -101,5 +101,5 @@ class Printer(Component):
 
         if cached_component:
             return cached_component
-        else:
-            return cls(meta)
+
+        return cls(meta)

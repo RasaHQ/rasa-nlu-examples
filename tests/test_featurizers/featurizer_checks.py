@@ -6,38 +6,36 @@ from rasa.nlu.training_data import Message
 import itertools as it
 
 
-def test_component_raises_error_no_tokens(tokenizer, featurizer, msg):
-    """The component needs to throw an error if there are no tokens."""
-    # we expect a tokenizer to be a required component
+def test_component_requires_tokenizer(tokenizer, featurizer, msg):
+    """The component should have a tokenizer in its required components."""
     req_components = featurizer.__class__.required_components()
     predicate = [c == Tokenizer for c in req_components]
     assert any(predicate)
 
-    # we expect an error to occur here
+
+def test_component_no_features_on_no_tokens(tokenizer, featurizer, msg):
+    """The component does not set any dense features if there are no tokens."""
     message = Message(msg)
-    with pytest.raises(KeyError):
-        featurizer.process(message)
+    featurizer.process(message)
+    vectors = message.get(DENSE_FEATURE_NAMES[TEXT])
+    assert vectors is None
 
 
 def test_component_adds_features(tokenizer, featurizer, msg):
     """If there are no features we need to add them"""
     message = Message(msg)
-    tokens = tokenizer.tokenize(message, attribute=TEXT)
-    tokens = Tokenizer.add_cls_token(tokens, attribute=TEXT)
-    message.set(TOKENS_NAMES[TEXT], tokens)
+    tokenizer.process(message)
+    tokens = message.get(TOKENS_NAMES[TEXT])
 
     featurizer.process(message)
     vectors = message.get(DENSE_FEATURE_NAMES[TEXT])
-    print(vectors.shape)
     assert vectors.shape[0] == len(tokens)
 
 
 def test_component_does_not_remove_features(tokenizer, featurizer, msg):
     """If there are features we need to add not remove them"""
     message = Message(msg)
-    tokens = tokenizer.tokenize(message, attribute=TEXT)
-    tokens = Tokenizer.add_cls_token(tokens, attribute=TEXT)
-    message.set(TOKENS_NAMES[TEXT], tokens)
+    tokenizer.process(message)
     featurizer.process(message)
     first_vectors = message.get(DENSE_FEATURE_NAMES[TEXT])
 
@@ -50,7 +48,8 @@ def test_component_does_not_remove_features(tokenizer, featurizer, msg):
 dense_feature_checks = (
     test_component_adds_features,
     test_component_does_not_remove_features,
-    test_component_raises_error_no_tokens,
+    test_component_no_features_on_no_tokens,
+    test_component_requires_tokenizer
 )
 
 
@@ -59,7 +58,6 @@ def dense_standard_test_combinations(
 ):
     if not messages:
         messages = [
-            "",
             "hello",
             "hello there",
             "hello there again",
