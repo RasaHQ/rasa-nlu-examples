@@ -1,4 +1,4 @@
-name: Python package
+name: Python Style
 
 on:
   push:
@@ -10,7 +10,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
