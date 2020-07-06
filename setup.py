@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-base_packages = ["rasa==1.10.5", "fasttext==0.9.2", "bpemb==0.3.0"]
+base_packages = ["rasa>=1.10.5", "fasttext==0.9.2", "bpemb==0.3.0"]
 
 dev_packages = [
     "flake8>=3.6.0",
