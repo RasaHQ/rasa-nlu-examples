@@ -511,11 +511,22 @@
                 
                 <p>Here's an example configuration file that demonstrates how the byte-pair featurizer works.
 Note that this featurizer is a <em>dense</em> featurizer. If you're interested in learning how these
-works you might appreciate the <a href="http://www.lrec-conf.org/proceedings/lrec2018/pdf/1049.pdf">article</a>.</p>
-<p>BytePair embeddings exist for 277 languages and are also available for a multi-language setting.
-More information can be found <a href="https://nlp.h-its.org/bpemb/">here</a>. For example, you can find
-an example of the detailed view for the Zulu language <a href="https://nlp.h-its.org/bpemb/zu/">here</a>.</p>
-<p>A main feature of these types of embeddings is that they are relatively lightweight.</p>
+works you might appreciate the <a href="http://www.lrec-conf.org/proceedings/lrec2018/pdf/1049.pdf">article</a>.
+Recognition should be given to Benjamin Heinzerling and Michael Strube for making these available.</p>
+<p>A main feature of these types of embeddings is that they are relatively lightweight but also
+their availability in <strong>many</strong> languages. BytePair embeddings exist for 277 languages that are
+pretrained on wikipedia. There's also availability for a multi-language setting.</p>
+<p>More information can be found <a href="https://nlp.h-its.org/bpemb/">here</a>. When you scroll down you will
+notice a list of languages that are available. Here's some links for a detailed view of available
+vectors:</p>
+<ul>
+<li><a href="https://nlp.h-its.org/bpemb/en/">English</a></li>
+<li><a href="https://nlp.h-its.org/bpemb/zu/">Zulu</a></li>
+<li><a href="https://nlp.h-its.org/bpemb/eo/">Esperanto</a></li>
+<li><a href="https://nlp.h-its.org/bpemb/af/">Afrikaans</a></li>
+<li><a href="https://nlp.h-its.org/bpemb/hu/">Hungarian</a></li>
+<li><a href="https://nlp.h-its.org/bpemb/multi/">Multi Language</a></li>
+</ul>
 <h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>lang</strong>: specifies the lanuage that you'll use, default = "en"</li>

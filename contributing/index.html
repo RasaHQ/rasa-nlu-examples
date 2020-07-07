@@ -276,22 +276,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ways-you-can-contribute" class="md-nav__link">
+    Ways you can Contribute
+  </a>
+  
+    <nav class="md-nav" aria-label="Ways you can Contribute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#open-an-issue" class="md-nav__link">
     Open an Issue
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#share-an-observation" class="md-nav__link">
     Share an Observation
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#adding-a-new-component" class="md-nav__link">
     Adding a new Component
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing
   </a>
   
 </li>
@@ -467,22 +487,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ways-you-can-contribute" class="md-nav__link">
+    Ways you can Contribute
+  </a>
+  
+    <nav class="md-nav" aria-label="Ways you can Contribute">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#open-an-issue" class="md-nav__link">
     Open an Issue
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#share-an-observation" class="md-nav__link">
     Share an Observation
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#adding-a-new-component" class="md-nav__link">
     Adding a new Component
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing
   </a>
   
 </li>
@@ -508,17 +548,18 @@
                 
                 
                 <h1 id="contributing-guide">Contributing Guide<a class="headerlink" href="#contributing-guide" title="Permanent link">&para;</a></h1>
+<h2 id="ways-you-can-contribute">Ways you can Contribute<a class="headerlink" href="#ways-you-can-contribute" title="Permanent link">&para;</a></h2>
 <p>We're open to contributions and there are many ways that you can make a contribution.</p>
-<h2 id="open-an-issue">Open an Issue<a class="headerlink" href="#open-an-issue" title="Permanent link">&para;</a></h2>
+<h3 id="open-an-issue">Open an Issue<a class="headerlink" href="#open-an-issue" title="Permanent link">&para;</a></h3>
 <p>Did you find a bug? Please let us know! You can submit an issue <a href="https://github.com/RasaHQ/rasa-nlu-examples/issues">here</a>.</p>
-<h2 id="share-an-observation">Share an Observation<a class="headerlink" href="#share-an-observation" title="Permanent link">&para;</a></h2>
+<h3 id="share-an-observation">Share an Observation<a class="headerlink" href="#share-an-observation" title="Permanent link">&para;</a></h3>
 <p>If the tools that we offer here turn out to be useful then we'd love to hear about it.
 The research team will consider all feedback and we're especially keen to hear feedback
 from non-English languages that try out some of the new embeddings. You can leave a message
 either on <a href="https://github.com/RasaHQ/rasa-nlu-examples/issues">the github issue list</a> or
 on <a href="forum.rasa.com/">the Rasa forum</a>. Be sure to ping <code>koaning</code> on the forum if you mention
 this project, he's the maintainer.</p>
-<h2 id="adding-a-new-component">Adding a new Component<a class="headerlink" href="#adding-a-new-component" title="Permanent link">&para;</a></h2>
+<h3 id="adding-a-new-component">Adding a new Component<a class="headerlink" href="#adding-a-new-component" title="Permanent link">&para;</a></h3>
 <p>There's a balance between allowing experimentation and maintaining all the code.
 So we've come up with the following checklist.</p>
 <ol>
@@ -530,6 +571,23 @@ we won't be able to accept a component that adds noise to the features.</li>
 <li>Think about unit tests. We prefer to standardise unit tests as much
 as possible but there may be specific things you'd like to check for.</li>
 </ol>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
+<p>To run the tests locally you'll need to run a script beforehand.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">python tests/prepare_everything.py</span>
+</code></pre></div>
+
+
+<p>This will prepare the filesystem for testing. We do this to prevent the need of downloading
+very large word embeddings locally and in CI. Fasttext can be 6-7 GB and we don't want to pull such a
+payload at every CI step. You can also prepare files locally by installing all dependencies
+via the <code>Makefile</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">make install</span>
+</code></pre></div>
+
+
+<p>You can also run all style and type checking mechanisms locally via the <code>Makefile</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">make check</span>
+</code></pre></div>
                 
               
               

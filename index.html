@@ -237,9 +237,102 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Home
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
     <a href="." title="Home" class="md-nav__link md-nav__link--active">
       Home
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    Components
+  </a>
+  
+    <nav class="md-nav" aria-label="Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meta" class="md-nav__link">
+    Meta
+  </a>
+  
+    <nav class="md-nav" aria-label="Meta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#printer" class="md-nav__link">
+    Printer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dense-featurizers" class="md-nav__link">
+    Dense Featurizers
+  </a>
+  
+    <nav class="md-nav" aria-label="Dense Featurizers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fasttextfeaturizer" class="md-nav__link">
+    FastTextFeaturizer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bytepairfeaturizer" class="md-nav__link">
+    BytePairFeaturizer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    Contributing
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -411,6 +504,83 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    Components
+  </a>
+  
+    <nav class="md-nav" aria-label="Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meta" class="md-nav__link">
+    Meta
+  </a>
+  
+    <nav class="md-nav" aria-label="Meta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#printer" class="md-nav__link">
+    Printer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dense-featurizers" class="md-nav__link">
+    Dense Featurizers
+  </a>
+  
+    <nav class="md-nav" aria-label="Dense Featurizers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fasttextfeaturizer" class="md-nav__link">
+    FastTextFeaturizer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bytepairfeaturizer" class="md-nav__link">
+    BytePairFeaturizer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    Contributing
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -435,20 +605,28 @@
 purposes. These are components that we open source to encourage experimentation but
 these are components that are <strong>not officially supported</strong>. There will be some tests
 and some documentation but this is a community project, not something that is part of core Rasa.</p>
-<h1 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h1>
+<h2 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h2>
+<p>The goal of these tools will be to be compatible with the most recent version of 
+rasa only. You may need to point to an older release of the project if you want
+it to be compatible with an older version of Rasa. </p>
 <p>The following components are implemented.</p>
-<h2 id="meta">Meta<a class="headerlink" href="#meta" title="Permanent link">&para;</a></h2>
-<h4 id="rasa_nlu_examplesmetaprinter-docs"><code>rasa_nlu_examples.meta.Printer</code> <a href="docs/meta/printer/">docs</a><a class="headerlink" href="#rasa_nlu_examplesmetaprinter-docs" title="Permanent link">&para;</a></h4>
+<h3 id="meta">Meta<a class="headerlink" href="#meta" title="Permanent link">&para;</a></h3>
+<h4 id="printer">Printer<a class="headerlink" href="#printer" title="Permanent link">&para;</a></h4>
+<p><strong><code>rasa_nlu_examples.meta.Printer</code> <a href="docs/meta/printer/">docs</a></strong></p>
 <p>This component will print what each featurizer adds to the NLU message. Very useful for debugging.
 You can find a tutorial on it <a href="https://blog.rasa.com/custom-printer-component/">here</a>.</p>
-<h2 id="dense-featurizers">Dense Featurizers<a class="headerlink" href="#dense-featurizers" title="Permanent link">&para;</a></h2>
-<h4 id="rasa_nlu_examplesfeaturizersdensefasttextfeaturizer-docs"><code>rasa_nlu_examples.featurizers.dense.FastTextFeaturizer</code> <a href="docs/featurizer/fasttext/">docs</a><a class="headerlink" href="#rasa_nlu_examplesfeaturizersdensefasttextfeaturizer-docs" title="Permanent link">&para;</a></h4>
+<h3 id="dense-featurizers">Dense Featurizers<a class="headerlink" href="#dense-featurizers" title="Permanent link">&para;</a></h3>
+<h4 id="fasttextfeaturizer">FastTextFeaturizer<a class="headerlink" href="#fasttextfeaturizer" title="Permanent link">&para;</a></h4>
+<p><strong><code>rasa_nlu_examples.featurizers.dense.FastTextFeaturizer</code> <a href="docs/featurizer/fasttext/">docs</a></strong></p>
 <p>These are the pretrained embeddings from FastText, see for more info <a href="https://fasttext.cc/">here</a>.
 These are available in 157 languages, see <a href="https://fasttext.cc/docs/en/crawl-vectors.html#models">here</a>.</p>
-<h4 id="rasa_nlu_examplesfeaturizersdensebytepairfeaturizer-docs"><code>rasa_nlu_examples.featurizers.dense.BytePairFeaturizer</code> <a href="docs/featurizer/bytepair/">docs</a><a class="headerlink" href="#rasa_nlu_examplesfeaturizersdensebytepairfeaturizer-docs" title="Permanent link">&para;</a></h4>
+<h4 id="bytepairfeaturizer">BytePairFeaturizer<a class="headerlink" href="#bytepairfeaturizer" title="Permanent link">&para;</a></h4>
+<p><strong><code>rasa_nlu_examples.featurizers.dense.BytePairFeaturizer</code> <a href="docs/featurizer/bytepair/">docs</a></strong></p>
 <p>These BytePair embeddings are specialized subword embeddings that are built to be lightweight.
 See <a href="https://nlp.h-its.org/bpemb/">this link</a> for more information. These are available in 227 languages and
 you can specify the subword vocabulary size as well as the dimensionality.</p>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
+<p>You can find the contribution guide <a href="/contributing/">here</a>.</p>
                 
               
               

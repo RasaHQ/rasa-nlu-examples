@@ -507,7 +507,8 @@ pipeline:
 - name: DIETClassifier
   epochs: 200
 </code></pre></p>
-<p>Assuming this file is named <code>basic-config.yml</code> you can run this pipeline as a benchmark via;</p>
+<p>Assuming this file is named <code>basic-config.yml</code> you can run this pipeline as a benchmark by running this 
+command from the project directory;</p>
 <p><pre><code>rasa test nlu --config basic-config.yml \
           --cross-validation --runs 1 --folds 2 \
           --out gridresults/basic-config
@@ -533,7 +534,8 @@ pipeline:
 - name: DIETClassifier
   epochs: 200
 </code></pre></p>
-<p>Assuming this file is named <code>basic-bytepair-config.yml</code> you can run it as a benchmark via;</p>
+<p>Assuming this file is named <code>basic-bytepair-config.yml</code> you can run it as a benchmark by running this 
+command from the project directory;</p>
 <p><pre><code>rasa test nlu --config basic-bytepair-config.yml \
           --cross-validation --runs 1 --folds 2 \
           --out gridresults/basic-bytepair-config
@@ -559,7 +561,8 @@ pipeline:
 - name: DIETClassifier
   epochs: 200
 </code></pre></p>
-<p>Assuming this file is named <code>medium-bytepair-config.yml</code> you can run it as a benchmark via;</p>
+<p>Assuming this file is named <code>medium-bytepair-config.yml</code> you can run it as a benchmark by running this 
+command from the project directory;</p>
 <p><pre><code>rasa test nlu --config medium-bytepair-config.yml \
           --cross-validation --runs 1 --folds 2 \
           --out gridresults/medium-bytepair-config
@@ -585,7 +588,8 @@ pipeline:
 - name: DIETClassifier
   epochs: 200
 </code></pre></p>
-<p>Assuming this file is named <code>large-bytepair-config.yml</code> you can run this benchmark via;</p>
+<p>Assuming this file is named <code>large-bytepair-config.yml</code> you can run this benchmark by running this 
+command from the project directory;</p>
 <p><pre><code>rasa test nlu --config large-bytepair-config.yml \
           --cross-validation --runs 1 --folds 2 \
           --out gridresults/large-bytepair-config
