@@ -1,7 +1,5 @@
-
-Here's an example configuration file that demonstrates how the byte-pair featurizer works.
-Note that this featurizer is a *dense* featurizer. If you're interested in learning how these
-works you might appreciate the [article](http://www.lrec-conf.org/proceedings/lrec2018/pdf/1049.pdf).
+This featurizer is a *dense* featurizer. If you're interested in learning how these
+work you might appreciate reading[the original article](http://www.lrec-conf.org/proceedings/lrec2018/pdf/1049.pdf).
 Recognition should be given to Benjamin Heinzerling and Michael Strube for making these available.
 
 A main feature of these types of embeddings is that they are relatively lightweight but also
