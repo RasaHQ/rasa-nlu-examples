@@ -43,4 +43,4 @@ you can specify the subword vocabulary size as well as the dimensionality.
 
 ## Contributing
 
-You can find the contribution guide [here](/contributing/).
+You can find the contribution guide [here](https://rasahq.github.io/rasa-nlu-examples/contributing/).
