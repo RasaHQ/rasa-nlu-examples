@@ -1,12 +1,12 @@
 import subprocess
-
 import pytest
 
 
-@pytest.mark.parametrize(
-    "fp", ["fasttext-config.yml", "printer-config.yml", "bytepair-config.yml"]
-)
-def test_run_train_command(fp):
+yml_files = ["fasttext-config.yml", "printer-config.yml", "bytepair-config.yml"]
+
+
+@pytest.mark.parametrize("fp", yml_files)
+def test_run_test_command(fp):
     cmd = [
         "rasa",
         "test",
@@ -20,6 +20,21 @@ def test_run_train_command(fp):
         "1",
         "--folds",
         "2",
+    ]
+    status = subprocess.run(cmd)
+    assert status.returncode == 0
+
+
+@pytest.mark.parametrize("fp", yml_files)
+def test_run_train_command(fp):
+    cmd = [
+        "rasa",
+        "train",
+        "nlu",
+        "-u",
+        "tests/data/nlu.md",
+        "--config",
+        f"tests/configs/{fp}",
     ]
     status = subprocess.run(cmd)
     assert status.returncode == 0

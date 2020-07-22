@@ -44,7 +44,7 @@ class BytePairFeaturizer(DenseFeaturizer):
         # model, the closest size is chosen
         "vs_fallback": True,
         # specifies the folder in which downloaded BPEmb files will be cached
-        "cache_dir": Path.home() / Path(".cache/bpemb"),
+        "cache_dir": str(Path.home() / Path(".cache/bpemb")),
         # specifies the path to a custom SentencePiece model file
         "model_file": None,
         # specifies the path to a custom embedding file. Supported formats are Word2Vec
