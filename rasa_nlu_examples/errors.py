@@ -1,0 +1,2 @@
+class RasaFileNotFound(Exception):
+    pass
