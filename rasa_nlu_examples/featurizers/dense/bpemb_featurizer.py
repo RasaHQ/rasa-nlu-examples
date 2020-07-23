@@ -1,3 +1,4 @@
+import os
 import typing
 from pathlib import Path
 from typing import Any, Optional, Text, Dict, List, Type
@@ -37,9 +38,9 @@ class BytePairFeaturizer(DenseFeaturizer):
         # specifies the language of the subword segmentation model
         "lang": "en",
         # specifies the dimension of the subword embeddings
-        "dim": 25,
+        "dim": None,
         # specifies the vocabulary size of the segmentation model
-        "vs": 1000,
+        "vs": None,
         # if set to True and the given vocabulary size can't be loaded for the given
         # model, the closest size is chosen
         "vs_fallback": True,
@@ -341,6 +342,21 @@ class BytePairFeaturizer(DenseFeaturizer):
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
+
+        model_file, emb_file = (
+            self.component_config[k] for k in ["model_file", "emb_file"]
+        )
+        if model_file:
+            if not os.path.exists(model_file):
+                raise FileNotFoundError(
+                    f"BytePair model {model_file} not found. Please check config."
+                )
+        if emb_file:
+            if not os.path.exists(emb_file):
+                raise FileNotFoundError(
+                    f"BytePair embedding file {emb_file} not found. Please check config."
+                )
+        print(self.component_config)
 
         self.model = BPEmb(
             lang=self.component_config["lang"],

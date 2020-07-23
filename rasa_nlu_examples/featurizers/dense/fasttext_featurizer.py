@@ -16,7 +16,6 @@ from rasa.nlu.constants import (
     TEXT,
     TOKENS_NAMES,
 )
-from rasa_nlu_examples.errors import RasaFileNotFound
 
 if typing.TYPE_CHECKING:
     from rasa.nlu.model import Metadata
@@ -41,11 +40,11 @@ class FastTextFeaturizer(DenseFeaturizer):
         path = os.path.join(component_config["cache_dir"], component_config["file"])
 
         if not os.path.exists(component_config["cache_dir"]):
-            raise RasaFileNotFound(
+            raise FileNotFoundError(
                 f"It seems that the cache dir {component_config['cache_dir']} does not exists. Please check config."
             )
         if not os.path.exists(path):
-            raise RasaFileNotFound(
+            raise FileNotFoundError(
                 f"It seems that file {path} does not exists. Please check config."
             )
 

@@ -1,2 +1,2 @@
-class RasaFileNotFound(Exception):
+class RasaNLUExamplesConfigError(Exception):
     pass
