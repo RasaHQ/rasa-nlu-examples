@@ -47,8 +47,7 @@ class BytePairFeaturizer(DenseFeaturizer):
         "cache_dir": str(Path.home() / Path(".cache/bpemb")),
         # specifies the path to a custom SentencePiece model file
         "model_file": None,
-        # specifies the path to a custom embedding file. Supported formats are Word2Vec
-        # plain text and GenSim binary.
+        # specifies the path to a custom embedding file
         "emb_file": None,
     }
 
@@ -349,6 +348,8 @@ class BytePairFeaturizer(DenseFeaturizer):
             vs=self.component_config["vs"],
             vs_fallback=self.component_config["vs_fallback"],
             cache_dir=self.component_config["cache_dir"],
+            model_file=self.component_config["model_file"],
+            emb_file=self.component_config["emb_file"],
         )
 
     def train(
