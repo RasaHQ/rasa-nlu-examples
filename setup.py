@@ -17,7 +17,7 @@ dev_packages = [
 
 setup(
     name="rasa_nlu_examples",
-    version="0.1.0",
+    version="0.1.1",
     packages=find_packages(exclude=["notebooks"]),
     install_requires=base_packages,
     extras_require={"dev": dev_packages},

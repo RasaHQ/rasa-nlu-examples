@@ -91,4 +91,6 @@ Note that in this case we expect two files to be present in the `tests/data` dir
 - `en.wiki.bpe.vs10000.model`
 
 You can also overwrite the names of these files via the `model_file` and `emb_file` settings. But it
-is preferable to stick to the library naming convention.
+is preferable to stick to the library naming convention. Also note that if you use the `model_file` and
+`emb_file` settings that you must provide full filepaths and that the `cache_dir` will be ignored. It is
+still considered good usage to manually specify the `lang`, `dim` and `vs` parameter in this situation.

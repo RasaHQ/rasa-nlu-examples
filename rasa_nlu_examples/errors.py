@@ -1,2 +1,0 @@
-class RasaNLUExamplesConfigError(Exception):
-    pass
