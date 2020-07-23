@@ -36,7 +36,7 @@ class BytePairFeaturizer(DenseFeaturizer):
 
     defaults = {
         # specifies the language of the subword segmentation model
-        "lang": "en",
+        "lang": None,
         # specifies the dimension of the subword embeddings
         "dim": None,
         # specifies the vocabulary size of the segmentation model
@@ -356,7 +356,21 @@ class BytePairFeaturizer(DenseFeaturizer):
                 raise FileNotFoundError(
                     f"BytePair embedding file {emb_file} not found. Please check config."
                 )
-        print(self.component_config)
+
+        if not self.component_config["lang"]:
+            raise ValueError(
+                f"You must specify the `lang` parameter for BytePairEmbedding in `config.yml`."
+            )
+
+        if not self.component_config["vs"]:
+            raise ValueError(
+                f"You must specify the `vs` parameter for BytePairEmbedding in `config.yml`."
+            )
+
+        if not self.component_config["dim"]:
+            raise ValueError(
+                f"You must specify the `dim` parameter for BytePairEmbedding in `config.yml`."
+            )
 
         self.model = BPEmb(
             lang=self.component_config["lang"],

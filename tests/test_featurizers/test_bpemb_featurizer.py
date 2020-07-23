@@ -57,3 +57,23 @@ def test_raise_error_missing_emb_file():
     )
     with pytest.raises(FileNotFoundError):
         BytePairFeaturizer(component_config=config_bad)
+
+
+def test_config_missing():
+    config_bad = dict(
+        lang="en",
+        vs=1000,
+        dim=25,
+        model_file="tests/data/en/en.wiki.bpe.vs1000.model",
+        emb_file="tests/data/en/en.wiki.dinosaur.vs1000.d25.w2v.bin",
+    )
+    with pytest.raises(FileNotFoundError):
+        BytePairFeaturizer(component_config=config_bad)
+
+
+@pytest.mark.parametrize(
+    "conf", [dict(lang="en", vs=1000), dict(lang="en", dim=25), dict(dim=25, vs=1000)]
+)
+def test_raise_missing_error(conf):
+    with pytest.raises(ValueError):
+        BytePairFeaturizer(component_config=conf)
