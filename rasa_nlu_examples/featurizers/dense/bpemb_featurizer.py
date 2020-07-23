@@ -1,3 +1,4 @@
+import os
 import typing
 from pathlib import Path
 from typing import Any, Optional, Text, Dict, List, Type
@@ -35,11 +36,11 @@ class BytePairFeaturizer(DenseFeaturizer):
 
     defaults = {
         # specifies the language of the subword segmentation model
-        "lang": "en",
+        "lang": None,
         # specifies the dimension of the subword embeddings
-        "dim": 25,
+        "dim": None,
         # specifies the vocabulary size of the segmentation model
-        "vs": 1000,
+        "vs": None,
         # if set to True and the given vocabulary size can't be loaded for the given
         # model, the closest size is chosen
         "vs_fallback": True,
@@ -47,8 +48,7 @@ class BytePairFeaturizer(DenseFeaturizer):
         "cache_dir": str(Path.home() / Path(".cache/bpemb")),
         # specifies the path to a custom SentencePiece model file
         "model_file": None,
-        # specifies the path to a custom embedding file. Supported formats are Word2Vec
-        # plain text and GenSim binary.
+        # specifies the path to a custom embedding file
         "emb_file": None,
     }
 
@@ -343,12 +343,43 @@ class BytePairFeaturizer(DenseFeaturizer):
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
 
+        model_file, emb_file = (
+            self.component_config[k] for k in ["model_file", "emb_file"]
+        )
+        if model_file:
+            if not os.path.exists(model_file):
+                raise FileNotFoundError(
+                    f"BytePair model {model_file} not found. Please check config."
+                )
+        if emb_file:
+            if not os.path.exists(emb_file):
+                raise FileNotFoundError(
+                    f"BytePair embedding file {emb_file} not found. Please check config."
+                )
+
+        if not self.component_config["lang"]:
+            raise ValueError(
+                "You must specify the `lang` parameter for BytePairEmbedding in `config.yml`."
+            )
+
+        if not self.component_config["vs"]:
+            raise ValueError(
+                "You must specify the `vs` parameter for BytePairEmbedding in `config.yml`."
+            )
+
+        if not self.component_config["dim"]:
+            raise ValueError(
+                "You must specify the `dim` parameter for BytePairEmbedding in `config.yml`."
+            )
+
         self.model = BPEmb(
             lang=self.component_config["lang"],
             dim=self.component_config["dim"],
             vs=self.component_config["vs"],
             vs_fallback=self.component_config["vs_fallback"],
             cache_dir=self.component_config["cache_dir"],
+            model_file=self.component_config["model_file"],
+            emb_file=self.component_config["emb_file"],
         )
 
     def train(

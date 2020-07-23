@@ -17,7 +17,6 @@ from rasa.nlu.constants import (
     TOKENS_NAMES,
 )
 
-
 if typing.TYPE_CHECKING:
     from rasa.nlu.model import Metadata
 
@@ -39,6 +38,16 @@ class FastTextFeaturizer(DenseFeaturizer):
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
         path = os.path.join(component_config["cache_dir"], component_config["file"])
+
+        if not os.path.exists(component_config["cache_dir"]):
+            raise FileNotFoundError(
+                f"It seems that the cache dir {component_config['cache_dir']} does not exists. Please check config."
+            )
+        if not os.path.exists(path):
+            raise FileNotFoundError(
+                f"It seems that file {path} does not exists. Please check config."
+            )
+
         self.model = fasttext.load_model(path)
 
     def train(

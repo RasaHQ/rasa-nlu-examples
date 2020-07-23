@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-base_packages = ["rasa>=1.10.0", "fasttext==0.9.2", "bpemb==0.3.0"]
+base_packages = ["rasa>=1.10.0", "fasttext==0.9.2", "bpemb==0.3.2"]
 
 dev_packages = [
     "flake8>=3.6.0",
@@ -17,7 +17,7 @@ dev_packages = [
 
 setup(
     name="rasa_nlu_examples",
-    version="0.1.0",
+    version="0.1.1",
     packages=find_packages(exclude=["notebooks"]),
     install_requires=base_packages,
     extras_require={"dev": dev_packages},
