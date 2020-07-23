@@ -359,17 +359,17 @@ class BytePairFeaturizer(DenseFeaturizer):
 
         if not self.component_config["lang"]:
             raise ValueError(
-                f"You must specify the `lang` parameter for BytePairEmbedding in `config.yml`."
+                "You must specify the `lang` parameter for BytePairEmbedding in `config.yml`."
             )
 
         if not self.component_config["vs"]:
             raise ValueError(
-                f"You must specify the `vs` parameter for BytePairEmbedding in `config.yml`."
+                "You must specify the `vs` parameter for BytePairEmbedding in `config.yml`."
             )
 
         if not self.component_config["dim"]:
             raise ValueError(
-                f"You must specify the `dim` parameter for BytePairEmbedding in `config.yml`."
+                "You must specify the `dim` parameter for BytePairEmbedding in `config.yml`."
             )
 
         self.model = BPEmb(
