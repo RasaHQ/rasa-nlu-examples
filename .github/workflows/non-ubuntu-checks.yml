@@ -1,4 +1,4 @@
-name: Python Full Ubuntu Test
+name: Python Non Ubuntu Test
 
 on:
   push:
@@ -13,9 +13,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        python-version: [3.6, 3.7]
-        rasa-version: ["1.10.0", "1.10.5", "1.10.8"]
+        os: [windows-latest, macos-latest]
+        python-version: [3.7]
+        rasa-version: ["1.10.8"]
 
     steps:
     - uses: actions/checkout@v2
