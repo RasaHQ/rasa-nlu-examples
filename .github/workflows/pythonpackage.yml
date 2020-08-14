@@ -14,8 +14,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.7]
-        rasa-version: ["1.10.0", "1.10.5"]
+        python-version: [3.6, 3.7]
+        rasa-version: ["1.10.0", "1.10.5", "1.10.8"]
 
     steps:
     - uses: actions/checkout@v2
