@@ -9,9 +9,9 @@ and some documentation but this is a community project, not something that is pa
 
 ## Components
 
-The goal of these tools will be to be compatible with the most recent version of 
+The goal of these tools will be to be compatible with the most recent version of
 rasa only. You may need to point to an older release of the project if you want
-it to be compatible with an older version of Rasa. 
+it to be compatible with an older version of Rasa.
 
 The following components are implemented.
 
@@ -25,6 +25,13 @@ This component will print what each featurizer adds to the NLU message. Very use
 You can find a tutorial on it [here](https://blog.rasa.com/custom-printer-component/).
 
 ### Dense Featurizers
+
+#### GensimFeaturizer
+
+**`rasa_nlu_examples.featurizers.dense.GensimFeaturizer` [docs](docs/featurizer/gensim/)**
+
+A benefit of `gensim` is that it is very easy to train your own word embeddings. This
+featurizer allows you to train your own and then to use it in a Rasa pipeline.
 
 #### FastTextFeaturizer
 

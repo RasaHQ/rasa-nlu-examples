@@ -29,7 +29,7 @@ You should now be able to run configuration files like this one;
       epochs: 200
     </code></pre>
 
-    Assuming this file is named `basic-config.yml` you can run this pipeline as a benchmark by running this 
+    Assuming this file is named `basic-config.yml` you can run this pipeline as a benchmark by running this
     command from the project directory;
 
     <pre><code>rasa test nlu --config basic-config.yml \
@@ -59,7 +59,7 @@ You should now be able to run configuration files like this one;
       epochs: 200
     </code></pre>
 
-    Assuming this file is named `basic-bytepair-config.yml` you can run it as a benchmark by running this 
+    Assuming this file is named `basic-bytepair-config.yml` you can run it as a benchmark by running this
     command from the project directory;
 
     <pre><code>rasa test nlu --config basic-bytepair-config.yml \
@@ -89,7 +89,7 @@ You should now be able to run configuration files like this one;
       epochs: 200
     </code></pre>
 
-    Assuming this file is named `medium-bytepair-config.yml` you can run it as a benchmark by running this 
+    Assuming this file is named `medium-bytepair-config.yml` you can run it as a benchmark by running this
     command from the project directory;
 
     <pre><code>rasa test nlu --config medium-bytepair-config.yml \
@@ -119,7 +119,7 @@ You should now be able to run configuration files like this one;
       epochs: 200
     </code></pre>
 
-    Assuming this file is named `large-bytepair-config.yml` you can run this benchmark by running this 
+    Assuming this file is named `large-bytepair-config.yml` you can run this benchmark by running this
     command from the project directory;
 
     <pre><code>rasa test nlu --config large-bytepair-config.yml \
@@ -132,8 +132,7 @@ You should now be able to run configuration files like this one;
 
 ## Final Reminder
 
-There's one thing to remind ourselves of at this phase in time. We should remember
-that these tools are experimental in nature. We want this repository to be a place
+We should remember that these tools are experimental in nature. We want this repository to be a place
 where folks can share their nlu components and experiment, but this also means that we don't want to
 suggest that these tools are state of the art. You always need to check if these tools work for your
-pipeline and the components that we host here may very well lag behind a version of Rasa.
+pipeline. The components that we host here may very well lag behind Rasa Open Source too.

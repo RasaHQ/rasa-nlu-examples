@@ -13,6 +13,7 @@ nav:
       - Meta:
         - Printer: docs/meta/printer.md
       - Featurizers:
+        - GensimFeaturizer: docs/featurizer/gensim.md
         - FastTextFeaturizer: docs/featurizer/fasttext.md
         - BytePairFeaturizer: docs/featurizer/bytepair.md
 
