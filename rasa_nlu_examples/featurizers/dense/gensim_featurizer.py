@@ -1,5 +1,6 @@
 import os
 import typing
+from functools import reduce
 from typing import Any, Optional, Text, Dict, List, Type
 
 from gensim.models import KeyedVectors
