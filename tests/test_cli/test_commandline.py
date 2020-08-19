@@ -2,7 +2,12 @@ import subprocess
 import pytest
 
 
-yml_files = ["fasttext-config.yml", "printer-config.yml", "bytepair-config.yml"]
+yml_files = [
+    "fasttext-config.yml",
+    "printer-config.yml",
+    "bytepair-config.yml",
+    "gensim-config.yml",
+]
 
 
 @pytest.mark.parametrize("fp", yml_files)
