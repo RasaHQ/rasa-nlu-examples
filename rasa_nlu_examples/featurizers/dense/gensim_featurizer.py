@@ -83,7 +83,7 @@ class GensimFeaturizer(DenseFeaturizer):
         self.set_gensim_features(message)
 
     def persist(self, file_name: Text, model_dir: Text) -> Optional[Dict[Text, Any]]:
-        pass
+        return None
 
     @classmethod
     def load(
