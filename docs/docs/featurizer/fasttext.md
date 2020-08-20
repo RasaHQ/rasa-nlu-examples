@@ -1,8 +1,5 @@
-Here's an example configuration file that demonstrates how the fasttext featurizer works.
-Note that this featurizer is a *dense* featurizer.
-
 Fasttext supports 157 languages and you can download the embeddings
-[here](https://fasttext.cc/docs/en/crawl-vectors.html). Note that these files unzipped can be about 6-7Gb.
+[here](https://fasttext.cc/docs/en/crawl-vectors.html). Note that this featurizer is a *dense* featurizer. Beware that these embedding files tend to be big: about 6-7Gb.
 
 ## Configurable Variables
 

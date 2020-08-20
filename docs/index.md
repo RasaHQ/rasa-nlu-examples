@@ -9,9 +9,9 @@ and some documentation but this is a community project, not something that is pa
 
 ## Components
 
-The goal of these tools will be to be compatible with the most recent version of 
+The goal of these tools will be to be compatible with the most recent version of
 rasa only. You may need to point to an older release of the project if you want
-it to be compatible with an older version of Rasa. 
+it to be compatible with an older version of Rasa.
 
 The following components are implemented.
 
@@ -40,6 +40,15 @@ These are available in 157 languages, see [here](https://fasttext.cc/docs/en/cra
 These BytePair embeddings are specialized subword embeddings that are built to be lightweight.
 See [this link](https://nlp.h-its.org/bpemb/) for more information. These are available in 227 languages and
 you can specify the subword vocabulary size as well as the dimensionality.
+
+#### GensimFeaturizer
+
+**`rasa_nlu_examples.featurizers.dense.GensimFeaturizer` [docs](docs/featurizer/gensim/)**
+
+A benefit of the `gensim` library is that it is very easy to train your own word embeddings.
+It's typically only about 5 lines of code. That means that you could train your own word-embeddings
+and then easily use them in a Rasa pipeline. This can be useful if you have reason to believe
+that standard training corpora (like Wikipedia) are not valid for your use-case.
 
 ## Contributing
 

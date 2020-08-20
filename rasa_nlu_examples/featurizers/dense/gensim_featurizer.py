@@ -1,8 +1,9 @@
 import os
 import typing
+from functools import reduce
 from typing import Any, Optional, Text, Dict, List, Type
 
-import fasttext
+from gensim.models import KeyedVectors
 import numpy as np
 import rasa.utils.train_utils as train_utils
 from rasa.nlu.components import Component
@@ -21,8 +22,8 @@ if typing.TYPE_CHECKING:
     from rasa.nlu.model import Metadata
 
 
-class FastTextFeaturizer(DenseFeaturizer):
-    """This component adds fasttext features."""
+class GensimFeaturizer(DenseFeaturizer):
+    """This component adds gensim features."""
 
     @classmethod
     def required_components(cls) -> List[Type[Component]]:
@@ -30,7 +31,7 @@ class FastTextFeaturizer(DenseFeaturizer):
 
     @classmethod
     def required_packages(cls) -> List[Text]:
-        return ["fasttext"]
+        return ["gensim"]
 
     defaults = {"file": None, "cache_dir": None}
     language_list = None
@@ -38,9 +39,9 @@ class FastTextFeaturizer(DenseFeaturizer):
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
         if "cache_dir" not in component_config.keys():
-            raise ValueError("You need to set `cache_dir` for the FasttextFeaturizer.")
+            raise ValueError("You need to set `cache_dir` for the GensimFeaturizer.")
         if "file" not in component_config.keys():
-            raise ValueError("You need to set `file` for the FasttextFeaturizer.")
+            raise ValueError("You need to set `file` for the GensimFeaturizer.")
         path = os.path.join(component_config["cache_dir"], component_config["file"])
 
         if not os.path.exists(component_config["cache_dir"]):
@@ -52,7 +53,7 @@ class FastTextFeaturizer(DenseFeaturizer):
                 f"It seems that file {path} does not exists. Please check config."
             )
 
-        self.model = fasttext.load_model(path)
+        self.kv = KeyedVectors.load(path)
 
     def train(
         self,
@@ -60,21 +61,24 @@ class FastTextFeaturizer(DenseFeaturizer):
         config: Optional[RasaNLUModelConfig] = None,
         **kwargs: Any,
     ) -> None:
-        for example in training_data.intent_examples:
+        for example in training_data.training_examples:
             for attribute in DENSE_FEATURIZABLE_ATTRIBUTES:
-                self.set_fasttext_features(example, attribute)
+                self.set_gensim_features(example, attribute)
 
-    def set_fasttext_features(self, message: Message, attribute: Text = TEXT) -> None:
+    def set_gensim_features(self, message: Message, attribute: Text = TEXT) -> None:
         tokens = message.get(TOKENS_NAMES[attribute])
 
         if not tokens:
             return None
 
-        text_vector = self.model.get_word_vector(message.text)
+        # If we key is not available then we featuizer it with an array of zeros
         word_vectors = [
-            self.model.get_word_vector(t.text)
+            self.kv[t.text] if t.text in self.kv else np.zeros(self.kv.vector_size)
             for t in train_utils.tokens_without_cls(message, attribute)
         ]
+
+        # Sum up all the word vectors so that we have one for __CLS__
+        text_vector = reduce(lambda a, b: a + b, word_vectors)
         X = np.array(word_vectors + [text_vector])  # remember, we need one for __CLS__
 
         features = self._combine_with_existing_dense_features(
@@ -83,10 +87,10 @@ class FastTextFeaturizer(DenseFeaturizer):
         message.set(DENSE_FEATURE_NAMES[attribute], features)
 
     def process(self, message: Message, **kwargs: Any) -> None:
-        self.set_fasttext_features(message)
+        self.set_gensim_features(message)
 
     def persist(self, file_name: Text, model_dir: Text) -> Optional[Dict[Text, Any]]:
-        pass
+        return None
 
     @classmethod
     def load(

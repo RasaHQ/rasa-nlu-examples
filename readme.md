@@ -20,12 +20,13 @@ The following components are implemented.
 
 ### Dense Featurizers
 
+- `rasa_nlu_examples.featurizers.dense.GensimFeaturizer`: pretrained gensim embeddings [link](https://radimrehurek.com/gensim/)
 - `rasa_nlu_examples.featurizers.dense.FastTextFeaturizer`: pretrained fasttext embeddings [link](https://fasttext.cc/)
 - `rasa_nlu_examples.featurizers.dense.BytePairFeaturizer`: pretrained byte-pair embeddings [link](https://nlp.h-its.org/bpemb/)
 
-# Usage 
+# Usage
 
-You can install the examples from this repo via pip; 
+You can install the examples from this repo via pip;
 
 ```
 pip install git+https://github.com/RasaHQ/rasa-nlu-examples
