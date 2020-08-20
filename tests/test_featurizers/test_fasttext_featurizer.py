@@ -28,6 +28,16 @@ def test_featurizer_checks(test_fn, tok, feat, msg):
     test_fn(tok, feat, msg)
 
 
+def test_raise_cachedir_not_given_error():
+    with pytest.raises(ValueError):
+        FastTextFeaturizer(component_config={"file": "foobar.kv"})
+
+
+def test_raise_file_not_given_error():
+    with pytest.raises(ValueError):
+        FastTextFeaturizer(component_config={"cache_dir": "some/path"})
+
+
 def test_raise_cachedir_error():
     bad_folder = str(test_folder / "foobar")
     with pytest.raises(FileNotFoundError):

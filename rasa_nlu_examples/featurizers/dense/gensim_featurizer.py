@@ -38,6 +38,10 @@ class GensimFeaturizer(DenseFeaturizer):
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
+        if not component_config["cache_dir"]:
+            raise ValueError("You need to set `cache_dir` for the GensimFeaturizer.")
+        if not component_config["file"]:
+            raise ValueError("You need to set `file` for the GensimFeaturizer.")
         path = os.path.join(component_config["cache_dir"], component_config["file"])
 
         if not os.path.exists(component_config["cache_dir"]):
@@ -67,10 +71,13 @@ class GensimFeaturizer(DenseFeaturizer):
         if not tokens:
             return None
 
+        # If we key is not available then we featuizer it with an array of zeros
         word_vectors = [
             self.kv[t.text] if t.text in self.kv else np.zeros(self.kv.vector_size)
             for t in train_utils.tokens_without_cls(message, attribute)
         ]
+
+        # Sum up all the word vectors so that we have one for __CLS__
         text_vector = reduce(lambda a, b: a + b, word_vectors)
         X = np.array(word_vectors + [text_vector])  # remember, we need one for __CLS__
 

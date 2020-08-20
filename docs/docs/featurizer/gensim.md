@@ -1,7 +1,12 @@
 This pages discusses some properties of the `GensimFeaturizer`.
 Note that this featurizer is a *dense* featurizer.
 
-Gensim is a popular python library that makes it relatively easy to train your own word vectors. This can be useful if your corpus is very different than what most popular embeddings are trained on. We'll give a small guide on how to train your own embeddings here but you can also read the guide on the [gensim docs](https://radimrehurek.com/gensim/auto_examples/tutorials/run_word2vec.html#training-your-own-model).
+Gensim is a popular python library that makes it relatively easy to
+train your own word vectors. This can be useful if your corpus is very
+different than what most popular embeddings are trained on. We'll give
+a small guide on how to train your own embeddings here but you can
+also read the guide on the
+[gensim docs](https://radimrehurek.com/gensim/auto_examples/tutorials/run_word2vec.html#training-your-own-model).
 
 ## Training Your Own
 
@@ -29,7 +34,7 @@ file that you can pass on to this component.
 
 ## Base Usage
 
-The configuration file below demonstrates how you might use the fasttext embeddings. In this example
+The configuration file below demonstrates how you might use the gensim embeddings. In this example
 we're building a pipeline for the an English language and we're assuming that you've trained your
 own embeddings which have been saved upfront as `saved/beforehand/filename.kv`.
 

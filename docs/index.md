@@ -26,13 +26,6 @@ You can find a tutorial on it [here](https://blog.rasa.com/custom-printer-compon
 
 ### Dense Featurizers
 
-#### GensimFeaturizer
-
-**`rasa_nlu_examples.featurizers.dense.GensimFeaturizer` [docs](docs/featurizer/gensim/)**
-
-A benefit of `gensim` is that it is very easy to train your own word embeddings. This
-featurizer allows you to train your own and then to use it in a Rasa pipeline.
-
 #### FastTextFeaturizer
 
 **`rasa_nlu_examples.featurizers.dense.FastTextFeaturizer` [docs](docs/featurizer/fasttext/)**
@@ -47,6 +40,15 @@ These are available in 157 languages, see [here](https://fasttext.cc/docs/en/cra
 These BytePair embeddings are specialized subword embeddings that are built to be lightweight.
 See [this link](https://nlp.h-its.org/bpemb/) for more information. These are available in 227 languages and
 you can specify the subword vocabulary size as well as the dimensionality.
+
+#### GensimFeaturizer
+
+**`rasa_nlu_examples.featurizers.dense.GensimFeaturizer` [docs](docs/featurizer/gensim/)**
+
+A benefit of the `gensim` library is that it is very easy to train your own word embeddings.
+It's typically only about 5 lines of code. That means that you could train your own word-embeddings
+and then easily use them in a Rasa pipeline. This can be useful if you have reason to believe
+that standard training corpora (like Wikipedia) are not valid for your use-case.
 
 ## Contributing
 
