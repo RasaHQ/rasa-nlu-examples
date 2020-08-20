@@ -313,6 +313,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#gensimfeaturizer" class="md-nav__link">
+    GensimFeaturizer
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -459,6 +466,18 @@
 
 
   <li class="md-nav__item">
+    <a href="docs/featurizer/gensim/" title="GensimFeaturizer" class="md-nav__link">
+      GensimFeaturizer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="docs/featurizer/fasttext/" title="FastTextFeaturizer" class="md-nav__link">
       FastTextFeaturizer
     </a>
@@ -562,6 +581,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#gensimfeaturizer" class="md-nav__link">
+    GensimFeaturizer
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -606,9 +632,9 @@ purposes. These are components that we open source to encourage experimentation 
 these are components that are <strong>not officially supported</strong>. There will be some tests
 and some documentation but this is a community project, not something that is part of core Rasa.</p>
 <h2 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h2>
-<p>The goal of these tools will be to be compatible with the most recent version of 
+<p>The goal of these tools will be to be compatible with the most recent version of
 rasa only. You may need to point to an older release of the project if you want
-it to be compatible with an older version of Rasa. </p>
+it to be compatible with an older version of Rasa.</p>
 <p>The following components are implemented.</p>
 <h3 id="meta">Meta<a class="headerlink" href="#meta" title="Permanent link">&para;</a></h3>
 <h4 id="printer">Printer<a class="headerlink" href="#printer" title="Permanent link">&para;</a></h4>
@@ -625,8 +651,14 @@ These are available in 157 languages, see <a href="https://fasttext.cc/docs/en/c
 <p>These BytePair embeddings are specialized subword embeddings that are built to be lightweight.
 See <a href="https://nlp.h-its.org/bpemb/">this link</a> for more information. These are available in 227 languages and
 you can specify the subword vocabulary size as well as the dimensionality.</p>
+<h4 id="gensimfeaturizer">GensimFeaturizer<a class="headerlink" href="#gensimfeaturizer" title="Permanent link">&para;</a></h4>
+<p><strong><code>rasa_nlu_examples.featurizers.dense.GensimFeaturizer</code> <a href="docs/featurizer/gensim/">docs</a></strong></p>
+<p>A benefit of the <code>gensim</code> library is that it is very easy to train your own word embeddings.
+It's typically only about 5 lines of code. That means that you could train your own word-embeddings
+and then easily use them in a Rasa pipeline. This can be useful if you have reason to believe
+that standard training corpora (like Wikipedia) are not valid for your use-case.</p>
 <h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
-<p>You can find the contribution guide <a href="/contributing/">here</a>.</p>
+<p>You can find the contribution guide <a href="https://rasahq.github.io/rasa-nlu-examples/contributing/">here</a>.</p>
                 
               
               

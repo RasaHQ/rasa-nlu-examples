@@ -403,6 +403,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../docs/featurizer/gensim/" title="GensimFeaturizer" class="md-nav__link">
+      GensimFeaturizer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../docs/featurizer/fasttext/" title="FastTextFeaturizer" class="md-nav__link">
       FastTextFeaturizer
     </a>
@@ -507,7 +519,7 @@ pipeline:
 - name: DIETClassifier
   epochs: 200
 </code></pre></p>
-<p>Assuming this file is named <code>basic-config.yml</code> you can run this pipeline as a benchmark by running this 
+<p>Assuming this file is named <code>basic-config.yml</code> you can run this pipeline as a benchmark by running this
 command from the project directory;</p>
 <p><pre><code>rasa test nlu --config basic-config.yml \
           --cross-validation --runs 1 --folds 2 \
@@ -534,7 +546,7 @@ pipeline:
 - name: DIETClassifier
   epochs: 200
 </code></pre></p>
-<p>Assuming this file is named <code>basic-bytepair-config.yml</code> you can run it as a benchmark by running this 
+<p>Assuming this file is named <code>basic-bytepair-config.yml</code> you can run it as a benchmark by running this
 command from the project directory;</p>
 <p><pre><code>rasa test nlu --config basic-bytepair-config.yml \
           --cross-validation --runs 1 --folds 2 \
@@ -561,7 +573,7 @@ pipeline:
 - name: DIETClassifier
   epochs: 200
 </code></pre></p>
-<p>Assuming this file is named <code>medium-bytepair-config.yml</code> you can run it as a benchmark by running this 
+<p>Assuming this file is named <code>medium-bytepair-config.yml</code> you can run it as a benchmark by running this
 command from the project directory;</p>
 <p><pre><code>rasa test nlu --config medium-bytepair-config.yml \
           --cross-validation --runs 1 --folds 2 \
@@ -588,7 +600,7 @@ pipeline:
 - name: DIETClassifier
   epochs: 200
 </code></pre></p>
-<p>Assuming this file is named <code>large-bytepair-config.yml</code> you can run this benchmark by running this 
+<p>Assuming this file is named <code>large-bytepair-config.yml</code> you can run this benchmark by running this
 command from the project directory;</p>
 <p><pre><code>rasa test nlu --config large-bytepair-config.yml \
           --cross-validation --runs 1 --folds 2 \
@@ -598,11 +610,10 @@ command from the project directory;</p>
 </div>
 </div>
 <h2 id="final-reminder">Final Reminder<a class="headerlink" href="#final-reminder" title="Permanent link">&para;</a></h2>
-<p>There's one thing to remind ourselves of at this phase in time. We should remember
-that these tools are experimental in nature. We want this repository to be a place
+<p>We should remember that these tools are experimental in nature. We want this repository to be a place
 where folks can share their nlu components and experiment, but this also means that we don't want to
 suggest that these tools are state of the art. You always need to check if these tools work for your
-pipeline and the components that we host here may very well lag behind a version of Rasa.</p>
+pipeline. The components that we host here may very well lag behind Rasa Open Source too.</p>
                 
               
               

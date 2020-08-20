@@ -11,7 +11,7 @@
         <meta name="description" content="A collection of open source Rasa compatible NLU components.">
       
       
-        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/meta/printer/">
+        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/gensim/">
       
       
         <meta name="author" content="Vincent D. Warmerdam @ Rasa Research">
@@ -21,7 +21,7 @@
     
     
       
-        <title>Printer - Rasa NLU Examples</title>
+        <title>GensimFeaturizer - Rasa NLU Examples</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configurable-variables" class="md-skip">
+        <a href="#training-your-own" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Printer
+              GensimFeaturizer
             
           </span>
         </div>
@@ -292,12 +292,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
     <label class="md-nav__link" for="nav-3-2">
       Meta
@@ -319,6 +317,50 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../../meta/printer/" title="Printer" class="md-nav__link">
+      Printer
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Featurizers
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Featurizers" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Featurizers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
   
 
 
@@ -328,14 +370,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Printer
+        GensimFeaturizer
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
         </span>
       </label>
     
-    <a href="./" title="Printer" class="md-nav__link md-nav__link--active">
-      Printer
+    <a href="./" title="GensimFeaturizer" class="md-nav__link md-nav__link--active">
+      GensimFeaturizer
     </a>
     
       
@@ -350,6 +392,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#training-your-own" class="md-nav__link">
+    Training Your Own
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#configurable-variables" class="md-nav__link">
@@ -372,55 +421,13 @@
   </li>
 
         
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
-    
-    <label class="md-nav__link" for="nav-3-3">
-      Featurizers
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Featurizers" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-3">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Featurizers
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
           
           
           
 
 
   <li class="md-nav__item">
-    <a href="../../featurizer/gensim/" title="GensimFeaturizer" class="md-nav__link">
-      GensimFeaturizer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../featurizer/fasttext/" title="FastTextFeaturizer" class="md-nav__link">
+    <a href="../fasttext/" title="FastTextFeaturizer" class="md-nav__link">
       FastTextFeaturizer
     </a>
   </li>
@@ -432,7 +439,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../featurizer/bytepair/" title="BytePairFeaturizer" class="md-nav__link">
+    <a href="../bytepair/" title="BytePairFeaturizer" class="md-nav__link">
       BytePairFeaturizer
     </a>
   </li>
@@ -472,6 +479,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#training-your-own" class="md-nav__link">
+    Training Your Own
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configurable-variables" class="md-nav__link">
     Configurable Variables
   </a>
@@ -497,7 +511,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/meta/printer.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/featurizer/gensim.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -505,30 +519,53 @@
                   
                 
                 
-                  <h1>Printer</h1>
+                  <h1>GensimFeaturizer</h1>
                 
-                <p>Here's an example configuration file that demonstrates how the custom printer component works.
-You can find a tutorial on the component <a href="https://blog.rasa.com/custom-printer-component/">here</a>.</p>
+                <p>This pages discusses some properties of the <code>GensimFeaturizer</code>.
+Note that this featurizer is a <em>dense</em> featurizer.</p>
+<p>Gensim is a popular python library that makes it relatively easy to
+train your own word vectors. This can be useful if your corpus is very
+different than what most popular embeddings are trained on. We'll give
+a small guide on how to train your own embeddings here but you can
+also read the guide on the
+<a href="https://radimrehurek.com/gensim/auto_examples/tutorials/run_word2vec.html#training-your-own-model">gensim docs</a>.</p>
+<h2 id="training-your-own">Training Your Own<a class="headerlink" href="#training-your-own" title="Permanent link">&para;</a></h2>
+<p>Training your own gensim model doesn't require a lot of code.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;this is a sentence&quot;</span><span class="p">,</span> <span class="s2">&quot;so is this&quot;</span><span class="p">,</span> <span class="s2">&quot;and we&#39;re all talking&quot;</span><span class="p">]</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="o">=</span><span class="n">tokens</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                 <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">iter</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;wordvectors.kv&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>This <code>wordvectors.kv</code> file should contain all the vectors that you've trained. It's this
+file that you can pass on to this component.</p>
 <h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>alias</strong>: gives an extra name to the component and adds an extra message that is printed</li>
+<li><strong>cache_dir</strong>: pass it the name of the directory where you've downloaded/saved the embeddings</li>
+<li><strong>file</strong>: pass it the name of the <code>.kv</code> file that contains the word embeddings</li>
 </ul>
 <h2 id="base-usage">Base Usage<a class="headerlink" href="#base-usage" title="Permanent link">&para;</a></h2>
-<p>When running this example you'll notice that what the effect is of the <code>CountVectorsFeaturizer</code>.
-You should see print statements appear when you talk to the assistant.</p>
+<p>The configuration file below demonstrates how you might use the gensim embeddings. In this example
+we're building a pipeline for the an English language and we're assuming that you've trained your
+own embeddings which have been saved upfront as <code>saved/beforehand/filename.kv</code>.</p>
 <div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
 
 <span class="nt">pipeline</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LexicalSyntacticFeaturizer</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.meta.Printer</span>
-  <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">before count vectors</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
   <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
   <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
   <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.meta.Printer</span>
-  <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">after count vectors</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.featurizers.dense.GensimFeaturizer</span>
+  <span class="nt">cache_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">saved/beforehand</span>
+  <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">filename.kv</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
   <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
 
@@ -555,7 +592,7 @@ You should see print statements appear when you talk to the assistant.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../../benchmarking/" title="Benchmarking Guide" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../meta/printer/" title="Printer" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -564,19 +601,19 @@ You should see print statements appear when you talk to the assistant.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Benchmarking Guide
+                Printer
               </div>
             </div>
           </a>
         
         
-          <a href="../../featurizer/gensim/" title="GensimFeaturizer" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../fasttext/" title="FastTextFeaturizer" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                GensimFeaturizer
+                FastTextFeaturizer
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
