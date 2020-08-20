@@ -61,7 +61,7 @@ class GensimFeaturizer(DenseFeaturizer):
         config: Optional[RasaNLUModelConfig] = None,
         **kwargs: Any,
     ) -> None:
-        for example in training_data.intent_examples:
+        for example in training_data.training_examples:
             for attribute in DENSE_FEATURIZABLE_ATTRIBUTES:
                 self.set_gensim_features(example, attribute)
 
@@ -90,7 +90,7 @@ class GensimFeaturizer(DenseFeaturizer):
         self.set_gensim_features(message)
 
     def persist(self, file_name: Text, model_dir: Text) -> Optional[Dict[Text, Any]]:
-        pass
+        return None
 
     @classmethod
     def load(
