@@ -40,7 +40,7 @@ class FastTextFeaturizer(DenseFeaturizer):
         if not component_config["cache_dir"]:
             raise ValueError("You need to set `cache_dir` for the FasttextFeaturizer.")
         if not component_config["file"]:
-            raise ValueError("You need to set `file` for the GensimFeaturizer.")
+            raise ValueError("You need to set `file` for the FasttextFeaturizer.")
         path = os.path.join(component_config["cache_dir"], component_config["file"])
 
         if not os.path.exists(component_config["cache_dir"]):
