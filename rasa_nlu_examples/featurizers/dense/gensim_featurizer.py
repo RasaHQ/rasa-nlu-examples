@@ -38,9 +38,9 @@ class GensimFeaturizer(DenseFeaturizer):
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
-        if not component_config["cache_dir"]:
+        if "cache_dir" not in component_config.keys():
             raise ValueError("You need to set `cache_dir` for the GensimFeaturizer.")
-        if not component_config["file"]:
+        if "file" not in component_config.keys():
             raise ValueError("You need to set `file` for the GensimFeaturizer.")
         path = os.path.join(component_config["cache_dir"], component_config["file"])
 
