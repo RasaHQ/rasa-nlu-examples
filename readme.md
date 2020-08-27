@@ -24,7 +24,8 @@ There are many ways you can contribute to this project.
 
 Feel free to start the discussion by opening an issue on this repository. Before submitting code
 to the repository it would help if you first create an issue so that the maintainers can disucss
-the changes you would like to contribute.
+the changes you would like to contribute. A more in-depth contribution guide can be found 
+[here](https://rasahq.github.io/rasa-nlu-examples/contributing/).
 
 # Documentation
 
