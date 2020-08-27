@@ -1,18 +1,36 @@
+# Rasa NLU Examples 
+
 <img src="square-logo.svg" width=200 height=200 align="right">
 
-This repository contains some example components meant for educational/inspirational
-purposes. These are components that we open source to encourage experimentation but
-these are components that are **not officially supported**. There will be some tests
-as well as some documentation but this project should be considered a community project,
-not something that is part of core Rasa.
+This repository contains Rasa compatible machine learning components. These components 
+are open sourced in order to encourage experimentation and to quickly offer support to
+more tools. By hosting these components here they do not need to go through the same 
+vetting process as the components in Rasa and we hope that this makes it easier for 
+people to contribute new ideas. 
+
+The components in the repository are **not officially supported**. There will be units tests
+as well as documentation but this project should be considered a community project,
+not something that is part of core Rasa. If there's a component here that turns out to be 
+useful to the larger Rasa community then we might port features from this repository to Rasa. 
+
+# Contribute 
+
+There are many ways you can contribute to this project. 
+
+- You can suggest new features. 
+- You can help review new features. 
+- You can submit new components.
+- You can let us know if the components in this library help you. 
 
 # Documentation
 
 You can find the documentation for this project [here](https://rasahq.github.io/rasa-nlu-examples/).
 
-# Components
+# Features
 
-The following components are implemented.
+This project currently supports components for Rasa 1.10. 
+
+The following components are implemented;
 
 ### Meta
 
