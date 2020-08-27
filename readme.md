@@ -20,6 +20,7 @@ There are many ways you can contribute to this project.
 - You can suggest new features.
 - You can help review new features. 
 - You can submit new components.
+- You can let us know if there are bugs.
 - You can let us know if the components in this library help you.
 
 Feel free to start the discussion by opening an issue on this repository. Before submitting code
@@ -84,3 +85,9 @@ rasa test nlu --config basic-bytepair-config.yml \
           --cross-validation --runs 1 --folds 2 \
           --out gridresults/basic-bytepair-config
 ```
+
+# Open an Issue
+
+If you've spotted a but then you can submit an issue [here](https://github.com/RasaHQ/rasa-nlu-examples/issues). 
+GitHub issues allow us to keep track of a conversation about this repository and it is the preferred 
+communication channel for bugs related to this project.
