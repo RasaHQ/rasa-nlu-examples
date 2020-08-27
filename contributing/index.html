@@ -291,6 +291,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#suggest-a-new-feature" class="md-nav__link">
+    Suggest a New Feature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#share-an-observation" class="md-nav__link">
     Share an Observation
   </a>
@@ -514,6 +521,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#suggest-a-new-feature" class="md-nav__link">
+    Suggest a New Feature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#share-an-observation" class="md-nav__link">
     Share an Observation
   </a>
@@ -561,30 +575,55 @@
                 
                 <h1 id="contributing-guide">Contributing Guide<a class="headerlink" href="#contributing-guide" title="Permanent link">&para;</a></h1>
 <h2 id="ways-you-can-contribute">Ways you can Contribute<a class="headerlink" href="#ways-you-can-contribute" title="Permanent link">&para;</a></h2>
-<p>We're open to contributions and there are many ways that you can make a contribution.</p>
+<p>We're open to contributions and there are many ways that you can make one.</p>
+<ul>
+<li>You can suggest new features.</li>
+<li>You can help review new features.</li>
+<li>You can submit new components.</li>
+<li>You can let us know if there are bugs.</li>
+<li>You can let us know if the components in this library help you.</li>
+</ul>
 <h3 id="open-an-issue">Open an Issue<a class="headerlink" href="#open-an-issue" title="Permanent link">&para;</a></h3>
-<p>Did you find a bug? Please let us know! You can submit an issue <a href="https://github.com/RasaHQ/rasa-nlu-examples/issues">here</a>.</p>
+<p>You can submit an issue <a href="https://github.com/RasaHQ/rasa-nlu-examples/issues">here</a>. Issues
+allow us to keep track of a conversation about this repository and it is the preferred
+communication channel for bugs related to this project.</p>
+<h3 id="suggest-a-new-feature">Suggest a New Feature<a class="headerlink" href="#suggest-a-new-feature" title="Permanent link">&para;</a></h3>
+<p>This project started because we wanted to offer support for word embeddings
+for more languages. The first feature we added was support for FastText,
+which offers embeddings for 157 languages. We later received a contribution from a community member for BytePair embeddings, which offers support for 275 languages. We weren't aware of these embeddings but we were exited to support more languages.</p>
+<p>Odds are that there are many more tools out there that the maintainers of this project aren't
+aware of yet. There may very well be more embeddings, tokenziers, lemmatizers and models
+that we're not aware of but can help Rasa developers make better assistants.</p>
+<p>The goal of this project is to support more of these sorts of tools for Rasa users. You
+can help out the project just by letting us know if there's an integration missing. If you
+do not have the time to contribute a component yourself then you can still contribute to the
+effort by letting us know what components might help you make a better assistant.</p>
 <h3 id="share-an-observation">Share an Observation<a class="headerlink" href="#share-an-observation" title="Permanent link">&para;</a></h3>
 <p>If the tools that we offer here turn out to be useful then we'd love to hear about it.
-The research team will consider all feedback and we're especially keen to hear feedback
-from non-English languages that try out some of the new embeddings. You can leave a message
+We're also interested in hearing if these tools don't work for your usecase.
+Any feedback will be shared with the research team at Rasa. We're especially keen to hear feedback on the performance of the word embeddings that we host here. You can leave a message
 either on <a href="https://github.com/RasaHQ/rasa-nlu-examples/issues">the github issue list</a> or
-on <a href="forum.rasa.com/">the Rasa forum</a>. Be sure to ping <code>koaning</code> on the forum if you mention
-this project, he's the maintainer.</p>
+on <a href="forum.rasa.com/">the Rasa forum</a>. Be sure to ping <strong>koaning</strong>** on the forum if you mention
+this project, he's the main maintainer.</p>
 <h3 id="adding-a-new-component">Adding a new Component<a class="headerlink" href="#adding-a-new-component" title="Permanent link">&para;</a></h3>
 <p>There's a balance between allowing experimentation and maintaining all the code.
-So we've come up with the following checklist.</p>
+This is why we've come up with a checklist that you should keep in mind before
+you're submitting code.</p>
 <ol>
 <li>If you want to contribute a new component please make an issue first so we can
-discuss it. We want to prevent double work where possible and make sure it is
-appropriate.</li>
-<li>New tools that are added here need to be plausibly useful. For example,
-we won't be able to accept a component that adds noise to the features.</li>
+discuss it. We want to prevent double work where possible and make sure the proposed
+component is appropriate for this repository.</li>
+<li>New tools that are added here need to be plausibly useful in a real life scenario.
+For example, we won't be able to accept a component that adds noise to the features.</li>
 <li>Think about unit tests. We prefer to standardise unit tests as much
 as possible but there may be specific things you'd like to check for.</li>
+<li>Ask for help! Feel free to ping the <strong>koaning</strong> on this repository if you're having
+trouble with an implementation or appreciate guidance on a topic. He'll gladly
+help you.</li>
 </ol>
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
-<p>To run the tests locally you'll need to run a script beforehand.</p>
+<p>We run automated tests via GitHub actions but you can also run all the checking mechanisms locally.
+To run the tests locally you'll need to run a script beforehand.</p>
 <div class="codehilite"><pre><span></span><code><span class="err">python tests/prepare_everything.py</span>
 </code></pre></div>
 

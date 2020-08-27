@@ -521,7 +521,7 @@
                 
                   <h1>GensimFeaturizer</h1>
                 
-                <p>This pages discusses some properties of the <code>GensimFeaturizer</code>.
+                <p>This page discusses some properties of the <code>GensimFeaturizer</code>.
 Note that this featurizer is a <em>dense</em> featurizer.</p>
 <p>Gensim is a popular python library that makes it relatively easy to
 train your own word vectors. This can be useful if your corpus is very
@@ -530,15 +530,19 @@ a small guide on how to train your own embeddings here but you can
 also read the guide on the
 <a href="https://radimrehurek.com/gensim/auto_examples/tutorials/run_word2vec.html#training-your-own-model">gensim docs</a>.</p>
 <h2 id="training-your-own">Training Your Own<a class="headerlink" href="#training-your-own" title="Permanent link">&para;</a></h2>
-<p>Training your own gensim model doesn't require a lot of code.</p>
+<p>Training your own gensim model can be done in a few lines of code. A demonstration is shown below. </p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span>
 
+<span class="c1"># Gensim needs a list of lists to represent tokens in a document.</span>
+<span class="c1"># In real life you’d read a text file and turn it into lists here.</span>
 <span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;this is a sentence&quot;</span><span class="p">,</span> <span class="s2">&quot;so is this&quot;</span><span class="p">,</span> <span class="s2">&quot;and we&#39;re all talking&quot;</span><span class="p">]</span>
 <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>
 
+<span class="c1"># This is where we train new word embeddings.</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="o">=</span><span class="n">tokens</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
                  <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">iter</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
+<span class="c1"># This is where they are saved to disk.</span>
 <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;wordvectors.kv&quot;</span><span class="p">)</span>
 </code></pre></div>
 
