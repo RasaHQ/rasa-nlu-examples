@@ -19,16 +19,17 @@ communication channel for bugs related to this project.
 ### Suggest a New Feature 
 
 This project started because we wanted a convenient way for developers to experiment with
-FastText embeddings. FastText offers embeddings for more languages than spaCy. We later 
-received a contribution from a community member for BytePair embeddings, which offers support
-for 275 languages. We weren't aware of these embeddings but we were exited to support more
-languages. 
+FastText embeddings. FastText offers embeddings for more languages than spaCy so we figured
+it was worthwhile to add it. We later received a contribution from a community member 
+for BytePair embeddings, which offers support for 275 languages. We weren't aware of these 
+embeddings but we were exited to support more languages. 
 
 Odds are that there are many more tools out there that the maintainer of this project isn't 
 aware of yet. There might be tokenizers that are better than the tokenizers inside of Rasa
-for a particular language and there may also be more language models that we're not aware of. 
+for a particular language and just like there may be more language models that we're not aware of. 
 
-The goal of this project is to support more of these sorts of tools for Rasa users. If you 
+The goal of this project is to support more of these sorts of tools for Rasa users. You
+can help out the project just by letting us know if there's an integration missing. If you 
 do not have the time to contribute a component yourself then you can still contribute to the 
 effort by letting us know what components might help you make a better assistant. 
 
