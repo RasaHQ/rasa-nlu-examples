@@ -1,5 +1,5 @@
-Fasttext supports 157 languages and you can download the embeddings
-[here](https://fasttext.cc/docs/en/crawl-vectors.html). Note that this featurizer is a *dense* featurizer. Beware that these embedding files tend to be big: about 6-7Gb.
+Fasttext supports word embeddings for 157 languages and is trained on both Common Crawl and Wikipedia. You can download the embeddings
+[here](https://fasttext.cc/docs/en/crawl-vectors.html#models). Note that this featurizer is a *dense* featurizer. Beware that these embedding files tend to be big: about 6-7Gb.
 
 ## Configurable Variables
 
