@@ -4,15 +4,39 @@
 
 We're open to contributions and there are many ways that you can make a contribution.
 
+- You can suggest new features.
+- You can help review new features. 
+- You can submit new components.
+- You can let us know if there are bugs.
+- You can let us know if the components in this library help you.
+
 ### Open an Issue
 
-Did you find a bug? Please let us know! You can submit an issue [here](https://github.com/RasaHQ/rasa-nlu-examples/issues).
+You can submit an issue [here](https://github.com/RasaHQ/rasa-nlu-examples/issues). Issues 
+allow us to keep track of a conversation about this repository and it is the preferred 
+communication channel for bugs related to this project.
+
+### Suggest a New Feature 
+
+This project started because we wanted a convenient way for developers to experiment with
+FastText embeddings. FastText offers embeddings for more languages than spaCy. We later 
+received a contribution from a community member for BytePair embeddings, which offers support
+for 275 languages. We weren't aware of these embeddings but we were exited to support more
+languages. 
+
+Odds are that there are many more tools out there that the maintainer of this project isn't 
+aware of yet. There might be tokenizers that are better than the tokenizers inside of Rasa
+for a particular language and there may also be more language models that we're not aware of. 
+
+The goal of this project is to support more of these sorts of tools for Rasa users. If you 
+do not have the time to contribute a component yourself then you can still contribute to the 
+effort by letting us know what components might help you make a better assistant. 
 
 ### Share an Observation
 
 If the tools that we offer here turn out to be useful then we'd love to hear about it.
-The research team will consider all feedback and we're especially keen to hear feedback
-from non-English languages that try out some of the new embeddings. You can leave a message
+Any feedback will be shared with the research team at Rasa. We're especially keen to hear feedback
+on the performance of the word embeddings that we host here. You can leave a message
 either on [the github issue list](https://github.com/RasaHQ/rasa-nlu-examples/issues) or
 on [the Rasa forum](forum.rasa.com/). Be sure to ping `koaning` on the forum if you mention
 this project, he's the maintainer.
@@ -20,18 +44,23 @@ this project, he's the maintainer.
 ### Adding a new Component
 
 There's a balance between allowing experimentation and maintaining all the code.
-So we've come up with the following checklist.
+This is why we've come up with a checklist that you should keep in mind before 
+you're submitting code.
 
 1. If you want to contribute a new component please make an issue first so we can
-discuss it. We want to prevent double work where possible and make sure it is
-appropriate.
-2. New tools that are added here need to be plausibly useful. For example,
-we won't be able to accept a component that adds noise to the features.
+discuss it. We want to prevent double work where possible and make sure the proposed
+component is appropriate for this repository.
+2. New tools that are added here need to be plausibly useful in a real life scenario. 
+For example, we won't be able to accept a component that adds noise to the features.
 3. Think about unit tests. We prefer to standardise unit tests as much
 as possible but there may be specific things you'd like to check for.
+4. Ask for help! Feel free to ping @koaning on this repository if you're having
+trouble with an implementation or appreciate guidance on a topic. He'll gladly 
+help you. 
 
 ## Testing
 
+We run automated tests via GitHub actions but you can also run all the checking mechanisms locally. 
 To run the tests locally you'll need to run a script beforehand.
 
 ```
