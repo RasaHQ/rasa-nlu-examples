@@ -1,4 +1,4 @@
-This pages discusses some properties of the `GensimFeaturizer`.
+This page discusses some properties of the `GensimFeaturizer`.
 Note that this featurizer is a *dense* featurizer.
 
 Gensim is a popular python library that makes it relatively easy to
@@ -10,17 +10,21 @@ also read the guide on the
 
 ## Training Your Own
 
-Training your own gensim model doesn't require a lot of code.
+Training your own gensim model can be done in a few lines of code. A demonstration is shown below. 
 
 ```python
 from gensim.models import Word2Vec
 
+# Gensim needs a list of lists to represent tokens in a document.
+# In real life you’d read a text file and turn it into lists here.
 text = ["this is a sentence", "so is this", "and we're all talking"]
 tokens = [t.split(" ") for t in text]
 
+# This is where we train new word embeddings.
 model = Word2Vec(sentences=tokens, size=10, window=3,
                  min_count=1, iter=5, workers=2)
 
+# This is where they are saved to disk.
 model.wv.save("wordvectors.kv")
 ```
 
