@@ -17,10 +17,14 @@ useful to the larger Rasa community then we might port features from this reposi
 
 There are many ways you can contribute to this project. 
 
-- You can suggest new features. 
+- You can suggest new features.
 - You can help review new features. 
 - You can submit new components.
-- You can let us know if the components in this library help you. 
+- You can let us know if the components in this library help you.
+
+Feel free to start the discussion by opening an issue on this repository. Before submitting code
+to the repository it would help if you first create an issue so that the maintainers can disucss
+the changes you would like to contribute.
 
 # Documentation
 
