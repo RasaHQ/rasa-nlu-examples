@@ -3,29 +3,30 @@ work you might appreciate reading[the original article](http://www.lrec-conf.org
 Recognition should be given to Benjamin Heinzerling and Michael Strube for making these available.
 
 A main feature of these types of embeddings is that they are relatively lightweight but also
-their availability in **many** languages. BytePair embeddings exist for 277 languages that are
+their availability in many languages. BytePair embeddings exist for **277** languages that are
 pretrained on wikipedia. There's also availability for a multi-language setting.
 
-More information can be found [here](https://nlp.h-its.org/bpemb/). When you scroll down you will
-notice a list of languages that are available. Here's some links for a detailed view of available
+More information on these embeddings can be found [here](https://nlp.h-its.org/bpemb/). When you scroll down you will
+notice a large of languages that are available. Here's some examples from that list that give a detailed view of available
 vectors:
 
-- [English](https://nlp.h-its.org/bpemb/en/)
+- [Abkhazian](https://nlp.h-its.org/bpemb/ab/)
 - [Zulu](https://nlp.h-its.org/bpemb/zu/)
+- [English](https://nlp.h-its.org/bpemb/en/)
+- [Hindi](https://nlp.h-its.org/bpemb/hi/)
+- [Chinese](https://nlp.h-its.org/bpemb/zh/)
 - [Esperanto](https://nlp.h-its.org/bpemb/eo/)
-- [Afrikaans](https://nlp.h-its.org/bpemb/af/)
-- [Hungarian](https://nlp.h-its.org/bpemb/hu/)
 - [Multi Language](https://nlp.h-its.org/bpemb/multi/)
 
 ## Configurable Variables
 
-- **lang**: specifies the lanuage that you'll use, default = "en"
-- **dim**: specifies the dimension of the subword embeddings, default = 25,
-- **vs**: specifies the vocabulary size of the segmentation model, default = 1000,
-- **vs_fallback**: if set to True and the given vocabulary size can't be loaded for the given model, the closest size is chosen, default=True,
+- **lang**: specifies the lanuage that you'll use, default = `"en"`
+- **dim**: specifies the dimension of the subword embeddings, default = `25`,
+- **vs**: specifies the vocabulary size of the segmentation model, default = `1000`,
+- **vs_fallback**: if set to True and the given vocabulary size can't be loaded for the given model, the closest size is chosen, default=`True`
 - **cache_dir**: specifies the folder in which downloaded BPEmb files will be cached, default = `~/.cache/bpemb`
-- **model_file**: specifies the path to a custom model file, default=None,
-- **emb_file**: specifies the path to a custom embedding file, default=None
+- **model_file**: specifies the path to a custom model file, default=`None`,
+- **emb_file**: specifies the path to a custom embedding file, default=`None`
 
 ## Base Usage
 
@@ -93,4 +94,4 @@ Note that in this case we expect two files to be present in the `tests/data` dir
 You can also overwrite the names of these files via the `model_file` and `emb_file` settings. But it
 is preferable to stick to the library naming convention. Also note that if you use the `model_file` and
 `emb_file` settings that you must provide full filepaths and that the `cache_dir` will be ignored. It is
-still considered good usage to manually specify the `lang`, `dim` and `vs` parameter in this situation.
+still considered good practice to manually specify the `lang`, `dim` and `vs` parameter in this situation.
