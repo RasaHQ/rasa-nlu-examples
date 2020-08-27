@@ -88,6 +88,6 @@ rasa test nlu --config basic-bytepair-config.yml \
 
 # Open an Issue
 
-If you've spotted a but then you can submit an issue [here](https://github.com/RasaHQ/rasa-nlu-examples/issues). 
+If you've spotted a bug then you can submit an issue [here](https://github.com/RasaHQ/rasa-nlu-examples/issues). 
 GitHub issues allow us to keep track of a conversation about this repository and it is the preferred 
 communication channel for bugs related to this project.
