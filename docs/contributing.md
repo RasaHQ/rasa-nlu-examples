@@ -2,7 +2,7 @@
 
 ## Ways you can Contribute
 
-We're open to contributions and there are many ways that you can make a contribution.
+We're open to contributions and there are many ways that you can make one.
 
 - You can suggest new features.
 - You can help review new features. 
