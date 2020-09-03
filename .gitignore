@@ -115,3 +115,7 @@ tests/data/*.bin
 models/*.tar.gz
 results/*
 /.pytype/
+
+Untitled*.ipynb
+.DS_Store
+**/.DS_Store
