@@ -3,6 +3,7 @@ import pytest
 
 
 yml_files = [
+    "stanza-tokenizer-config.yml",
     "fasttext-config.yml",
     "printer-config.yml",
     "bytepair-config.yml",

@@ -1,0 +1,22 @@
+language: en
+
+pipeline:
+- name: rasa_nlu_examples.tokenizers.StanzaTokenizer
+  lang: "en"
+- name: LexicalSyntacticFeaturizer
+  "features": [
+    ["low", "title", "upper"],
+    ["BOS", "EOS", "low", "upper", "title", "digit", "pos"],
+    ["low", "title", "upper"],
+  ]
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 1
+
+policies:
+  - name: MemoizationPolicy
+  - name: KerasPolicy
+  - name: MappingPolicy

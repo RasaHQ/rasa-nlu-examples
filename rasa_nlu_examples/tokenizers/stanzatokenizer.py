@@ -1,4 +1,3 @@
-import pathlib
 from typing import Any, Dict, List, Text
 
 from rasa.nlu.tokenizers.tokenizer import Token, Tokenizer
@@ -27,7 +26,7 @@ class StanzaTokenizer(Tokenizer):
         # What package to use
         "pkg": "package",
         # Where to save the model
-        "cache_dir": pathlib.Path("~/stanza_resources"),
+        "cache_dir": "~/stanza_resources",
     }
 
     # the following language should not be tokenized using the WhitespaceTokenizer
