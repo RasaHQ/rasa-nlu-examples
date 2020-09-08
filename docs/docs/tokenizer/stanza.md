@@ -26,11 +26,12 @@ pipeline:
     ["low", "title", "upper"],
   ]
 - name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
   analyzer: char_wb
   min_ngram: 1
   max_ngram: 4
 - name: DIETClassifier
-  epochs: 1
+  epochs: 100
 
 policies:
   - name: MemoizationPolicy
