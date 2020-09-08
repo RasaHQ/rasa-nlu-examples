@@ -29,8 +29,6 @@ jobs:
         pip install -e "."
         pip install --upgrade rasa==${{ matrix.rasa-version }}
         pip install pytest
-    - name: Versions of Dependencies
-      run: pip freeze | grep -E 'stanza|gensim|bpemb|fasttext'
     - name: Test with pytest
       run: |
         python tests/prepare_everything.py
