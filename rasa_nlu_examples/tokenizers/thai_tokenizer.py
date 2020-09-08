@@ -1,8 +1,5 @@
 from typing import Any, Dict, List, Text
 
-import regex
-import re
-
 from pythainlp import word_tokenize
 
 from rasa.nlu.tokenizers.tokenizer import Token, Tokenizer
