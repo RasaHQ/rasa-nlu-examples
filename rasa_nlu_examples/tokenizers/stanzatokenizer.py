@@ -114,7 +114,7 @@ class StanzaTokenizer(Tokenizer):
 
         doc = self.nlp(text)
         stanza_tokens = reduce(lambda a, b: a + b, doc.sentences).tokens
-        tokens = [
+        return [
             Token(
                 text=t.text,
                 start=t.start_char,
