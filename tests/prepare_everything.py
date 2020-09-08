@@ -1,5 +1,6 @@
 import fasttext
 import pathlib
+import stanza
 
 if __name__ == "__main__":
     # This script adds a small fasttext model that is used in testing.
@@ -12,3 +13,7 @@ if __name__ == "__main__":
         print("local model saved for fasttext")
     else:
         print("found local fasttext model")
+
+    # This part of the script will download a stanza model.
+    # If there's a more lightweight way of doing this I'd love to hear it.
+    stanza.download("en")
