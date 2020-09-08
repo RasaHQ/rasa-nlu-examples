@@ -48,6 +48,10 @@ The following components are implemented;
 - `rasa_nlu_examples.featurizers.dense.FastTextFeaturizer`: pretrained fasttext embeddings [link](https://fasttext.cc/)
 - `rasa_nlu_examples.featurizers.dense.BytePairFeaturizer`: pretrained byte-pair embeddings [link](https://nlp.h-its.org/bpemb/)
 
+### Tokenizers
+
+- `rasa_nlu_examples.tokenizers.thai_tokenizer.ThaiTokenizer`: a Thai tokenizier based on PyThaiNLP [link](https://github.com/PyThaiNLP/pythainlp)
+
 # Usage
 
 You can install the examples from this repo via pip;
@@ -75,6 +79,21 @@ pipeline:
   dim: 25
 - name: DIETClassifier
   epochs: 200
+```
+
+An example config for using the Thai tokenizer would look like:
+
+```yaml
+language: th
+pipeline:
+  - name: rasa_nlu_examples.tokenizers.thai_tokenizer.ThaiTokenizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 200
 ```
 
 And you can use this file to run benchmarks. From the root folder of the project typically
