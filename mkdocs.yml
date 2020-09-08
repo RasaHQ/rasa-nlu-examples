@@ -10,6 +10,8 @@ nav:
   - Contributing: contributing.md
   - Usage:
       - Benchmarking Guide: benchmarking.md
+      - Tokenizers:
+          - Stanza: docs/tokenizer/stanza.md
       - Meta:
         - Printer: docs/meta/printer.md
       - Featurizers:

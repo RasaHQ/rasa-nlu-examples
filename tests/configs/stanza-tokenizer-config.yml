@@ -2,7 +2,7 @@ language: en
 
 pipeline:
 - name: rasa_nlu_examples.tokenizers.StanzaTokenizer
-  lang: "en"
+  lang: "nl"
 - name: LexicalSyntacticFeaturizer
   "features": [
     ["low", "title", "upper"],
