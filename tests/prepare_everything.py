@@ -16,4 +16,4 @@ if __name__ == "__main__":
 
     # This part of the script will download a stanza model.
     # If there's a more lightweight way of doing this I'd love to hear it.
-    stanza.download("en")
+    stanza.download("en", dir="tests/data/stanza")

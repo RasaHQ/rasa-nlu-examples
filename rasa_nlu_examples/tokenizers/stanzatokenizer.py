@@ -103,6 +103,7 @@ class StanzaTokenizer(Tokenizer):
         super().__init__(component_config)
         self.nlp = stanza.Pipeline(
             lang=component_config["lang"],
+            dir=component_config["cache_dir"],
             processors="tokenize,pos,lemma",
             tokenize_no_ssplit=True,
         )
