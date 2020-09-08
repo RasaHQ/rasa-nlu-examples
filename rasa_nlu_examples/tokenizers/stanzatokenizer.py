@@ -124,5 +124,3 @@ class StanzaTokenizer(Tokenizer):
             )
             for t in stanza_tokens
         ]
-
-        return tokens
