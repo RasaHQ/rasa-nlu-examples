@@ -23,10 +23,11 @@ class StanzaTokenizer(Tokenizer):
     defaults = {
         # What language to use
         "lang": None,
-        # What package to use
+        # What package to use, details on this can be found here:
+        # https://stanfordnlp.github.io/stanza/download_models.html
         "pkg": "package",
-        # Where to save the model
-        "cache_dir": "~/stanza_resources",
+        # Where to load the model
+        "cache_dir": None,
     }
 
     # the following language should not be tokenized using the WhitespaceTokenizer

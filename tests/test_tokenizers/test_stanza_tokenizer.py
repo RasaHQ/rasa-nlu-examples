@@ -10,7 +10,9 @@ from rasa_nlu_examples.tokenizers.stanzatokenizer import StanzaTokenizer
 def test_stanza_correct_length(msg, n):
     """We should add the correct number of tokens."""
     message = Message(msg)
-    tok = StanzaTokenizer(component_config={"lang": "en"})
+    tok = StanzaTokenizer(
+        component_config={"lang": "en", "cache_dir": "tests/data/stanza"}
+    )
     tok.process(message)
     tokens = message.get(TOKENS_NAMES[TEXT])
     # We also generate a __CLS__ token
@@ -20,7 +22,9 @@ def test_stanza_correct_length(msg, n):
 def test_stanza_lemma():
     """We need to attach correct lemmas"""
     message = Message("i am running and giving many greetings")
-    tok = StanzaTokenizer(component_config={"lang": "en"})
+    tok = StanzaTokenizer(
+        component_config={"lang": "en", "cache_dir": "tests/data/stanza"}
+    )
     tok.process(message)
     tokens = message.get(TOKENS_NAMES[TEXT])
     assert [t.lemma for t in tokens] == [
@@ -38,7 +42,9 @@ def test_stanza_lemma():
 def test_stanza_pos():
     """We need to attach correct POS"""
     message = Message("i am running and giving many greetings")
-    tok = StanzaTokenizer(component_config={"lang": "en"})
+    tok = StanzaTokenizer(
+        component_config={"lang": "en", "cache_dir": "tests/data/stanza"}
+    )
     tok.process(message)
     tokens = message.get(TOKENS_NAMES[TEXT])
     assert [t.data.get("pos", "") for t in tokens] == [
