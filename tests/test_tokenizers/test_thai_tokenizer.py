@@ -9,6 +9,7 @@ from rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer import (
 )
 from rasa_nlu_examples.tokenizers import ThaiTokenizer
 
+
 # Thai example sentences taken from the PyThaiNLP Tutorial:
 #   https://www.thainlp.org/pythainlp/tutorials/notebooks/pythainlp_get_started.html#Word
 @pytest.mark.parametrize(
