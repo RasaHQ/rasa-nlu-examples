@@ -1,6 +1,8 @@
 The `ThaiTokenizer` is a Rasa compatible tokenizer for Thai, using [`PyThaiNLP`](https://github.com/PyThaiNLP/pythainlp) under the hood.
 
-Once `pythainlp` is installed (e.g. via `pip install pythainlp`), it can be used in a Rasa configuration like below:
+In order to use the `ThaiTokenizer` the language **must** be set to `th` - no other languages are supported by this tokenizer.
+
+The `ThaiTokenizer` can be used in a Rasa configuration like below:
 
 ```yaml
 language: th
