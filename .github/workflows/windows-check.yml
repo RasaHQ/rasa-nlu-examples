@@ -35,5 +35,5 @@ jobs:
         python -m pip install -e "."
         python -m pip freeze
         python tests/prepare_everything.py
-        chmod 775 tests/data/custom_fasttext_model.bin
+        chmod 775 tests/data/fasttext/custom_fasttext_model.bin
         pytest
