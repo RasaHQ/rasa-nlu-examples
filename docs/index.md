@@ -24,6 +24,13 @@ The following components are implemented.
 This component will print what each featurizer adds to the NLU message. Very useful for debugging.
 You can find a tutorial on it [here](https://blog.rasa.com/custom-printer-component/).
 
+### Tokenizers
+
+#### ThaiTokenizer [docs](docs/tokenizer/thai_tokenizer/)
+
+We support a Thai tokenizier based on PyThaiNLP [link](https://github.com/PyThaiNLP/pythainlp).
+
+
 ### Dense Featurizers
 
 #### FastTextFeaturizer
