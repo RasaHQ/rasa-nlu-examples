@@ -7,6 +7,7 @@ yml_files = [
     "printer-config.yml",
     "bytepair-config.yml",
     "gensim-config.yml",
+    "thai_tokenizer-config.yml",
 ]
 
 
