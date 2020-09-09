@@ -111,7 +111,7 @@ venv.bak/
 dmypy.json
 
 .idea
-tests/data/*.bin
+tests/data/fasttext/*.bin
 models/*.tar.gz
 results/*
 /.pytype/
