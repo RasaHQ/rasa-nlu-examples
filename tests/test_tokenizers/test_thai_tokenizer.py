@@ -12,7 +12,8 @@ from rasa_nlu_examples.tokenizers import ThaiTokenizer
 # Thai example sentences taken from the PyThaiNLP Tutorial:
 #   https://www.thainlp.org/pythainlp/tutorials/notebooks/pythainlp_get_started.html#Word
 @pytest.mark.parametrize(
-    "msg,n", zip(["ก็จะรู้ความชั่วร้ายที่ทำไว้     และคงจะไม่ยอมให้ทำนาบนหลังคน "], [14])
+    "msg,n",
+    zip(["ก็จะรู้ความชั่วร้ายที่ทำไว้     และคงจะไม่ยอมให้ทำนาบนหลังคน "], [14]),
 )
 def test_thai_tokenizer_length(msg, n):
     """We should add the correct number of tokens."""
@@ -39,6 +40,8 @@ def test_component_changes_features_cvf():
     tokenizer = ThaiTokenizer()
 
     txt = "ก็จะรู้ความชั่วร้ายที่ทำไว้     และคงจะไม่ยอมให้ทำนาบนหลังคน "
-    feats = fetch_sparse_features(txt=txt, tokenizer=tokenizer, featurizer=CountVectorsFeaturizer())
+    feats = fetch_sparse_features(
+        txt=txt, tokenizer=tokenizer, featurizer=CountVectorsFeaturizer()
+    )
 
     assert feats.shape[1] > 0 and isinstance(feats, np.ndarray)
