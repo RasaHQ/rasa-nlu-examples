@@ -50,7 +50,7 @@ The following components are implemented;
 
 ### Tokenizers
 
-- `rasa_nlu_examples.tokenizers.ThaiTokenizer`: a Thai tokenizier based on PyThaiNLP [link](https://github.com/PyThaiNLP/pythainlp)
+- `rasa_nlu_examples.tokenizers.ThaiTokenizer`: a Thai tokenizer based on PyThaiNLP [link](https://github.com/PyThaiNLP/pythainlp)
 
 # Usage
 
