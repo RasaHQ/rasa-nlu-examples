@@ -17,7 +17,7 @@ class ThaiTokenizer(Tokenizer):
         "case_sensitive": True,
     }
 
-    # the following language should not be tokenized using the WhitespaceTokenizer
+    supported_language_list = ["th"]
 
     def __init__(self, component_config: Dict[Text, Any] = None) -> None:
         """Construct a new tokenizer using the WhitespaceTokenizer framework."""

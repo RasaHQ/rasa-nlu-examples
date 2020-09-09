@@ -86,7 +86,7 @@ An example config for using the Thai tokenizer would look like:
 ```yaml
 language: th
 pipeline:
-  - name: rasa_nlu_examples.tokenizers.thai_tokenizer.ThaiTokenizer
+  - name: rasa_nlu_examples.tokenizers.ThaiTokenizer
   - name: CountVectorsFeaturizer
   - name: CountVectorsFeaturizer
     analyzer: char_wb

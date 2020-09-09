@@ -10,6 +10,8 @@ nav:
   - Contributing: contributing.md
   - Usage:
       - Benchmarking Guide: benchmarking.md
+      - Tokenizers:
+          - ThaiTokenizer: docs/tokenizer/thai_tokenizer.md
       - Meta:
         - Printer: docs/meta/printer.md
       - Featurizers:
