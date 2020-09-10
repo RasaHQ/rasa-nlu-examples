@@ -30,7 +30,10 @@ the changes you would like to contribute. A more in-depth contribution guide can
 
 # Compatibility
 
-This project is compatible with Rasa 1.10. The goal is to keep this project compatible with the most recent stable Rasa release.
+The goal is to keep this project compatible with the most recent stable Rasa release. You can find
+older versions in the github releases.
+
+Currently, this project is compatible with Rasa 1.10. 
 
 # Documentation
 
