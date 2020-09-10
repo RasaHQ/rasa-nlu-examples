@@ -45,12 +45,12 @@ The following components are implemented;
 ### Dense Featurizers
 
 - `rasa_nlu_examples.featurizers.dense.GensimFeaturizer`: pretrained [Gensim](https://radimrehurek.com/gensim/) embeddings 
-- `rasa_nlu_examples.featurizers.dense.FastTextFeaturizer`: pretrained [FastText](https://fasttext.cc/) embeddings
-- `rasa_nlu_examples.featurizers.dense.BytePairFeaturizer`: pretrained [BytePair](https://nlp.h-its.org/bpemb/) embeddings 
+- `rasa_nlu_examples.featurizers.dense.FastTextFeaturizer`: pretrained [FastText](https://fasttext.cc/) embeddings for 157 languages
+- `rasa_nlu_examples.featurizers.dense.BytePairFeaturizer`: pretrained [BytePair](https://nlp.h-its.org/bpemb/) embeddings for 275 languages
 
 ### Tokenizers
 
-- `rasa_nlu_examples.tokenizers.StanzaTokenizer`: a tokenizer that adds lemma/pos features based on [Stanza](https://stanfordnlp.github.io/stanza/)
+- `rasa_nlu_examples.tokenizers.StanzaTokenizer`: a tokenizer that adds lemma/pos features based on [Stanza](https://stanfordnlp.github.io/stanza/) for 63 languages
 - `rasa_nlu_examples.tokenizers.ThaiTokenizer`: a Thai tokenizer based on [PyThaiNLP](https://github.com/PyThaiNLP/pythainlp)
 
 # Usage
