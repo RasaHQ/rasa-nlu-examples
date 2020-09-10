@@ -41,11 +41,6 @@ pipeline:
   max_ngram: 4
 - name: DIETClassifier
   epochs: 100
-
-policies:
-  - name: MemoizationPolicy
-  - name: KerasPolicy
-  - name: MappingPolicy
 ```
 
 One thing to note here is that the `LexicalSyntacticFeaturizer` will be able to pick up

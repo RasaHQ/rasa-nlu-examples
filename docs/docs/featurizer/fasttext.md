@@ -27,9 +27,4 @@ pipeline:
   file: cc.nl.300.bin
 - name: DIETClassifier
   epochs: 100
-
-policies:
-  - name: MemoizationPolicy
-  - name: KerasPolicy
-  - name: MappingPolicy
 ```
