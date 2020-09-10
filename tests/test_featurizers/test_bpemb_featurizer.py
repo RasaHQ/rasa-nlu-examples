@@ -8,8 +8,8 @@ config_man = dict(
     lang="en",
     vs=1000,
     dim=25,
-    model_file="tests/data/en/en.wiki.bpe.vs1000.model",
-    emb_file="tests/data/en/en.wiki.bpe.vs1000.d25.w2v.bin",
+    model_file="tests/data/bytepair/en/en.wiki.bpe.vs1000.model",
+    emb_file="tests/data/bytepair/en/en.wiki.bpe.vs1000.d25.w2v.bin",
 )
 config_auto = dict(lang="en", vs=1000, dim=25, vs_fallback=True)
 tokenizer = WhitespaceTokenizer()
@@ -40,8 +40,8 @@ def test_raise_error_missing_model_file():
         lang="en",
         vs=1000,
         dim=25,
-        model_file="tests/data/en/en.dinosaur.bpe.vs1000.model",
-        emb_file="tests/data/en/en.wiki.bpe.vs1000.d25.w2v.bin",
+        model_file="tests/data/bytepair/en/en.dinosaur.bpe.vs1000.model",
+        emb_file="tests/data/bytepair/en/en.wiki.bpe.vs1000.d25.w2v.bin",
     )
     with pytest.raises(FileNotFoundError):
         BytePairFeaturizer(component_config=config_bad)
@@ -52,8 +52,8 @@ def test_raise_error_missing_emb_file():
         lang="en",
         vs=1000,
         dim=25,
-        model_file="tests/data/en/en.wiki.bpe.vs1000.model",
-        emb_file="tests/data/en/en.wiki.dinosaur.vs1000.d25.w2v.bin",
+        model_file="tests/data/bytepair/en/en.wiki.bpe.vs1000.model",
+        emb_file="tests/data/bytepair/en/en.wiki.dinosaur.vs1000.d25.w2v.bin",
     )
     with pytest.raises(FileNotFoundError):
         BytePairFeaturizer(component_config=config_bad)
@@ -64,8 +64,8 @@ def test_config_missing():
         lang="en",
         vs=1000,
         dim=25,
-        model_file="tests/data/en/en.wiki.bpe.vs1000.model",
-        emb_file="tests/data/en/en.wiki.dinosaur.vs1000.d25.w2v.bin",
+        model_file="tests/data/bytepair/en/en.wiki.bpe.vs1000.model",
+        emb_file="tests/data/bytepair/en/en.wiki.dinosaur.vs1000.d25.w2v.bin",
     )
     with pytest.raises(FileNotFoundError):
         BytePairFeaturizer(component_config=config_bad)

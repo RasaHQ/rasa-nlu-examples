@@ -50,11 +50,6 @@ pipeline:
   dim: 25
 - name: DIETClassifier
   epochs: 100
-
-policies:
-  - name: MemoizationPolicy
-  - name: KerasPolicy
-  - name: MappingPolicy
 ```
 
 ## Cached Usage
@@ -79,11 +74,6 @@ pipeline:
   cache_dir: "tests/data"
 - name: DIETClassifier
   epochs: 100
-
-policies:
-  - name: MemoizationPolicy
-  - name: KerasPolicy
-  - name: MappingPolicy
 ```
 
 Note that in this case we expect two files to be present in the `tests/data` directory;

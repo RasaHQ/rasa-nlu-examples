@@ -11,6 +11,7 @@ nav:
   - Usage:
       - Benchmarking Guide: benchmarking.md
       - Tokenizers:
+          - Stanza: docs/tokenizer/stanza.md
           - ThaiTokenizer: docs/tokenizer/thai_tokenizer.md
       - Meta:
         - Printer: docs/meta/printer.md

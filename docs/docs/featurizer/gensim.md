@@ -10,7 +10,7 @@ also read the guide on the
 
 ## Training Your Own
 
-Training your own gensim model can be done in a few lines of code. A demonstration is shown below. 
+Training your own gensim model can be done in a few lines of code. A demonstration is shown below.
 
 ```python
 from gensim.models import Word2Vec
@@ -57,9 +57,4 @@ pipeline:
   file: filename.kv
 - name: DIETClassifier
   epochs: 100
-
-policies:
-  - name: MemoizationPolicy
-  - name: KerasPolicy
-  - name: MappingPolicy
 ```

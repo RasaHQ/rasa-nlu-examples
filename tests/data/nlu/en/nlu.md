@@ -19,10 +19,10 @@
 - am I talking to a human?
 
 ## intent:talk_code
-- i want to talk about [python](proglang) - How do you do inline delegates in vb.net like [python](proglang) 
-- Code to ask yes/no question in [javascript](proglang) 
+- i want to talk about [python](proglang) - How do you do inline delegates in vb.net like [python](proglang)
+- Code to ask yes/no question in [javascript](proglang)
 - Executing [JavaScript](proglang) from Flex: Is this [javascript](proglang) function dangerous?
-- What does this [python](proglang) error mean? 
+- What does this [python](proglang) error mean?
 - [javascript](proglang) localsimplement shortcut key combination of CTRL or SHIFT + letter through [javascript](proglang) - How can I create a Netflix-style iframe overlay without a huge [javascript](proglang) library?
 - How can I share a variable value between classic asp, .NET and [javascript](proglang) - Detect via [javascript](proglang) whether Silverlight is installed
 - jQuery override form submit not working when submit called by [javascript](proglang) on a element

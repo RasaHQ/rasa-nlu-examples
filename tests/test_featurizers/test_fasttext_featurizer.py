@@ -7,7 +7,7 @@ from .featurizer_checks import dense_standard_test_combinations
 from rasa_nlu_examples.featurizers.dense.fasttext_featurizer import FastTextFeaturizer
 
 test_folder = pathlib.Path(__file__).parent.parent.absolute()
-cache_dir = str(test_folder / "data")
+cache_dir = str(test_folder / "data" / "fasttext")
 file_name = "custom_fasttext_model.bin"
 
 config = {"cache_dir": cache_dir, "file": file_name}

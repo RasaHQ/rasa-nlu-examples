@@ -26,9 +26,4 @@ pipeline:
   alias: after count vectors
 - name: DIETClassifier
   epochs: 100
-
-policies:
-  - name: MemoizationPolicy
-  - name: KerasPolicy
-  - name: MappingPolicy
 ```

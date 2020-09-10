@@ -37,7 +37,7 @@ If the tools that we offer here turn out to be useful then we'd love to hear abo
 We're also interested in hearing if these tools don't work for your usecase.
 Any feedback will be shared with the research team at Rasa. We're especially keen to hear feedback on the performance of the word embeddings that we host here. You can leave a message
 either on [the github issue list](https://github.com/RasaHQ/rasa-nlu-examples/issues) or
-on [the Rasa forum](forum.rasa.com/). Be sure to ping **koaning**** on the forum if you mention
+on [the Rasa forum](forum.rasa.com/). Be sure to ping **koaning** on the forum if you mention
 this project, he's the main maintainer.
 
 ### Adding a new Component

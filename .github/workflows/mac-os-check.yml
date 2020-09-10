@@ -1,4 +1,4 @@
-name: Python Full Ubuntu Test
+name: MacOS Tests
 
 on:
   push:
@@ -13,8 +13,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        python-version: [3.6, 3.7]
+        os: [macos-latest]
+        python-version: [3.7]
         rasa-version: ["1.10.8"]
 
     steps:
@@ -26,13 +26,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -e "."
-        pip install --upgrade rasa==${{ matrix.rasa-version }}
-        pip install pytest
-    - name: Versions of Dependencies
-      run: pip freeze | grep -E 'stanza|gensim|bpemb|fasttext'
+        python -m pip install --upgrade rasa==${{ matrix.rasa-version }}
+        python -m pip install pytest
     - name: Test with pytest
       run: |
+        python -m pip install -e "."
+        python -m pip freeze
         python tests/prepare_everything.py
         chmod 775 tests/data/fasttext/custom_fasttext_model.bin
         pytest

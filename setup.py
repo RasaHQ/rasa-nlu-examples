@@ -1,11 +1,13 @@
 from setuptools import setup, find_packages
 
+
 base_packages = [
     "rasa>=1.10.0",
     "fasttext>=0.9.2",
     "bpemb>=0.3.2",
     "gensim>=3.8.3",
     "pythainlp>=2.2.3",
+    "stanza>=1.1.1"
 ]
 
 dev_packages = [

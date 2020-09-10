@@ -11,11 +11,6 @@ pipeline:
   lang: en
   vs: 1000
   dim: 25
-  cache_dir: "tests/data"
+  cache_dir: "tests/data/bytepair"
 - name: DIETClassifier
   epochs: 1
-
-policies:
-  - name: MemoizationPolicy
-  - name: KerasPolicy
-  - name: MappingPolicy
