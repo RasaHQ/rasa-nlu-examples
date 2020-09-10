@@ -7,7 +7,7 @@ from .featurizer_checks import dense_standard_test_combinations
 from rasa_nlu_examples.featurizers.dense.gensim_featurizer import GensimFeaturizer
 
 test_folder = pathlib.Path(__file__).parent.parent.absolute()
-cache_dir = str(test_folder / "data")
+cache_dir = str(test_folder / "data" / "gensim")
 file_name = "custom_gensim_vectors.kv"
 
 config = {"cache_dir": cache_dir, "file": file_name}
