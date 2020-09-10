@@ -26,6 +26,13 @@ You can find a tutorial on it [here](https://blog.rasa.com/custom-printer-compon
 
 ### Tokenizers
 
+#### StanzaTokenizer [docs](docs/tokenizer/stanza/)
+
+We support a tokenizier based on [Stanza](https://github.com/stanfordnlp/stanza). This
+tokenizer offers part of speech tagging as well as lemmatization for many languages that
+spaCy currently does not support. These features might help your ML pipelines in those
+situations.
+
 #### ThaiTokenizer [docs](docs/tokenizer/thai_tokenizer/)
 
 We support a Thai tokenizier based on PyThaiNLP [link](https://github.com/PyThaiNLP/pythainlp).
