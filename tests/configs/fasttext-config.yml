@@ -12,8 +12,3 @@ pipeline:
   file: "custom_fasttext_model.bin"
 - name: DIETClassifier
   epochs: 1
-
-policies:
-  - name: MemoizationPolicy
-  - name: KerasPolicy
-  - name: MappingPolicy

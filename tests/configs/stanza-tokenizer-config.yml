@@ -16,8 +16,3 @@ pipeline:
   max_ngram: 4
 - name: DIETClassifier
   epochs: 1
-
-policies:
-  - name: MemoizationPolicy
-  - name: KerasPolicy
-  - name: MappingPolicy

@@ -14,8 +14,3 @@ pipeline:
   cache_dir: "tests/data/bytepair"
 - name: DIETClassifier
   epochs: 1
-
-policies:
-  - name: MemoizationPolicy
-  - name: KerasPolicy
-  - name: MappingPolicy
