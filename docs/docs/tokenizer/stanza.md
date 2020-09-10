@@ -45,4 +45,4 @@ pipeline:
 
 One thing to note here is that the `LexicalSyntacticFeaturizer` will be able to pick up
 the "pos" information with the `StanzaTokenizer` just like you're able to do that with spaCy.
-The `CountVectorizer` is also able to pick up the `lemma` features that are generated.
+The `CountVectorsFeaturizer` is able to pick up the `lemma` features that are generated.
