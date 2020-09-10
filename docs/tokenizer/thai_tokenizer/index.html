@@ -11,23 +11,23 @@
         <meta name="description" content="A collection of open source Rasa compatible NLU components.">
       
       
-        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/benchmarking/">
+        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/thai_tokenizer/">
       
       
         <meta name="author" content="Vincent D. Warmerdam @ Rasa Research">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.4.0">
     
     
       
-        <title>Benchmarking Guide - Rasa NLU Examples</title>
+        <title>ThaiTokenizer - Rasa NLU Examples</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fe0cca5b.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fe0cca5b.min.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/palette.a46bcfb3.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a46bcfb3.min.css">
       
       
         
@@ -45,7 +45,7 @@
     
     
     
-      <link rel="stylesheet" href="../style.css">
+      <link rel="stylesheet" href="../../../style.css">
     
     
       
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#benchmarking-guide" class="md-skip">
+        <a href="#configurable-variables" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Benchmarking Guide
+              ThaiTokenizer
             
           </span>
         </div>
@@ -165,7 +165,7 @@
         
   <li class="md-tabs__item">
     
-      <a href=".." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         Home
       </a>
     
@@ -179,7 +179,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="./" class="md-tabs__link md-tabs__link--active">
+        <a href="../../../benchmarking/" class="md-tabs__link md-tabs__link--active">
           Usage
         </a>
       
@@ -231,7 +231,7 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Home" class="md-nav__link">
+    <a href="../../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -243,7 +243,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../contributing/" title="Contributing" class="md-nav__link">
+    <a href="../../../contributing/" title="Contributing" class="md-nav__link">
       Contributing
     </a>
   </li>
@@ -280,53 +280,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Benchmarking Guide
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Benchmarking Guide" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../../benchmarking/" title="Benchmarking Guide" class="md-nav__link">
       Benchmarking Guide
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#final-reminder" class="md-nav__link">
-    Final Reminder
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -334,10 +292,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
     
     <label class="md-nav__link" for="nav-3-2">
       Tokenizers
@@ -361,7 +321,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/tokenizer/stanza/" title="StanzaTokenizer" class="md-nav__link">
+    <a href="../stanza/" title="StanzaTokenizer" class="md-nav__link">
       StanzaTokenizer
     </a>
   </li>
@@ -371,11 +331,56 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../docs/tokenizer/thai_tokenizer/" title="ThaiTokenizer" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        ThaiTokenizer
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="ThaiTokenizer" class="md-nav__link md-nav__link--active">
       ThaiTokenizer
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configurable-variables" class="md-nav__link">
+    Configurable Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-usage" class="md-nav__link">
+    Base Usage
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -415,7 +420,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/meta/printer/" title="Printer" class="md-nav__link">
+    <a href="../../meta/printer/" title="Printer" class="md-nav__link">
       Printer
     </a>
   </li>
@@ -457,7 +462,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/featurizer/gensim/" title="GensimFeaturizer" class="md-nav__link">
+    <a href="../../featurizer/gensim/" title="GensimFeaturizer" class="md-nav__link">
       GensimFeaturizer
     </a>
   </li>
@@ -469,7 +474,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/featurizer/fasttext/" title="FastTextFeaturizer" class="md-nav__link">
+    <a href="../../featurizer/fasttext/" title="FastTextFeaturizer" class="md-nav__link">
       FastTextFeaturizer
     </a>
   </li>
@@ -481,7 +486,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/featurizer/bytepair/" title="BytePairFeaturizer" class="md-nav__link">
+    <a href="../../featurizer/bytepair/" title="BytePairFeaturizer" class="md-nav__link">
       BytePairFeaturizer
     </a>
   </li>
@@ -511,8 +516,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -523,8 +526,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#final-reminder" class="md-nav__link">
-    Final Reminder
+  <a href="#configurable-variables" class="md-nav__link">
+    Configurable Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-usage" class="md-nav__link">
+    Base Usage
   </a>
   
 </li>
@@ -541,7 +551,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/benchmarking.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/tokenizer/thai_tokenizer.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -549,125 +559,29 @@
                   
                 
                 
-                <h1 id="benchmarking-guide">Benchmarking Guide<a class="headerlink" href="#benchmarking-guide" title="Permanent link">&para;</a></h1>
-<p>This is a small guide that will explain how you can use the tools in this library to run benchmarks.</p>
-<p>As an example project we'll use <a href="https://github.com/rasahq/rasa-demo">the Sara demo</a>.</p>
-<p>First you'll need to install the project. An easy way to do this is via pip;</p>
-<div class="codehilite"><pre><span></span><code>pip install git+https://github.com/RasaHQ/rasa-nlu-examples
+                  <h1>ThaiTokenizer</h1>
+                
+                <p>The <code>ThaiTokenizer</code> is a Rasa compatible tokenizer for Thai, using <a href="https://github.com/PyThaiNLP/pythainlp"><code>PyThaiNLP</code></a> under the hood.</p>
+<p>In order to use the <code>ThaiTokenizer</code> the language <strong>must</strong> be set to <code>th</code> - no
+other languages are supported by this tokenizer.</p>
+<h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
+<p>None</p>
+<h2 id="base-usage">Base Usage<a class="headerlink" href="#base-usage" title="Permanent link">&para;</a></h2>
+<p>The <code>ThaiTokenizer</code> can be used in a Rasa configuration like below:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">th</span>
+<span class="nt">pipeline</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.tokenizers.ThaiTokenizer</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
+    <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
+    <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
+    <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
 </code></pre></div>
 
 
-<p>You should now be able to run configuration files like this one;</p>
-<div class="tabbed-set" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Basic Config</label><div class="tabbed-content">
-<p>Here's a very basic configuartion file.
-<pre><code>language: en
-pipeline:
-- name: WhitespaceTokenizer
-- name: CountVectorsFeaturizer
-  OOV_token: oov.txt
-  token_pattern: (?u)\b\w+\b
-- name: CountVectorsFeaturizer
-  analyzer: char_wb
-  min_ngram: 1
-  max_ngram: 4
-- name: DIETClassifier
-  epochs: 200
-</code></pre></p>
-<p>Assuming this file is named <code>basic-config.yml</code> you can run this pipeline as a benchmark by running this
-command from the project directory;</p>
-<p><pre><code>rasa test nlu --config basic-config.yml \
-          --cross-validation --runs 1 --folds 2 \
-          --out gridresults/basic-config
-</code></pre></p>
-<p>This will generate output in the <code>gridresults/basic-config</code> folder.</p>
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Basic Byte-Pair</label><div class="tabbed-content">
-<p>Here's the same basic configuration but now with dense features added.
-<pre><code>language: en
-pipeline:
-- name: WhitespaceTokenizer
-- name: CountVectorsFeaturizer
-  OOV_token: oov.txt
-  token_pattern: (?u)\b\w+\b
-- name: CountVectorsFeaturizer
-  analyzer: char_wb
-  min_ngram: 1
-  max_ngram: 4
-- name: rasa_nlu_examples.featurizers.dense.BytePairFeaturizer
-  lang: en
-  vs: 1000
-  dim: 25
-- name: DIETClassifier
-  epochs: 200
-</code></pre></p>
-<p>Assuming this file is named <code>basic-bytepair-config.yml</code> you can run it as a benchmark by running this
-command from the project directory;</p>
-<p><pre><code>rasa test nlu --config basic-bytepair-config.yml \
-          --cross-validation --runs 1 --folds 2 \
-          --out gridresults/basic-bytepair-config
-</code></pre></p>
-<p>This will generate output in the <code>gridresults/basic-bytepair-config</code> folder.</p>
-</div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Medium Byte-Pair</label><div class="tabbed-content">
-<p>We've now increased the vocabulary size and dimensionality.
-<pre><code>language: en
-pipeline:
-- name: WhitespaceTokenizer
-- name: CountVectorsFeaturizer
-  OOV_token: oov.txt
-  token_pattern: (?u)\b\w+\b
-- name: CountVectorsFeaturizer
-  analyzer: char_wb
-  min_ngram: 1
-  max_ngram: 4
-- name: rasa_nlu_examples.featurizers.dense.BytePairFeaturizer
-  lang: en
-  vs: 10000
-  dim: 100
-- name: DIETClassifier
-  epochs: 200
-</code></pre></p>
-<p>Assuming this file is named <code>medium-bytepair-config.yml</code> you can run it as a benchmark by running this
-command from the project directory;</p>
-<p><pre><code>rasa test nlu --config medium-bytepair-config.yml \
-          --cross-validation --runs 1 --folds 2 \
-          --out gridresults/medium-bytepair-config
-</code></pre></p>
-<p>This will generate output in the <code>gridresults/medium-bytepair-config</code> folder.</p>
-</div>
-<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">Large Byte-Pair</label><div class="tabbed-content">
-<p>We've now grabbed the largest English Byte-Pair embeddings available.
-<pre><code>language: en
-pipeline:
-- name: WhitespaceTokenizer
-- name: CountVectorsFeaturizer
-  OOV_token: oov.txt
-  token_pattern: (?u)\b\w+\b
-- name: CountVectorsFeaturizer
-  analyzer: char_wb
-  min_ngram: 1
-  max_ngram: 4
-- name: rasa_nlu_examples.featurizers.dense.BytePairFeaturizer
-  lang: en
-  vs: 200000
-  dim: 300
-- name: DIETClassifier
-  epochs: 200
-</code></pre></p>
-<p>Assuming this file is named <code>large-bytepair-config.yml</code> you can run this benchmark by running this
-command from the project directory;</p>
-<p><pre><code>rasa test nlu --config large-bytepair-config.yml \
-          --cross-validation --runs 1 --folds 2 \
-          --out gridresults/large-bytepair-config
-</code></pre></p>
-<p>This will generate output in the <code>gridresults/large-bytepair-config</code> folder.</p>
-</div>
-</div>
-<h2 id="final-reminder">Final Reminder<a class="headerlink" href="#final-reminder" title="Permanent link">&para;</a></h2>
-<p>We should remember that these tools are experimental in nature. We want this repository to be a place
-where folks can share their nlu components and experiment, but this also means that we don't want to
-suggest that these tools are state of the art. You always need to check if these tools work for your
-pipeline. The components that we host here may very well lag behind Rasa Open Source too.</p>
+<p>If there are any issues with this tokenizer, please <a href="https://github.com/RasaHQ/rasa-nlu-examples/issues">let us know</a>.</p>
                 
               
               
@@ -686,7 +600,7 @@ pipeline. The components that we host here may very well lag behind Rasa Open So
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../contributing/" title="Contributing" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../stanza/" title="StanzaTokenizer" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -695,19 +609,19 @@ pipeline. The components that we host here may very well lag behind Rasa Open So
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Contributing
+                StanzaTokenizer
               </div>
             </div>
           </a>
         
         
-          <a href="../docs/tokenizer/stanza/" title="StanzaTokenizer" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../meta/printer/" title="Printer" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                StanzaTokenizer
+                Printer
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -738,15 +652,15 @@ pipeline. The components that we host here may very well lag behind Rasa Open So
       
     </div>
     
-      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: "..",
+          base: "../../..",
           features: ["tabs", "instant"],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
+            worker: "../../../assets/javascripts/worker/search.a68abb33.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
