@@ -44,13 +44,14 @@ The following components are implemented;
 
 ### Dense Featurizers
 
-- `rasa_nlu_examples.featurizers.dense.GensimFeaturizer`: pretrained gensim embeddings [link](https://radimrehurek.com/gensim/)
-- `rasa_nlu_examples.featurizers.dense.FastTextFeaturizer`: pretrained fasttext embeddings [link](https://fasttext.cc/)
-- `rasa_nlu_examples.featurizers.dense.BytePairFeaturizer`: pretrained byte-pair embeddings [link](https://nlp.h-its.org/bpemb/)
+- `rasa_nlu_examples.featurizers.dense.GensimFeaturizer`: pretrained [Gensim](https://radimrehurek.com/gensim/) embeddings 
+- `rasa_nlu_examples.featurizers.dense.FastTextFeaturizer`: pretrained [FastText](https://fasttext.cc/) embeddings
+- `rasa_nlu_examples.featurizers.dense.BytePairFeaturizer`: pretrained [BytePair](https://nlp.h-its.org/bpemb/) embeddings 
 
 ### Tokenizers
 
-- `rasa_nlu_examples.tokenizers.ThaiTokenizer`: a Thai tokenizer based on PyThaiNLP [link](https://github.com/PyThaiNLP/pythainlp)
+- `rasa_nlu_examples.tokenizers.StanzaTokenizer`: a tokenizer that adds lemma/pos features based on [Stanza](https://stanfordnlp.github.io/stanza/)
+- `rasa_nlu_examples.tokenizers.ThaiTokenizer`: a Thai tokenizer based on [PyThaiNLP](https://github.com/PyThaiNLP/pythainlp)
 
 # Usage
 
