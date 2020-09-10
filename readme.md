@@ -41,8 +41,6 @@ You can find the documentation for this project [here](https://rasahq.github.io/
 
 # Features
 
-This project currently supports components for Rasa 1.10. 
-
 The following components are implemented;
 
 ### Meta
