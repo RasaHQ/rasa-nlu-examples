@@ -21,6 +21,7 @@ There are many ways you can contribute to this project.
 - You can help review new features. 
 - You can submit new components.
 - You can let us know if there are bugs.
+- You can share the results of an experiment you ran using these tools.
 - You can let us know if the components in this library help you.
 
 Feel free to start the discussion by opening an issue on this repository. Before submitting code
