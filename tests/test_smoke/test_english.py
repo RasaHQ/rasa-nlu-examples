@@ -15,6 +15,7 @@ english_yml_files = [
 ]
 
 
+@pytest.mark.fasttext
 @pytest.mark.parametrize("fp", english_yml_files)
 def test_run_train_test_command_english(fp):
     mod = train_nlu(
