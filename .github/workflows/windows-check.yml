@@ -36,4 +36,5 @@ jobs:
         python -m pip freeze
         python tests/prepare_everything.py
         chmod 775 tests/data/fasttext/custom_fasttext_model.bin
-        pytest
+        # Windows does not run fasttext so we only run a subset of tests here.
+        pytest tests/test_featurizers/test_bpemb_featurizer.py tests/test_featurizers/test_gensim_featurizer.py tests/test_tokenizers/*
