@@ -7,7 +7,7 @@ base_packages = [
     "bpemb>=0.3.2",
     "gensim>=3.8.3",
     "pythainlp>=2.2.3",
-    "stanza>=1.1.1"
+    "stanza>=1.1.1",
 ]
 
 dev_packages = [
@@ -25,7 +25,7 @@ dev_packages = [
 
 setup(
     name="rasa_nlu_examples",
-    version="0.1.2",
+    version="0.2.0",
     packages=find_packages(exclude=["notebooks"]),
     install_requires=base_packages,
     extras_require={"dev": dev_packages},
