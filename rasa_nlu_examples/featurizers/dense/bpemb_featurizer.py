@@ -406,7 +406,7 @@ class BytePairFeaturizer(DenseFeaturizer):
         if not tokens:
             return None
 
-        text_vector = self.create_word_vector(document=message.get(TEXT))
+        text_vector = self.create_word_vector(document=message.get(TEXT)).reshape(1, -1)
         word_vectors = np.array(
             [self.create_word_vector(document=t.text) for t in tokens]
         )

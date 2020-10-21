@@ -72,7 +72,7 @@ class FastTextFeaturizer(DenseFeaturizer):
         if not tokens:
             return None
 
-        text_vector = self.model.get_word_vector(message.get(TEXT))
+        text_vector = self.model.get_word_vector(message.get(TEXT)).reshape(1, -1)
         word_vectors = np.array([self.model.get_word_vector(t.text) for t in tokens])
 
         final_sequence_features = Features(
