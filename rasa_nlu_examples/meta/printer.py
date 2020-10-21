@@ -4,7 +4,8 @@ import numpy as np
 
 from rasa.nlu.components import Component
 from rasa.nlu.config import RasaNLUModelConfig
-from rasa.nlu.training_data import Message, TrainingData
+from rasa.shared.nlu.training_data.training_data import TrainingData
+from rasa.shared.nlu.training_data.message import Message
 from rasa.nlu.tokenizers.tokenizer import Token
 
 if typing.TYPE_CHECKING:
@@ -17,7 +18,7 @@ class Printer(Component):
 
     **Configurable Variables:**
 
-    - alias: gives an extra name to the componentn and adds an extra message that is printed
+    - alias: gives an extra name to the component and adds an extra message that is printed
 
     Usage:
 
