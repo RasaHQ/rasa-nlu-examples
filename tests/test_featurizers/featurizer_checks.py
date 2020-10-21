@@ -43,7 +43,7 @@ def test_component_does_not_remove_features(tokenizer, featurizer, msg):
     seq_vecs2, sen_vecs2 = message.get_dense_features(TEXT, [])
 
     assert (seq_vecs1.features.shape[1] * 2) == seq_vecs2.features.shape[1]
-    assert (sen_vecs1.features.shape[0] * 2) == sen_vecs2.features.shape[0]
+    assert (sen_vecs1.features.shape[1] * 2) == sen_vecs2.features.shape[1]
 
 
 dense_feature_checks = (
