@@ -21,6 +21,7 @@ There are many ways you can contribute to this project.
 - You can help review new features.
 - You can submit new components.
 - You can let us know if there are bugs.
+- You can share the results of an experiment you ran using these tools.
 - You can let us know if the components in this library help you.
 
 Feel free to start the discussion by opening an issue on this repository. Before submitting code
@@ -28,13 +29,24 @@ to the repository it would help if you first create an issue so that the maintai
 the changes you would like to contribute. A more in-depth contribution guide can be found
 [here](https://rasahq.github.io/rasa-nlu-examples/contributing/).
 
+# Compatibility
+
+The goal is to keep this project compatible with the most recent stable Rasa release. You can find
+older versions in the github releases.
+
+Currently, this project is compatible with Rasa 1.10. 
+
 # Documentation
 
 You can find the documentation for this project [here](https://rasahq.github.io/rasa-nlu-examples/).
 
-# Features
+# Compatibility
 
-This project currently supports components for Rasa 1.10.
+This project currently supports components for Rasa 2.0. For older versions, see the list below. 
+
+- [version 0.1.3](https://github.com/RasaHQ/rasa-nlu-examples/tree/0.1.3) is the latest release for Rasa 1.10
+
+# Features
 
 The following components are implemented;
 
@@ -111,9 +123,3 @@ rasa test nlu --config basic-bytepair-config.yml \
 If you've spotted a bug then you can submit an issue [here](https://github.com/RasaHQ/rasa-nlu-examples/issues).
 GitHub issues allow us to keep track of a conversation about this repository and it is the preferred
 communication channel for bugs related to this project.
-
-# Compatibility
-
-We aim to support the most recent Rasa version. We try to link older versions below though;
-
-- [version 0.1.3](https://github.com/RasaHQ/rasa-nlu-examples/tree/0.1.3) is the latest release for Rasa 1.10
