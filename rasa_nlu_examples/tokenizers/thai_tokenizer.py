@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Text
 from pythainlp import word_tokenize
 
 from rasa.nlu.tokenizers.tokenizer import Token, Tokenizer
-from rasa.nlu.training_data import Message
+from rasa.shared.nlu.training_data.message import Message
 
 
 class ThaiTokenizer(Tokenizer):

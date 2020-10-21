@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Text
 
 from rasa.nlu.tokenizers.tokenizer import Token, Tokenizer
-from rasa.nlu.training_data import Message
+from rasa.shared.nlu.training_data.message import Message
 from functools import reduce
 from rasa.nlu.tokenizers.spacy_tokenizer import POS_TAG_KEY
 

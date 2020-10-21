@@ -1,6 +1,6 @@
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
-from rasa.nlu.constants import TEXT, DENSE_FEATURE_NAMES, TOKENS_NAMES
-from rasa.nlu.training_data import Message
+from rasa.shared.nlu.constants import TEXT, DENSE_FEATURE_NAMES, TOKENS_NAMES
+from rasa.shared.nlu.training_data.message import Message
 import itertools as it
 
 

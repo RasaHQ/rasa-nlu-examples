@@ -1,7 +1,9 @@
 import pytest
 
-from rasa.nlu.training_data import Message, TrainingData
-from rasa.nlu.constants import TEXT, TOKENS_NAMES, SPARSE_FEATURE_NAMES
+from rasa.shared.nlu.training_data.message import Message
+from rasa.shared.nlu.training_data.training_data import TrainingData
+from rasa.shared.nlu.constants import TEXT
+from rasa.nlu.constants import TOKENS_NAMES
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
 from rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer import (
     CountVectorsFeaturizer,
@@ -17,19 +19,18 @@ from rasa_nlu_examples.tokenizers.stanzatokenizer import StanzaTokenizer
 )
 def test_stanza_correct_length(msg, n):
     """We should add the correct number of tokens."""
-    message = Message(msg)
+    message = Message({TEXT: msg})
     tok = StanzaTokenizer(
         component_config={"lang": "en", "cache_dir": "tests/data/stanza"}
     )
     tok.process(message)
     tokens = message.get(TOKENS_NAMES[TEXT])
-    # We also generate a __CLS__ token
-    assert len(tokens) == n + 1
+    assert len(tokens) == n
 
 
 def test_stanza_lemma():
     """We need to attach correct lemmas"""
-    message = Message("i am running and giving many greetings")
+    message = Message({TEXT: "i am running and giving many greetings"})
     tok = StanzaTokenizer(
         component_config={"lang": "en", "cache_dir": "tests/data/stanza"}
     )
@@ -43,13 +44,12 @@ def test_stanza_lemma():
         "give",
         "many",
         "greeting",
-        "__CLS__",
     ]
 
 
 def test_stanza_pos():
     """We need to attach correct POS"""
-    message = Message("i am running and giving many greetings")
+    message = Message({TEXT: "i am running and giving many greetings"})
     tok = StanzaTokenizer(
         component_config={"lang": "en", "cache_dir": "tests/data/stanza"}
     )
@@ -63,16 +63,18 @@ def test_stanza_pos():
         "VERB",
         "ADJ",
         "NOUN",
-        "",
     ]
 
 
 def fetch_sparse_features(txt, tokenizer, featurizer):
-    message = Message("my advices include to give advice and giving many greetings")
+    message = Message(
+        {TEXT: "my advices include to give advice and giving many greetings"}
+    )
     tokenizer.process(message)
     featurizer.train(TrainingData([message]))
     featurizer.process(message)
-    return message.get(SPARSE_FEATURE_NAMES[TEXT]).toarray()
+    seq_vecs, sen_vecs = message.get_sparse_features(TEXT, [])
+    return seq_vecs.features.toarray()
 
 
 def test_component_changes_features_cvf():
