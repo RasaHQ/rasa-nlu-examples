@@ -6,16 +6,17 @@ from typing import Any, Optional, Text, Dict, List, Type
 import numpy as np
 from bpemb import BPEmb
 
-import rasa.utils.train_utils as train_utils
 from rasa.nlu.components import Component
 from rasa.nlu.config import RasaNLUModelConfig
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
-from rasa.nlu.training_data import Message, TrainingData
+from rasa.shared.nlu.constants import TEXT, FEATURE_TYPE_SENTENCE, FEATURE_TYPE_SEQUENCE
+from rasa.shared.nlu.training_data.message import Message
+from rasa.shared.nlu.training_data.features import Features
+from rasa.shared.nlu.training_data.training_data import TrainingData
 from rasa.nlu.featurizers.featurizer import DenseFeaturizer
 from rasa.nlu.constants import (
-    DENSE_FEATURE_NAMES,
     DENSE_FEATURIZABLE_ATTRIBUTES,
-    TEXT,
+    FEATURIZER_CLASS_ALIAS,
     TOKENS_NAMES,
 )
 
@@ -405,17 +406,27 @@ class BytePairFeaturizer(DenseFeaturizer):
         if not tokens:
             return None
 
-        text_vector = self.create_word_vector(document=message.text)
-        word_vectors = [
-            self.create_word_vector(document=t.text)
-            for t in train_utils.tokens_without_cls(message, attribute)
-        ]
-        X = np.array(word_vectors + [text_vector])
-
-        features = self._combine_with_existing_dense_features(
-            message, additional_features=X, feature_name=DENSE_FEATURE_NAMES[attribute]
+        # We need to reshape here such that the shape is equivalent to that of sparsely
+        # generated features. Without it, it'd be a 1D tensor. We need 2D (n_utterance, n_dim).
+        text_vector = self.create_word_vector(document=message.get(TEXT)).reshape(1, -1)
+        word_vectors = np.array(
+            [self.create_word_vector(document=t.text) for t in tokens]
         )
-        message.set(DENSE_FEATURE_NAMES[attribute], features)
+
+        final_sequence_features = Features(
+            word_vectors,
+            FEATURE_TYPE_SEQUENCE,
+            attribute,
+            self.component_config[FEATURIZER_CLASS_ALIAS],
+        )
+        message.add_features(final_sequence_features)
+        final_sentence_features = Features(
+            text_vector,
+            FEATURE_TYPE_SENTENCE,
+            attribute,
+            self.component_config[FEATURIZER_CLASS_ALIAS],
+        )
+        message.add_features(final_sentence_features)
 
     def process(self, message: Message, **kwargs: Any) -> None:
         self.set_bpemb_features(message)

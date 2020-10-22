@@ -4,8 +4,10 @@ import numpy as np
 
 from rasa.nlu.components import Component
 from rasa.nlu.config import RasaNLUModelConfig
-from rasa.nlu.training_data import Message, TrainingData
+from rasa.shared.nlu.training_data.training_data import TrainingData
+from rasa.shared.nlu.training_data.message import Message
 from rasa.nlu.tokenizers.tokenizer import Token
+from rasa.shared.nlu.constants import TEXT
 
 if typing.TYPE_CHECKING:
     from rasa.nlu.model import Metadata
@@ -17,7 +19,7 @@ class Printer(Component):
 
     **Configurable Variables:**
 
-    - alias: gives an extra name to the componentn and adds an extra message that is printed
+    - alias: gives an extra name to the component and adds an extra message that is printed
 
     Usage:
 
@@ -76,7 +78,7 @@ class Printer(Component):
         if self.component_config["alias"]:
             print("\n")
             print(self.component_config["alias"])
-        print(f"text : {message.text}")
+        print(f"text : {message.as_dict()[TEXT]}")
         for k, v in message.data.items():
             if self._is_list_tokens(v):
                 print(f"{k}: {[t.text for t in v]}")

@@ -1,24 +1,24 @@
-# Rasa NLU Examples 
+# Rasa NLU Examples
 
 <img src="square-logo.svg" width=200 height=200 align="right">
 
-This repository contains Rasa compatible machine learning components. These components 
+This repository contains Rasa compatible machine learning components. These components
 are open sourced in order to encourage experimentation and to quickly offer support to
-more tools. By hosting these components here they do not need to go through the same 
-vetting process as the components in Rasa and we hope that this makes it easier for 
-people to contribute new ideas. 
+more tools. By hosting these components here they do not need to go through the same
+vetting process as the components in Rasa and we hope that this makes it easier for
+people to contribute new ideas.
 
 The components in the repository are **not officially supported**. There will be units tests
 as well as documentation but this project should be considered a community project,
-not something that is part of core Rasa. If there's a component here that turns out to be 
-useful to the larger Rasa community then we might port features from this repository to Rasa. 
+not something that is part of core Rasa. If there's a component here that turns out to be
+useful to the larger Rasa community then we might port features from this repository to Rasa.
 
-# Contribute 
+# Contribute
 
-There are many ways you can contribute to this project. 
+There are many ways you can contribute to this project.
 
 - You can suggest new features.
-- You can help review new features. 
+- You can help review new features.
 - You can submit new components.
 - You can let us know if there are bugs.
 - You can share the results of an experiment you ran using these tools.
@@ -26,7 +26,7 @@ There are many ways you can contribute to this project.
 
 Feel free to start the discussion by opening an issue on this repository. Before submitting code
 to the repository it would help if you first create an issue so that the maintainers can disucss
-the changes you would like to contribute. A more in-depth contribution guide can be found 
+the changes you would like to contribute. A more in-depth contribution guide can be found
 [here](https://rasahq.github.io/rasa-nlu-examples/contributing/).
 
 # Compatibility
@@ -40,6 +40,12 @@ Currently, this project is compatible with Rasa 1.10.
 
 You can find the documentation for this project [here](https://rasahq.github.io/rasa-nlu-examples/).
 
+# Compatibility
+
+This project currently supports components for Rasa 2.0. For older versions, see the list below. 
+
+- [version 0.1.3](https://github.com/RasaHQ/rasa-nlu-examples/tree/0.1.3) is the latest release for Rasa 1.10
+
 # Features
 
 The following components are implemented;
@@ -50,7 +56,7 @@ The following components are implemented;
 
 ### Dense Featurizers
 
-- `rasa_nlu_examples.featurizers.dense.GensimFeaturizer`: custom [Gensim](https://radimrehurek.com/gensim/) embeddings 
+- `rasa_nlu_examples.featurizers.dense.GensimFeaturizer`: custom [Gensim](https://radimrehurek.com/gensim/) embeddings
 - `rasa_nlu_examples.featurizers.dense.FastTextFeaturizer`: [FastText](https://fasttext.cc/) embeddings for 157 languages
 - `rasa_nlu_examples.featurizers.dense.BytePairFeaturizer`: [BytePair](https://nlp.h-its.org/bpemb/) embeddings for 275 languages
 
@@ -114,6 +120,6 @@ rasa test nlu --config basic-bytepair-config.yml \
 
 # Open an Issue
 
-If you've spotted a bug then you can submit an issue [here](https://github.com/RasaHQ/rasa-nlu-examples/issues). 
-GitHub issues allow us to keep track of a conversation about this repository and it is the preferred 
+If you've spotted a bug then you can submit an issue [here](https://github.com/RasaHQ/rasa-nlu-examples/issues).
+GitHub issues allow us to keep track of a conversation about this repository and it is the preferred
 communication channel for bugs related to this project.

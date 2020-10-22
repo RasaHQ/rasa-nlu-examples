@@ -4,17 +4,19 @@ from functools import reduce
 from typing import Any, Optional, Text, Dict, List, Type
 
 from gensim.models import KeyedVectors
+
 import numpy as np
-import rasa.utils.train_utils as train_utils
 from rasa.nlu.components import Component
-from rasa.nlu.featurizers.featurizer import DenseFeaturizer
 from rasa.nlu.config import RasaNLUModelConfig
-from rasa.nlu.training_data import Message, TrainingData
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
+from rasa.shared.nlu.constants import TEXT, FEATURE_TYPE_SENTENCE, FEATURE_TYPE_SEQUENCE
+from rasa.shared.nlu.training_data.message import Message
+from rasa.shared.nlu.training_data.features import Features
+from rasa.shared.nlu.training_data.training_data import TrainingData
+from rasa.nlu.featurizers.featurizer import DenseFeaturizer
 from rasa.nlu.constants import (
-    DENSE_FEATURE_NAMES,
     DENSE_FEATURIZABLE_ATTRIBUTES,
-    TEXT,
+    FEATURIZER_CLASS_ALIAS,
     TOKENS_NAMES,
 )
 
@@ -71,20 +73,31 @@ class GensimFeaturizer(DenseFeaturizer):
         if not tokens:
             return None
 
-        # If we key is not available then we featuizer it with an array of zeros
-        word_vectors = [
-            self.kv[t.text] if t.text in self.kv else np.zeros(self.kv.vector_size)
-            for t in train_utils.tokens_without_cls(message, attribute)
-        ]
-
-        # Sum up all the word vectors so that we have one for __CLS__
-        text_vector = reduce(lambda a, b: a + b, word_vectors)
-        X = np.array(word_vectors + [text_vector])  # remember, we need one for __CLS__
-
-        features = self._combine_with_existing_dense_features(
-            message, additional_features=X, feature_name=DENSE_FEATURE_NAMES[attribute]
+        # If the key is not available then we featurize it with an array of zeros
+        word_vectors = np.array(
+            [
+                self.kv[t.text] if t.text in self.kv else np.zeros(self.kv.vector_size)
+                for t in tokens
+            ]
         )
-        message.set(DENSE_FEATURE_NAMES[attribute], features)
+
+        # Sum up all the word vectors so that we have one for the complete utterance, e.g. sentence vector
+        text_vector = reduce(lambda a, b: a + b, word_vectors).reshape(1, -1)
+
+        final_sequence_features = Features(
+            word_vectors,
+            FEATURE_TYPE_SEQUENCE,
+            attribute,
+            self.component_config[FEATURIZER_CLASS_ALIAS],
+        )
+        message.add_features(final_sequence_features)
+        final_sentence_features = Features(
+            text_vector,
+            FEATURE_TYPE_SENTENCE,
+            attribute,
+            self.component_config[FEATURIZER_CLASS_ALIAS],
+        )
+        message.add_features(final_sentence_features)
 
     def process(self, message: Message, **kwargs: Any) -> None:
         self.set_gensim_features(message)

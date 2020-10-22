@@ -2,8 +2,10 @@ import pytest
 
 import numpy as np
 
-from rasa.nlu.training_data import Message, TrainingData
-from rasa.nlu.constants import TEXT, TOKENS_NAMES, SPARSE_FEATURE_NAMES
+from rasa.shared.nlu.constants import TEXT
+from rasa.shared.nlu.training_data.message import Message
+from rasa.shared.nlu.training_data.training_data import TrainingData
+from rasa.nlu.constants import TOKENS_NAMES
 from rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer import (
     CountVectorsFeaturizer,
 )
@@ -18,22 +20,27 @@ from rasa_nlu_examples.tokenizers import ThaiTokenizer
 )
 def test_thai_tokenizer_length(msg, n):
     """We should add the correct number of tokens."""
-    message = Message(msg)
+    message = Message({TEXT: msg})
     tok = ThaiTokenizer()
     tok.process(message)
     tokens = message.get(TOKENS_NAMES[TEXT])
-    # We also generate a __CLS__ token
-    assert len(tokens) == n + 1
+    assert len(tokens) == n
 
 
 def fetch_sparse_features(txt, tokenizer, featurizer):
 
-    message = Message(txt)
+    message = Message({TEXT: txt})
     tokenizer.process(message)
     featurizer.train(TrainingData([message]))
     featurizer.process(message)
 
-    return message.get(SPARSE_FEATURE_NAMES[TEXT]).toarray()
+    seq_vecs, sen_vecs = message.get_sparse_features(TEXT, [])
+    if seq_vecs:
+        seq_vecs = seq_vecs.features
+    if sen_vecs:
+        sen_vecs = sen_vecs.features
+
+    return seq_vecs.toarray()
 
 
 def test_component_changes_features_cvf():

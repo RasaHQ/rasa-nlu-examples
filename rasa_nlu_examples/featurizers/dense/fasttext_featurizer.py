@@ -3,17 +3,19 @@ import typing
 from typing import Any, Optional, Text, Dict, List, Type
 
 import fasttext
+
 import numpy as np
-import rasa.utils.train_utils as train_utils
 from rasa.nlu.components import Component
-from rasa.nlu.featurizers.featurizer import DenseFeaturizer
 from rasa.nlu.config import RasaNLUModelConfig
-from rasa.nlu.training_data import Message, TrainingData
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
+from rasa.shared.nlu.constants import TEXT, FEATURE_TYPE_SENTENCE, FEATURE_TYPE_SEQUENCE
+from rasa.shared.nlu.training_data.message import Message
+from rasa.shared.nlu.training_data.features import Features
+from rasa.shared.nlu.training_data.training_data import TrainingData
+from rasa.nlu.featurizers.featurizer import DenseFeaturizer
 from rasa.nlu.constants import (
-    DENSE_FEATURE_NAMES,
     DENSE_FEATURIZABLE_ATTRIBUTES,
-    TEXT,
+    FEATURIZER_CLASS_ALIAS,
     TOKENS_NAMES,
 )
 
@@ -70,17 +72,25 @@ class FastTextFeaturizer(DenseFeaturizer):
         if not tokens:
             return None
 
-        text_vector = self.model.get_word_vector(message.text)
-        word_vectors = [
-            self.model.get_word_vector(t.text)
-            for t in train_utils.tokens_without_cls(message, attribute)
-        ]
-        X = np.array(word_vectors + [text_vector])  # remember, we need one for __CLS__
+        # We need to reshape here such that the shape is equivalent to that of sparsely
+        # generated features. Without it, it'd be a 1D tensor. We need 2D (n_utterance, n_dim).
+        text_vector = self.model.get_word_vector(message.get(TEXT)).reshape(1, -1)
+        word_vectors = np.array([self.model.get_word_vector(t.text) for t in tokens])
 
-        features = self._combine_with_existing_dense_features(
-            message, additional_features=X, feature_name=DENSE_FEATURE_NAMES[attribute]
+        final_sequence_features = Features(
+            word_vectors,
+            FEATURE_TYPE_SEQUENCE,
+            attribute,
+            self.component_config[FEATURIZER_CLASS_ALIAS],
         )
-        message.set(DENSE_FEATURE_NAMES[attribute], features)
+        message.add_features(final_sequence_features)
+        final_sentence_features = Features(
+            text_vector,
+            FEATURE_TYPE_SENTENCE,
+            attribute,
+            self.component_config[FEATURIZER_CLASS_ALIAS],
+        )
+        message.add_features(final_sentence_features)
 
     def process(self, message: Message, **kwargs: Any) -> None:
         self.set_fasttext_features(message)
