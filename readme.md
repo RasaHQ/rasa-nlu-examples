@@ -29,13 +29,6 @@ to the repository it would help if you first create an issue so that the maintai
 the changes you would like to contribute. A more in-depth contribution guide can be found
 [here](https://rasahq.github.io/rasa-nlu-examples/contributing/).
 
-# Compatibility
-
-The goal is to keep this project compatible with the most recent stable Rasa release. You can find
-older versions in the github releases.
-
-Currently, this project is compatible with Rasa 1.10. 
-
 # Documentation
 
 You can find the documentation for this project [here](https://rasahq.github.io/rasa-nlu-examples/).
