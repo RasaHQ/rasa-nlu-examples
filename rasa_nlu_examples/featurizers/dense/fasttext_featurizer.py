@@ -72,6 +72,8 @@ class FastTextFeaturizer(DenseFeaturizer):
         if not tokens:
             return None
 
+        # We need to reshape here such that the shape is equivalent to that of sparsely
+        # generated features. Without it, it'd be a 1D tensor. We need 2D (n_utterance, n_dim).
         text_vector = self.model.get_word_vector(message.get(TEXT)).reshape(1, -1)
         word_vectors = np.array([self.model.get_word_vector(t.text) for t in tokens])
 
