@@ -81,7 +81,7 @@ class GensimFeaturizer(DenseFeaturizer):
             ]
         )
 
-        # Sum up all the word vectors so that we have one for __CLS__
+        # Sum up all the word vectors so that we have one for the complete utterance, e.g. sentence vector
         text_vector = reduce(lambda a, b: a + b, word_vectors).reshape(1, -1)
 
         final_sequence_features = Features(
