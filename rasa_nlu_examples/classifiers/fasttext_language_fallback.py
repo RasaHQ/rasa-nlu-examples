@@ -4,6 +4,7 @@ import fasttext
 from typing import Any, List, Type, Text, Dict, Optional
 
 from rasa.nlu.classifiers.classifier import IntentClassifier
+from rasa.nlu.tokenizers.tokenizer import Tokenizer
 from rasa.nlu.components import Component
 from rasa.shared.nlu.training_data.message import Message
 from rasa.shared.nlu.constants import (
@@ -256,7 +257,7 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
 
     @classmethod
     def required_components(cls) -> List[Type[Component]]:
-        return [IntentClassifier]
+        return [IntentClassifier, Tokenizer]
 
     def process(self, message: Message, **kwargs: Any) -> None:
         """Process an incoming message.
@@ -276,7 +277,7 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
 
         """
 
-        if not self._not_enough_text(message):
+        if self._not_enough_text(message):
             logger.debug(
                 "There's not enough text to do proper language identification."
             )
@@ -285,10 +286,13 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
         proba_dict = {
             k: v for k, v in zip(*self.model.predict(message.get(TEXT), k=20))
         }
+        logger.debug(
+            f"FastText thinks this message is from {self.model.predict(message.get(TEXT))[0][0]} language."
+        )
         proba = proba_dict.get(f"__label__{self.language}", 0.0)
         if proba < self.threshold:
             logger.debug(
-                f"FastText thinks this message is not from {self.language} language. Will override and trigger {self.intent_triggered} intent."
+                f"FastText thinks this message is not from '{self.language}' language. Will override and trigger {self.intent_triggered} intent."
             )
             message.data[INTENT] = self.intent_triggered
             message.data.setdefault(INTENT_RANKING_KEY, [])
@@ -301,4 +305,8 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
         """
         n_chars = len(message.get(TEXT).replace(" ", ""))
         n_tokens = len(message.get(TOKENS_NAMES[TEXT]))
+        logger.debug(f"This sequences has {n_chars} characters and {n_tokens} tokens.")
+        logger.debug(
+            f"This sequences requires {self.min_chars} characters and {self.min_tokens} tokens."
+        )
         return (n_chars < self.min_chars) | (n_tokens < self.min_tokens)
