@@ -24,6 +24,14 @@ The following components are implemented.
 This component will print what each featurizer adds to the NLU message. Very useful for debugging.
 You can find a tutorial on it [here](https://blog.rasa.com/custom-printer-component/).
 
+### Fallback Classifiers
+
+#### FasttextLanguage [docs](classifier/fasttextlanguagefallback/)
+
+This fallback classifier is based on [fasttext](https://fasttext.cc/docs/en/language-identification.html). It
+can detect when a user is speaking in an unintended language such that you can create a rule to respond
+appropriately.
+
 ### Tokenizers
 
 #### StanzaTokenizer [docs](docs/tokenizer/stanza/)

@@ -29,7 +29,7 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
     """
 
     defaults = {
-        "language": None,
+        "expected_language": None,
         "threshold": 0.7,
         "min_tokens": 3,
         "min_chars": 10,
@@ -230,7 +230,7 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
             raise ValueError(
                 "You need to set `intent_triggered` for the FasttextLanguageFallbackClassifier."
             )
-        if "language" not in component_config.keys():
+        if "expected_language" not in component_config.keys():
             raise ValueError(
                 "You need to set `language` for the FasttextLanguageFallbackClassifier."
             )
@@ -249,7 +249,7 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
             )
 
         self.model = fasttext.load_model(path=path)
-        self.language = component_config["language"]
+        self.expected_language = component_config["expected_language"]
         self.min_chars = component_config["min_chars"]
         self.min_tokens = component_config["min_tokens"]
         self.threshold = component_config["threshold"]
@@ -289,10 +289,10 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
         logger.debug(
             f"FastText thinks this message is from {self.model.predict(message.get(TEXT))[0][0]} language."
         )
-        proba = proba_dict.get(f"__label__{self.language}", 0.0)
+        proba = proba_dict.get(f"__label__{self.expected_language}", 0.0)
         if proba < self.threshold:
             logger.debug(
-                f"FastText thinks this message is not from '{self.language}' language. Will override and trigger {self.intent_triggered} intent."
+                f"FastText thinks this message is not from '{self.expected_language}' language. Will override and trigger {self.intent_triggered} intent."
             )
             message.data[INTENT] = self.intent_triggered
             message.data.setdefault(INTENT_RANKING_KEY, [])

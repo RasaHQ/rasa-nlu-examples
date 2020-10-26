@@ -12,6 +12,7 @@ english_yml_files = [
     "printer-config.yml",
     "bytepair-config.yml",
     "gensim-config.yml",
+    "lang-detect-ft-config.yml",
 ]
 
 

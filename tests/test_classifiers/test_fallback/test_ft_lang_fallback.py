@@ -4,13 +4,6 @@ from rasa_nlu_examples.classifiers import FasttextLanguageFallbackClassifier
 from rasa.shared.nlu.constants import TEXT, INTENT
 from rasa.shared.nlu.training_data.message import Message
 
-config_man = dict(
-    lang="en",
-    vs=1000,
-    dim=25,
-    model_file="tests/data/bytepair/en/en.wiki.bpe.vs1000.model",
-    emb_file="tests/data/bytepair/en/en.wiki.bpe.vs1000.d25.w2v.bin",
-)
 tokenizer = WhitespaceTokenizer()
 
 
@@ -19,11 +12,11 @@ tokenizer = WhitespaceTokenizer()
 )
 def test_detect_obvious_cases(txt, lang):
     config_dict = {
-        "language": "en",
+        "expected_language": "en",
         "threshold": 0.7,
         "min_tokens": 2,
         "min_chars": 8,
-        "intent_triggered": "non_english",
+        "intent_triggered": f"detected_{lang}",
         "cache_dir": "tests/data/fasttext",
         "file": "lid.176.ftz",
     }
@@ -31,7 +24,7 @@ def test_detect_obvious_cases(txt, lang):
     message = Message({TEXT: txt})
     tokenizer.process(message=message)
     ft_lang.process(message=message)
-    assert message.get(INTENT) == "non_english"
+    assert message.get(INTENT) == f"detected_{lang}"
 
 
 @pytest.mark.parametrize(
@@ -39,11 +32,11 @@ def test_detect_obvious_cases(txt, lang):
 )
 def test_no_change_on_english(txt, lang):
     config_dict = {
-        "language": "en",
+        "expected_language": "en",
         "threshold": 0.3,
         "min_tokens": 2,
         "min_chars": 8,
-        "intent_triggered": "non_english",
+        "intent_triggered": "is_not_english",
         "cache_dir": "tests/data/fasttext",
         "file": "lid.176.ftz",
     }
