@@ -9,6 +9,7 @@ repos:
     -   id: check-yaml
     -   id: check-json
     -   id: check-added-large-files
+        exclude: ^tests/data/fasttext/lid.176.ftz
     -   id: check-ast
     -   id: debug-statements
 -   repo: https://github.com/psf/black
