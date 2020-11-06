@@ -236,7 +236,8 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
             )
         if component_config["expected_language"] not in self.language_list:
             raise ValueError(
-                "You have specified a unsupported language. See https://fasttext.cc/docs/en/language-identification.html for supported languages."
+                "You have specified a unsupported language. \n"
+                "See https://fasttext.cc/docs/en/language-identification.html for supported languages."
             )
         path = os.path.join(component_config["cache_dir"], component_config["file"])
         if not os.path.exists(component_config["cache_dir"]):
@@ -292,7 +293,8 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
         proba = proba_dict.get(f"__label__{self.expected_language}", 0.0)
         if proba < self.threshold:
             logger.debug(
-                f"FastText thinks this message is not from '{self.expected_language}' language. Will override and trigger {self.intent_triggered} intent."
+                f"FastText thinks this message is not from '{self.expected_language}' language. \n"
+                f"Will override and trigger {self.intent_triggered} intent."
             )
             message.data[INTENT] = self.intent_triggered
             message.data.setdefault(INTENT_RANKING_KEY, [])
