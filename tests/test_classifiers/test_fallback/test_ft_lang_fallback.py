@@ -1,6 +1,6 @@
 import pytest
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
-from rasa_nlu_examples.classifiers import FasttextLanguageFallbackClassifier
+from rasa_nlu_examples.fallback import FasttextLanguageFallbackClassifier
 from rasa.shared.nlu.constants import TEXT, INTENT
 from rasa.shared.nlu.training_data.message import Message
 

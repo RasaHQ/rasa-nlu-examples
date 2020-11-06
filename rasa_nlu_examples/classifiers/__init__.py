@@ -1,1 +1,0 @@
-from .fasttext_language_fallback import FasttextLanguageFallbackClassifier

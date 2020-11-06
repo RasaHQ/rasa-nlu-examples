@@ -234,7 +234,7 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
             raise ValueError(
                 "You need to set `language` for the FasttextLanguageFallbackClassifier."
             )
-        if component_config["language"] not in self.language_list:
+        if component_config["expected_language"] not in self.language_list:
             raise ValueError(
                 "You have specified a unsupported language. See https://fasttext.cc/docs/en/language-identification.html for supported languages."
             )
