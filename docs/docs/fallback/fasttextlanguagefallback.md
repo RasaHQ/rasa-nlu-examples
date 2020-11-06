@@ -1,3 +1,5 @@
+# FasttextLanguageFallbackClassifier
+
 This classifier uses [fasttext](https://fasttext.cc/docs/en/language-identification.html) to detect
 if an unintended language is used. You can combine this tool together with [RulePolicy rules](https://rasa.com/docs/rasa/rules)
 to handle out of scope responses more elegantly. Assuming that you're making an assistant to handle
@@ -57,7 +59,7 @@ pipeline:
   max_ngram: 4
 - name: DIETClassifier
   epochs: 1
-- name: rasa_nlu_examples.classifiers.FasttextLanguageFallbackClassifier
+- name: rasa_nlu_examples.fallback.FasttextLanguageFallbackClassifier
   expected_language: en
   intent_triggered: non_english
   cache_dir: downloaded

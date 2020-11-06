@@ -26,7 +26,7 @@ You can find a tutorial on it [here](https://blog.rasa.com/custom-printer-compon
 
 ### Fallback Classifiers
 
-#### FasttextLanguage [docs](classifier/fasttextlanguagefallback/)
+#### FasttextLanguage [docs](docs/fallback/fasttextlanguagefallback.md)
 
 This fallback classifier is based on [fasttext](https://fasttext.cc/docs/en/language-identification.html). It
 can detect when a user is speaking in an unintended language such that you can create a rule to respond
