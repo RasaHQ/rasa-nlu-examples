@@ -9,7 +9,7 @@ pipeline:
   max_ngram: 4
 - name: DIETClassifier
   epochs: 1
-- name: rasa_nlu_examples.classifiers.FasttextLanguageFallbackClassifier
+- name: rasa_nlu_examples.fallback.FasttextLanguageFallbackClassifier
   expected_language: en
   cache_dir: tests/data/fasttext
   file: 'lid.176.ftz'
