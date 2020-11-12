@@ -40,6 +40,7 @@ proba_dict
 - **min_chars**: the minimum number of characters of text that need to be in the utterance. If there's less tokens the language model is ignored because it is likely to be in-accurate.
 - **cache_dir**: specifies the folder where the pretrained model can be found.
 - **model_file**: specifies the path to a pretrained model file, typically you'll want `lid.176.ftz`. See the [fasttext docs](https://fasttext.cc/docs/en/language-identification.html) for more info.
+- **protected_intents**: specifies a list of intent names that won't be overwritten
 
 ## Base Usage
 
@@ -67,6 +68,7 @@ pipeline:
   min_chars: 5
   min_tokens: 2
   threshold: 0.3
+  protected_intents: ["greet"]
 ```
 
 To get the most out of this tool you also need to add a rule to a `rules.yml` file.
