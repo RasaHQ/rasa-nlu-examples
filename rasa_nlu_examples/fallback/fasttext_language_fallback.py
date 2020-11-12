@@ -27,6 +27,10 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
     https://fasttext.cc/docs/en/language-identification.html
     """
 
+    @classmethod
+    def required_components(cls) -> List[Type[Component]]:
+        return [IntentClassifier]
+
     defaults = {
         "expected_language": None,
         "threshold": 0.7,
@@ -37,6 +41,7 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
         "file": None,
         "protected_intents": [],
     }
+
     language_list = [
         "af",
         "als",
@@ -218,6 +223,19 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
+        self._validate_config(component_config=component_config)
+        path = os.path.join(component_config["cache_dir"], component_config["file"])
+        self.model = fasttext.load_model(path=path)
+        self.expected_language = self.component_config["expected_language"]
+        self.min_chars = self.component_config["min_chars"]
+        self.min_tokens = self.component_config["min_tokens"]
+        self.threshold = self.component_config["threshold"]
+        self.intent_triggered = self.component_config["intent_triggered"]
+        self.protected_intents = self.component_config["protected_intents"]
+
+    def _validate_config(
+        self, component_config: Optional[Dict[Text, Any]] = None
+    ) -> None:
         if "cache_dir" not in component_config.keys():
             raise ValueError(
                 "You need to set `cache_dir` for the FasttextLanguageFallbackClassifier."
@@ -248,14 +266,6 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
             raise FileNotFoundError(
                 f"It seems that file {path} does not exists. Please check config."
             )
-
-        self.model = fasttext.load_model(path=path)
-        self.expected_language = component_config["expected_language"]
-        self.min_chars = component_config["min_chars"]
-        self.min_tokens = component_config["min_tokens"]
-        self.threshold = component_config["threshold"]
-        self.intent_triggered = component_config["intent_triggered"]
-        self.protected_intents = component_config["protected_intents"]
 
     @classmethod
     def required_components(cls) -> List[Type[Component]]:
