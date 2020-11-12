@@ -19,7 +19,7 @@ def dense_msg(arr: np.ndarray):
     return {"shape": arr.shape, "dtype": arr.dtype}
 
 
-def sparse_msg(arr: scipy.sparse.spmatrix):
+def sparse_message(sparse_array: scipy.sparse.spmatrix) -> Dict[Text, Any]:
     return {"shape": arr.shape, "dtype": arr.dtype, "stored_elements": arr.nnz}
 
 
