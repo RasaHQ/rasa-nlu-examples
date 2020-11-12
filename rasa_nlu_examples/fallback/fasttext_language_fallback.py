@@ -289,6 +289,7 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
                 f"FastText thinks this message is not from '{self.expected_language}' language. \n"
                 f"Will override and trigger {self.intent_triggered} intent."
             )
+            # Overwrite the current intent by putting a fallback in.
             message.data[INTENT] = {
                 "name": self.intent_triggered,
                 "confidence": 1 - proba,
