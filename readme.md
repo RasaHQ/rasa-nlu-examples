@@ -37,7 +37,7 @@ You can find the documentation for this project [here](https://rasahq.github.io/
 
 This project currently supports components for Rasa 2.0. For older versions, see the list below. 
 
-- [version 0.1.3](https://github.com/RasaHQ/rasa-nlu-examples/tree/0.1.3) is the latest release for Rasa 1.10
+- [version 0.1.3](https://github.com/RasaHQ/rasa-nlu-examples/tree/0.1.3) is the final release for Rasa 1.10
 
 # Features
 
