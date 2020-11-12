@@ -23,7 +23,7 @@ def sparse_message(sparse_array: scipy.sparse.spmatrix) -> Dict[Text, Any]:
     return {"shape": arr.shape, "dtype": arr.dtype, "stored_elements": arr.nnz}
 
 
-def print_message(msg: Message):
+def print_message(message: Message) -> None:
     features = {**msg.as_dict_nlu()}
     seq_vecs, sen_vecs = msg.get_dense_features(TEXT)
     features["dense"] = {
