@@ -255,11 +255,7 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
         self.min_tokens = component_config["min_tokens"]
         self.threshold = component_config["threshold"]
         self.intent_triggered = component_config["intent_triggered"]
-        self.protected_intents = (
-            component_config["protected_intents"]
-            if "protected_intents" in component_config
-            else self.defaults["protected_intents"]
-        )
+        self.protected_intents = component_config["protected_intents"]
 
     @classmethod
     def required_components(cls) -> List[Type[Component]]:
