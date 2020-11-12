@@ -15,7 +15,7 @@ if typing.TYPE_CHECKING:
     from rasa.nlu.model import Metadata
 
 
-def dense_msg(arr: np.ndarray):
+def dense_message(dense_array: np.ndarray) -> Dict[Text, Any]:
     return {"shape": arr.shape, "dtype": arr.dtype}
 
 
