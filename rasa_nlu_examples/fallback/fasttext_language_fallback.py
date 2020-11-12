@@ -27,10 +27,6 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
     https://fasttext.cc/docs/en/language-identification.html
     """
 
-    @classmethod
-    def required_components(cls) -> List[Type[Component]]:
-        return [IntentClassifier]
-
     defaults = {
         "expected_language": None,
         "threshold": 0.7,
