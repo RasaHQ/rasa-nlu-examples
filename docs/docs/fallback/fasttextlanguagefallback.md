@@ -33,14 +33,14 @@ proba_dict
 
 ## Configurable Variables
 
-- **expected_language**: the language that you expect to be predicted. If this language is predicted we won't trigger an intent.
-- **intent_triggered**: the name of the intent to trigger when the model does not detect the expected language.
-- **threshold**: if the probability for your language is smaller than this threshold then we trigger the intent.
-- **min_tokens**: the minimum number of tokens that need to be in the utterance. If there's less tokens the language model is ignored because it is likely to be in-accurate.
-- **min_chars**: the minimum number of characters of text that need to be in the utterance. If there's less tokens the language model is ignored because it is likely to be in-accurate.
-- **cache_dir**: specifies the folder where the pretrained model can be found.
-- **model_file**: specifies the path to a pretrained model file, typically you'll want `lid.176.ftz`. See the [fasttext docs](https://fasttext.cc/docs/en/language-identification.html) for more info.
-- **protected_intents**: specifies a list of intent names that won't be overwritten
+- **expected_language** (required): the language that you expect to be predicted. If this language is predicted we won't trigger an intent.
+- **intent_triggered** (required): the name of the intent to trigger when the model does not detect the expected language.
+- **cache_dir** (required): specifies the folder where the pretrained model can be found.
+- **model_file** (required): specifies the path to a pretrained model file, typically you'll want `lid.176.ftz`. See the [fasttext docs](https://fasttext.cc/docs/en/language-identification.html) for more info.
+- **threshold** (default: 0.7): if the probability for your language is smaller than this threshold then we trigger the intent.
+- **min_tokens** (default: 3): the minimum number of tokens that need to be in the utterance. If there's less tokens the language model is ignored because it is likely to be in-accurate.
+- **min_chars** (default: 10): the minimum number of characters of text that need to be in the utterance. If there's less tokens the language model is ignored because it is likely to be in-accurate.
+- **protected_intents** (default: `[]`): specifies a list of intent names that won't be overwritten
 
 ## Base Usage
 

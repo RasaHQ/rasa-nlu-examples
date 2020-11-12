@@ -28,8 +28,8 @@ pipeline:
   epochs: 100
 ```
 
-When you now interactive with a trained NLU model from the terminal you should see pretty output appear in
-the terminal. It should look look the output below.
+When you now interact with your model via `rasa shell` you will see pretty information appear about the state
+of the `Message` object. It might look something like this;
 
 
 <style>

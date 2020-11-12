@@ -284,7 +284,8 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
             return
 
         proba_dict = {
-            k: v for k, v in zip(*self.model.predict(message.get(TEXT), k=20))
+            lang: pval
+            for lang, pval in zip(*self.model.predict(message.get(TEXT), k=20))
         }
         logger.debug(
             f"FastText thinks this message is from {self.model.predict(message.get(TEXT))[0][0]} language."

@@ -16,24 +16,28 @@ if typing.TYPE_CHECKING:
 
 
 def dense_message(dense_array: np.ndarray) -> Dict[Text, Any]:
-    return {"shape": arr.shape, "dtype": arr.dtype}
+    return {"shape": dense_array.shape, "dtype": dense_array.dtype}
 
 
 def sparse_message(sparse_array: scipy.sparse.spmatrix) -> Dict[Text, Any]:
-    return {"shape": arr.shape, "dtype": arr.dtype, "stored_elements": arr.nnz}
+    return {
+        "shape": sparse_array.shape,
+        "dtype": sparse_array.dtype,
+        "stored_elements": sparse_array.nnz,
+    }
 
 
 def print_message(message: Message) -> None:
-    features = {**msg.as_dict_nlu()}
-    seq_vecs, sen_vecs = msg.get_dense_features(TEXT)
+    features = {**message.as_dict_nlu()}
+    seq_vecs, sen_vecs = message.get_dense_features(TEXT)
     features["dense"] = {
-        "sequence": None if not seq_vecs else dense_msg(seq_vecs.features),
-        "sentence": None if not sen_vecs else dense_msg(sen_vecs.features),
+        "sequence": None if not seq_vecs else dense_message(seq_vecs.features),
+        "sentence": None if not sen_vecs else dense_message(sen_vecs.features),
     }
-    seq_vecs, sen_vecs = msg.get_sparse_features(TEXT)
+    seq_vecs, sen_vecs = message.get_sparse_features(TEXT)
     features["sparse"] = {
-        "sequence": None if not seq_vecs else sparse_msg(seq_vecs.features),
-        "sentence": None if not sen_vecs else sparse_msg(sen_vecs.features),
+        "sequence": None if not seq_vecs else sparse_message(seq_vecs.features),
+        "sentence": None if not sen_vecs else sparse_message(sen_vecs.features),
     }
     if "text_tokens" in features.keys():
         features["text_tokens"] = [t.text for t in features["text_tokens"]]
