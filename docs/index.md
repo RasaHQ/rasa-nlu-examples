@@ -87,7 +87,7 @@ appropriately.
 
 ## **Meta**
 
-The components listed here won't effect the NLU pipeline but they might instead might cause extra logs
+The components listed here won't effect the NLU pipeline but they might instead cause extra logs
 to appear to help with debugging.
 
 ### Printer
