@@ -7,6 +7,7 @@ base_packages = [
     "bpemb>=0.3.2",
     "gensim>=3.8.3",
     "pythainlp>=2.2.3",
+    "rich>=9.2.0",
     "stanza>=1.1.1",
 ]
 

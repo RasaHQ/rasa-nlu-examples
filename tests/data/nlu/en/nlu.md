@@ -12,6 +12,12 @@
 - see you around
 - see you later
 
+## intent:out_of_scope
+- foo
+- bar
+- wut
+- buz
+
 ## intent:bot_challenge
 - are you a bot?
 - are you a human?

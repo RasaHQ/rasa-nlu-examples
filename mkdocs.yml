@@ -10,6 +10,8 @@ nav:
   - Contributing: contributing.md
   - Usage:
       - Benchmarking Guide: benchmarking.md
+      - Fallback:
+          - FasttextLanguage: docs/fallback/fasttextlanguagefallback.md
       - Tokenizers:
           - StanzaTokenizer: docs/tokenizer/stanza.md
           - ThaiTokenizer: docs/tokenizer/thai_tokenizer.md
