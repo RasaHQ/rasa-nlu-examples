@@ -9,6 +9,8 @@ pipeline:
   max_ngram: 4
 - name: DIETClassifier
   epochs: 1
+- name: rasa_nlu_examples.meta.Printer
+  alias: before
 - name: rasa_nlu_examples.fallback.FasttextLanguageFallbackClassifier
   expected_language: en
   cache_dir: tests/data/fasttext
@@ -16,4 +18,7 @@ pipeline:
   min_chars: 5
   min_tokens: 2
   threshold: 0.7
-  intent_triggered: out_of_scope
+  intent_triggered: out_of_scope_lang
+  protected_intents: ["greet"]
+- name: rasa_nlu_examples.meta.Printer
+  alias: after

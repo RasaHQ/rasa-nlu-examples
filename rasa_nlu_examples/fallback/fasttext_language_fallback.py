@@ -8,7 +8,6 @@ from rasa.nlu.tokenizers.tokenizer import Tokenizer
 from rasa.nlu.components import Component
 from rasa.shared.nlu.training_data.message import Message
 from rasa.shared.nlu.constants import (
-    INTENT_RANKING_KEY,
     TEXT,
     INTENT,
 )
@@ -36,6 +35,7 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
         "intent_triggered": None,
         "cache_dir": None,
         "file": None,
+        "protected_intents": [],
     }
     language_list = [
         "af",
@@ -255,28 +255,21 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
         self.min_tokens = component_config["min_tokens"]
         self.threshold = component_config["threshold"]
         self.intent_triggered = component_config["intent_triggered"]
+        self.protected_intents = (
+            component_config["protected_intents"]
+            if "protected_intents" in component_config
+            else self.defaults["protected_intents"]
+        )
 
     @classmethod
     def required_components(cls) -> List[Type[Component]]:
         return [IntentClassifier, Tokenizer]
 
     def process(self, message: Message, **kwargs: Any) -> None:
-        """Process an incoming message.
-
-        This is the components chance to process an incoming
-        message. The component can rely on
-        any context attribute to be present, that gets created
-        by a call to :meth:`rasa.nlu.components.Component.create`
-        of ANY component and
-        on any context attributes created by a call to
-        :meth:`rasa.nlu.components.Component.process`
-        of components previous to this one.
-
-        Args:
-            message: The :class:`rasa.shared.nlu.training_data.message.Message` to
-            process.
-
-        """
+        """Process an incoming message."""
+        if message.data[INTENT]["name"] in self.protected_intents:
+            logger.debug("The model detected a protected intent, won't overwrite.")
+            return
 
         if self._not_enough_text(message):
             logger.debug(
@@ -296,9 +289,10 @@ class FasttextLanguageFallbackClassifier(IntentClassifier):
                 f"FastText thinks this message is not from '{self.expected_language}' language. \n"
                 f"Will override and trigger {self.intent_triggered} intent."
             )
-            message.data[INTENT] = self.intent_triggered
-            message.data.setdefault(INTENT_RANKING_KEY, [])
-            message.data[INTENT_RANKING_KEY].insert(0, self.intent_triggered)
+            message.data[INTENT] = {
+                "name": self.intent_triggered,
+                "confidence": 1 - proba,
+            }
 
     def _not_enough_text(self, message: Message):
         """

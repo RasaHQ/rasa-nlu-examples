@@ -10,7 +10,8 @@ First you'll need to install the project. An easy way to do this is via pip;
 pip install git+https://github.com/RasaHQ/rasa-nlu-examples
 ```
 
-You should now be able to run configuration files like this one;
+You should now be able to run configuration files with NLU components
+from this library. You can glance over some examples below.
 
 
 === "Basic Config"

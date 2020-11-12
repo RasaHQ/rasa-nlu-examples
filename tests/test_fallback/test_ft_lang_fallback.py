@@ -21,10 +21,10 @@ def test_detect_obvious_cases(txt, lang):
         "file": "lid.176.ftz",
     }
     ft_lang = FasttextLanguageFallbackClassifier(config_dict)
-    message = Message({TEXT: txt})
+    message = Message({TEXT: txt, INTENT: {"name": "assigned_before"}})
     tokenizer.process(message=message)
     ft_lang.process(message=message)
-    assert message.get(INTENT) == f"detected_{lang}"
+    assert message.get(INTENT)["name"] == f"detected_{lang}"
 
 
 @pytest.mark.parametrize(
@@ -41,7 +41,28 @@ def test_no_change_on_english(txt, lang):
         "file": "lid.176.ftz",
     }
     ft_lang = FasttextLanguageFallbackClassifier(config_dict)
-    message = Message({TEXT: txt, INTENT: "assigned_before"})
+    message = Message({TEXT: txt, INTENT: {"name": "assigned_before"}})
     tokenizer.process(message=message)
     ft_lang.process(message=message)
-    assert message.get(INTENT) == "assigned_before"
+    assert message.get(INTENT)["name"] == "assigned_before"
+
+
+@pytest.mark.parametrize(
+    "txt,lang", [("ik spreek een taal", "nl"), ("je parle une langue", "fr")]
+)
+def test_no_change_when_protected(txt, lang):
+    config_dict = {
+        "expected_language": "en",
+        "threshold": 0.3,
+        "min_tokens": 2,
+        "min_chars": 8,
+        "intent_triggered": "is_not_english",
+        "cache_dir": "tests/data/fasttext",
+        "file": "lid.176.ftz",
+        "protected_intents": ["assigned_before"],
+    }
+    ft_lang = FasttextLanguageFallbackClassifier(config_dict)
+    message = Message({TEXT: txt, INTENT: {"name": "assigned_before"}})
+    tokenizer.process(message=message)
+    ft_lang.process(message=message)
+    assert message.get(INTENT)["name"] == "assigned_before"
