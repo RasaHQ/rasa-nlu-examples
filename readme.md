@@ -190,6 +190,3 @@ If you've spotted a bug then you can submit an issue [here](https://github.com/R
 GitHub issues allow us to keep track of a conversation about this repository and it is the preferred
 communication channel for bugs related to this project.
 
-# Contributing
-
-You can find the contribution guide [here](https://rasahq.github.io/rasa-nlu-examples/contributing/).
