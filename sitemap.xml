@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://rasahq.github.io/rasa-nlu-examples/</loc>
-     <lastmod>2020-09-10</lastmod>
+     <lastmod>2020-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://rasahq.github.io/rasa-nlu-examples/contributing/</loc>
-     <lastmod>2020-09-10</lastmod>
+     <lastmod>2020-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://rasahq.github.io/rasa-nlu-examples/benchmarking/</loc>
-     <lastmod>2020-09-10</lastmod>
+     <lastmod>2020-11-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://rasahq.github.io/rasa-nlu-examples/docs/fallback/fasttextlanguagefallback/</loc>
+     <lastmod>2020-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/stanza/</loc>
-     <lastmod>2020-09-10</lastmod>
+     <lastmod>2020-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/thai_tokenizer/</loc>
-     <lastmod>2020-09-10</lastmod>
+     <lastmod>2020-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://rasahq.github.io/rasa-nlu-examples/docs/meta/printer/</loc>
-     <lastmod>2020-09-10</lastmod>
+     <lastmod>2020-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/gensim/</loc>
-     <lastmod>2020-09-10</lastmod>
+     <lastmod>2020-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/fasttext/</loc>
-     <lastmod>2020-09-10</lastmod>
+     <lastmod>2020-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/bytepair/</loc>
-     <lastmod>2020-09-10</lastmod>
+     <lastmod>2020-11-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

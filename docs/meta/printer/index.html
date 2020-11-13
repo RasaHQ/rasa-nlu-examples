@@ -298,13 +298,55 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
     <label class="md-nav__link" for="nav-3-2">
+      Fallback
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Fallback" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Fallback
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../fallback/fasttextlanguagefallback/" title="FasttextLanguage" class="md-nav__link">
+      FasttextLanguage
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
       Tokenizers
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Tokenizers" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
+      <label class="md-nav__title" for="nav-3-3">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
@@ -351,16 +393,16 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" checked>
     
-    <label class="md-nav__link" for="nav-3-3">
+    <label class="md-nav__link" for="nav-3-4">
       Meta
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Meta" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-3">
+      <label class="md-nav__title" for="nav-3-4">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
@@ -438,16 +480,16 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
     
-    <label class="md-nav__link" for="nav-3-4">
+    <label class="md-nav__link" for="nav-3-5">
       Featurizers
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Featurizers" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
+      <label class="md-nav__title" for="nav-3-5">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
@@ -586,6 +628,49 @@ You should see print statements appear when you talk to the assistant.</p>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
   <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
 </code></pre></div>
+
+
+<p>When you now interact with your model via <code>rasa shell</code> you will see pretty information appear about the state
+of the <code>Message</code> object. It might look something like this;</p>
+<style>
+.r1 {font-weight: bold}
+.r2 {color: #008000}
+.r3 {color: #000080; font-weight: bold}
+</style>
+
+<p><code>
+        <pre style="font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span class="r1">{</span>
+    <span class="r2">'text'</span>: <span class="r2">'rasa nlu examples'</span>,
+    <span class="r2">'intent'</span>: <span class="r1">{</span><span class="r2">'name'</span>: <span class="r2">'out_of_scope'</span>, <span class="r2">'confidence'</span>: <span class="r3">0.4313829839229584</span><span class="r1">}</span>,
+    <span class="r2">'entities'</span>: <span class="r1">[</span>
+        <span class="r1">{</span>
+            <span class="r2">'entity'</span>: <span class="r2">'proglang'</span>,
+            <span class="r2">'start'</span>: <span class="r3">0</span>,
+            <span class="r2">'end'</span>: <span class="r3">4</span>,
+            <span class="r2">'confidence_entity'</span>: <span class="r3">0.42326217889785767</span>,
+            <span class="r2">'value'</span>: <span class="r2">'rasa'</span>,
+            <span class="r2">'extractor'</span>: <span class="r2">'DIETClassifier'</span>
+        <span class="r1">}</span>
+    <span class="r1">]</span>,
+    <span class="r2">'text_tokens'</span>: <span class="r1">[</span><span class="r2">'rasa'</span>, <span class="r2">'nlu'</span>, <span class="r2">'examples'</span><span class="r1">]</span>,
+    <span class="r2">'intent_ranking'</span>: <span class="r1">[</span>
+        <span class="r1">{</span><span class="r2">'name'</span>: <span class="r2">'out_of_scope'</span>, <span class="r2">'confidence'</span>: <span class="r3">0.4313829839229584</span><span class="r1">}</span>,
+        <span class="r1">{</span><span class="r2">'name'</span>: <span class="r2">'goodbye'</span>, <span class="r2">'confidence'</span>: <span class="r3">0.2445288747549057</span><span class="r1">}</span>,
+        <span class="r1">{</span><span class="r2">'name'</span>: <span class="r2">'bot_challenge'</span>, <span class="r2">'confidence'</span>: <span class="r3">0.23958507180213928</span><span class="r1">}</span>,
+        <span class="r1">{</span><span class="r2">'name'</span>: <span class="r2">'greet'</span>, <span class="r2">'confidence'</span>: <span class="r3">0.04896979033946991</span><span class="r1">}</span>,
+        <span class="r1">{</span><span class="r2">'name'</span>: <span class="r2">'talk_code'</span>, <span class="r2">'confidence'</span>: <span class="r3">0.035533301532268524</span><span class="r1">}</span>
+    <span class="r1">]</span>,
+    <span class="r2">'dense'</span>: <span class="r1">{</span>
+        <span class="r2">'sequence'</span>: <span class="r1">{</span><span class="r2">'shape'</span>: <span class="r1">(</span><span class="r3">3</span>, <span class="r3">25</span><span class="r1">)</span>, <span class="r2">'dtype'</span>: dtype<span class="r1">(</span><span class="r2">'float32'</span><span class="r1">)}</span>,
+        <span class="r2">'sentence'</span>: <span class="r1">{</span><span class="r2">'shape'</span>: <span class="r1">(</span><span class="r3">1</span>, <span class="r3">25</span><span class="r1">)</span>, <span class="r2">'dtype'</span>: dtype<span class="r1">(</span><span class="r2">'float32'</span><span class="r1">)}</span>
+    <span class="r1">}</span>,
+    <span class="r2">'sparse'</span>: <span class="r1">{</span>
+        <span class="r2">'sequence'</span>: <span class="r1">{</span><span class="r2">'shape'</span>: <span class="r1">(</span><span class="r3">3</span>, <span class="r3">1780</span><span class="r1">)</span>, <span class="r2">'dtype'</span>: dtype<span class="r1">(</span><span class="r2">'float64'</span><span class="r1">)</span>, <span class="r2">'stored_elements'</span>: <span class="r3">67</span><span class="r1">}</span>,
+        <span class="r2">'sentence'</span>: <span class="r1">{</span><span class="r2">'shape'</span>: <span class="r1">(</span><span class="r3">1</span>, <span class="r3">1756</span><span class="r1">)</span>, <span class="r2">'dtype'</span>: dtype<span class="r1">(</span><span class="r2">'int64'</span><span class="r1">)</span>, <span class="r2">'stored_elements'</span>: <span class="r3">32</span><span class="r1">}</span>
+    <span class="r1">}</span>
+<span class="r1">}</span>
+</pre>
+    </code></p>
                 
               
               
