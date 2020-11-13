@@ -62,10 +62,15 @@ you can specify the subword vocabulary size as well as the dimensionality.
 
 **`rasa_nlu_examples.featurizers.dense.GensimFeaturizer` [docs](docs/featurizer/gensim/)**
 
-A benefit of the `gensim` library is that it is very easy to train your own word embeddings.
-It's typically only about 5 lines of code. That means that you could train your own word-embeddings
-and then easily use them in a Rasa pipeline. This can be useful if you have reason to believe
-that standard training corpora (like Wikipedia) are not valid for your use-case.
+A benefit of the [gensim](https://radimrehurek.com/gensim/) library is that it is very easy to
+train your own word embeddings. It's typically only about 5 lines of code. That means that you
+could train your own word-embeddings and then easily use them in a Rasa pipeline. This can be
+useful if you have specific jargon you'd like to capture.
+
+Another benefit of the tool is that it has made it easy for community members to train custom
+embeddings for many languages. Here's a list of resources;
+
+- [AraVec](https://github.com/bakrianoo/aravec#download) has embeddings for Arabic trained on twitter and/or Wikipedia.
 
 ## **Fallback Classifiers**
 
