@@ -828,10 +828,15 @@ See <a href="https://nlp.h-its.org/bpemb/">this link</a> for more information. T
 you can specify the subword vocabulary size as well as the dimensionality.</p>
 <h3 id="gensimfeaturizer">GensimFeaturizer<a class="headerlink" href="#gensimfeaturizer" title="Permanent link">&para;</a></h3>
 <p><strong><code>rasa_nlu_examples.featurizers.dense.GensimFeaturizer</code> <a href="docs/featurizer/gensim/">docs</a></strong></p>
-<p>A benefit of the <code>gensim</code> library is that it is very easy to train your own word embeddings.
-It's typically only about 5 lines of code. That means that you could train your own word-embeddings
-and then easily use them in a Rasa pipeline. This can be useful if you have reason to believe
-that standard training corpora (like Wikipedia) are not valid for your use-case.</p>
+<p>A benefit of the <a href="https://radimrehurek.com/gensim/">gensim</a> library is that it is very easy to
+train your own word embeddings. It's typically only about 5 lines of code. That means that you
+could train your own word-embeddings and then easily use them in a Rasa pipeline. This can be
+useful if you have specific jargon you'd like to capture.</p>
+<p>Another benefit of the tool is that it has made it easy for community members to train custom
+embeddings for many languages. Here's a list of resources;</p>
+<ul>
+<li><a href="https://github.com/bakrianoo/aravec#download">AraVec</a> has embeddings for Arabic trained on twitter and/or Wikipedia.</li>
+</ul>
 <h2 id="fallback-classifiers"><strong>Fallback Classifiers</strong><a class="headerlink" href="#fallback-classifiers" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="images/fallback.png" /></p>
 <p>Fallback classifiers are models that can override previous intents. In Rasa NLU there is a
