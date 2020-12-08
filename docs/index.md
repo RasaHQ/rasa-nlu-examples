@@ -23,7 +23,7 @@ this might help reduce the size of all the possible tokens.
 
 ### StanzaTokenizer
 
-`rasa_nlu_examples.tokenizers.StanzaTokenizer` [docs](docs/tokenizer/thai_tokenizer/)
+`rasa_nlu_examples.tokenizers.StanzaTokenizer` [docs](docs/tokenizer/stanza/)
 
 We support a tokenizier based on [Stanza](https://github.com/stanfordnlp/stanza). This
 tokenizer offers part of speech tagging as well as lemmatization for many languages that
