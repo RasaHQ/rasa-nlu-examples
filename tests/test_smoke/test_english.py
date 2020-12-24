@@ -7,9 +7,9 @@ from rasa.test import test_nlu as run_nlu
 
 
 english_yml_files = [
+    "printer-config.yml",
     "stanza-tokenizer-config.yml",
     "fasttext-config.yml",
-    "printer-config.yml",
     "bytepair-config.yml",
     "gensim-config.yml",
     "lang-detect-ft-config.yml",
