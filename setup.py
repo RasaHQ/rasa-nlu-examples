@@ -9,6 +9,7 @@ base_packages = [
     "pythainlp>=2.2.3",
     "rich>=9.2.0",
     "stanza>=1.1.1",
+    "pandas>=1.0.5",
 ]
 
 dev_packages = [
