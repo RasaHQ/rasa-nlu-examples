@@ -4,7 +4,17 @@ import pandas as pd
 
 
 def nlu_path_to_dataframe(path):
-    """Converts a single nlu file with intents into a dataframe."""
+    """
+    Converts a single nlu file with intents into a dataframe.
+
+    Usage:
+
+    ```python
+    from rasa_nlu_examples.scikit import nlu_path_to_dataframe
+
+    df = nlu_path_to_dataframe("path/to/nlu/nlu.yml")
+    ```
+    """
     from rasa.nlu.convert import convert_training_data
 
     data = []
@@ -20,7 +30,18 @@ def nlu_path_to_dataframe(path):
 
 
 def nlu_folder_to_dataframe(path, kind="yml"):
-    """Converts a folder of nlu files into a single dataframe."""
+    """
+    Converts a folder of nlu files into a single dataframe.
+
+    Usage:
+
+    ```python
+    from rasa_nlu_examples.scikit import nlu_path_to_dataframe
+
+    df = nlu_path_to_dataframe("path/to/nlu_md/", kind="md")
+    df = nlu_path_to_dataframe("path/to/nlu_yml/", kind="yml")
+    ```
+    """
     from rasa.nlu.convert import convert_training_data
 
     data = []
