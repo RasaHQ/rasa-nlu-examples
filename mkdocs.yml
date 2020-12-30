@@ -21,9 +21,14 @@ nav:
         - GensimFeaturizer: docs/featurizer/gensim.md
         - FastTextFeaturizer: docs/featurizer/fasttext.md
         - BytePairFeaturizer: docs/featurizer/bytepair.md
+      - Jupyter:
+        - Overview: docs/jupyter/tools.md
 
 plugins:
   - search
+  - mkdocstrings:
+      watch:
+        - rasa_nlu_examples
 copyright: Copyright &copy; 2020 <a href="https://twitter.com/Rasa_HQ">Rasa</a>
 theme:
   name: material
