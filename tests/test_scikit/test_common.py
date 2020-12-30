@@ -1,4 +1,4 @@
-from rasa_nlu_examples.scikit import nlu_folder_to_dataframe, nlu_path_to_dataframe
+from rasa_nlu_examples.scikit import nlu_path_to_dataframe
 
 
 def test_yaml_nlu_equal_path():
