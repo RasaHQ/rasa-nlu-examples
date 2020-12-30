@@ -546,6 +546,48 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+    
+    <label class="md-nav__link" for="nav-3-6">
+      Jupyter
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Jupyter" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Jupyter
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../jupyter/tools/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -622,11 +664,10 @@ well as part of speech detection for many languages that are not supported by sp
 languages <a href="https://stanfordnlp.github.io/stanza/available_models.html">here</a>.</p>
 <h2 id="model-download">Model Download<a class="headerlink" href="#model-download" title="Permanent link">&para;</a></h2>
 <p>To use a Stanza model you'll first need to download it. This can be done from python.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">stanza</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">stanza</span>
 <span class="c1"># download English model in the ~/stanza_resources dir</span>
 <span class="n">stanza</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s1">&#39;~/stanza_resources&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
 <ul>
@@ -635,7 +676,7 @@ languages <a href="https://stanfordnlp.github.io/stanza/available_models.html">h
 </ul>
 <h2 id="base-usage">Base Usage<a class="headerlink" href="#base-usage" title="Permanent link">&para;</a></h2>
 <p>Once downloaded it can be used in a Rasa configuration, like below;</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
 
 <span class="nt">pipeline</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.tokenizers.StanzaTokenizer</span>
@@ -655,7 +696,6 @@ languages <a href="https://stanfordnlp.github.io/stanza/available_models.html">h
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
   <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
 </code></pre></div>
-
 
 <p>One thing to note here is that the <code>LexicalSyntacticFeaturizer</code> will be able to pick up
 the "pos" information with the <code>StanzaTokenizer</code> just like you're able to do that with spaCy.
