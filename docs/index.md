@@ -102,6 +102,23 @@ to appear to help with debugging.
 This component will print what each featurizer adds to the NLU message. Very useful for debugging.
 You can find a tutorial on it [here](https://blog.rasa.com/custom-printer-component/).
 
+## **Entity Extraction**
+
+### Name Lists
+
+Language models in spaCy are typically trained on Western news datasets. That means
+that the reported benchmarks might not apply to your use-case. For example; detecting
+names in texts from France is not the same thing as detecting names in Madagascar. Even
+thought French is used actively in both countries, the names of it's citizens might
+be so different that you cannot assume that the benchmarks apply universally.
+
+To remedy this we've started collecting name lists. These can be used as a lookup table
+which can be picked up  by Rasa's [RegexEntityExtractor](https://rasa.com/docs/rasa/components#regexentityextractor).
+It won't be 100% perfect but it should give a reasonable starting point.
+
+You can find the namelists [here](https://github.com/RasaHQ/rasa-nlu-examples/tree/master/data/namelists).
+We currently offer namelists for the United States, Germany as well as common Arabic names.
+Feel free to submit PRs for more languages. We're also eager to receive feedback.
 
 ## Contributing
 
