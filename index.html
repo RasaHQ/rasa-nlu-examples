@@ -365,6 +365,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#entity-extraction" class="md-nav__link">
+    Entity Extraction
+  </a>
+  
+    <nav class="md-nav" aria-label="Entity Extraction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name-lists" class="md-nav__link">
+    Name Lists
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#contributing" class="md-nav__link">
     Contributing
   </a>
@@ -805,6 +825,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#entity-extraction" class="md-nav__link">
+    Entity Extraction
+  </a>
+  
+    <nav class="md-nav" aria-label="Entity Extraction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name-lists" class="md-nav__link">
+    Name Lists
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#contributing" class="md-nav__link">
     Contributing
   </a>
@@ -898,6 +938,19 @@ to appear to help with debugging.</p>
 <p><strong><code>rasa_nlu_examples.meta.Printer</code> <a href="docs/meta/printer/">docs</a></strong></p>
 <p>This component will print what each featurizer adds to the NLU message. Very useful for debugging.
 You can find a tutorial on it <a href="https://blog.rasa.com/custom-printer-component/">here</a>.</p>
+<h2 id="entity-extraction"><strong>Entity Extraction</strong><a class="headerlink" href="#entity-extraction" title="Permanent link">&para;</a></h2>
+<h3 id="name-lists">Name Lists<a class="headerlink" href="#name-lists" title="Permanent link">&para;</a></h3>
+<p>Language models in spaCy are typically trained on Western news datasets. That means
+that the reported benchmarks might not apply to your use-case. For example; detecting
+names in texts from France is not the same thing as detecting names in Madagascar. Even
+thought French is used actively in both countries, the names of it's citizens might
+be so different that you cannot assume that the benchmarks apply universally.</p>
+<p>To remedy this we've started collecting name lists. These can be used as a lookup table
+which can be picked up  by Rasa's <a href="https://rasa.com/docs/rasa/components#regexentityextractor">RegexEntityExtractor</a>.
+It won't be 100% perfect but it should give a reasonable starting point.</p>
+<p>You can find the namelists <a href="https://github.com/RasaHQ/rasa-nlu-examples/tree/master/data/namelists">here</a>.
+We currently offer namelists for the United States, Germany as well as common Arabic names.
+Feel free to submit PRs for more languages. We're also eager to receive feedback.</p>
 <h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
 <p>You can find the contribution guide <a href="https://rasahq.github.io/rasa-nlu-examples/contributing/">here</a>.</p>
                 
