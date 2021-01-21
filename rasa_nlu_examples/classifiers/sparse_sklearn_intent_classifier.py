@@ -34,12 +34,13 @@ class SparseSklearnIntentClassifier(IntentClassifier):
         return [SparseFeaturizer]
 
     defaults = {
-        # C parameter of the svm - cross validation will select the best value
+        # alpha parameter of the bernoulliNB model.
+        # Cross validation will select the best value.
         "alpha": [0.1, 0.5, 1.0, 2.0, 10.0],
-        # gamma parameter of the svm
+        # threshold of for boolean feature values
         "binarize": [0.0],
-        # the kernels to use for the svm training - cross validation will
-        # decide which one of them performs best
+        # Fit the prior probability to the training data.
+        # If False a uniform prior is used.
         "fit_prior": [True],
         # We try to find a good number of cross folds to use during
         # intent training, this specifies the max number of folds
@@ -121,7 +122,7 @@ class SparseSklearnIntentClassifier(IntentClassifier):
             self.clf.fit(X, y)
 
     @staticmethod
-    def _get_sentence_features(message: Message) -> np.ndarray:
+    def _get_sentence_features(message: Message) -> scipy.sparse.spmatrix:
         _, sentence_features = message.get_sparse_features(TEXT)
         if sentence_features is not None:
             return sentence_features.features
@@ -172,7 +173,7 @@ class SparseSklearnIntentClassifier(IntentClassifier):
             intent = None
             intent_ranking = []
         else:
-            X = self._get_sentence_features(message)  #.reshape(1, -1)
+            X = self._get_sentence_features(message)
             intent_ids, probabilities = self.predict(X)
             intents = self.transform_labels_num2str(np.ravel(intent_ids))
             # `predict` returns a matrix as it is supposed
@@ -196,7 +197,7 @@ class SparseSklearnIntentClassifier(IntentClassifier):
         message.set("intent", intent, add_to_output=True)
         message.set("intent_ranking", intent_ranking, add_to_output=True)
 
-    def predict_prob(self, X: np.ndarray) -> np.ndarray:
+    def predict_prob(self, X: scipy.sparse.spmatrix) -> np.ndarray:
         """Given a bow vector of an input text, predict the intent label.
         Return probabilities for all labels.
         :param X: bow of input text
@@ -204,7 +205,7 @@ class SparseSklearnIntentClassifier(IntentClassifier):
 
         return self.clf.predict_proba(X)
 
-    def predict(self, X: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+    def predict(self, X: scipy.sparse.spmatrix) -> Tuple[np.ndarray, np.ndarray]:
         """Given a bow vector of an input text, predict most probable label.
         Return only the most likely label.
         :param X: bow of input text
