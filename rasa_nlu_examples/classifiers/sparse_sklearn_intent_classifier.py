@@ -93,6 +93,25 @@ class SparseSklearnIntentClassifier(IntentClassifier):
 
         num_threads = kwargs.get("num_threads", 1)
 
+        X, y = self.prepare_data(training_data)
+        self.clf = self._create_classifier(num_threads, y)
+
+        with warnings.catch_warnings():
+            # sklearn raises lots of
+            # "UndefinedMetricWarning: F - score is ill - defined"
+            # if there are few intent examples, this is needed to prevent it
+            warnings.simplefilter("ignore")
+            self.clf.fit(X, y)
+
+    def prepare_data(
+        self, 
+        training_data: TrainingData
+    ) -> Tuple[scipy.sparse.spmatrix, np.ndarray]:
+        """
+        Converts a rasa TrainingData object into a tuple of a sparse feature
+        matrix and a dense vector of labels.
+        """
+        
         labels = [e.get("intent") for e in training_data.intent_examples]
 
         if len(set(labels)) < 2:
@@ -112,14 +131,7 @@ class SparseSklearnIntentClassifier(IntentClassifier):
             ]
         )
 
-        self.clf = self._create_classifier(num_threads, y)
-
-        with warnings.catch_warnings():
-            # sklearn raises lots of
-            # "UndefinedMetricWarning: F - score is ill - defined"
-            # if there are few intent examples, this is needed to prevent it
-            warnings.simplefilter("ignore")
-            self.clf.fit(X, y)
+        return X, y
 
     @staticmethod
     def _get_sentence_features(message: Message) -> scipy.sparse.spmatrix:
