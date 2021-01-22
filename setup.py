@@ -15,7 +15,7 @@ dev_packages = [
     "black>=19.10b0",
     "pre-commit>=2.5.1",
     "pytype>=2020.0.0",
-    "pytest==4.0.2",
+    "pytest>=4.0.2",
     "pytest-xdist==1.32.0",
     "mkdocs>=1.1",
     "mkdocs-material>=4.6.3",
