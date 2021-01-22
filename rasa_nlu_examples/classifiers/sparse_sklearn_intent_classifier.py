@@ -104,14 +104,13 @@ class SparseSklearnIntentClassifier(IntentClassifier):
             self.clf.fit(X, y)
 
     def prepare_data(
-        self, 
-        training_data: TrainingData
+        self, training_data: TrainingData
     ) -> Tuple[scipy.sparse.spmatrix, np.ndarray]:
         """
         Converts a rasa TrainingData object into a tuple of a sparse feature
         matrix and a dense vector of labels.
         """
-        
+
         labels = [e.get("intent") for e in training_data.intent_examples]
 
         if len(set(labels)) < 2:

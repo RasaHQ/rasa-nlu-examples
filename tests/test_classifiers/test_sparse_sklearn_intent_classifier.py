@@ -14,6 +14,7 @@ def load_interpreter(model_path):
     _, nlu_model = get_model_subdirectories(model_path)
     return RasaNLUInterpreter(nlu_model)
 
+
 def test_predict():
     NLU_DATA_PATH = "tests/data/nlu/en/nlu.md"
     model_path = train_nlu(
@@ -21,7 +22,7 @@ def test_predict():
         config="tests/configs/sparse-sklearn-intent-classifier-config.yml",
         output="models",
     )
-    
+
     interpreter = load_interpreter(model_path)
 
     # Get features from the pipeline and prepare data in the format sklearn
@@ -30,8 +31,8 @@ def test_predict():
     for example in training_data.intent_examples:
         interpreter.featurize_message(example)
     model = interpreter.interpreter.pipeline[-1]
-    X, y =  model.prepare_data(training_data)
- 
+    X, y = model.prepare_data(training_data)
+
     # Fit the equivalent sklearn classifier.
     from sklearn.naive_bayes import BernoulliNB
     clf = BernoulliNB(alpha=0.1, binarize=0.0, fit_prior=True)
@@ -39,4 +40,4 @@ def test_predict():
 
     # Check that predictions agree.
     assert (clf.predict_proba(X) == model.predict_prob(X)).all()
-    assert (clf.predict(X) == model.predict(X)[0][:,0]).all()
+    assert (clf.predict(X) == model.predict(X)[0][:, 0]).all()
