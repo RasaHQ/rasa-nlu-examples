@@ -26,37 +26,34 @@ if typing.TYPE_CHECKING:
     import sklearn
 
 
-class SparseSklearnIntentClassifier(IntentClassifier):
-    """Intent classifier using the sklearn framework with sparse features."""
+class SparseNaiveBayesIntentClassifier(IntentClassifier):
+    """A naive Bayes intent classifier using the sklearn framework with sparse features."""
 
     @classmethod
     def required_components(cls) -> List[Type[Component]]:
         return [SparseFeaturizer]
 
     defaults = {
-        # alpha parameter of the bernoulliNB model.
-        # Cross validation will select the best value.
-        "alpha": [0.1, 0.5, 1.0, 2.0, 10.0],
-        # threshold of for boolean feature values
-        "binarize": [0.0],
-        # Fit the prior probability to the training data.
-        # If False a uniform prior is used.
-        "fit_prior": [True],
-        # We try to find a good number of cross folds to use during
-        # intent training, this specifies the max number of folds
-        "max_cross_validation_folds": 5,
-        # Scoring function used for evaluating the hyper parameters
-        # This can be a name or a function (cfr GridSearchCV doc for more info)
-        "scoring_function": "f1_weighted",
+        # Additive (Laplace/Lidstone) smoothing parameter (0 for no smoothing).
+        "alpha": 1.0,
+        # Threshold for binarizing (mapping to booleans) of sample features.
+        # If None, input is presumed to already consist of binary vectors.
+        "binarize": 0.0,
+        # Whether to learn class prior probabilities or not.
+        # If false, a uniform prior will be used.
+        "fit_prior": True,
+        # Prior probabilities of the classes.
+        # If specified the priors are not adjusted according to the data.
+        "class_prior": None,
     }
 
     def __init__(
         self,
         component_config: Optional[Dict[Text, Any]] = None,
-        clf: "sklearn.model_selection.GridSearchCV" = None,
+        clf: Optional["sklearn.naive_bayes.BernoulliNB"] = None,
         le: Optional["sklearn.preprocessing.LabelEncoder"] = None,
     ) -> None:
-        """Construct a new intent classifier using the sklearn framework."""
+        """Construct a new naive Bayes intent classifier using the sklearn framework."""
         from sklearn.preprocessing import LabelEncoder
 
         super().__init__(component_config)
@@ -72,14 +69,22 @@ class SparseSklearnIntentClassifier(IntentClassifier):
         return ["sklearn"]
 
     def transform_labels_str2num(self, labels: List[Text]) -> np.ndarray:
-        """Transforms a list of strings into numeric label representation.
-        :param labels: List of labels to convert to numeric representation"""
+        """
+        Transforms a list of strings into numeric label representation.
+
+        :param labels: List of labels to convert to numeric representation
+        :returns: numpy array of numeric label ids.
+        """
 
         return self.le.fit_transform(labels)
 
     def transform_labels_num2str(self, y: np.ndarray) -> np.ndarray:
-        """Transforms a list of strings into numeric label representation.
-        :param y: List of labels to convert to numeric representation"""
+        """
+        Transforms a numpy array of numeric label ids into a list of string label ids.
+
+        :param y: array of labels to convert to string representation
+        :returns: a list of label id strings
+        """
 
         return self.le.inverse_transform(y)
 
@@ -91,10 +96,18 @@ class SparseSklearnIntentClassifier(IntentClassifier):
     ) -> None:
         """Train the intent classifier on a data set."""
 
-        num_threads = kwargs.get("num_threads", 1)
+        from sklearn.naive_bayes import BernoulliNB
+
+        alpha = self.component_config["alpha"]
+        binarize = self.component_config["binarize"]
+        fit_prior = self.component_config["fit_prior"]
+        class_prior = self.component_config["class_prior"]
+
+        self.clf = BernoulliNB(
+            alpha=alpha, binarize=binarize, fit_prior=fit_prior, class_prior=class_prior
+        )
 
         X, y = self.prepare_data(training_data)
-        self.clf = self._create_classifier(num_threads, y)
 
         with warnings.catch_warnings():
             # sklearn raises lots of
@@ -134,45 +147,18 @@ class SparseSklearnIntentClassifier(IntentClassifier):
 
     @staticmethod
     def _get_sentence_features(message: Message) -> scipy.sparse.spmatrix:
+        _, dense_sentence_features = message.get_dense_features(TEXT)
+        if dense_sentence_features is not None:
+            rasa.shared.utils.io.raise_warning(
+                "Dense features are being computed but not used in the SparseNaiveBayesIntentClassifier."
+            )
+
         _, sentence_features = message.get_sparse_features(TEXT)
         if sentence_features is not None:
             return sentence_features.features
 
         raise ValueError(
-            "No sentence features present. Not able to train sklearn policy."
-        )
-
-    def _num_cv_splits(self, y: np.ndarray) -> int:
-        folds = self.component_config["max_cross_validation_folds"]
-        return max(2, min(folds, np.min(np.bincount(y)) // 5))
-
-    def _create_classifier(
-        self, num_threads: int, y: np.ndarray
-    ) -> "sklearn.model_selection.GridSearchCV":
-        from sklearn.model_selection import GridSearchCV
-        from sklearn.naive_bayes import BernoulliNB
-
-        alpha = self.component_config["alpha"]
-        binarize = self.component_config["binarize"]
-        fit_prior = self.component_config["fit_prior"]
-        # dirty str fix because sklearn is expecting
-        # str not instance of basestr...
-        tuned_parameters = [
-            {"alpha": alpha, "binarize": binarize, "fit_prior": fit_prior}
-        ]
-
-        # aim for 5 examples in each fold
-
-        cv_splits = self._num_cv_splits(y)
-
-        return GridSearchCV(
-            BernoulliNB(alpha=1, binarize=0.0, fit_prior=True),
-            param_grid=tuned_parameters,
-            n_jobs=num_threads,
-            cv=cv_splits,
-            scoring=self.component_config["scoring_function"],
-            verbose=1,
-            iid=False,
+            "No sparse sentence features present. Not able to train sklearn intent classifier."
         )
 
     def process(self, message: Message, **kwargs: Any) -> None:
@@ -209,19 +195,25 @@ class SparseSklearnIntentClassifier(IntentClassifier):
         message.set("intent_ranking", intent_ranking, add_to_output=True)
 
     def predict_prob(self, X: scipy.sparse.spmatrix) -> np.ndarray:
-        """Given a bow vector of an input text, predict the intent label.
+        """
+        Given a bow vector of an input text, predict the intent label.
+
         Return probabilities for all labels.
         :param X: bow of input text
-        :return: vector of probabilities containing one entry for each label"""
+        :return: vector of probabilities containing one entry for each label
+        """
 
         return self.clf.predict_proba(X)
 
     def predict(self, X: scipy.sparse.spmatrix) -> Tuple[np.ndarray, np.ndarray]:
-        """Given a bow vector of an input text, predict most probable label.
+        """
+        Given a bow vector of an input text, predict most probable label.
+
         Return only the most likely label.
         :param X: bow of input text
         :return: tuple of first, the most probable label and second,
-                 its probability."""
+                 its probability.
+        """
 
         pred_result = self.predict_prob(X)
         # sort the probabilities retrieving the indices of
@@ -239,7 +231,7 @@ class SparseSklearnIntentClassifier(IntentClassifier):
                 os.path.join(model_dir, encoder_file_name), self.le.classes_
             )
             io_utils.json_pickle(
-                os.path.join(model_dir, classifier_file_name), self.clf.best_estimator_
+                os.path.join(model_dir, classifier_file_name), self.clf
             )
         return {"classifier": classifier_file_name, "encoder": encoder_file_name}
 
@@ -249,9 +241,9 @@ class SparseSklearnIntentClassifier(IntentClassifier):
         meta: Dict[Text, Any],
         model_dir: Optional[Text] = None,
         model_metadata: Optional[Metadata] = None,
-        cached_component: Optional["SparseSklearnIntentClassifier"] = None,
+        cached_component: Optional["SparseNaiveBayesIntentClassifier"] = None,
         **kwargs: Any,
-    ) -> "SparseSklearnIntentClassifier":
+    ) -> "SparseNaiveBayesIntentClassifier":
         from sklearn.preprocessing import LabelEncoder
 
         classifier_file = os.path.join(model_dir, meta.get("classifier"))

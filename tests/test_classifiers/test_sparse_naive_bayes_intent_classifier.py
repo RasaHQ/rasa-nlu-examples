@@ -1,3 +1,5 @@
+import pytest
+
 import pathlib
 
 from rasa.train import train_nlu
@@ -5,6 +7,8 @@ from rasa.cli.utils import get_validated_path
 from rasa.model import get_model, get_model_subdirectories
 from rasa.core.interpreter import RasaNLUInterpreter
 from rasa.shared.nlu.training_data.loading import load_data
+
+NLU_DATA_PATH = "tests/data/nlu/en/nlu.md"
 
 
 def load_interpreter(model_path):
@@ -16,10 +20,9 @@ def load_interpreter(model_path):
 
 
 def test_predict():
-    NLU_DATA_PATH = "tests/data/nlu/en/nlu.md"
     model_path = train_nlu(
         nlu_data=NLU_DATA_PATH,
-        config="tests/configs/sparse-sklearn-intent-classifier-config.yml",
+        config="tests/configs/sparse-naive-bayes-intent-classifier-config.yml",
         output="models",
     )
 
@@ -41,3 +44,15 @@ def test_predict():
     # Check that predictions agree.
     assert (clf.predict_proba(X) == model.predict_prob(X)).all()
     assert (clf.predict(X) == model.predict(X)[0][:, 0]).all()
+
+
+def test_warn_on_dense_features():
+    msg = "Dense features are being computed but not used in the SparseNaiveBayesIntentClassifier."
+    with pytest.warns(UserWarning) as record:
+        train_nlu(
+            nlu_data=NLU_DATA_PATH,
+            config="tests/configs/sparse-dense-naive-bayes-intent-classifier-config.yml",
+            output="models",
+        )
+
+        assert any([str(w.message) == msg for w in record.list])

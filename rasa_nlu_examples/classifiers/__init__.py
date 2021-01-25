@@ -1,3 +1,3 @@
-from .sparse_sklearn_intent_classifier import SparseSklearnIntentClassifier
+from .sparse_naive_bayes_intent_classifier import SparseNaiveBayesIntentClassifier
 
-__all__ = ["SparseSklearnIntentClassifier"]
+__all__ = ["SparseNaiveBayesIntentClassifier"]
