@@ -83,7 +83,7 @@ class SparseNaiveBayesIntentClassifier(IntentClassifier):
         Transforms a numpy array of numeric label ids into a list of string label ids.
 
         :param y: array of labels to convert to string representation
-        :returns: a list of label id strings
+        :returns: an ndarray of label id strings
         """
 
         return self.le.inverse_transform(y)
@@ -150,7 +150,8 @@ class SparseNaiveBayesIntentClassifier(IntentClassifier):
         _, dense_sentence_features = message.get_dense_features(TEXT)
         if dense_sentence_features is not None:
             rasa.shared.utils.io.raise_warning(
-                "Dense features are being computed but not used in the SparseNaiveBayesIntentClassifier."
+                "Dense features are being computed but not used in "
+                "the SparseNaiveBayesIntentClassifier."
             )
 
         _, sentence_features = message.get_sparse_features(TEXT)
@@ -158,7 +159,8 @@ class SparseNaiveBayesIntentClassifier(IntentClassifier):
             return sentence_features.features
 
         raise ValueError(
-            "No sparse sentence features present. Not able to train sklearn intent classifier."
+            "No sparse sentence features present. "
+            "Not able to train sklearn intent classifier."
         )
 
     def process(self, message: Message, **kwargs: Any) -> None:
@@ -207,12 +209,12 @@ class SparseNaiveBayesIntentClassifier(IntentClassifier):
 
     def predict(self, X: scipy.sparse.spmatrix) -> Tuple[np.ndarray, np.ndarray]:
         """
-        Given a bow vector of an input text, predict most probable label.
+        Given a bow vector of an input text, predict the corresponding intent.
 
-        Return only the most likely label.
+        Return intents and their probabilities, in decreasing order of likelihood.
         :param X: bow of input text
-        :return: tuple of first, the most probable label and second,
-                 its probability.
+        :return: tuple of first, intent labels and second,
+                 intent probabilities.
         """
 
         pred_result = self.predict_prob(X)
