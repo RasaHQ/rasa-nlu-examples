@@ -13,6 +13,23 @@ as well as documentation but this project should be considered a community proje
 not something that is part of core Rasa. If there's a component here that turns out to be
 useful to the larger Rasa community then we might port features from this repository to Rasa.
 
+# Install
+
+To use these tools locally you need to install via git.
+
+```python
+python -m pip install "rasa_nlu_examples @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
+```
+
+Note that if you want to install optional dependencies as well that you'll need to run:
+
+```python
+python -m pip install "rasa_nlu_examples[stanza] @ https://github.com/RasaHQ/rasa-nlu-examples.git"
+python -m pip install "rasa_nlu_examples[thai] @ https://github.com/RasaHQ/rasa-nlu-examples.git"
+python -m pip install "rasa_nlu_examples[fasttext] @ https://github.com/RasaHQ/rasa-nlu-examples.git"
+python -m pip install "rasa_nlu_examples[all] @ https://github.com/RasaHQ/rasa-nlu-examples.git"
+```
+
 # Contribute
 
 There are many ways you can contribute to this project.

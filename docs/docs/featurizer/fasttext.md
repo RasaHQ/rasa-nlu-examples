@@ -1,6 +1,14 @@
 Fasttext supports word embeddings for 157 languages and is trained on both Common Crawl and Wikipedia. You can download the embeddings
 [here](https://fasttext.cc/docs/en/crawl-vectors.html#models). Note that this featurizer is a *dense* featurizer. Beware that these embedding files tend to be big: about 6-7Gb.
 
+!!! note
+    In order to use this tool you'll need to ensure the correct dependencies are installed.
+
+    ```
+    pip install "rasa_nlu_examples[fasttext] @ https://github.com/RasaHQ/rasa-nlu-examples.git"
+    ```
+
+
 ## Configurable Variables
 
 - **cache_dir**: pass it the name of the directory where you've downloaded the embeddings
