@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest]
-        python-version: [3.7]
+        python-version: [3.7.5]
         rasa-version: ["2.0"]
 
     steps:
@@ -35,6 +35,5 @@ jobs:
         python -m pip install -e ".[all]"
         python -m pip freeze
         python tests/prepare_everything.py
-        chmod 775 tests/data/fasttext/custom_fasttext_model.bin
-        # Windows does not run fasttext so we only run a subset of tests here.
+        # Windows breaks on fasttext so we only run a subset of tests here.
         pytest -m "not fasttext"
