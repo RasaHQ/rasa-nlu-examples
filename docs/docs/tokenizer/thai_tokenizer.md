@@ -3,6 +3,14 @@ The `ThaiTokenizer` is a Rasa compatible tokenizer for Thai, using [`PyThaiNLP`]
 In order to use the `ThaiTokenizer` the language **must** be set to `th` - no
 other languages are supported by this tokenizer.
 
+!!! note
+    In order to use this tool you'll need to ensure the correct dependencies are installed.
+
+    ```
+    pip install "rasa_nlu_examples[thai] @ https://github.com/RasaHQ/rasa-nlu-examples.git"
+    ```
+
+
 ## Configurable Variables
 
 None
