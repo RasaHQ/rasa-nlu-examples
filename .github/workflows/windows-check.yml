@@ -32,7 +32,7 @@ jobs:
         python -m pip install pytest
     - name: Test with pytest
       run: |
-        python -m pip install -e "."
+        python -m pip install -e ".[dev-windows]"
         python -m pip freeze
         python tests/prepare_everything.py
         # Windows breaks on fasttext so we only run a subset of tests here.
