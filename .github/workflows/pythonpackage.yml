@@ -33,6 +33,7 @@ jobs:
       run: pip freeze | grep -E 'stanza|gensim|bpemb|fasttext'
     - name: Test with pytest
       run: |
-        python tests/prepare_everything.py
+        python tests/scripts/prepare_fasttext.py
+        python tests/scripts/prepare_stanza.py
         chmod 775 tests/data/fasttext/custom_fasttext_model.bin
         pytest
