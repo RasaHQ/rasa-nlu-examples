@@ -3,7 +3,6 @@ from setuptools import setup, find_packages
 
 base_packages = [
     "rasa>=2.2.0",
-    "fasttext>=0.9.2",
     "bpemb>=0.3.2",
     "gensim>=3.8.3",
     "rich>=9.2.0",
@@ -30,6 +29,10 @@ thai_deps = [
     "pythainlp>=2.2.3",
 ]
 
+fasttext_deps = [
+    "fasttext>=0.9.2",
+]
+
 setup(
     name="rasa_nlu_examples",
     version="0.2.1",
@@ -40,5 +43,6 @@ setup(
         "all": dev_packages + stanza_deps + thai_deps,
         "thai": base_packages + thai_deps,
         "stanza": base_packages + stanza_deps,
+        "fasttext": base_packages + fasttext_deps,
     },
 )
