@@ -13,6 +13,7 @@ english_yml_files = [
     "bytepair-config.yml",
     "gensim-config.yml",
     "lang-detect-ft-config.yml",
+    "sparse-naive-bayes-intent-classifier-config.yml",
 ]
 
 

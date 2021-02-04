@@ -90,6 +90,25 @@ This fallback classifier is based on [fasttext](https://fasttext.cc/docs/en/lang
 can detect when a user is speaking in an unintended language such that you can create a rule to respond
 appropriately.
 
+## **Intent Classifiers**
+
+Intent classifiers are models that predict an intent from a given user message
+text.  The default intent classifier in Rasa NLU is the [DIET
+model](https://rasa.com/docs/rasa/components#dietclassifier-2) which can be
+fairly computationally expensive, especially if you do not need to detect
+entities.  We provide some examples of alternative intent classifiers here.
+
+### SparseNaiveBayesIntentClassifier
+
+**`rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier` [docs](docs/classifier/sparsenb.md)**
+
+This intent classifier is based on the Bernoulli-variant of the Na&iuml;ve
+Bayes classifier in
+[sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html).
+This classifier only looks at sparse features extracted from the Rasa NLU
+feature pipeline and is a faster alternative to neural models like
+[DIET](https://rasa.com/docs/rasa/components#dietclassifier-2).
+
 ## **Meta**
 
 The components listed here won't effect the NLU pipeline but they might instead cause extra logs
