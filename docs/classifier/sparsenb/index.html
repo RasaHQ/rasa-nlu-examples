@@ -11,7 +11,7 @@
         <meta name="description" content="A collection of open source Rasa compatible NLU components.">
       
       
-        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/gensim/">
+        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/classifier/sparsenb/">
       
       
         <meta name="author" content="Vincent D. Warmerdam @ Rasa Research">
@@ -21,7 +21,7 @@
     
     
       
-        <title>GensimFeaturizer - Rasa NLU Examples</title>
+        <title>SparseNaiveBayesIntentClassifier - Rasa NLU Examples</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#training-your-own" class="md-skip">
+        <a href="#sparsenaivebayesintentclassifier" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              GensimFeaturizer
+              SparseNaiveBayesIntentClassifier
             
           </span>
         </div>
@@ -430,12 +430,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
     
     <label class="md-nav__link" for="nav-3-5">
       Featurizers
@@ -457,63 +455,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        GensimFeaturizer
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="GensimFeaturizer" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../featurizer/gensim/" title="GensimFeaturizer" class="md-nav__link">
       GensimFeaturizer
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#training-your-own" class="md-nav__link">
-    Training Your Own
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configurable-variables" class="md-nav__link">
-    Configurable Variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#base-usage" class="md-nav__link">
-    Base Usage
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -523,7 +469,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../fasttext/" title="FastTextFeaturizer" class="md-nav__link">
+    <a href="../../featurizer/fasttext/" title="FastTextFeaturizer" class="md-nav__link">
       FastTextFeaturizer
     </a>
   </li>
@@ -535,7 +481,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../bytepair/" title="BytePairFeaturizer" class="md-nav__link">
+    <a href="../../featurizer/bytepair/" title="BytePairFeaturizer" class="md-nav__link">
       BytePairFeaturizer
     </a>
   </li>
@@ -550,10 +496,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6" checked>
     
     <label class="md-nav__link" for="nav-3-6">
       Intent Classifiers
@@ -575,11 +523,60 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../classifier/sparsenb/" title="SparseNaiveBayesIntentClassifier" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        SparseNaiveBayesIntentClassifier
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="SparseNaiveBayesIntentClassifier" class="md-nav__link md-nav__link--active">
       SparseNaiveBayesIntentClassifier
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configurable-variables" class="md-nav__link">
+    Configurable Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-usage" class="md-nav__link">
+    Base Usage
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -649,6 +646,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -657,13 +656,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#training-your-own" class="md-nav__link">
-    Training Your Own
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#configurable-variables" class="md-nav__link">
@@ -691,7 +683,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/featurizer/gensim.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/classifier/sparsenb.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -699,59 +691,60 @@
                   
                 
                 
-                  <h1>GensimFeaturizer</h1>
-                
-                <p>This page discusses some properties of the <code>GensimFeaturizer</code>.
-Note that this featurizer is a <em>dense</em> featurizer.</p>
-<p>Gensim is a popular python library that makes it relatively easy to
-train your own word vectors. This can be useful if your corpus is very
-different than what most popular embeddings are trained on. We'll give
-a small guide on how to train your own embeddings here but you can
-also read the guide on the
-<a href="https://radimrehurek.com/gensim/auto_examples/tutorials/run_word2vec.html#training-your-own-model">gensim docs</a>.</p>
-<h2 id="training-your-own">Training Your Own<a class="headerlink" href="#training-your-own" title="Permanent link">&para;</a></h2>
-<p>Training your own gensim model can be done in a few lines of code. A demonstration is shown below.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span>
+                <h1 id="sparsenaivebayesintentclassifier">SparseNaiveBayesIntentClassifier<a class="headerlink" href="#sparsenaivebayesintentclassifier" title="Permanent link">&para;</a></h1>
+<p>This intent classifier is based on the Bernoulli-variant of the Na&iuml;ve
+Bayes classifier in
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html">sklearn</a>.
+This classifier only looks at sparse features extracted from the Rasa NLU
+feature pipeline and is a faster alternative to neural models like
+<a href="https://rasa.com/docs/rasa/components#dietclassifier-2">DIET</a>. This model
+requires that there be some sparse featurizers in your pipeleine. If you config
+only has dense features it will throw an exception. </p>
+<h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>alpha</strong> (default: 1.0): Additive (Laplace/Lidstone) smoothing parameter (0 for no smoothing).</li>
+<li><strong>binarize</strong> (default: 0.0): Threshold for binarizing (mapping to booleans) of sample features. If None, input is presumed to already consist of binary vectors.</li>
+<li><strong>fit_prior</strong> (default: True): Whether to learn class prior probabilities or not. If false, a uniform prior will be used.</li>
+<li><strong>class_prior</strong> (default: None): Prior probabilities (as a list) of the classes. If specified the priors are not adjusted according to the data.</li>
+</ul>
+<h2 id="base-usage">Base Usage<a class="headerlink" href="#base-usage" title="Permanent link">&para;</a></h2>
+<p>The configuration file below demonstrates how you might use the this component.
+In this example we are extracting sparse features with two
+CountVectorsFeaturizer instances, the first of which produces sparse
+bag-of-words features, and the second which produces sparse
+bags-of-character-ngram features. We've also set the alpha smoothing parameter
+to 0.1.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
 
-<span class="c1"># Gensim needs a list of lists to represent tokens in a document.</span>
-<span class="c1"># In real life you’d read a text file and turn it into lists here.</span>
-<span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;this is a sentence&quot;</span><span class="p">,</span> <span class="s2">&quot;so is this&quot;</span><span class="p">,</span> <span class="s2">&quot;and we&#39;re all talking&quot;</span><span class="p">]</span>
-<span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>
-
-<span class="c1"># This is where we train new word embeddings.</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="o">=</span><span class="n">tokens</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-                 <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">iter</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="c1"># This is where they are saved to disk.</span>
-<span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;wordvectors.kv&quot;</span><span class="p">)</span>
+<span class="nt">pipeline</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
+  <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
+  <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier</span>
+  <span class="nt">alpha</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.1</span>
 </code></pre></div>
 
 
-<p>This <code>wordvectors.kv</code> file should contain all the vectors that you've trained. It's this
-file that you can pass on to this component.</p>
-<h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>cache_dir</strong>: pass it the name of the directory where you've downloaded/saved the embeddings</li>
-<li><strong>file</strong>: pass it the name of the <code>.kv</code> file that contains the word embeddings</li>
-</ul>
-<h2 id="base-usage">Base Usage<a class="headerlink" href="#base-usage" title="Permanent link">&para;</a></h2>
-<p>The configuration file below demonstrates how you might use the gensim embeddings. In this example
-we're building a pipeline for the an English language and we're assuming that you've trained your
-own embeddings which have been saved upfront as <code>saved/beforehand/filename.kv</code>.</p>
+<p>Unlike <a href="https://rasa.com/docs/rasa/components#dietclassifier-2">DIET</a>, this
+classifier only predicts intents. If you also need entity extraction, you will
+have to add a separate entity extractor to your config. Below is an example
+where we have included the CRFEntityExtractor to extract entities.</p>
 <div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
 
 <span class="nt">pipeline</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LexicalSyntacticFeaturizer</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
   <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
   <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
   <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.featurizers.dense.GensimFeaturizer</span>
-  <span class="nt">cache_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">saved/beforehand</span>
-  <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">filename.kv</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
-  <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier</span>
+  <span class="nt">alpha</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.1</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CRFEntityExtractor</span> 
 </code></pre></div>
                 
               
@@ -771,7 +764,7 @@ own embeddings which have been saved upfront as <code>saved/beforehand/filename.
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../meta/printer/" title="Printer" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../featurizer/bytepair/" title="BytePairFeaturizer" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -780,19 +773,19 @@ own embeddings which have been saved upfront as <code>saved/beforehand/filename.
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Printer
+                BytePairFeaturizer
               </div>
             </div>
           </a>
         
         
-          <a href="../fasttext/" title="FastTextFeaturizer" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../jupyter/tools/" title="Overview" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                FastTextFeaturizer
+                Overview
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

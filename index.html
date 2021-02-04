@@ -345,6 +345,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#intent-classifiers" class="md-nav__link">
+    Intent Classifiers
+  </a>
+  
+    <nav class="md-nav" aria-label="Intent Classifiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sparsenaivebayesintentclassifier" class="md-nav__link">
+    SparseNaiveBayesIntentClassifier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#meta" class="md-nav__link">
     Meta
   </a>
@@ -661,13 +681,55 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
     
     <label class="md-nav__link" for="nav-3-6">
+      Intent Classifiers
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Intent Classifiers" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Intent Classifiers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="docs/classifier/sparsenb/" title="SparseNaiveBayesIntentClassifier" class="md-nav__link">
+      SparseNaiveBayesIntentClassifier
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
+    
+    <label class="md-nav__link" for="nav-3-7">
       Jupyter
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Jupyter" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-6">
+      <label class="md-nav__title" for="nav-3-7">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
@@ -805,6 +867,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#intent-classifiers" class="md-nav__link">
+    Intent Classifiers
+  </a>
+  
+    <nav class="md-nav" aria-label="Intent Classifiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sparsenaivebayesintentclassifier" class="md-nav__link">
+    SparseNaiveBayesIntentClassifier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#meta" class="md-nav__link">
     Meta
   </a>
@@ -931,6 +1013,20 @@ These models are meant to be used in combination with a <a href="https://rasa.co
 <p>This fallback classifier is based on <a href="https://fasttext.cc/docs/en/language-identification.html">fasttext</a>. It
 can detect when a user is speaking in an unintended language such that you can create a rule to respond
 appropriately.</p>
+<h2 id="intent-classifiers"><strong>Intent Classifiers</strong><a class="headerlink" href="#intent-classifiers" title="Permanent link">&para;</a></h2>
+<p>Intent classifiers are models that predict an intent from a given user message
+text.  The default intent classifier in Rasa NLU is the <a href="https://rasa.com/docs/rasa/components#dietclassifier-2">DIET
+model</a> which can be
+fairly computationally expensive, especially if you do not need to detect
+entities.  We provide some examples of alternative intent classifiers here.</p>
+<h3 id="sparsenaivebayesintentclassifier">SparseNaiveBayesIntentClassifier<a class="headerlink" href="#sparsenaivebayesintentclassifier" title="Permanent link">&para;</a></h3>
+<p><strong><code>rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier</code> <a href="docs/classifier/sparsenb/">docs</a></strong></p>
+<p>This intent classifier is based on the Bernoulli-variant of the Na&iuml;ve
+Bayes classifier in
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html">sklearn</a>.
+This classifier only looks at sparse features extracted from the Rasa NLU
+feature pipeline and is a faster alternative to neural models like
+<a href="https://rasa.com/docs/rasa/components#dietclassifier-2">DIET</a>.</p>
 <h2 id="meta"><strong>Meta</strong><a class="headerlink" href="#meta" title="Permanent link">&para;</a></h2>
 <p>The components listed here won't effect the NLU pipeline but they might instead cause extra logs
 to appear to help with debugging.</p>
