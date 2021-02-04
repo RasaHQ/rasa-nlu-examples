@@ -10,6 +10,7 @@ base_packages = [
     "rich>=9.2.0",
     "stanza>=1.1.1",
     "pandas>=1.0.5",
+    "flashtext==2.7",
 ]
 
 dev_packages = [
