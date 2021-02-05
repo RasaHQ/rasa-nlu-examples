@@ -25,7 +25,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -e "."
-    - name: Tests
+    - name: Run Tests Non FastText Featurizer Tests
       run: |
         pytest tests/test_featurizers/test_gensim_featurizer.py
         pytest tests/test_featurizers/test_bpemb_featurizer.py
+    - name: Install Thai Tokenizer and Run Tests
+      run: |
+        pip install -e ".[thai]"
+        pytest tests/test_tokenizers/test_thai_tokenizer.py
