@@ -10,9 +10,8 @@ class NotInstalled:
         self.tool = tool
         self.dep = dep
 
-        msg = f"In order to use {self.tool} you'll need to install via;\n\n"
+        msg = f"In order to use {self.tool} you'll need to install extra dependencies via;\n\n"
         msg += f"pip install 'rasa_nlu_examples[{self.dep}] @ https://github.com/RasaHQ/rasa-nlu-examples.git'\n\n"
-        msg += "See installation guide here: https://rasahq.github.io/whatlies/#installation."
         self.msg = msg
 
     def __getattr__(self, *args, **kwargs):
