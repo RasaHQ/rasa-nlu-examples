@@ -2,4 +2,4 @@
 max-complexity=10
 max-line-length=125
 exclude = */__init__.py, */*/__init__.py, venv
-ignore=E722
+ignore=E722,E203,W503
