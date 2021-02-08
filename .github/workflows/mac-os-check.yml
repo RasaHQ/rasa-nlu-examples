@@ -3,10 +3,10 @@ name: MacOS Tests
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     branches:
-    - master
+    - main
 
 jobs:
   build:
@@ -30,8 +30,9 @@ jobs:
         python -m pip install pytest
     - name: Test with pytest
       run: |
-        python -m pip install -e "."
+        python -m pip install -e ".[all]"
         python -m pip freeze
-        python tests/prepare_everything.py
+        python tests/scripts/prepare_fasttext.py
+        python tests/scripts/prepare_stanza.py
         chmod 775 tests/data/fasttext/custom_fasttext_model.bin
         pytest

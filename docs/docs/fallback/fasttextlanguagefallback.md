@@ -9,6 +9,13 @@ The tool should be able to detect 176 languages but the predictions won't be per
 when the user sends short utterances we need to be careful. That is why this tool allows you to
 specify a minimum number of characters and tokens before this model triggers an intent.
 
+!!! note
+    In order to use this tool you'll need to ensure the correct dependencies are installed.
+
+    ```
+    pip install "rasa_nlu_examples[fasttext] @ https://github.com/RasaHQ/rasa-nlu-examples.git"
+    ```
+
 ## Understanding the Tool
 
 You're encouraged to play with the tool from a jupyter notebook so you can

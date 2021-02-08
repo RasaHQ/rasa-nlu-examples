@@ -9,7 +9,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest]
         python-version: [3.6, 3.7]
         rasa-version: ["1.10.8"]
 
@@ -27,6 +27,7 @@ jobs:
         pip install pytest
     - name: Test with pytest
       run: |
-        python tests/prepare_everything.py
+        python tests/scripts/prepare_fasttext.py
+        python tests/scripts/prepare_stanza.py
         chmod 775 tests/data/custom_fasttext_model.bin
         pytest
