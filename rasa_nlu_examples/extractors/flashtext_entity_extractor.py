@@ -6,7 +6,6 @@ import rasa.shared.utils.io
 from rasa.nlu.components import Component
 from rasa.nlu.config import RasaNLUModelConfig
 from rasa.nlu.extractors.extractor import EntityExtractor
-from rasa.nlu.extractors.regex_entity_extractor import RegexEntityExtractor
 from rasa.nlu.model import Metadata
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
 from rasa.shared.nlu.constants import (
