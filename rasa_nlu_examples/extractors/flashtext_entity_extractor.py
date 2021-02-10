@@ -44,7 +44,8 @@ class FlashTextEntityExtractor(EntityExtractor):
             case_sensitive=self.component_config["case_sensitive"]
         )
         if lookups:
-            self.keyword_processor.add_keywords_from_dict(self.lookups)
+            self.keyword_processor.add_keywords_from_dict(lookups)
+            self.lookups = lookups
 
     def train(
         self,
@@ -64,6 +65,7 @@ class FlashTextEntityExtractor(EntityExtractor):
                 "this component to work you need to define valid lookup tables "
                 "in the training data."
             )
+        self.lookups = lookups
         self.keyword_processor.add_keywords_from_dict(lookups)
 
     def process(self, message: Message, **kwargs: Any) -> None:
