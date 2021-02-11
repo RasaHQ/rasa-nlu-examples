@@ -46,6 +46,12 @@ to the repository it would help if you first create an issue so that the maintai
 the changes you would like to contribute. A more in-depth contribution guide can be found
 [here](https://rasahq.github.io/rasa-nlu-examples/contributing/).
 
+To get started locally you can run:
+
+```
+make install
+```
+
 # Documentation
 
 You can find the documentation for this project [here](https://rasahq.github.io/rasa-nlu-examples/).
