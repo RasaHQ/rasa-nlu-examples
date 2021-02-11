@@ -49,6 +49,14 @@ the changes you would like to contribute. A more in-depth contribution guide can
 To get started locally you can run:
 
 ```
+python -m pip install -e ".[dev]"
+pre-commit install
+python tests/prepare_everything.py
+```
+
+Alternatively you may also run this via the `Makefile`:
+
+```
 make install
 ```
 
