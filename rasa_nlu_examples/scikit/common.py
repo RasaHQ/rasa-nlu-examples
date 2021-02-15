@@ -53,7 +53,7 @@ def dataframe_to_nlu_file(dataf, write_path, text_col="text", label_col="intent"
 
     This will yield a file with the following contents:
 
-    ```
+    ```yaml
     version: 2.0
     nlu:
     - intent: negative
