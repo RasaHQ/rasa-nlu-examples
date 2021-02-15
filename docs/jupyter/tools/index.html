@@ -632,6 +632,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rasa_nlu_examples.scikit.common.dataframe_to_nlu_file" class="md-nav__link">
+    dataframe_to_nlu_file()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rasa_nlu_examples.scikit.common.nlu_path_to_dataframe" class="md-nav__link">
     nlu_path_to_dataframe()
   </a>
@@ -709,6 +716,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rasa_nlu_examples.scikit.common.dataframe_to_nlu_file" class="md-nav__link">
+    dataframe_to_nlu_file()
+  </a>
   
 </li>
       
@@ -884,9 +898,137 @@ It expects text as input and it will predict an intent class.</p>
 <span class="n">mod</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">([</span><span class="s2">&quot;hello there&quot;</span><span class="p">,</span> <span class="s2">&quot;are you a bot?&quot;</span><span class="p">])</span>
 </code></pre></div>
 
+<h2 id="rasa_nlu_examples.scikit.common.dataframe_to_nlu_file"><code class="highlight"><span class="n">dataframe_to_nlu_file</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">write_path</span><span class="p">,</span> <span class="n">text_col</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">label_col</span><span class="o">=</span><span class="s1">&#39;intent&#39;</span><span class="p">)</span></code><a class="headerlink" href="#rasa_nlu_examples.scikit.common.dataframe_to_nlu_file" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Show source code in <code>scikit/common.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dataframe_to_nlu_file</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">write_path</span><span class="p">,</span> <span class="n">text_col</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="n">label_col</span><span class="o">=</span><span class="s2">&quot;intent&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts a single DataFrame file with intents into a intents file for Rasa.</span>
+
+<span class="sd">    Note that you cannot use this method to add entities.</span>
+
+<span class="sd">    Usage:</span>
+
+<span class="sd">    ```python</span>
+<span class="sd">    import pandas as pd</span>
+<span class="sd">    from rasa_nlu_examples.scikit import dataframe_to_nlu_file</span>
+
+<span class="sd">    df = pd.DataFrame([</span>
+<span class="sd">        {&quot;text&quot;: &quot;i really really like this&quot;, &quot;intent&quot;: &quot;positive&quot;},</span>
+<span class="sd">        {&quot;text&quot;: &quot;i enjoy this&quot;, &quot;intent&quot;: &quot;positive&quot;},</span>
+<span class="sd">        {&quot;text&quot;: &quot;this is not my thing&quot;, &quot;intent&quot;: &quot;negative&quot;}</span>
+<span class="sd">    ])</span>
+
+<span class="sd">    dataframe_to_nlu_file(df, write_path=&quot;path/to/nlu.yml&quot;)</span>
+<span class="sd">    ```</span>
+
+<span class="sd">    This will yield a file with the following contents:</span>
+
+<span class="sd">    ```yaml</span>
+<span class="sd">    version: 2.0</span>
+<span class="sd">    nlu:</span>
+<span class="sd">    - intent: negative</span>
+<span class="sd">      examples: |</span>
+<span class="sd">      - this is not my thing</span>
+<span class="sd">    - intent: positive</span>
+<span class="sd">      examples: |</span>
+<span class="sd">      - i really really like this</span>
+<span class="sd">      - i enjoy this</span>
+<span class="sd">    ```</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">rasa.nlu.convert</span> <span class="kn">import</span> <span class="n">convert_training_data</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="mf">2.0</span><span class="p">),</span> <span class="s2">&quot;nlu&quot;</span><span class="p">:</span> <span class="p">[]}</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">dataf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">label_col</span><span class="p">):</span>
+        <span class="n">intent</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">label_col</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">result</span><span class="p">[</span><span class="s2">&quot;nlu&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">{</span><span class="s2">&quot;intent&quot;</span><span class="p">:</span> <span class="n">intent</span><span class="p">,</span> <span class="s2">&quot;examples&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="n">text_col</span><span class="p">]],}</span>
+        <span class="p">)</span>
+    <span class="n">dump</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;examples:&quot;</span><span class="p">,</span> <span class="s2">&quot;examples: |&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;  -&quot;</span><span class="p">,</span> <span class="s2">&quot;   -&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">write_path</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">dump</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Converts a single DataFrame file with intents into a intents file for Rasa.</p>
+<p>Note that you cannot use this method to add entities.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">rasa_nlu_examples.scikit</span> <span class="kn">import</span> <span class="n">dataframe_to_nlu_file</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+    <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;i really really like this&quot;</span><span class="p">,</span> <span class="s2">&quot;intent&quot;</span><span class="p">:</span> <span class="s2">&quot;positive&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;i enjoy this&quot;</span><span class="p">,</span> <span class="s2">&quot;intent&quot;</span><span class="p">:</span> <span class="s2">&quot;positive&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;this is not my thing&quot;</span><span class="p">,</span> <span class="s2">&quot;intent&quot;</span><span class="p">:</span> <span class="s2">&quot;negative&quot;</span><span class="p">}</span>
+<span class="p">])</span>
+
+<span class="n">dataframe_to_nlu_file</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">write_path</span><span class="o">=</span><span class="s2">&quot;path/to/nlu.yml&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>This will yield a file with the following contents:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2.0</span>
+<span class="nt">nlu</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">intent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">negative</span>
+  <span class="nt">examples</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">this is not my thing</span>
+<span class="p p-Indicator">-</span> <span class="nt">intent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">positive</span>
+  <span class="nt">examples</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">i really really like this</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">i enjoy this</span>
+</code></pre></div>
+
 <h2 id="rasa_nlu_examples.scikit.common.nlu_path_to_dataframe"><code class="highlight"><span class="n">nlu_path_to_dataframe</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></code><a class="headerlink" href="#rasa_nlu_examples.scikit.common.nlu_path_to_dataframe" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>scikit/common.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 6
- 7
+<details class="note"><summary>Show source code in <code>scikit/common.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 7
  8
  9
 10
@@ -908,7 +1050,8 @@ It expects text as input and it will predict an intent class.</p>
 26
 27
 28
-29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">nlu_path_to_dataframe</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">nlu_path_to_dataframe</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts a single nlu file with intents into a dataframe.</span>
 
