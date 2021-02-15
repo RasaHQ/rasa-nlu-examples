@@ -36,7 +36,7 @@ fasttext_deps = [
 setup(
     name="rasa_nlu_examples",
     version="0.2.1",
-    packages=find_packages(exclude=["notebooks"]),
+    packages=find_packages(exclude=["notebooks", "data"]),
     install_requires=base_packages,
     extras_require={
         "dev": dev_packages,
