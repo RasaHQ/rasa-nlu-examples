@@ -74,7 +74,7 @@ def dataframe_to_nlu_file(dataf, write_path, text_col="text", label_col="intent"
             {"intent": intent, "examples": [t for t in group[text_col]],}
         )
     dump = (
-        yaml.dump(result, sort_keys=False)
+        yaml.dump(result, sort_keys=False, width=1000)
         .replace("examples:", "examples: |")
         .replace("  -", "   -")
     )
