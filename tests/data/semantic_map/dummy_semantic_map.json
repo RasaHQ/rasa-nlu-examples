@@ -1,0 +1,19 @@
+{
+    "Width": 6,
+    "Height": 6,
+    "GlobalTopology": "torus",
+    "LocalTopology": 6,
+    "Note": "Dummy",
+    "CreationReadme": "readme text",
+    "CreationOptions": {
+        "Normalize": true,
+        "FixedDensity": false,
+        "MaxDensity": 0.02
+    },
+    "MaximumNumberOfActiveCells": 5,
+    "Embeddings": {
+        "word1": [1, 2, 3],
+        "word2": [1, 2, 30],
+        "word3": [11, 15, 27]
+    }
+}
