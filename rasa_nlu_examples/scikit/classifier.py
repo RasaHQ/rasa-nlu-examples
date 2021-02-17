@@ -27,7 +27,6 @@ class RasaClassifier(BaseEstimator, ClassifierMixin):
 
     mod = RasaClassifier(model_path="path/to/model.tar.gz")
     mod.predict(["hello there", "are you a bot?"])
-    mod.predict_proba(["hello there", "are you a bot?"])
     ```
     """
 
