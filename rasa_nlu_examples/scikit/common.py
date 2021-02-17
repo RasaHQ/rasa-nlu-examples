@@ -71,7 +71,10 @@ def dataframe_to_nlu_file(dataf, write_path, text_col="text", label_col="intent"
     for idx, group in dataf.groupby(label_col):
         intent = group[label_col].iloc[0]
         result["nlu"].append(
-            {"intent": intent, "examples": [t for t in group[text_col]],}
+            {
+                "intent": intent,
+                "examples": [t for t in group[text_col]],
+            }
         )
     dump = (
         yaml.dump(result, sort_keys=False, width=1000)
