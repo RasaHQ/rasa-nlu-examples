@@ -38,6 +38,7 @@ def test_predict():
 
     # Fit the equivalent sklearn classifier.
     from sklearn.naive_bayes import BernoulliNB
+
     clf = BernoulliNB(alpha=0.1, binarize=0.0, fit_prior=True)
     clf.fit(X, y)
 
