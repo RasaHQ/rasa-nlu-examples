@@ -65,8 +65,6 @@ def dataframe_to_nlu_file(dataf, write_path, text_col="text", label_col="intent"
       - i enjoy this
     ```
     """
-    from rasa.nlu.convert import convert_training_data
-
     result = {"version": str(2.0), "nlu": []}
     for idx, group in dataf.groupby(label_col):
         intent = group[label_col].iloc[0]
