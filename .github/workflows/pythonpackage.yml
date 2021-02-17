@@ -15,7 +15,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         python-version: [3.6, 3.7]
-        rasa-version: ["2.0"]
+        rasa-version: [2.0, 2.3]
 
     steps:
     - uses: actions/checkout@v2
