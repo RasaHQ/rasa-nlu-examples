@@ -5,8 +5,10 @@ import scipy.sparse
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
 from rasa.shared.nlu.constants import FEATURE_TYPE_SENTENCE, FEATURE_TYPE_SEQUENCE, TEXT
 from rasa.shared.nlu.training_data.message import Message
+import rasa_nlu_examples.featurizers.sparse.semantic_map_featurizer
 from rasa_nlu_examples.featurizers.sparse.semantic_map_featurizer import (
     SemanticMapFeaturizer,
+    SemanticFingerprint,
 )
 
 test_directory = pathlib.Path(__file__).parent.parent.absolute()
@@ -61,3 +63,26 @@ def test_no_features_on_no_tokens():
     seq_vecs, sen_vecs = message.get_sparse_features(TEXT, [])
     assert not seq_vecs
     assert not sen_vecs
+
+
+def test_semantic_overlap():
+    fp1 = SemanticFingerprint(1, 8, {1, 2, 3})
+    fp2 = SemanticFingerprint(1, 8, {3, 5})
+    assert (
+        rasa_nlu_examples.featurizers.sparse.semantic_map_featurizer.semantic_overlap(
+            fp1, fp2, method="Jaccard"
+        )
+        == 1 / 4
+    )
+    assert (
+        rasa_nlu_examples.featurizers.sparse.semantic_map_featurizer.semantic_overlap(
+            fp1, fp2, method="SzymkiewiczSimpson"
+        )
+        == 1 / 2
+    )
+    assert (
+        rasa_nlu_examples.featurizers.sparse.semantic_map_featurizer.semantic_overlap(
+            fp1, fp2, method="Rand"
+        )
+        == 5 / 8
+    )
