@@ -10,15 +10,5 @@ def test_base_predict():
         output="models",
     )
     clf = RasaClassifier(model_path=f"{mod}")
-    clf.class_names_ = [
-        "greet",
-        "goodbye",
-        "out_of_scope",
-        "bot_challenge",
-        "talk_code",
-    ]
     preds = clf.predict(["hello world", "hello there"])
     assert len(preds) == 2
-
-    pred_proba = clf.predict_proba(["hello world", "hello there"])
-    assert pred_proba.shape[0] == 2

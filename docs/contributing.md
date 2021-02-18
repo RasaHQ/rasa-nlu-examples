@@ -60,10 +60,11 @@ help you.
 ## Testing
 
 We run automated tests via GitHub actions but you can also run all the checking mechanisms locally.
-To run the tests locally you'll need to run a script beforehand.
+To run the tests locally you'll need to run a few scripts beforehand.
 
 ```
-python tests/prepare_everything.py
+python tests/scripts/prepare_fasttext.py
+python tests/scripts/prepare_stanza.py
 ```
 
 This will prepare the filesystem for testing. We do this to prevent the need of downloading
