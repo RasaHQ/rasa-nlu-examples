@@ -550,6 +550,18 @@ def _neightbours_iterator(
     local_topology: int = 8,
     global_topology: int = 0,
 ) -> callable:
+    """Yields the neighbours of the cell position, depending on topology.
+
+    Args:
+        cell: Index of the cell in question.
+        height: Number of rows in the semantic map.
+        width: Number of columns in the semantic map.
+        local_topology: Number of neighbours or a central cell.
+        global_topology: Number of edges of the map.
+
+    Yields:
+        The index of a neighbouring cell.
+    """
     if global_topology == 0:
         _shift_onto_map = _shift_onto_map_torus
     else:
@@ -612,7 +624,6 @@ def _shift_onto_map_torus(cell: int, height: int, width: int) -> int:
     Returns:
         Shifted position of the cell.
     """
-
     # Globally the map's topology is a torus, so
     # top and bottom edges are connected, and left
     # and right edges are connected.
@@ -626,11 +637,17 @@ def _shift_onto_map_torus(cell: int, height: int, width: int) -> int:
 def semantic_overlap(
     fp1: SemanticFingerprint, fp2: SemanticFingerprint, method: Text = "Jaccard"
 ) -> float:
-    """Returns the overlap score of the two fingerprints.
+    """Computes the overlap score of the two fingerprints.
 
     The score is a floating point number between 0 and 1, where
     0 means that the two words are unrelated and 1 means that
     they share exactly the same meaning.
+
+    Args:
+        fp1: First semantic fingerprint.
+        fp2: Semantic fingerprint to compare with (the order is irrelevant).
+        method: The method to use for comparison. This can be one of
+                "SzymkiewiczSimpson", "Jaccard", or "Rand".
     """
     if method == "SzymkiewiczSimpson":
         return _szymkiewicz_simpson_overlap(fp1, fp2)
