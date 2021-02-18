@@ -89,6 +89,9 @@ class SemanticMapFeaturizer(SparseFeaturizer):
             message: The message to modify.
             attribute: The name of the attribute that should be changed.
         """
+        if not message.get(TOKENS_NAMES[attribute], []):
+            return
+
         sequence_features, sentence_features = self._featurize_tokens(
             message.get(TOKENS_NAMES[attribute], [])
         )

@@ -5,7 +5,7 @@ find [here](). Please refer to our [blog posts]() for more details.
 ## Configurable Variables
 
 - **pretrained_semantic_map**: Path to downloaded/saved semantic map embeddings (the unpacked json file)
-- **pooling**: The pooling operation to use for the sentence features (`sum`, `mean`, or `merge`)
+- **pooling**: The pooling operation to use for the sentence features (`sum` (default), `mean`, or `merge`)
 
 ## Basic Usage
 

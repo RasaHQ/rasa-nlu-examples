@@ -1,10 +1,11 @@
 import pathlib
 
 import pytest
+import scipy.sparse
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
+from rasa.shared.nlu.constants import FEATURE_TYPE_SENTENCE, FEATURE_TYPE_SEQUENCE, TEXT
 from rasa.shared.nlu.training_data.message import Message
 from rasa_nlu_examples.featurizers.sparse.semantic_map_featurizer import (
-    SemanticMap,
     SemanticMapFeaturizer,
 )
 
@@ -16,13 +17,47 @@ example_semantic_map = (
 
 def test_features_are_sparse():
     tokenizer = WhitespaceTokenizer()
-    smap_featurizer = SemanticMapFeaturizer(
+    featurizer = SemanticMapFeaturizer(
         {"pretrained_semantic_map": str(example_semantic_map), "pooling": "merge"}
     )
     message = Message.build("word1 word3")
 
     tokenizer.process(message)
-    smap_featurizer.process(message)
+    featurizer.process(message)
 
     for feature in message.features:
-        assert isinstance(feature.features, scipy.sparse.coo_matrix)
+        assert scipy.sparse.issparse(feature.features)
+
+
+def test_feature_shapes():
+    tokenizer = WhitespaceTokenizer()
+    featurizer = SemanticMapFeaturizer(
+        {"pretrained_semantic_map": str(example_semantic_map), "pooling": "merge"}
+    )
+    message = Message.build("word1 word3")
+
+    tokenizer.process(message)
+    featurizer.process(message)
+
+    for feature in message.features:
+        assert (
+            feature.type == FEATURE_TYPE_SEQUENCE and feature.features.shape == (2, 37)
+        ) or (
+            feature.type == FEATURE_TYPE_SENTENCE and feature.features.shape == (1, 37)
+        )
+
+
+def test_no_features_on_no_tokens():
+    """The component does not set any dense features if there are no tokens."""
+    tokenizer = WhitespaceTokenizer()
+    featurizer = SemanticMapFeaturizer(
+        {"pretrained_semantic_map": str(example_semantic_map), "pooling": "merge"}
+    )
+    message = Message.build("word1 word3")
+
+    # We skip: tokenizer.process(message)
+    featurizer.process(message)
+
+    seq_vecs, sen_vecs = message.get_sparse_features(TEXT, [])
+    assert not seq_vecs
+    assert not sen_vecs
