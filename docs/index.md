@@ -74,6 +74,8 @@ embeddings for many languages. Here's a list of resources;
 
 ## **Sparse Featurizers**
 
+### SemanticMapFeaturizer
+
 **`rasa_nlu_examples.featurizers.sparse.SemanticMapFeaturizer` [docs](docs/featurizer/semantic_map/)**
 
 The `SemanticMapFeaturizer` is an experimental *sparse* featurizer developed by Rasa.

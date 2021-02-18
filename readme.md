@@ -133,6 +133,16 @@ embeddings for many languages. Here's a list of resources;
 
 - [AraVec](https://github.com/bakrianoo/aravec#download) has embeddings for Arabic trained on twitter and/or Wikipedia.
 
+## **Sparse Featurizers**
+
+### SemanticMapFeaturizer
+
+**`rasa_nlu_examples.featurizers.sparse.SemanticMapFeaturizer` [docs](docs/featurizer/semantic_map/)**
+
+The `SemanticMapFeaturizer` is an experimental *sparse* featurizer developed by Rasa.
+It can only be used in combination with pre-trained embedding files, which you can
+find [here](). Please refer to our [blog posts]() for more details.
+
 ## **Fallback Classifiers**
 
 ![](docs/images/fallback.png)
