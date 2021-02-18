@@ -1,5 +1,6 @@
 import json
 import re
+from collections import defaultdict
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Text, Tuple, Type, Union
 
@@ -228,16 +229,9 @@ class SemanticFingerprint:
         """Gives the active cell indices."""
         return self.activations
 
-    def as_csr_matrix(
-        self, boost_factor: Optional[float] = None
-    ) -> scipy.sparse.csr_matrix:
+    def as_csr_matrix(self) -> scipy.sparse.csr_matrix:
         """Gives the fingerprint as csr_matrix."""
-        if boost_factor:
-            data = [
-                1.0 + boost_factor * self._num_neightbours(a) for a in self.activations
-            ]
-        else:
-            data = np.ones(len(self.activations))
+        data = np.ones(len(self.activations))
         row_indices = [(a - 1) // self.width for a in self.activations]
         col_indices = [(a - 1) % self.width for a in self.activations]
 
@@ -248,10 +242,10 @@ class SemanticFingerprint:
         )
 
     def as_coo_row_vector(
-        self, boost_factor: Optional[float] = None, append_oov_feature: bool = False
+        self, append_oov_feature: bool = False
     ) -> scipy.sparse.coo_matrix:
         """Gives the fingerprint as sparse vector."""
-        fingerprint_features = self.as_csr_matrix(boost_factor).reshape((1, -1))
+        fingerprint_features = self.as_csr_matrix().reshape((1, -1))
         if append_oov_feature:
             return scipy.sparse.hstack(
                 [fingerprint_features, [self.oov_feature]]
@@ -259,71 +253,9 @@ class SemanticFingerprint:
         else:
             return fingerprint_features.tocoo()
 
-    def as_dense_vector(self, boost_factor: Optional[float] = None) -> np.array:
+    def as_dense_vector(self) -> np.array:
         """Gives the fingerprint as dense vector."""
-        return np.reshape(
-            self.as_csr_matrix(boost_factor).todense(), (self.height * self.width,)
-        )
-
-    def as_weighted_activations(
-        self, boost_factor: float = 1.0 / np.math.pi
-    ) -> Dict[int, float]:
-        """Gives the active cell positions and their boost weights."""
-        return {
-            a: 1.0 + boost_factor * self._num_neightbours(a) for a in self.activations
-        }
-
-    def _num_neightbours(self, cell: int, local_topology: int = 8) -> int:
-        # ToDo: Implement degree > 1 neighbourhood and hexagonal topology rule
-        if local_topology == 4:
-            return len(
-                self.activations.intersection(
-                    {
-                        self._shift_onto_map(cell - 1),  # Left
-                        self._shift_onto_map(cell + 1),  # Right
-                        self._shift_onto_map(cell - self.width),  # Top
-                        self._shift_onto_map(cell + self.width),  # Bottom
-                    }
-                )
-            )
-        elif local_topology == 8:
-            return len(
-                self.activations.intersection(
-                    {
-                        self._shift_onto_map(cell - 1),  # Left
-                        self._shift_onto_map(cell + 1),  # Right
-                        self._shift_onto_map(cell - self.width),  # Top
-                        self._shift_onto_map(cell + self.width),  # Bottom
-                        self._shift_onto_map(cell - 1 - self.width),  # Top Left
-                        self._shift_onto_map(cell + 1 - self.width),  # Top Right
-                        self._shift_onto_map(cell - 1 + self.width),  # Bottom Left
-                        self._shift_onto_map(cell + 1 + self.width),  # Bottom Right
-                    }
-                )
-            )
-        else:
-            raise ValueError(
-                "Local topology must be either 4 or 8."
-            )  # ToDo: Implement 6
-
-    def _shift_onto_map(self, cell: int) -> int:
-        """Ensures that the given cell is on the map by translating its position.
-
-        Args:
-            Position of the cell.
-
-        Returns:
-            Shifted position of the cell.
-        """
-
-        # Globally the map's topology is a torus, so
-        # top and bottom edges are connected, and left
-        # and right edges are connected.
-        x = (cell - 1) % self.width
-        y = (cell - 1) // self.width
-        if y < 0:
-            y += self.height * abs(y // self.height)
-        return x + y * self.width + 1
+        return np.reshape(self.as_csr_matrix().todense(), (self.height * self.width,))
 
 
 class SemanticMap:
@@ -454,7 +386,7 @@ class SemanticMap:
         return terms
 
     def merge(
-        self, *fingerprints: SemanticFingerprint, boost_factor=0.314
+        self, *fingerprints: SemanticFingerprint, boost_factor=0.618033988749
     ) -> SemanticFingerprint:
         """Perform a symmetric semantic merge operation on the embeddings.
 
@@ -466,15 +398,48 @@ class SemanticMap:
             The merged embedding.
         """
         if fingerprints:
-            num_active = self.max_number_of_active_cells
-            total = (
-                np.sum(
-                    [fp.as_csr_matrix(boost_factor=boost_factor) for fp in fingerprints]
+            # Count how often which cell is active
+            activation_count = defaultdict(int)
+            for fingerprint in fingerprints:
+                for activation in fingerprint.as_activations():
+                    activation_count[activation] += 1
+
+            # Boost the counts by their neighbours
+            def total_neighbouring_activation_count(cell: int) -> int:
+                return sum(
+                    [
+                        activation_count[neighbour]
+                        for neighbour in _neightbours_iterator(
+                            cell,
+                            self.height,
+                            self.width,
+                            self.local_topology,
+                            self.global_topology,
+                        )
+                        if neighbour in activation_count
+                    ]
                 )
-                .toarray()
-                .flatten()
+
+            boosted_activation_count = {
+                cell: n + boost_factor * total_neighbouring_activation_count(cell)
+                for cell, n in activation_count.items()
+            }
+
+            # Drop all but the strongest activations
+            all_activations = [
+                cell
+                for cell, strength in sorted(
+                    boosted_activation_count.items(),
+                    key=(lambda item: item[1]),
+                    reverse=True,
+                )
+            ]
+            activations = (
+                all_activations[: self.max_number_of_active_cells]
+                if self.max_number_of_active_cells < len(all_activations)
+                else all_activations
             )
-            activations = np.argpartition(total, -num_active)[-num_active:] + 1
+
             return SemanticFingerprint(self.height, self.width, set(activations))
         else:
             return self.get_empty_fingerprint()
@@ -560,9 +525,14 @@ class SemanticMap:
             0: Torus - the east/west and north/south edges are identical
             1: Moebius - the east edge is identical to the fliped west edge
             2: Cylinder - the east/west edges are identical
-            4: Plane - all four edges are distinct
+            4: Rectangle - all four edges are distinct
         """
-        return self._global_topology
+        num_edges = {"torus": 0, "moebius": 1, "cylinder": 2, "rectangle": 4}.get(
+            self._global_topology
+        )
+        if num_edges is None:
+            raise ValueError(f"Unknown global topology `{self._global_topology}`.")
+        return num_edges
 
     @property
     def max_number_of_active_cells(self) -> int:
@@ -571,6 +541,86 @@ class SemanticMap:
             return np.math.ceil(self.area * 0.02)
         else:
             return self._max_number_of_active_cells
+
+
+def _neightbours_iterator(
+    cell: int,
+    height: int,
+    width: int,
+    local_topology: int = 8,
+    global_topology: int = 0,
+) -> callable:
+    if global_topology == 0:
+        _shift_onto_map = _shift_onto_map_torus
+    else:
+        raise NotImplementedError(
+            "Merge operation for non-torus maps is not yet implemented"
+        )
+    if local_topology == 4:
+        yield _shift_onto_map(cell - 1, height, width),  # Left
+        yield _shift_onto_map(cell + 1, height, width),  # Right
+        yield _shift_onto_map(cell - width, height, width),  # Top
+        yield _shift_onto_map(cell + width, height, width),  # Bottom
+    elif local_topology == 6:
+        x = (cell - 1) % width
+        y = (cell - 1) // width
+        if y // 2 == 0:
+            yield _shift_onto_map(
+                (x - 1) + (y - 1) * width + 1, height, width
+            ),  # Top left
+            yield _shift_onto_map(x + (y - 1) * width + 1, height, width),  # Top right
+            yield _shift_onto_map((x - 1) + y * width + 1, height, width),  # Left
+            yield _shift_onto_map((x + 1) + y * width + 1, height, width),  # Right
+            yield _shift_onto_map(
+                (x - 1) + (y + 1) * width + 1, height, width
+            ),  # Bottom left
+            yield _shift_onto_map(
+                x + (y + 1) * width + 1, height, width
+            ),  # Bottom right
+        else:
+            yield _shift_onto_map(x + (y - 1) * width + 1, height, width),  # Top left
+            yield _shift_onto_map(
+                (x + 1) + (y - 1) * width + 1, height, width
+            ),  # Top right
+            yield _shift_onto_map((x - 1) + y * width + 1, height, width),  # Left
+            yield _shift_onto_map((x + 1) + y * width + 1, height, width),  # Right
+            yield _shift_onto_map(
+                x + (y + 1) * width + 1, height, width
+            ),  # Bottom left
+            yield _shift_onto_map(
+                (x + 1) + (y + 1) * width + 1, height, width
+            ),  # Bottom right
+    elif local_topology == 8:
+        yield _shift_onto_map(cell - 1, height, width),  # Left
+        yield _shift_onto_map(cell + 1, height, width),  # Right
+        yield _shift_onto_map(cell - width, height, width),  # Top
+        yield _shift_onto_map(cell + width, height, width),  # Bottom
+        yield _shift_onto_map(cell - 1 - width, height, width),  # Top Left
+        yield _shift_onto_map(cell + 1 - width, height, width),  # Top Right
+        yield _shift_onto_map(cell - 1 + width, height, width),  # Bottom Left
+        yield _shift_onto_map(cell + 1 + width, height, width),  # Bottom Right
+    else:
+        raise ValueError("Local topology must be either 4, 6, or 8.")
+
+
+def _shift_onto_map_torus(cell: int, height: int, width: int) -> int:
+    """Ensures that the given cell is on the map by translating its position.
+
+    Args:
+        Position of the cell.
+
+    Returns:
+        Shifted position of the cell.
+    """
+
+    # Globally the map's topology is a torus, so
+    # top and bottom edges are connected, and left
+    # and right edges are connected.
+    x = (cell - 1) % width
+    y = (cell - 1) // width
+    if y < 0:
+        y += height * abs(y // height)
+    return x + y * width + 1
 
 
 def semantic_overlap(
