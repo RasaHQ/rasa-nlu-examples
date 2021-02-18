@@ -1,6 +1,6 @@
 The `SemanticMapFeaturizer` is an experimental *sparse* featurizer developed by Rasa.
 It can only be used in combination with pre-trained embedding files, which you can
-find [here](). Please refer to our [blog post]() for more details.
+find [here](). Please refer to our [blog posts]() for more details.
 
 ## Configurable Variables
 
