@@ -1,0 +1,4 @@
+## List of Turkish Names
+
+List of Turkish names curated from various sources, including both modern and older names. 
+I got the names from this [Wikipedia page](https://tr.wikipedia.org/wiki/T%C3%BCrk_adlar%C4%B1), this [github repo](https://gist.github.com/emrekgn/b4049851c88e328c065a) and [this one](https://gist.github.com/ismailbaskin/1325813/9157dd8ced294a11218449d43bf9f772780f5d85). First github repository contained combined names so I cleaned it up. Unfortunately, the only valid Turkish names database of the Turkish Language Society (governmental institute) is currently unavailable, so I had to use open-sourced datasets. 
