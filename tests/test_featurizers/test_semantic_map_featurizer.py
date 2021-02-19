@@ -9,6 +9,7 @@ import rasa_nlu_examples.featurizers.sparse.semantic_map_featurizer
 from rasa_nlu_examples.featurizers.sparse.semantic_map_featurizer import (
     SemanticMapFeaturizer,
     SemanticFingerprint,
+    SemanticMap,
 )
 
 test_directory = pathlib.Path(__file__).parent.parent.absolute()
@@ -51,7 +52,6 @@ def test_feature_shapes():
 
 def test_no_features_on_no_tokens():
     """The component does not set any dense features if there are no tokens."""
-    tokenizer = WhitespaceTokenizer()
     featurizer = SemanticMapFeaturizer(
         {"pretrained_semantic_map": str(example_semantic_map), "pooling": "merge"}
     )
@@ -86,3 +86,19 @@ def test_semantic_overlap():
         )
         == 5 / 8
     )
+
+
+def test_semantic_merge_does_not_activate_inactive_cells():
+    smap = SemanticMap(example_semantic_map)
+
+    fp1 = smap.get_term_fingerprint("word1")
+    fp2 = smap.get_term_fingerprint("word2")
+    fp3 = smap.get_term_fingerprint("word3")
+    all_activations = set.union(
+        fp1.as_activations(), fp2.as_activations(), fp3.as_activations()
+    )
+
+    merged_fp = smap.get_fingerprint("word1 word2 word3")
+    merged_activations = merged_fp.as_activations()
+
+    assert merged_activations.issubset(all_activations)

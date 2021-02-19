@@ -1,0 +1,8 @@
+language: en
+
+pipeline:
+- name: WhitespaceTokenizer
+- name: rasa_nlu_examples.featurizers.sparse.SemanticMapFeaturizer
+  pretrained_semantic_map: "tests/data/semantic_map/dummy_semantic_map.json"
+- name: DIETClassifier
+  epochs: 1
