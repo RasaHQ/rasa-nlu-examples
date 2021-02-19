@@ -17,7 +17,6 @@ from rasa.nlu.tokenizers.tokenizer import Token, Tokenizer
 from rasa.shared.exceptions import (
     FileNotFoundException,
     InvalidConfigException,
-    SchemaValidationError,
 )
 from rasa.shared.nlu.constants import FEATURE_TYPE_SENTENCE, FEATURE_TYPE_SEQUENCE
 from rasa.shared.nlu.training_data.features import Features
@@ -285,9 +284,7 @@ class SemanticMap:
             self._max_number_of_active_cells = _data.get("MaximumNumberOfActiveCells")
             self._embeddings: Dict[Text, List[int]] = _data["Embeddings"]
         except KeyError as error:
-            raise SchemaValidationError(
-                f"Semantic map file '{filename}' misses a key: {error}."
-            )
+            raise ValueError(f"Semantic map file '{filename}' misses a key: {error}.")
 
         self._prepare_vocab_patterns()
 
