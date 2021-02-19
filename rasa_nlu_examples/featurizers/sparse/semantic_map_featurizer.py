@@ -150,7 +150,7 @@ class SemanticMapFeaturizer(SparseFeaturizer):
             )
         else:
             raise InvalidConfigException(
-                f"The 'pooling' option '{pooling}' must be one of {allowed_pooling_modes}."
+                f"The 'pooling' option '{self.pooling}' must be one of 'sum' (default), 'mean', or 'merge'."
             )
 
         assert sequence_features.shape == (
