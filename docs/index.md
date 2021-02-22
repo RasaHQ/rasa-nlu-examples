@@ -81,7 +81,7 @@ embeddings for many languages. Here's a list of resources;
 The `SemanticMapFeaturizer` is an experimental *sparse* featurizer developed by Rasa.
 It can only be used in combination with pre-trained embedding files, which you can
 find [here](https://github.com/RasaHQ/rasa-embeddings/tree/main/embeddings/semantic_map).
-Please refer to our [blog posts](blog.rasa.com/exploring-semantic-map-embeddings-1/) for more details.
+Please refer to our [blog posts](https://blog.rasa.com/exploring-semantic-map-embeddings-1/) for more details.
 
 ## **Fallback Classifiers**
 

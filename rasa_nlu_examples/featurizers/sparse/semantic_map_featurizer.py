@@ -14,10 +14,6 @@ from rasa.nlu.constants import (
 )
 from rasa.nlu.featurizers.featurizer import SparseFeaturizer
 from rasa.nlu.tokenizers.tokenizer import Token, Tokenizer
-from rasa.shared.exceptions import (
-    FileNotFoundException,
-    InvalidConfigException,
-)
 from rasa.shared.nlu.constants import FEATURE_TYPE_SENTENCE, FEATURE_TYPE_SEQUENCE
 from rasa.shared.nlu.training_data.features import Features
 from rasa.shared.nlu.training_data.message import Message
@@ -149,7 +145,7 @@ class SemanticMapFeaturizer(SparseFeaturizer):
                 np.sum(sequence_features, axis=0)
             )
         else:
-            raise InvalidConfigException(
+            raise ValueError(
                 f"The 'pooling' option '{self.pooling}' must be one of 'sum' (default), 'mean', or 'merge'."
             )
 
@@ -173,7 +169,7 @@ class SemanticMapFeaturizer(SparseFeaturizer):
         if filename and Path(filename).is_file():
             return Path(filename)
         else:
-            raise FileNotFoundException(
+            raise FileNotFoundError(
                 f"Cannot find semantic map file '{filename}'. "
                 f"Please check the 'pretrained_semantic_map' parameter."
             )
@@ -270,7 +266,7 @@ class SemanticMap:
             filename: File to load the map from.
         """
         if not filename or not Path(filename).is_file:
-            raise FileNotFoundException(f"Cannot find semantic map file '{filename}'")
+            raise FileNotFoundError(f"Cannot find semantic map file '{filename}'")
 
         with open(filename, "r", encoding="utf-8") as file:
             _data = json.load(file)
