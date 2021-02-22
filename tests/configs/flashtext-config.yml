@@ -9,5 +9,8 @@ pipeline:
   max_ngram: 4
 - name: rasa_nlu_examples.extractors.FlashTextEntityExtractor
   case_sensitive: True
+  non_word_boundaries:
+    - "/"
+    - ","
 - name: DIETClassifier
   epochs: 1

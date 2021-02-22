@@ -27,6 +27,7 @@ class FlashTextEntityExtractor(EntityExtractor):
     defaults = {
         # text will be processed with case insensitive as default
         "case_sensitive": False,
+        "non_word_boundaries": "",
     }
 
     def required_components(cls) -> List[Type[Component]]:
@@ -43,6 +44,8 @@ class FlashTextEntityExtractor(EntityExtractor):
         self.keyword_processor = KeywordProcessor(
             case_sensitive=self.component_config["case_sensitive"]
         )
+        for non_word_boundary in self.component_config["non_word_boundaries"]:
+            self.keyword_processor.add_non_word_boundary(non_word_boundary)
         if lookups:
             self.keyword_processor.add_keywords_from_dict(lookups)
             self.lookups = lookups
@@ -58,7 +61,7 @@ class FlashTextEntityExtractor(EntityExtractor):
             use_only_entities=True,
         )
 
-        if len(lookups.keys()):
+        if len(lookups.keys()) == 0:
             rasa.shared.utils.io.raise_warning(
                 "No lookup tables defined in the training data that have a "
                 "name equal to any entity in the training data. In order for "
