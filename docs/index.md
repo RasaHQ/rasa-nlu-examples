@@ -121,6 +121,18 @@ to appear to help with debugging.
 This component will print what each featurizer adds to the NLU message. Very useful for debugging.
 You can find a tutorial on it [here](https://blog.rasa.com/custom-printer-component/).
 
+## **Entity Extractors**
+
+### FlashTextEntityExtractor
+
+**`rasa_nlu_examples.extractor.FlashTextEntityExtractor`**
+
+This entity extractor uses the [flashtext](https://flashtext.readthedocs.io/en/latest/) library
+to extract entities using [lookup tables](https://rasa.com/docs/rasa/nlu-training-data#lookup-tables).
+It's faster than [RegexEntityExtractor](https://rasa.com/docs/rasa/components#regexentityextractor), but
+missing some of its features (namely: extraction based on regex patterns, and extraction without regarding
+word boundaries).
+
 ## **Entity Extraction**
 
 ### Name Lists

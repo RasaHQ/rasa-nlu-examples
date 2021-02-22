@@ -33,6 +33,10 @@ fasttext_deps = [
     "fasttext>=0.9.2",
 ]
 
+flashtext_deps = [
+    "flashtext==2.7",
+]
+
 setup(
     name="rasa_nlu_examples",
     version="0.2.1",
@@ -41,9 +45,10 @@ setup(
     extras_require={
         "dev": dev_packages,
         "dev-windows": dev_packages + stanza_deps + thai_deps,
-        "all": dev_packages + stanza_deps + thai_deps + fasttext_deps,
+        "all": dev_packages + stanza_deps + thai_deps + fasttext_deps + flashtext_deps,
         "thai": base_packages + thai_deps,
         "stanza": base_packages + stanza_deps,
         "fasttext": base_packages + fasttext_deps,
+        "flashtext": base_packages + flashtext_deps,
     },
 )
