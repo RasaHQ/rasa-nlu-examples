@@ -8,5 +8,6 @@ pipeline:
   min_ngram: 1
   max_ngram: 4
 - name: rasa_nlu_examples.extractors.FlashTextEntityExtractor
+  case_sensitive: True
 - name: DIETClassifier
   epochs: 1
