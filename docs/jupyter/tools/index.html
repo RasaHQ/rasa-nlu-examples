@@ -619,13 +619,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#rasa_nlu_examples.scikit.classifier.RasaClassifier.predict_proba" class="md-nav__link">
-    predict_proba()
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -707,13 +700,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#rasa_nlu_examples.scikit.classifier.RasaClassifier.predict_proba" class="md-nav__link">
-    predict_proba()
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -765,11 +751,11 @@ It expects text as input and it will predict an intent class.</p>
 
 <span class="n">mod</span> <span class="o">=</span> <span class="n">RasaClassifier</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="s2">&quot;path/to/model.tar.gz&quot;</span><span class="p">)</span>
 <span class="n">mod</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="s2">&quot;hello there&quot;</span><span class="p">,</span> <span class="s2">&quot;are you a bot?&quot;</span><span class="p">])</span>
-<span class="n">mod</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">([</span><span class="s2">&quot;hello there&quot;</span><span class="p">,</span> <span class="s2">&quot;are you a bot?&quot;</span><span class="p">])</span>
 </code></pre></div>
 
 <h3 id="rasa_nlu_examples.scikit.classifier.RasaClassifier.fetch_info_from_message"><code class="highlight"><span class="n">fetch_info_from_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text_input</span><span class="p">)</span></code><a class="headerlink" href="#rasa_nlu_examples.scikit.classifier.RasaClassifier.fetch_info_from_message" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>scikit/classifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>46
+<details class="note"><summary>Show source code in <code>scikit/classifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>45
+46
 47
 48
 49
@@ -781,8 +767,7 @@ It expects text as input and it will predict an intent class.</p>
 55
 56
 57
-58
-59</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fetch_info_from_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text_input</span><span class="p">):</span>
+58</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fetch_info_from_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text_input</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Fetch all the info from a single text input. Can be used to also retreive entities.</span>
 
@@ -809,7 +794,8 @@ It expects text as input and it will predict an intent class.</p>
 </code></pre></div>
 
 <h3 id="rasa_nlu_examples.scikit.classifier.RasaClassifier.predict"><code class="highlight"><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#rasa_nlu_examples.scikit.classifier.RasaClassifier.predict" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>scikit/classifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>61
+<details class="note"><summary>Show source code in <code>scikit/classifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>60
+61
 62
 63
 64
@@ -822,9 +808,14 @@ It expects text as input and it will predict an intent class.</p>
 71
 72
 73
-74</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+74
+75
+76</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Makes a class prediction, scikit-style.</span>
+
+<span class="sd">        Note that we do not support `predict_proba` because our API allows for</span>
+<span class="sd">        confidence values that do not lie in the [0, 1] range.</span>
 
 <span class="sd">        Usage:</span>
 
@@ -841,61 +832,13 @@ It expects text as input and it will predict an intent class.</p>
 
 </details>
 <p>Makes a class prediction, scikit-style.</p>
+<p>Note that we do not support <code>predict_proba</code> because our API allows for
+confidence values that do not lie in the [0, 1] range.</p>
 <p>Usage:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">rasa_nlu_examples.scikit</span> <span class="kn">import</span> <span class="n">RasaClassifier</span>
 
 <span class="n">mod</span> <span class="o">=</span> <span class="n">RasaClassifier</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="s2">&quot;path/to/model.tar.gz&quot;</span><span class="p">)</span>
 <span class="n">mod</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="s2">&quot;hello there&quot;</span><span class="p">,</span> <span class="s2">&quot;are you a bot?&quot;</span><span class="p">])</span>
-</code></pre></div>
-
-<h3 id="rasa_nlu_examples.scikit.classifier.RasaClassifier.predict_proba"><code class="highlight"><span class="n">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#rasa_nlu_examples.scikit.classifier.RasaClassifier.predict_proba" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>scikit/classifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Makes a class proba prediction, scikit-style.</span>
-
-<span class="sd">        Usage:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from rasa_nlu_examples.scikit import RasaClassifier</span>
-
-<span class="sd">        mod = RasaClassifier(model_path=&quot;path/to/model.tar.gz&quot;)</span>
-<span class="sd">        mod.predict_proba([&quot;hello there&quot;, &quot;are you a bot?&quot;])</span>
-<span class="sd">        ```</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
-            <span class="n">ranking</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetch_info_from_message</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="s2">&quot;intent_ranking&quot;</span><span class="p">]</span>
-            <span class="n">ranking_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]:</span> <span class="n">i</span><span class="p">[</span><span class="s2">&quot;confidence&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ranking</span><span class="p">}</span>
-            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ranking_dict</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_names_</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-
-</details>
-<p>Makes a class proba prediction, scikit-style.</p>
-<p>Usage:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">rasa_nlu_examples.scikit</span> <span class="kn">import</span> <span class="n">RasaClassifier</span>
-
-<span class="n">mod</span> <span class="o">=</span> <span class="n">RasaClassifier</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="s2">&quot;path/to/model.tar.gz&quot;</span><span class="p">)</span>
-<span class="n">mod</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">([</span><span class="s2">&quot;hello there&quot;</span><span class="p">,</span> <span class="s2">&quot;are you a bot?&quot;</span><span class="p">])</span>
 </code></pre></div>
 
 <h2 id="rasa_nlu_examples.scikit.common.dataframe_to_nlu_file"><code class="highlight"><span class="n">dataframe_to_nlu_file</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">write_path</span><span class="p">,</span> <span class="n">text_col</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">label_col</span><span class="o">=</span><span class="s1">&#39;intent&#39;</span><span class="p">)</span></code><a class="headerlink" href="#rasa_nlu_examples.scikit.common.dataframe_to_nlu_file" title="Permanent link">&para;</a></h2>
@@ -947,7 +890,8 @@ It expects text as input and it will predict an intent class.</p>
 78
 79
 80
-81</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dataframe_to_nlu_file</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">write_path</span><span class="p">,</span> <span class="n">text_col</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="n">label_col</span><span class="o">=</span><span class="s2">&quot;intent&quot;</span><span class="p">):</span>
+81
+82</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dataframe_to_nlu_file</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">write_path</span><span class="p">,</span> <span class="n">text_col</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="n">label_col</span><span class="o">=</span><span class="s2">&quot;intent&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts a single DataFrame file with intents into a intents file for Rasa.</span>
 
@@ -982,13 +926,14 @@ It expects text as input and it will predict an intent class.</p>
 <span class="sd">      - i enjoy this</span>
 <span class="sd">    ```</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="kn">from</span> <span class="nn">rasa.nlu.convert</span> <span class="kn">import</span> <span class="n">convert_training_data</span>
-
     <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="mf">2.0</span><span class="p">),</span> <span class="s2">&quot;nlu&quot;</span><span class="p">:</span> <span class="p">[]}</span>
     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">dataf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">label_col</span><span class="p">):</span>
         <span class="n">intent</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">label_col</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">result</span><span class="p">[</span><span class="s2">&quot;nlu&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="p">{</span><span class="s2">&quot;intent&quot;</span><span class="p">:</span> <span class="n">intent</span><span class="p">,</span> <span class="s2">&quot;examples&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="n">text_col</span><span class="p">]],}</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;intent&quot;</span><span class="p">:</span> <span class="n">intent</span><span class="p">,</span>
+                <span class="s2">&quot;examples&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="n">text_col</span><span class="p">]],</span>
+            <span class="p">}</span>
         <span class="p">)</span>
     <span class="n">dump</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>

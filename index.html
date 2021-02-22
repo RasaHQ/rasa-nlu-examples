@@ -385,6 +385,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#entity-extractors" class="md-nav__link">
+    Entity Extractors
+  </a>
+  
+    <nav class="md-nav" aria-label="Entity Extractors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flashtextentityextractor" class="md-nav__link">
+    FlashTextEntityExtractor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#entity-extraction" class="md-nav__link">
     Entity Extraction
   </a>
@@ -907,6 +927,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#entity-extractors" class="md-nav__link">
+    Entity Extractors
+  </a>
+  
+    <nav class="md-nav" aria-label="Entity Extractors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flashtextentityextractor" class="md-nav__link">
+    FlashTextEntityExtractor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#entity-extraction" class="md-nav__link">
     Entity Extraction
   </a>
@@ -1034,6 +1074,14 @@ to appear to help with debugging.</p>
 <p><strong><code>rasa_nlu_examples.meta.Printer</code> <a href="docs/meta/printer/">docs</a></strong></p>
 <p>This component will print what each featurizer adds to the NLU message. Very useful for debugging.
 You can find a tutorial on it <a href="https://blog.rasa.com/custom-printer-component/">here</a>.</p>
+<h2 id="entity-extractors"><strong>Entity Extractors</strong><a class="headerlink" href="#entity-extractors" title="Permanent link">&para;</a></h2>
+<h3 id="flashtextentityextractor">FlashTextEntityExtractor<a class="headerlink" href="#flashtextentityextractor" title="Permanent link">&para;</a></h3>
+<p><strong><code>rasa_nlu_examples.extractor.FlashTextEntityExtractor</code></strong></p>
+<p>This entity extractor uses the <a href="https://flashtext.readthedocs.io/en/latest/">flashtext</a> library
+to extract entities using <a href="https://rasa.com/docs/rasa/nlu-training-data#lookup-tables">lookup tables</a>.
+It's faster than <a href="https://rasa.com/docs/rasa/components#regexentityextractor">RegexEntityExtractor</a>, but
+missing some of its features (namely: extraction based on regex patterns, and extraction without regarding
+word boundaries).</p>
 <h2 id="entity-extraction"><strong>Entity Extraction</strong><a class="headerlink" href="#entity-extraction" title="Permanent link">&para;</a></h2>
 <h3 id="name-lists">Name Lists<a class="headerlink" href="#name-lists" title="Permanent link">&para;</a></h3>
 <p>Language models in spaCy are typically trained on Western news datasets. That means
