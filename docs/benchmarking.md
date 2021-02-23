@@ -21,7 +21,7 @@ from this library. You can glance over some examples below.
     - name: WhitespaceTokenizer
     - name: CountVectorsFeaturizer
       OOV_token: oov.txt
-      token_pattern: (?u)\b\w+\b
+      analyzer: word
     - name: CountVectorsFeaturizer
       analyzer: char_wb
       min_ngram: 1
@@ -47,7 +47,7 @@ from this library. You can glance over some examples below.
     - name: WhitespaceTokenizer
     - name: CountVectorsFeaturizer
       OOV_token: oov.txt
-      token_pattern: (?u)\b\w+\b
+      analyzer: word
     - name: CountVectorsFeaturizer
       analyzer: char_wb
       min_ngram: 1
@@ -77,7 +77,7 @@ from this library. You can glance over some examples below.
     - name: WhitespaceTokenizer
     - name: CountVectorsFeaturizer
       OOV_token: oov.txt
-      token_pattern: (?u)\b\w+\b
+      analyzer: word
     - name: CountVectorsFeaturizer
       analyzer: char_wb
       min_ngram: 1
@@ -107,7 +107,7 @@ from this library. You can glance over some examples below.
     - name: WhitespaceTokenizer
     - name: CountVectorsFeaturizer
       OOV_token: oov.txt
-      token_pattern: (?u)\b\w+\b
+      analyzer: word
     - name: CountVectorsFeaturizer
       analyzer: char_wb
       min_ngram: 1
