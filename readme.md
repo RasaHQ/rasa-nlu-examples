@@ -196,7 +196,7 @@ pipeline:
 - name: WhitespaceTokenizer
 - name: CountVectorsFeaturizer
   OOV_token: oov.txt
-  token_pattern: (?u)\b\w+\b
+  analyzer: word
 - name: CountVectorsFeaturizer
   analyzer: char_wb
   min_ngram: 1
