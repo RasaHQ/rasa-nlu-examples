@@ -1,0 +1,13 @@
+language: en
+
+pipeline:
+- name: WhitespaceTokenizer
+- name: rasa_nlu_examples.featurizers.sparse.SemanticMapFeaturizer
+  pretrained_semantic_map: "tests/data/semantic_map/dummy_semantic_map.json"
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 1

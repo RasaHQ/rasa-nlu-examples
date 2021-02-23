@@ -39,7 +39,7 @@ file that you can pass on to this component.
 ## Base Usage
 
 The configuration file below demonstrates how you might use the gensim embeddings. In this example
-we're building a pipeline for the an English language and we're assuming that you've trained your
+we're building a pipeline for the English language and we're assuming that you've trained your
 own embeddings which have been saved upfront as `saved/beforehand/filename.kv`.
 
 ```yaml
