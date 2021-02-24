@@ -29,5 +29,5 @@ jobs:
       run: |
         python tests/scripts/prepare_fasttext.py
         python tests/scripts/prepare_stanza.py
-        chmod 775 tests/data/custom_fasttext_model.bin
+        chmod 775 tests/data/fasttext/custom_fasttext_model.bin
         pytest
