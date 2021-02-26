@@ -48,6 +48,13 @@ def print_message(message: Message) -> None:
             {k: v for k, v in i.items() if "id" != k}
             for i in features["intent_ranking"]
         ]
+
+    if "diagnostic_data" in features.keys():
+        print(features["diagnostic_data"])
+        features["diagnostic_data"] = {
+            name: {k: dense_message(v) for k, v in comp.items()}
+            for name, comp in features["diagnostic_data"].items()
+        }
     print(features)
 
 
