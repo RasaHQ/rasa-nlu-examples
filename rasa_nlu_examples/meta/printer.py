@@ -50,7 +50,6 @@ def print_message(message: Message) -> None:
         ]
 
     if "diagnostic_data" in features.keys():
-        print(features["diagnostic_data"])
         features["diagnostic_data"] = {
             name: {k: dense_message(v) for k, v in comp.items()}
             for name, comp in features["diagnostic_data"].items()
