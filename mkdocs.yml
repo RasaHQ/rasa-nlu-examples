@@ -21,8 +21,11 @@ nav:
         - GensimFeaturizer: docs/featurizer/gensim.md
         - FastTextFeaturizer: docs/featurizer/fasttext.md
         - BytePairFeaturizer: docs/featurizer/bytepair.md
+        - SemanticMapFeaturizer: docs/featurizer/semantic_map.md
       - Intent Classifiers:
-        - SparseNaiveBayesIntentClassifier: docs/classifier/sparsenb.md
+        - SparseNaiveBayes: docs/classifier/sparsenb.md
+      - Entity Extractors:
+        - FlashText: docs/extractors/flashtext.md
       - Jupyter:
         - Overview: docs/jupyter/tools.md
 
