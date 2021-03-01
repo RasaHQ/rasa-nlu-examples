@@ -77,7 +77,7 @@ be so different that you cannot assume that the benchmarks apply universally.
 
 To remedy this we've started collecting name lists. These can be used as a lookup table
 which can be picked up by Rasa's [RegexEntityExtractor](https://rasa.com/docs/rasa/components#regexentityextractor)
-or our [FlashTextEntityExtractor]().
+or our [FlashTextEntityExtractor](docs/extractors/flashtext/).
 It won't be 100% perfect but it should give a reasonable starting point.
 
 You can find the namelists [here](https://github.com/RasaHQ/rasa-nlu-examples/tree/master/data/namelists).

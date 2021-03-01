@@ -70,112 +70,61 @@ This project currently supports components for Rasa 2.0. For older versions, see
 
 - [version 0.1.3](https://github.com/RasaHQ/rasa-nlu-examples/tree/0.1.3) is the final release for Rasa 1.10
 
-# Features
-
-The following components are implemented;
-
 ## **Tokenizers**
 
 Tokenizers can split up the input text into tokens. Depending on the Tokenizer that you pick
 you can also choose to apply lemmatization. For languages that have rich grammatical features
 this might help reduce the size of all the possible tokens.
 
-![](docs/images/tokenisation.png)
+![](images/tokenisation.png)
 
-### StanzaTokenizer
+- **`rasa_nlu_examples.tokenizers.StanzaTokenizer`** [docs](https://rasa.com/docs/tokenizer/stanza/)
+- **`rasa_nlu_examples.tokenizers.ThaiTokenizer`** [docs](https://rasa.com/docs/tokenizer/thai_tokenizer/)
 
-`rasa_nlu_examples.tokenizers.StanzaTokenizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/thai_tokenizer/)
-
-We support a tokenizier based on [Stanza](https://github.com/stanfordnlp/stanza). This
-tokenizer offers part of speech tagging as well as lemmatization for many languages that
-spaCy currently does not support. These features might help your ML pipelines in those
-situations.
-
-### ThaiTokenizer
-
-`rasa_nlu_examples.tokenizers.ThaiTokenizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/thai_tokenizer/)
-
-We support a Thai tokenizier based on PyThaiNLP [link](https://github.com/PyThaiNLP/pythainlp).
-
-## **Dense Featurizers**
-
-![](docs/images/dense_features.png)
+## **Featurizers**
 
 Dense featurizers attach dense numeric features per token as well as to the entire utterance. These
 features are picked up by intent classifiers and entity detectors later in the pipeline.
 
-### FastTextFeaturizer
+![](images/dense_features.png)
 
-**`rasa_nlu_examples.featurizers.dense.FastTextFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/fasttext/)**
+- **`rasa_nlu_examples.featurizers.dense.FastTextFeaturizer` [docs](https://rasa.com/docs/featurizer/fasttext/)**
+- **`rasa_nlu_examples.featurizers.dense.BytePairFeaturizer` [docs](https://rasa.com/docs/featurizer/bytepair/)**
+- **`rasa_nlu_examples.featurizers.dense.GensimFeaturizer` [docs](https://rasa.com/docs/featurizer/gensim/)**
+- **`rasa_nlu_examples.featurizers.sparse.SemanticMapFeaturizer` [docs](https://rasa.com/docs/featurizer/semantic_map/)**
 
-These are the pretrained embeddings from FastText, see for more info [here](https://fasttext.cc/).
-These are available in 157 languages, see [here](https://fasttext.cc/docs/en/crawl-vectors.html#models).
+## **Intent Classifiers**
 
-### BytePairFeaturizer
+Intent classifiers are models that predict an intent from a given user message
+text.  The default intent classifier in Rasa NLU is the [DIET
+model](https://rasa.com/docs/rasa/components#dietclassifier-2) which can be
+fairly computationally expensive, especially if you do not need to detect
+entities.  We provide some examples of alternative intent classifiers here.
 
-**`rasa_nlu_examples.featurizers.dense.BytePairFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/bytepair/)**
 
-These BytePair embeddings are specialized subword embeddings that are built to be lightweight.
-See [this link](https://nlp.h-its.org/bpemb/) for more information. These are available in 227 languages and
-you can specify the subword vocabulary size as well as the dimensionality.
+**`rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier` [docs](https://rasa.com/docs/classifier/sparsenb.md)**
 
-### GensimFeaturizer
+## **Entity Extractors**
 
-**`rasa_nlu_examples.featurizers.dense.GensimFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/gensim/)**
-
-A benefit of the [gensim](https://radimrehurek.com/gensim/) library is that it is very easy to
-train your own word embeddings. It's typically only about 5 lines of code. That means that you
-could train your own word-embeddings and then easily use them in a Rasa pipeline. This can be
-useful if you have specific jargon you'd like to capture.
-
-Another benefit of the tool is that it has made it easy for community members to train custom
-embeddings for many languages. Here's a list of resources;
-
-- [AraVec](https://github.com/bakrianoo/aravec#download) has embeddings for Arabic trained on twitter and/or Wikipedia.
-
-## **Sparse Featurizers**
-
-### SemanticMapFeaturizer
-
-**`rasa_nlu_examples.featurizers.sparse.SemanticMapFeaturizer` [docs](docs/featurizer/semantic_map/)**
-
-The `SemanticMapFeaturizer` is an experimental *sparse* featurizer developed by Rasa.
-It can only be used in combination with pre-trained embedding files, which you can
-find [here](https://github.com/RasaHQ/rasa-embeddings/tree/main/embeddings/semantic_map).
-Please refer to our [blog posts](https://blog.rasa.com/exploring-semantic-map-embeddings-1/) for more details.
+- **`rasa_nlu_examples.extractor.FlashTextEntityExtractor`** [docs](https://rasa.com/docs/extractors/flashtext/)
 
 ## **Fallback Classifiers**
 
-![](docs/images/fallback.png)
+![](images/fallback.png)
 
-Fallback classifiers are models that can override previous intents. In Rasa NLU there is a
-[NLU Fallback Classifier](https://rasa.com/docs/rasa/fallback-handoff#nlu-fallback) that
-can "fallback" whenever the main classifier isn't confident about their prediction. In this repository
-we also host a few of these models such that you can handle specific instances with a custom model too.
-These models are meant to be used in combination with a [RulePolicy](https://rasa.com/docs/rasa/policies#rule-based-policies).
-
-### FasttextLanguage
-
-**`rasa_nlu_examples.fallback.FasttextLanguageFallbackClassifier` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/fallback/fasttextlanguagefallback.md)**
-
-This fallback classifier is based on [fasttext](https://fasttext.cc/docs/en/language-identification.html). It
-can detect when a user is speaking in an unintended language such that you can create a rule to respond
-appropriately.
+- **`rasa_nlu_examples.fallback.FasttextLanguageFallbackClassifier` [docs](https://rasa.com/docs/fallback/fasttextlanguagefallback.md)**
 
 ## **Meta**
 
 The components listed here won't effect the NLU pipeline but they might instead cause extra logs
 to appear to help with debugging.
 
-### Printer
+- **`rasa_nlu_examples.meta.Printer` [docs](https://rasa.com/docs/meta/printer/)**
+- **`rasa_nlu_examples.scikit.RasaClassifier` [docs](https://rasa.com/docs/jupyter/tools/#rasa_nlu_examples.scikit.classifier.RasaClassifier)**
+- **`from rasa_nlu_examples.scikit.dataframe_to_nlu_file` [docs](https://rasa.com/docs/jupyter/tools/#rasa_nlu_examples.scikit.common.dataframe_to_nlu_file)**
+- **`from rasa_nlu_examples.scikit.nlu_path_to_dataframe` [docs](https://rasa.com/docs/jupyter/tools/#rasa_nlu_examples.scikit.common.nlu_path_to_dataframe)**
 
-**`rasa_nlu_examples.meta.Printer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/meta/printer/)**
-
-This component will print what each featurizer adds to the NLU message. Very useful for debugging.
-
-## **Entity Extraction**
-
-### Name Lists
+## **Name Lists**
 
 Language models in spaCy are typically trained on Western news datasets. That means
 that the reported benchmarks might not apply to your use-case. For example; detecting
@@ -184,8 +133,9 @@ thought French is used actively in both countries, the names of it's citizens mi
 be so different that you cannot assume that the benchmarks apply universally.
 
 To remedy this we've started collecting name lists. These can be used as a lookup table
-which can be picked up  by Rasa's [RegexEntityExtractor](https://rasa.com/docs/rasa/components#regexentityextractor). It
-won't be 100% perfect but it should give a reasonable starting point.
+which can be picked up by Rasa's [RegexEntityExtractor](https://rasa.com/docs/rasa/components#regexentityextractor)
+or our [FlashTextEntityExtractor](https://rasa.com/docs/extractors/flashtext/).
+It won't be 100% perfect but it should give a reasonable starting point.
 
 You can find the namelists [here](https://github.com/RasaHQ/rasa-nlu-examples/tree/master/data/namelists).
 We currently offer namelists for the United States, Germany as well as common Arabic names.
@@ -193,7 +143,7 @@ Feel free to submit PRs for more languages. We're also eager to receive feedback
 
 # Usage
 
-You can install the examples from this repo via pip;
+You can install the examples from this repo via pip. Let's say you download the standard tools.
 
 ```
 pip install git+https://github.com/RasaHQ/rasa-nlu-examples
