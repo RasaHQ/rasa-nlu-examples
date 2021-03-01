@@ -76,7 +76,7 @@ Tokenizers can split up the input text into tokens. Depending on the Tokenizer t
 you can also choose to apply lemmatization. For languages that have rich grammatical features
 this might help reduce the size of all the possible tokens.
 
-![](images/tokenisation.png)
+![](docs/images/tokenisation.png)
 
 - **`rasa_nlu_examples.tokenizers.StanzaTokenizer`** [docs](https://rasa.com/docs/tokenizer/stanza/)
 - **`rasa_nlu_examples.tokenizers.ThaiTokenizer`** [docs](https://rasa.com/docs/tokenizer/thai_tokenizer/)
@@ -86,7 +86,7 @@ this might help reduce the size of all the possible tokens.
 Dense featurizers attach dense numeric features per token as well as to the entire utterance. These
 features are picked up by intent classifiers and entity detectors later in the pipeline.
 
-![](images/dense_features.png)
+![](docs/images/dense_features.png)
 
 - **`rasa_nlu_examples.featurizers.dense.FastTextFeaturizer` [docs](https://rasa.com/docs/featurizer/fasttext/)**
 - **`rasa_nlu_examples.featurizers.dense.BytePairFeaturizer` [docs](https://rasa.com/docs/featurizer/bytepair/)**
@@ -101,7 +101,6 @@ model](https://rasa.com/docs/rasa/components#dietclassifier-2) which can be
 fairly computationally expensive, especially if you do not need to detect
 entities.  We provide some examples of alternative intent classifiers here.
 
-
 **`rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier` [docs](https://rasa.com/docs/classifier/sparsenb.md)**
 
 ## **Entity Extractors**
@@ -110,7 +109,7 @@ entities.  We provide some examples of alternative intent classifiers here.
 
 ## **Fallback Classifiers**
 
-![](images/fallback.png)
+![](docs/images/fallback.png)
 
 - **`rasa_nlu_examples.fallback.FasttextLanguageFallbackClassifier` [docs](https://rasa.com/docs/fallback/fasttextlanguagefallback.md)**
 
