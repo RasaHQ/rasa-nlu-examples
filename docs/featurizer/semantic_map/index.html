@@ -11,7 +11,7 @@
         <meta name="description" content="A collection of open source Rasa compatible NLU components.">
       
       
-        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/fallback/fasttextlanguagefallback/">
+        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/semantic_map/">
       
       
         <meta name="author" content="Vincent D. Warmerdam @ Rasa Research">
@@ -21,7 +21,7 @@
     
     
       
-        <title>FasttextLanguage - Rasa NLU Examples</title>
+        <title>SemanticMapFeaturizer - Rasa NLU Examples</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fasttextlanguagefallbackclassifier" class="md-skip">
+        <a href="#configurable-variables" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              FasttextLanguage
+              SemanticMapFeaturizer
             
           </span>
         </div>
@@ -292,12 +292,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
     <label class="md-nav__link" for="nav-3-2">
       Fallback
@@ -319,67 +317,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        FasttextLanguage
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="FasttextLanguage" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../fallback/fasttextlanguagefallback/" title="FasttextLanguage" class="md-nav__link">
       FasttextLanguage
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#understanding-the-tool" class="md-nav__link">
-    Understanding the Tool
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configurable-variables" class="md-nav__link">
-    Configurable Variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#base-usage" class="md-nav__link">
-    Base Usage
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -488,10 +430,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5" checked>
     
     <label class="md-nav__link" for="nav-3-5">
       Featurizers
@@ -515,7 +459,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../featurizer/gensim/" title="GensimFeaturizer" class="md-nav__link">
+    <a href="../gensim/" title="GensimFeaturizer" class="md-nav__link">
       GensimFeaturizer
     </a>
   </li>
@@ -527,7 +471,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../featurizer/fasttext/" title="FastTextFeaturizer" class="md-nav__link">
+    <a href="../fasttext/" title="FastTextFeaturizer" class="md-nav__link">
       FastTextFeaturizer
     </a>
   </li>
@@ -539,7 +483,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../featurizer/bytepair/" title="BytePairFeaturizer" class="md-nav__link">
+    <a href="../bytepair/" title="BytePairFeaturizer" class="md-nav__link">
       BytePairFeaturizer
     </a>
   </li>
@@ -549,11 +493,56 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../featurizer/semantic_map/" title="SemanticMapFeaturizer" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        SemanticMapFeaturizer
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="SemanticMapFeaturizer" class="md-nav__link md-nav__link--active">
       SemanticMapFeaturizer
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configurable-variables" class="md-nav__link">
+    Configurable Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    Basic Usage
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -707,8 +696,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -719,13 +706,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#understanding-the-tool" class="md-nav__link">
-    Understanding the Tool
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#configurable-variables" class="md-nav__link">
     Configurable Variables
   </a>
@@ -733,8 +713,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#base-usage" class="md-nav__link">
-    Base Usage
+  <a href="#basic-usage" class="md-nav__link">
+    Basic Usage
   </a>
   
 </li>
@@ -751,7 +731,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/fallback/fasttextlanguagefallback.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/featurizer/semantic_map.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -759,89 +739,31 @@
                   
                 
                 
-                <h1 id="fasttextlanguagefallbackclassifier">FasttextLanguageFallbackClassifier<a class="headerlink" href="#fasttextlanguagefallbackclassifier" title="Permanent link">&para;</a></h1>
-<p>This classifier uses <a href="https://fasttext.cc/docs/en/language-identification.html">fasttext</a> to detect
-if an unintended language is used. You can combine this tool together with <a href="https://rasa.com/docs/rasa/rules">RulePolicy rules</a>
-to handle out of scope responses more elegantly. Assuming that you're making an assistant to handle
-English then you can send the user an appropriate response if this model predicts another language.</p>
-<p>The tool should be able to detect 176 languages but the predictions won't be perfect. Especially
-when the user sends short utterances we need to be careful. That is why this tool allows you to
-specify a minimum number of characters and tokens before this model triggers an intent.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In order to use this tool you'll need to ensure the correct dependencies are installed.</p>
-<p><code>pip install "rasa_nlu_examples[fasttext] @ https://github.com/RasaHQ/rasa-nlu-examples.git"</code></p>
-</div>
-<h2 id="understanding-the-tool">Understanding the Tool<a class="headerlink" href="#understanding-the-tool" title="Permanent link">&para;</a></h2>
-<p>You're encouraged to play with the tool from a jupyter notebook so you can
-understand what kinds of mistakes the model might make. To do that you'll
-first want to download the <code>fasttext</code> library as well as the pretrained model.</p>
-<div class="codehilite"><pre><span></span><code>python -m pip install fasttext
-wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.ftz
-</code></pre></div>
-
-
-<p>Then from a notebook you should be able to interact with the model by running:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">fasttext</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">fasttext</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;lid.176.ftz&quot;</span><span class="p">)</span>
-
-<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;i am speaking english&quot;</span>
-<span class="n">proba_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">))}</span>
-<span class="n">proba_dict</span>
-</code></pre></div>
-
-
+                  <h1>SemanticMapFeaturizer</h1>
+                
+                <p>The <code>SemanticMapFeaturizer</code> is an experimental <em>sparse</em> featurizer developed by Rasa.
+It can only be used in combination with pre-trained embedding files, which you can
+find <a href="https://github.com/RasaHQ/rasa-embeddings/tree/main/embeddings/semantic_map">here</a>.
+Please refer to our <a href="https://blog.rasa.com/exploring-semantic-map-embeddings-1/">blog posts</a> for more details.</p>
 <h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>expected_language</strong> (required): the language that you expect to be predicted. If this language is predicted we won't trigger an intent.</li>
-<li><strong>intent_triggered</strong> (required): the name of the intent to trigger when the model does not detect the expected language.</li>
-<li><strong>cache_dir</strong> (required): specifies the folder where the pretrained model can be found.</li>
-<li><strong>model_file</strong> (required): specifies the path to a pretrained model file, typically you'll want <code>lid.176.ftz</code>. See the <a href="https://fasttext.cc/docs/en/language-identification.html">fasttext docs</a> for more info.</li>
-<li><strong>threshold</strong> (default: 0.7): if the probability for your language is smaller than this threshold then we trigger the intent.</li>
-<li><strong>min_tokens</strong> (default: 3): the minimum number of tokens that need to be in the utterance. If there's less tokens the language model is ignored because it is likely to be in-accurate.</li>
-<li><strong>min_chars</strong> (default: 10): the minimum number of characters of text that need to be in the utterance. If there's less tokens the language model is ignored because it is likely to be in-accurate.</li>
-<li><strong>protected_intents</strong> (default: <code>[]</code>): specifies a list of intent names that won't be overwritten</li>
+<li><strong>pretrained_semantic_map</strong>: Path to downloaded/saved semantic map embeddings (the unpacked json file)</li>
+<li><strong>pooling</strong>: The pooling operation to use for the sentence features (<code>sum</code> (default), <code>mean</code>, or <code>merge</code>)</li>
 </ul>
-<h2 id="base-usage">Base Usage<a class="headerlink" href="#base-usage" title="Permanent link">&para;</a></h2>
-<p>The configuration file below demonstrates how you might use the this component. In this example
-we've assumed that you've downloaded the lightweight <code>"lid.176.ftz"</code> model beforehand and that it
-exists in the <code>downloaded</code> folder that is on the root path of your project.</p>
+<h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
+<p>The configuration file below demonstrates how you might use the semantic map embeddings. In this example
+we're building a pipeline for the English language and we're assuming that you've saved embeddings upfront
+as <code>saved/beforehand/rasa-sme-wikipedia-en-64x64-v20201120.json</code>.</p>
 <div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
 
 <span class="nt">pipeline</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LexicalSyntacticFeaturizer</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
-  <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
-  <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-  <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
-  <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.fallback.FasttextLanguageFallbackClassifier</span>
-  <span class="nt">expected_language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
-  <span class="nt">intent_triggered</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">non_english</span>
-  <span class="nt">cache_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">downloaded</span>
-  <span class="nt">file</span><span class="p">:</span> <span class="s">&#39;lid.176.ftz&#39;</span>
-  <span class="nt">min_chars</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-  <span class="nt">min_tokens</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
-  <span class="nt">threshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.3</span>
-  <span class="nt">protected_intents</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;greet&quot;</span><span class="p p-Indicator">]</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LexicalSyntacticFeaturizer</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.featurizers.sparse.SemanticMapFeaturizer</span>
+    <span class="nt">pretrained_semantic_map</span><span class="p">:</span> <span class="s">&quot;saved/beforehand/rasa-sme-wikipedia64x64-en-v20201120.json&quot;</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
+    <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
 </code></pre></div>
-
-
-<p>To get the most out of this tool you also need to add a rule to a <code>rules.yml</code> file.
-That way you can configure an appropriate action whenever a user is speaking in the
-wrong language. That might look something like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">rules</span><span class="p">:</span>
-
-<span class="p p-Indicator">-</span> <span class="nt">rule</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ask the user to switch to speaking in English.</span>
-  <span class="nt">steps</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">intent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">non_english</span>
-  <span class="p p-Indicator">-</span> <span class="nt">action</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">utter_non_english</span>
-</code></pre></div>
-
-
-<p>For more information on rules, see the <a href="https://rasa.com/docs/rasa/rules">docs</a>.</p>
                 
               
               
@@ -860,7 +782,7 @@ wrong language. That might look something like this:</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../../benchmarking/" title="Benchmarking Guide" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../bytepair/" title="BytePairFeaturizer" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -869,19 +791,19 @@ wrong language. That might look something like this:</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Benchmarking Guide
+                BytePairFeaturizer
               </div>
             </div>
           </a>
         
         
-          <a href="../../tokenizer/stanza/" title="StanzaTokenizer" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../classifier/sparsenb/" title="SparseNaiveBayes" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                StanzaTokenizer
+                SparseNaiveBayes
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
