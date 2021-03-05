@@ -120,8 +120,8 @@ to appear to help with debugging.
 
 - **`rasa_nlu_examples.meta.Printer` [docs](https://rasa.com/docs/meta/printer/)**
 - **`rasa_nlu_examples.scikit.RasaClassifier` [docs](https://rasa.com/docs/jupyter/tools/#rasa_nlu_examples.scikit.classifier.RasaClassifier)**
-- **`from rasa_nlu_examples.scikit.dataframe_to_nlu_file` [docs](https://rasa.com/docs/jupyter/tools/#rasa_nlu_examples.scikit.common.dataframe_to_nlu_file)**
-- **`from rasa_nlu_examples.scikit.nlu_path_to_dataframe` [docs](https://rasa.com/docs/jupyter/tools/#rasa_nlu_examples.scikit.common.nlu_path_to_dataframe)**
+- **`rasa_nlu_examples.scikit.dataframe_to_nlu_file` [docs](https://rasa.com/docs/jupyter/tools/#rasa_nlu_examples.scikit.common.dataframe_to_nlu_file)**
+- **`rasa_nlu_examples.scikit.nlu_path_to_dataframe` [docs](https://rasa.com/docs/jupyter/tools/#rasa_nlu_examples.scikit.common.nlu_path_to_dataframe)**
 
 ## **Name Lists**
 
