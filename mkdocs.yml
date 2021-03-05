@@ -41,7 +41,7 @@ theme:
     - tabs
     - instant
   palette:
-    primary: white
+    primary: deep purple
     accent: purple
 markdown_extensions:
   - codehilite
