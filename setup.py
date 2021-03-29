@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 base_packages = [
     "rasa>=2.2.0",
     "bpemb>=0.3.2",
-    "gensim>=3.8.3",
+    "gensim~=3.8.3",
     "rich>=9.2.0",
     "pandas>=1.0.5",
 ]
@@ -30,7 +30,7 @@ thai_deps = [
 ]
 
 fasttext_deps = [
-    "fasttext>=0.9.2",
+    "fasttext~=0.9.2",
 ]
 
 flashtext_deps = [
