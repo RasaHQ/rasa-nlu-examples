@@ -2,7 +2,7 @@ import pytest
 
 import pathlib
 
-from rasa.train import train_nlu
+from rasa.model_training import train_nlu
 from rasa.cli.utils import get_validated_path
 from rasa.model import get_model, get_model_subdirectories
 from rasa.core.interpreter import RasaNLUInterpreter

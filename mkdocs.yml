@@ -13,6 +13,7 @@ nav:
       - Fallback:
           - FasttextLanguage: docs/fallback/fasttextlanguagefallback.md
       - Tokenizers:
+          - BlankSpacyTokenizer: docs/tokenizer/spacy_tokenizer.md
           - StanzaTokenizer: docs/tokenizer/stanza.md
           - ThaiTokenizer: docs/tokenizer/thai_tokenizer.md
       - Meta:

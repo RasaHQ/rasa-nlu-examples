@@ -21,6 +21,7 @@ this might help reduce the size of all the possible tokens.
 
 ![](images/tokenisation.png)
 
+- **`rasa_nlu_examples.tokenizers.BlankSpacyTokenizer`** [docs](docs/tokenizer/spacy_tokenizer/)
 - **`rasa_nlu_examples.tokenizers.StanzaTokenizer`** [docs](docs/tokenizer/stanza/)
 - **`rasa_nlu_examples.tokenizers.ThaiTokenizer`** [docs](docs/tokenizer/thai_tokenizer/)
 
@@ -64,8 +65,8 @@ to appear to help with debugging.
 
 - **`rasa_nlu_examples.meta.Printer` [docs](docs/meta/printer/)**
 - **`rasa_nlu_examples.scikit.RasaClassifier` [docs](docs/jupyter/tools/#rasa_nlu_examples.scikit.classifier.RasaClassifier)**
-- **`from rasa_nlu_examples.scikit.dataframe_to_nlu_file` [docs](docs/jupyter/tools/#rasa_nlu_examples.scikit.common.dataframe_to_nlu_file)**
-- **`from rasa_nlu_examples.scikit.nlu_path_to_dataframe` [docs](docs/jupyter/tools/#rasa_nlu_examples.scikit.common.nlu_path_to_dataframe)**
+- **`rasa_nlu_examples.scikit.dataframe_to_nlu_file` [docs](docs/jupyter/tools/#rasa_nlu_examples.scikit.common.dataframe_to_nlu_file)**
+- **`rasa_nlu_examples.scikit.nlu_path_to_dataframe` [docs](docs/jupyter/tools/#rasa_nlu_examples.scikit.common.nlu_path_to_dataframe)**
 
 ## **Name Lists**
 

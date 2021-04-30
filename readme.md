@@ -30,6 +30,13 @@ python -m pip install "rasa_nlu_examples[fasttext] @ git+https://github.com/Rasa
 python -m pip install "rasa_nlu_examples[all] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
 ```
 
+If you're using any models that depend on spaCy you'll need to install the Rasa dependencies
+for spaCy first.
+
+```python
+python -m pip install rasa[spacy]
+```
+
 # Contribute
 
 There are many ways you can contribute to this project.
@@ -78,6 +85,7 @@ this might help reduce the size of all the possible tokens.
 
 ![](docs/images/tokenisation.png)
 
+- **`rasa_nlu_examples.tokenizers.BlankSpacyTokenizer`** [docs](docs/tokenizer/spacy_tokenizer/)
 - **`rasa_nlu_examples.tokenizers.StanzaTokenizer`** [docs](https://rasa.com/docs/tokenizer/stanza/)
 - **`rasa_nlu_examples.tokenizers.ThaiTokenizer`** [docs](https://rasa.com/docs/tokenizer/thai_tokenizer/)
 

@@ -1,6 +1,6 @@
 from rasa_nlu_examples.scikit import RasaClassifier
 
-from rasa.train import train_nlu
+from rasa.model_training import train_nlu
 
 
 def test_base_predict():

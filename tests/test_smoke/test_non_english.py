@@ -1,10 +1,9 @@
 import pytest
 
-from rasa.train import train_nlu
+from rasa.model_training import train_nlu
 
 # Take heed! Pytest fails if you use a function that starts with "test"
-from rasa.test import test_nlu as run_nlu
-
+from rasa.model_testing import test_nlu as run_nlu
 
 non_english_files = [("thai-tokenizer-config.yml", "tests/data/nlu/th/nlu-th.md")]
 
