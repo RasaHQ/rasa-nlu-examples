@@ -10,5 +10,10 @@ try:
 except ImportError:
     ThaiTokenizer = NotInstalled("ThaiTokenizer", "thai")
 
+try:
+    from rasa_nlu_examples.tokenizers.blankspacy import BlankSpacyTokenizer
+except ImportError:
+    BlankSpacyTokenizer = NotInstalled("BlankSpacyTokenizer", "rasa[spacy]")
 
-__all__ = ["StanzaTokenizer", "ThaiTokenizer"]
+
+__all__ = ["StanzaTokenizer", "ThaiTokenizer", "BlankSpacyTokenizer"]
