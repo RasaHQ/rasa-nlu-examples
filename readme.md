@@ -85,7 +85,7 @@ this might help reduce the size of all the possible tokens.
 
 ![](docs/images/tokenisation.png)
 
-- **`rasa_nlu_examples.tokenizers.BlankSpacyTokenizer`** [docs](docs/tokenizer/spacy_tokenizer/)
+- **`rasa_nlu_examples.tokenizers.BlankSpacyTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/spacy_tokenizer/)
 - **`rasa_nlu_examples.tokenizers.StanzaTokenizer`** [docs](https://rasa.com/docs/tokenizer/stanza/)
 - **`rasa_nlu_examples.tokenizers.ThaiTokenizer`** [docs](https://rasa.com/docs/tokenizer/thai_tokenizer/)
 
