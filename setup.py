@@ -7,6 +7,7 @@ base_packages = [
     "gensim~=3.8.3",
     "rich>=9.2.0",
     "pandas>=1.0.5",
+    "tensorflow>=2.3.0,<2.5",
 ]
 
 dev_packages = [
