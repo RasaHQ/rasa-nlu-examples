@@ -86,8 +86,8 @@ this might help reduce the size of all the possible tokens.
 ![](docs/images/tokenisation.png)
 
 - **`rasa_nlu_examples.tokenizers.BlankSpacyTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/spacy_tokenizer/)
-- **`rasa_nlu_examples.tokenizers.StanzaTokenizer`** [docs](https://rasa.com/docs/tokenizer/stanza/)
-- **`rasa_nlu_examples.tokenizers.ThaiTokenizer`** [docs](https://rasa.com/docs/tokenizer/thai_tokenizer/)
+- **`rasa_nlu_examples.tokenizers.StanzaTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/stanza/)
+- **`rasa_nlu_examples.tokenizers.ThaiTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/thai_tokenizer/)
 
 ## **Featurizers**
 
@@ -96,10 +96,10 @@ features are picked up by intent classifiers and entity detectors later in the p
 
 ![](docs/images/dense_features.png)
 
-- **`rasa_nlu_examples.featurizers.dense.FastTextFeaturizer` [docs](https://rasa.com/docs/featurizer/fasttext/)**
-- **`rasa_nlu_examples.featurizers.dense.BytePairFeaturizer` [docs](https://rasa.com/docs/featurizer/bytepair/)**
-- **`rasa_nlu_examples.featurizers.dense.GensimFeaturizer` [docs](https://rasa.com/docs/featurizer/gensim/)**
-- **`rasa_nlu_examples.featurizers.sparse.SemanticMapFeaturizer` [docs](https://rasa.com/docs/featurizer/semantic_map/)**
+- **`rasa_nlu_examples.featurizers.dense.FastTextFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/fasttext/)**
+- **`rasa_nlu_examples.featurizers.dense.BytePairFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/bytepair/)**
+- **`rasa_nlu_examples.featurizers.dense.GensimFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/gensim/)**
+- **`rasa_nlu_examples.featurizers.sparse.SemanticMapFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/semantic_map/)**
 
 ## **Intent Classifiers**
 
@@ -109,27 +109,27 @@ model](https://rasa.com/docs/rasa/components#dietclassifier-2) which can be
 fairly computationally expensive, especially if you do not need to detect
 entities.  We provide some examples of alternative intent classifiers here.
 
-**`rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier` [docs](https://rasa.com/docs/classifier/sparsenb.md)**
+**`rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/classifier/sparsenb/)**
 
 ## **Entity Extractors**
 
-- **`rasa_nlu_examples.extractor.FlashTextEntityExtractor`** [docs](https://rasa.com/docs/extractors/flashtext/)
+- **`rasa_nlu_examples.extractor.FlashTextEntityExtractor`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/extractors/flashtext/)
 
 ## **Fallback Classifiers**
 
 ![](docs/images/fallback.png)
 
-- **`rasa_nlu_examples.fallback.FasttextLanguageFallbackClassifier` [docs](https://rasa.com/docs/fallback/fasttextlanguagefallback.md)**
+- **`rasa_nlu_examples.fallback.FasttextLanguageFallbackClassifier` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/fallback/fasttextlanguagefallback.md)**
 
 ## **Meta**
 
 The components listed here won't effect the NLU pipeline but they might instead cause extra logs
 to appear to help with debugging.
 
-- **`rasa_nlu_examples.meta.Printer` [docs](https://rasa.com/docs/meta/printer/)**
-- **`rasa_nlu_examples.scikit.RasaClassifier` [docs](https://rasa.com/docs/jupyter/tools/#rasa_nlu_examples.scikit.classifier.RasaClassifier)**
-- **`rasa_nlu_examples.scikit.dataframe_to_nlu_file` [docs](https://rasa.com/docs/jupyter/tools/#rasa_nlu_examples.scikit.common.dataframe_to_nlu_file)**
-- **`rasa_nlu_examples.scikit.nlu_path_to_dataframe` [docs](https://rasa.com/docs/jupyter/tools/#rasa_nlu_examples.scikit.common.nlu_path_to_dataframe)**
+- **`rasa_nlu_examples.meta.Printer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/meta/printer/)**
+- **`rasa_nlu_examples.scikit.RasaClassifier` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/jupyter/tools/#rasa_nlu_examples.scikit.classifier.RasaClassifier)**
+- **`rasa_nlu_examples.scikit.dataframe_to_nlu_file` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/jupyter/tools/#rasa_nlu_examples.scikit.common.dataframe_to_nlu_file)**
+- **`rasa_nlu_examples.scikit.nlu_path_to_dataframe` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/jupyter/tools/#rasa_nlu_examples.scikit.common.nlu_path_to_dataframe)**
 
 ## **Name Lists**
 
@@ -140,8 +140,8 @@ thought French is used actively in both countries, the names of it's citizens mi
 be so different that you cannot assume that the benchmarks apply universally.
 
 To remedy this we've started collecting name lists. These can be used as a lookup table
-which can be picked up by Rasa's [RegexEntityExtractor](https://rasa.com/docs/rasa/components#regexentityextractor)
-or our [FlashTextEntityExtractor](https://rasa.com/docs/extractors/flashtext/).
+which can be picked up by Rasa's [RegexEntityExtractor](https://rasahq.github.io/rasa-nlu-examples/docs/rasa/components#regexentityextractor)
+or our [FlashTextEntityExtractor](https://rasahq.github.io/rasa-nlu-examples/docs/extractors/flashtext/).
 It won't be 100% perfect but it should give a reasonable starting point.
 
 You can find the namelists [here](https://github.com/RasaHQ/rasa-nlu-examples/tree/master/data/namelists).
