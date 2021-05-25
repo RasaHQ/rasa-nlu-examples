@@ -35,9 +35,6 @@ class RasaClassifier(BaseEstimator, ClassifierMixin):
         folder = str(pathlib.Path(self.model_path).parents[0])
         file = str(pathlib.Path(self.model_path).parts[-1])
         self.interpreter = load_interpreter(folder, file)
-        self.class_names_ = [
-            i["name"] for i in self.fetch_info_from_message("hello")["intent_ranking"]
-        ]
 
     def fit(self, X, y):
         return self
