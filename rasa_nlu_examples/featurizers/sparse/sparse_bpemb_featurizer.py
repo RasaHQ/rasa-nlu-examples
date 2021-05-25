@@ -1,5 +1,4 @@
 import os
-import typing
 from pathlib import Path
 from typing import Any, Optional, Text, Dict, List, Type
 
@@ -11,7 +10,7 @@ import sentencepiece as spm
 import rasa.utils.io as io_utils
 from rasa.nlu.components import Component
 from rasa.nlu.featurizers.featurizer import SparseFeaturizer
-
+from rasa.nlu.model import Metadata
 from rasa.nlu.config import RasaNLUModelConfig
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
 from rasa.shared.nlu.constants import TEXT, FEATURE_TYPE_SENTENCE, FEATURE_TYPE_SEQUENCE

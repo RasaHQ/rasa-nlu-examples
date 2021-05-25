@@ -2,10 +2,7 @@ import pathlib
 import scipy.sparse
 
 from rasa.model_training import train_nlu
-from rasa.model_testing import test_nlu as run_nlu
 from rasa.shared.nlu.training_data.message import Message
-from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
-from rasa_nlu_examples.featurizers.sparse import SparseBytePairFeaturizer
 from rasa_nlu_examples.scikit import load_interpreter
 
 
@@ -18,7 +15,7 @@ config_man = dict(
 nlu_data = "tests/data/nlu/en/nlu.md"
 mod = train_nlu(
     nlu_data=nlu_data,
-    config=f"tests/configs/sparse-bytepair-config.yml",
+    config="tests/configs/sparse-bytepair-config.yml",
     output="models",
 )
 
