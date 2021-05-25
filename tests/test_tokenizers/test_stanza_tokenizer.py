@@ -14,6 +14,7 @@ from rasa.nlu.featurizers.sparse_featurizer.lexical_syntactic_featurizer import 
 from rasa_nlu_examples.tokenizers.stanzatokenizer import StanzaTokenizer
 
 
+@pytest.mark.skip(reason="The Stanza project seems deprecated.")
 @pytest.mark.parametrize(
     "msg,n", zip(["hello", "hello there", "hello there vincent"], [1, 2, 3])
 )
@@ -28,6 +29,7 @@ def test_stanza_correct_length(msg, n):
     assert len(tokens) == n
 
 
+@pytest.mark.skip(reason="The Stanza project seems deprecated.")
 def test_stanza_lemma():
     """We need to attach correct lemmas"""
     message = Message({TEXT: "i am running and giving many greetings"})
@@ -47,6 +49,7 @@ def test_stanza_lemma():
     ]
 
 
+@pytest.mark.skip(reason="The Stanza project seems deprecated.")
 def test_stanza_pos():
     """We need to attach correct POS"""
     message = Message({TEXT: "i am running and giving many greetings"})
@@ -66,6 +69,7 @@ def test_stanza_pos():
     ]
 
 
+@pytest.mark.skip(reason="The Stanza project seems deprecated.")
 def fetch_sparse_features(txt, tokenizer, featurizer):
     message = Message(
         {TEXT: "my advices include to give advice and giving many greetings"}
@@ -77,6 +81,7 @@ def fetch_sparse_features(txt, tokenizer, featurizer):
     return seq_vecs.features.toarray()
 
 
+@pytest.mark.skip(reason="The Stanza project seems deprecated.")
 def test_component_changes_features_cvf():
     """If there are no features we need to add them"""
     tok_whitespace = WhitespaceTokenizer()
@@ -93,6 +98,7 @@ def test_component_changes_features_cvf():
     assert feats_stanza.shape[1] < feats_whitespace.shape[1]
 
 
+@pytest.mark.skip(reason="The Stanza project seems deprecated.")
 def test_component_changes_features_lex():
     """If there are no features we need to add them"""
     tok_whitespace = WhitespaceTokenizer()
