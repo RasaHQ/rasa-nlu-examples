@@ -3,7 +3,7 @@ import pathlib
 import pytest
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
 
-from .featurizer_checks import dense_standard_test_combinations
+from .dense_featurizer_checks import dense_standard_test_combinations
 from rasa_nlu_examples.featurizers.dense.gensim_featurizer import GensimFeaturizer
 
 test_folder = pathlib.Path(__file__).parent.parent.absolute()

@@ -48,8 +48,6 @@ class SparseBytePairFeaturizer(SparseFeaturizer):
         "cache_dir": str(Path.home() / Path(".cache/bpemb")),
         # specifies the path to a custom SentencePiece model file
         "model_file": None,
-        # specifies the path to a custom embedding file
-        "emb_file": None,
     }
 
     language_list = [
@@ -343,24 +341,14 @@ class SparseBytePairFeaturizer(SparseFeaturizer):
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
 
-        if self.component_config["model_file"]:
-            model_path = (
-                Path(component_config["cache_dir"])
-                / self.component_config["model_file"]
-            )
-            if not model_path.exists():
-                raise FileNotFoundError(
-                    f"BytePair model {model_path} not found. Please check config."
-                )
-
         if not self.component_config["lang"]:
             raise ValueError(
-                "You must specify the `lang` parameter for BytePairEmbedding in `config.yml`."
+                "You must specify the `lang` parameter for SparseBytePairFeaturizer in `config.yml`."
             )
 
         if not self.component_config["vs"]:
             raise ValueError(
-                "You must specify the `vs` parameter for BytePairEmbedding in `config.yml`."
+                "You must specify the `vs` parameter for SparseBytePairFeaturizer in `config.yml`."
             )
 
         # Downloads the model if it's not locally available yet.
@@ -371,8 +359,19 @@ class SparseBytePairFeaturizer(SparseFeaturizer):
             vs_fallback=self.component_config["vs_fallback"],
             cache_dir=self.component_config["cache_dir"],
             model_file=self.component_config["model_file"],
-            emb_file=self.component_config["emb_file"],
         )
+
+        if not self.component_config["model_file"]:
+            model_path = (
+                Path(component_config["cache_dir"])
+                / self.component_config["lang"]
+                / f"en.wiki.bpe.vs{self.component_config['vs']}.model"
+            )
+            if not model_path.exists():
+                raise FileNotFoundError(
+                    f"BytePair model {model_path} not found. Please check config."
+                )
+
         cache_dir = (
             Path.home()
             if not self.component_config["cache_dir"]

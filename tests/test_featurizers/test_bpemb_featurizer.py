@@ -2,7 +2,7 @@ import pytest
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
 
 from rasa_nlu_examples.featurizers.dense import BytePairFeaturizer
-from .featurizer_checks import dense_standard_test_combinations
+from .dense_featurizer_checks import dense_standard_test_combinations
 
 config_man = dict(
     lang="en",

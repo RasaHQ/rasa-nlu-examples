@@ -22,6 +22,7 @@ nav:
         - GensimFeaturizer: docs/featurizer/gensim.md
         - FastTextFeaturizer: docs/featurizer/fasttext.md
         - BytePairFeaturizer: docs/featurizer/bytepair.md
+        - SparseBytePairFeaturizer: docs/featurizer/sparse_bytepair.md
         - SemanticMapFeaturizer: docs/featurizer/semantic_map.md
       - Intent Classifiers:
         - SparseNaiveBayes: docs/classifier/sparsenb.md

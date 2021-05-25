@@ -15,6 +15,7 @@ english_yml_files = [
     "lang-detect-ft-config.yml",
     "sparse-naive-bayes-intent-classifier-config.yml",
     "flashtext-config.yml",
+    "sparse-bytepair-config.yml",
 ]
 
 
