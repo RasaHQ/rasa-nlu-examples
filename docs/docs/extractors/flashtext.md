@@ -1,5 +1,13 @@
 # FlashTextEntityExtractor
 
+!!! note
+    If you want to use this component, be sure to either install flashtext manually
+    or use our convenience installer.
+
+    ```
+    python -m pip install "rasa_nlu_examples[flashtext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
+    ```
+
 This entity extractor uses the [flashtext](https://flashtext.readthedocs.io/en/latest/) library
 to extract entities using [lookup tables](https://rasa.com/docs/rasa/nlu-training-data#lookup-tables).
 
