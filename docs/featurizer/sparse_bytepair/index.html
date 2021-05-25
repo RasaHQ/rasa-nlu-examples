@@ -11,23 +11,23 @@
         <meta name="description" content="A collection of open source Rasa compatible NLU components.">
       
       
-        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/contributing/">
+        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/sparse_bytepair/">
       
       
         <meta name="author" content="Vincent D. Warmerdam @ Rasa Research">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.4.0">
     
     
       
-        <title>Contributing - Rasa NLU Examples</title>
+        <title>SparseBytePairFeaturizer - Rasa NLU Examples</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fe0cca5b.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fe0cca5b.min.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/palette.a46bcfb3.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a46bcfb3.min.css">
       
       
         
@@ -45,7 +45,7 @@
     
     
     
-      <link rel="stylesheet" href="../style.css">
+      <link rel="stylesheet" href="../../../style.css">
     
     
       
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#contributing-guide" class="md-skip">
+        <a href="#configurable-variables" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Contributing
+              SparseBytePairFeaturizer
             
           </span>
         </div>
@@ -156,14 +156,16 @@
         
           
 
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href=".." class="md-tabs__link md-tabs__link--active">
+      <a href="../../.." class="md-tabs__link">
         Home
       </a>
     
@@ -177,7 +179,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../benchmarking/" class="md-tabs__link">
+        <a href="../../../benchmarking/" class="md-tabs__link md-tabs__link--active">
           Usage
         </a>
       
@@ -229,7 +231,7 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Home" class="md-nav__link">
+    <a href="../../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -239,94 +241,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Contributing
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Contributing" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../../contributing/" title="Contributing" class="md-nav__link">
       Contributing
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#ways-you-can-contribute" class="md-nav__link">
-    Ways you can Contribute
-  </a>
-  
-    <nav class="md-nav" aria-label="Ways you can Contribute">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#open-an-issue" class="md-nav__link">
-    Open an Issue
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#suggest-a-new-feature" class="md-nav__link">
-    Suggest a New Feature
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#share-an-observation" class="md-nav__link">
-    Share an Observation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adding-a-new-component" class="md-nav__link">
-    Adding a new Component
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    Testing
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -334,10 +253,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Usage
@@ -361,7 +282,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../benchmarking/" title="Benchmarking Guide" class="md-nav__link">
+    <a href="../../../benchmarking/" title="Benchmarking Guide" class="md-nav__link">
       Benchmarking Guide
     </a>
   </li>
@@ -398,7 +319,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/fallback/fasttextlanguagefallback/" title="FasttextLanguage" class="md-nav__link">
+    <a href="../../fallback/fasttextlanguagefallback/" title="FasttextLanguage" class="md-nav__link">
       FasttextLanguage
     </a>
   </li>
@@ -440,7 +361,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/tokenizer/spacy_tokenizer/" title="BlankSpacyTokenizer" class="md-nav__link">
+    <a href="../../tokenizer/spacy_tokenizer/" title="BlankSpacyTokenizer" class="md-nav__link">
       BlankSpacyTokenizer
     </a>
   </li>
@@ -452,7 +373,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/tokenizer/stanza/" title="StanzaTokenizer" class="md-nav__link">
+    <a href="../../tokenizer/stanza/" title="StanzaTokenizer" class="md-nav__link">
       StanzaTokenizer
     </a>
   </li>
@@ -464,7 +385,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/tokenizer/thai_tokenizer/" title="ThaiTokenizer" class="md-nav__link">
+    <a href="../../tokenizer/thai_tokenizer/" title="ThaiTokenizer" class="md-nav__link">
       ThaiTokenizer
     </a>
   </li>
@@ -506,7 +427,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/meta/printer/" title="Printer" class="md-nav__link">
+    <a href="../../meta/printer/" title="Printer" class="md-nav__link">
       Printer
     </a>
   </li>
@@ -521,10 +442,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5" checked>
     
     <label class="md-nav__link" for="nav-3-5">
       Featurizers
@@ -548,7 +471,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/featurizer/gensim/" title="GensimFeaturizer" class="md-nav__link">
+    <a href="../gensim/" title="GensimFeaturizer" class="md-nav__link">
       GensimFeaturizer
     </a>
   </li>
@@ -560,7 +483,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/featurizer/fasttext/" title="FastTextFeaturizer" class="md-nav__link">
+    <a href="../fasttext/" title="FastTextFeaturizer" class="md-nav__link">
       FastTextFeaturizer
     </a>
   </li>
@@ -572,7 +495,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/featurizer/bytepair/" title="BytePairFeaturizer" class="md-nav__link">
+    <a href="../bytepair/" title="BytePairFeaturizer" class="md-nav__link">
       BytePairFeaturizer
     </a>
   </li>
@@ -582,11 +505,63 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../docs/featurizer/sparse_bytepair/" title="SparseBytePairFeaturizer" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        SparseBytePairFeaturizer
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="SparseBytePairFeaturizer" class="md-nav__link md-nav__link--active">
       SparseBytePairFeaturizer
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configurable-variables" class="md-nav__link">
+    Configurable Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-usage" class="md-nav__link">
+    Base Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cached-usage" class="md-nav__link">
+    Cached Usage
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -596,7 +571,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/featurizer/semantic_map/" title="SemanticMapFeaturizer" class="md-nav__link">
+    <a href="../semantic_map/" title="SemanticMapFeaturizer" class="md-nav__link">
       SemanticMapFeaturizer
     </a>
   </li>
@@ -638,7 +613,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/classifier/sparsenb/" title="SparseNaiveBayes" class="md-nav__link">
+    <a href="../../classifier/sparsenb/" title="SparseNaiveBayes" class="md-nav__link">
       SparseNaiveBayes
     </a>
   </li>
@@ -680,7 +655,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/extractors/flashtext/" title="FlashText" class="md-nav__link">
+    <a href="../../extractors/flashtext/" title="FlashText" class="md-nav__link">
       FlashText
     </a>
   </li>
@@ -722,7 +697,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docs/jupyter/tools/" title="Overview" class="md-nav__link">
+    <a href="../../jupyter/tools/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -752,8 +727,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -764,49 +737,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ways-you-can-contribute" class="md-nav__link">
-    Ways you can Contribute
+  <a href="#configurable-variables" class="md-nav__link">
+    Configurable Variables
   </a>
-  
-    <nav class="md-nav" aria-label="Ways you can Contribute">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#open-an-issue" class="md-nav__link">
-    Open an Issue
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#suggest-a-new-feature" class="md-nav__link">
-    Suggest a New Feature
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#share-an-observation" class="md-nav__link">
-    Share an Observation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adding-a-new-component" class="md-nav__link">
-    Adding a new Component
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    Testing
+  <a href="#base-usage" class="md-nav__link">
+    Base Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cached-usage" class="md-nav__link">
+    Cached Usage
   </a>
   
 </li>
@@ -823,7 +769,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/contributing.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/featurizer/sparse_bytepair.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -831,73 +777,94 @@
                   
                 
                 
-                <h1 id="contributing-guide">Contributing Guide<a class="headerlink" href="#contributing-guide" title="Permanent link">&para;</a></h1>
-<h2 id="ways-you-can-contribute">Ways you can Contribute<a class="headerlink" href="#ways-you-can-contribute" title="Permanent link">&para;</a></h2>
-<p>We're open to contributions and there are many ways that you can make one.</p>
+                  <h1>SparseBytePairFeaturizer</h1>
+                
+                <p>This featurizer is a <em>sparse</em> featurizer.</p>
+<p>A main feature of these features is that you can use a pretrained BytePair tokeniser
+to encode the received text. Since BytePair embeddings exist for <strong>277</strong> languages
+all of which also have a pretrained tokeniser we figured it worth sharing.</p>
+<p>The tokeniser won't actually cause tokens to appear in Rasa. Rather, it applies
+a tokenisation trick before doing a countvector-encoding.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">&quot;talking about geology&quot; -&gt; &#39;▁talk ing ▁about ▁ge ology&#39;</span>
+</code></pre></div>
+
+
+<p>Instead of encoding three words, this featurizer would encode 5 subtokens. Note
+that we also create features for each token. So the token "talking" will get the
+features for "_talk" and "ing".</p>
+<p>More information on the available models can be found <a href="https://nlp.h-its.org/bpemb/">here</a>.
+When you scroll down you will  notice a large of languages that are available. Here's
+some examples from that list that give a detailed view of available languages:</p>
 <ul>
-<li>You can suggest new features.</li>
-<li>You can help review new features.</li>
-<li>You can submit new components.</li>
-<li>You can let us know if there are bugs.</li>
-<li>You can let us know if the components in this library help you.</li>
+<li><a href="https://nlp.h-its.org/bpemb/ab/">Abkhazian</a></li>
+<li><a href="https://nlp.h-its.org/bpemb/zu/">Zulu</a></li>
+<li><a href="https://nlp.h-its.org/bpemb/en/">English</a></li>
+<li><a href="https://nlp.h-its.org/bpemb/hi/">Hindi</a></li>
+<li><a href="https://nlp.h-its.org/bpemb/zh/">Chinese</a></li>
+<li><a href="https://nlp.h-its.org/bpemb/eo/">Esperanto</a></li>
+<li><a href="https://nlp.h-its.org/bpemb/multi/">Multi Language</a></li>
 </ul>
-<h3 id="open-an-issue">Open an Issue<a class="headerlink" href="#open-an-issue" title="Permanent link">&para;</a></h3>
-<p>You can submit an issue <a href="https://github.com/RasaHQ/rasa-nlu-examples/issues">here</a>. Issues
-allow us to keep track of a conversation about this repository and it is the preferred
-communication channel for bugs related to this project.</p>
-<h3 id="suggest-a-new-feature">Suggest a New Feature<a class="headerlink" href="#suggest-a-new-feature" title="Permanent link">&para;</a></h3>
-<p>This project started because we wanted to offer support for word embeddings
-for more languages. The first feature we added was support for FastText,
-which offers embeddings for 157 languages. We later received a contribution from a community member for BytePair embeddings, which offers support for 275 languages. We weren't aware of these embeddings but we were exited to support more languages.</p>
-<p>Odds are that there are many more tools out there that the maintainers of this project aren't
-aware of yet. There may very well be more embeddings, tokenziers, lemmatizers and models
-that we're not aware of but can help Rasa developers make better assistants.</p>
-<p>The goal of this project is to support more of these sorts of tools for Rasa users. You
-can help out the project just by letting us know if there's an integration missing. If you
-do not have the time to contribute a component yourself then you can still contribute to the
-effort by letting us know what components might help you make a better assistant.</p>
-<h3 id="share-an-observation">Share an Observation<a class="headerlink" href="#share-an-observation" title="Permanent link">&para;</a></h3>
-<p>If the tools that we offer here turn out to be useful then we'd love to hear about it.
-We're also interested in hearing if these tools don't work for your usecase.
-Any feedback will be shared with the research team at Rasa. We're especially keen to hear feedback on the performance of the word embeddings that we host here. You can leave a message
-either on <a href="https://github.com/RasaHQ/rasa-nlu-examples/issues">the github issue list</a> or
-on <a href="forum.rasa.com/">the Rasa forum</a>. Be sure to ping <strong>koaning</strong> on the forum if you mention
-this project, he's the main maintainer.</p>
-<h3 id="adding-a-new-component">Adding a new Component<a class="headerlink" href="#adding-a-new-component" title="Permanent link">&para;</a></h3>
-<p>There's a balance between allowing experimentation and maintaining all the code.
-This is why we've come up with a checklist that you should keep in mind before
-you're submitting code.</p>
-<ol>
-<li>If you want to contribute a new component please make an issue first so we can
-discuss it. We want to prevent double work where possible and make sure the proposed
-component is appropriate for this repository.</li>
-<li>New tools that are added here need to be plausibly useful in a real life scenario.
-For example, we won't be able to accept a component that adds noise to the features.</li>
-<li>Think about unit tests. We prefer to standardise unit tests as much
-as possible but there may be specific things you'd like to check for.</li>
-<li>Ask for help! Feel free to ping the <strong>koaning</strong> on this repository if you're having
-trouble with an implementation or appreciate guidance on a topic. He'll gladly
-help you.</li>
-</ol>
-<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
-<p>We run automated tests via GitHub actions but you can also run all the checking mechanisms locally.
-To run the tests locally you'll need to run a few scripts beforehand.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">python tests/scripts/prepare_fasttext.py</span>
-<span class="err">python tests/scripts/prepare_stanza.py</span>
+<h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>lang</strong>: specifies the lanuage that you'll use, default = <code>"en"</code></li>
+<li><strong>dim</strong>: specifies the dimension of the subword embeddings, default = <code>25</code>,</li>
+<li><strong>vs</strong>: specifies the vocabulary size of the segmentation model, default = <code>1000</code>,</li>
+<li><strong>cache_dir</strong>: specifies the folder in which downloaded BPEmb files will be cached, default = <code>~/.cache/bpemb</code></li>
+<li><strong>model_file</strong>: specifies the path to a custom model file, default=<code>None</code>,</li>
+</ul>
+<h2 id="base-usage">Base Usage<a class="headerlink" href="#base-usage" title="Permanent link">&para;</a></h2>
+<p>The configuration file below demonstrates how you might use the BytePair embeddings. In this example
+we're not using any cached folders and the library will automatically download the correct embeddings
+for you and save them in <code>~/.cache</code>. Both the embeddings as well as a model file will be saved.</p>
+<p>Also note that we recommend keeping the vocabulary size small if you're interested
+in spelling robustness as well as token featurization. Large vocabularies correspond
+with words being encoded as opposed to subwords.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
+
+<span class="nt">pipeline</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LexicalSyntacticFeaturizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
+  <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
+  <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.featurizers.SparseBytePairFeaturizer</span>
+  <span class="nt">lang</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
+  <span class="nt">vs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
+  <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
 </code></pre></div>
 
 
-<p>This will prepare the filesystem for testing. We do this to prevent the need of downloading
-very large word embeddings locally and in CI. Fasttext can be 6-7 GB and we don't want to pull such a
-payload at every CI step. You can also prepare files locally by installing all dependencies
-via the <code>Makefile</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">make install</span>
+<h2 id="cached-usage">Cached Usage<a class="headerlink" href="#cached-usage" title="Permanent link">&para;</a></h2>
+<p>If you're using pre-downloaded embedding files (in docker you might have this on a mounted disk)
+then you can prevent a download from happening. We'll be doing that in the example below.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
+
+<span class="nt">pipeline</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LexicalSyntacticFeaturizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
+  <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
+  <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.featurizers.dense.BytePairFeaturizer</span>
+  <span class="nt">lang</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
+  <span class="nt">vs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+  <span class="nt">cache_dir</span><span class="p">:</span> <span class="s">&quot;tests/data&quot;</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
+  <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
 </code></pre></div>
 
 
-<p>You can also run all style and type checking mechanisms locally via the <code>Makefile</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">make check</span>
-</code></pre></div>
+<p>Note that in this case we expect a file to be present in the <code>tests/data/en</code> directory;</p>
+<ul>
+<li><code>en.wiki.bpe.vs10000.model</code></li>
+</ul>
+<p>You can also overwrite the names of these files via the <code>model_file</code> setting. But it
+is preferable to stick to the library naming convention. Also note that if you use
+the <code>model_file</code> setting that you must provide full filepaths and that the
+<code>cache_dir</code> will be ignored.</p>
                 
               
               
@@ -916,7 +883,7 @@ via the <code>Makefile</code>.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href=".." title="Home" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../bytepair/" title="BytePairFeaturizer" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -925,19 +892,19 @@ via the <code>Makefile</code>.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                BytePairFeaturizer
               </div>
             </div>
           </a>
         
         
-          <a href="../benchmarking/" title="Benchmarking Guide" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../semantic_map/" title="SemanticMapFeaturizer" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Benchmarking Guide
+                SemanticMapFeaturizer
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -968,15 +935,15 @@ via the <code>Makefile</code>.</p>
       
     </div>
     
-      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: "..",
+          base: "../../..",
           features: ["tabs", "instant"],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
+            worker: "../../../assets/javascripts/worker/search.a68abb33.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

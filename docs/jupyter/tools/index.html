@@ -505,6 +505,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../featurizer/sparse_bytepair/" title="SparseBytePairFeaturizer" class="md-nav__link">
+      SparseBytePairFeaturizer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../featurizer/semantic_map/" title="SemanticMapFeaturizer" class="md-nav__link">
       SemanticMapFeaturizer
     </a>
@@ -820,7 +832,10 @@ It expects text as input and it will predict an intent class.</p>
 </code></pre></div>
 
 <h3 id="rasa_nlu_examples.scikit.classifier.RasaClassifier.fetch_info_from_message"><code class="highlight"><span class="n">fetch_info_from_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text_input</span><span class="p">)</span></code><a class="headerlink" href="#rasa_nlu_examples.scikit.classifier.RasaClassifier.fetch_info_from_message" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>scikit/classifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>45
+<details class="note"><summary>Show source code in <code>scikit/classifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>42
+43
+44
+45
 46
 47
 48
@@ -830,10 +845,7 @@ It expects text as input and it will predict an intent class.</p>
 52
 53
 54
-55
-56
-57
-58</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fetch_info_from_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text_input</span><span class="p">):</span>
+55</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fetch_info_from_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text_input</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Fetch all the info from a single text input. Can be used to also retreive entities.</span>
 
@@ -860,7 +872,10 @@ It expects text as input and it will predict an intent class.</p>
 </code></pre></div>
 
 <h3 id="rasa_nlu_examples.scikit.classifier.RasaClassifier.predict"><code class="highlight"><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#rasa_nlu_examples.scikit.classifier.RasaClassifier.predict" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>scikit/classifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>60
+<details class="note"><summary>Show source code in <code>scikit/classifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>57
+58
+59
+60
 61
 62
 63
@@ -873,10 +888,7 @@ It expects text as input and it will predict an intent class.</p>
 70
 71
 72
-73
-74
-75
-76</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+73</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Makes a class prediction, scikit-style.</span>
 
