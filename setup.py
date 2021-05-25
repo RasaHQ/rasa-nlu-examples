@@ -45,8 +45,8 @@ setup(
     install_requires=base_packages,
     extras_require={
         "dev": dev_packages,
-        "dev-windows": dev_packages + stanza_deps + thai_deps,
-        "all": dev_packages + stanza_deps + thai_deps + fasttext_deps + flashtext_deps,
+        "dev-windows": dev_packages + thai_deps,
+        "all": dev_packages + thai_deps + fasttext_deps + flashtext_deps + stanza_deps,
         "thai": base_packages + thai_deps,
         "stanza": base_packages + stanza_deps,
         "fasttext": base_packages + fasttext_deps,

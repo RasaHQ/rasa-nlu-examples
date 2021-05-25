@@ -24,6 +24,7 @@ python -m pip install "rasa_nlu_examples @ git+https://github.com/RasaHQ/rasa-nl
 Note that if you want to install optional dependencies as well that you'll need to run:
 
 ```python
+python -m pip install "rasa_nlu_examples[flashtext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
 python -m pip install "rasa_nlu_examples[stanza] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
 python -m pip install "rasa_nlu_examples[thai] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
 python -m pip install "rasa_nlu_examples[fasttext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"

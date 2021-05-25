@@ -25,8 +25,8 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install -e ".[all]"
+        pip install --upgrade pip setuptools wheel
+        pip install -e ".[all]" --use-deprecated=legacy-resolver
         pip install --upgrade rasa[spacy]==${{ matrix.rasa-version }}
         pip install pytest pyvi
     - name: Versions of Dependencies
@@ -34,6 +34,5 @@ jobs:
     - name: Test with pytest
       run: |
         python tests/scripts/prepare_fasttext.py
-        python tests/scripts/prepare_stanza.py
         chmod 775 tests/data/fasttext/custom_fasttext_model.bin
         pytest
