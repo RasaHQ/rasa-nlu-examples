@@ -26,7 +26,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip setuptools wheel
-        pip install -e ".[all]"
+        pip install -e ".[all]" --use-deprecated=legacy-resolver
         pip install --upgrade rasa[spacy]==${{ matrix.rasa-version }}
         pip install pytest pyvi
     - name: Versions of Dependencies
