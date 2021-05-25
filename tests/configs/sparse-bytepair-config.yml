@@ -8,3 +8,5 @@ pipeline:
   cache_dir: "tests/data/bytepair"
 - name: DIETClassifier
   epochs: 1
+- name: rasa_nlu_examples.meta.Printer
+  alias: After DIET

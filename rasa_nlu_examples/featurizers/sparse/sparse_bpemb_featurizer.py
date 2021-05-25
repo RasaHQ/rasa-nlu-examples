@@ -435,10 +435,11 @@ class SparseBytePairFeaturizer(SparseFeaturizer):
         self.set_features(message)
 
     def persist(self, file_name: Text, model_dir: Text) -> Optional[Dict[Text, Any]]:
-        vocab = self.countvectorizer.vocabulary
-        featurizer_file = os.path.join(model_dir, file_name + ".json")
+        file_name = file_name + ".pkl"
+        vocab = self.countvectorizer.vocabulary_
+        featurizer_file = os.path.join(model_dir, file_name)
         io_utils.json_pickle(featurizer_file, vocab)
-        return {"file": file_name + ".json"}
+        return {"file": file_name}
 
     @classmethod
     def load(
