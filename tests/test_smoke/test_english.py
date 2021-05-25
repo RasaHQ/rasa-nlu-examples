@@ -21,6 +21,11 @@ english_yml_files = [
 @pytest.mark.fasttext
 @pytest.mark.parametrize("fp", english_yml_files)
 def test_run_train_test_command_english(fp):
+    """
+    This smoke test is like running;
+
+    rasa train nlu -u tests/data/nlu/en/nlu.md --config tests/configs/sparse-bytepair-config.yml --out models
+    """
     if "flashtext" in fp:
         nlu_data = "tests/data/nlu/en/nlu_w_lookups.md"
     else:

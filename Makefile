@@ -12,3 +12,6 @@ style:
 	flake8 rasa_nlu_examples tests
 
 check: style test
+
+clean:
+	rm models/*.tar.gz
