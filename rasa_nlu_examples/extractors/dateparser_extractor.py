@@ -5,7 +5,6 @@ from rasa.nlu.components import Component
 from rasa.nlu.config import RasaNLUModelConfig
 from rasa.nlu.extractors.extractor import EntityExtractor
 from rasa.nlu.model import Metadata
-from rasa.nlu.tokenizers.tokenizer import Tokenizer
 from rasa.shared.nlu.constants import (
     TEXT,
     ENTITY_ATTRIBUTE_TYPE,
@@ -40,7 +39,9 @@ class DateparserEntityExtractor(EntityExtractor):
         super().__init__(component_config)
         self.settings = {}
         if component_config.get("prefer_dates_from"):
-            self.settings["PREFER_DATES_FROM"] = component_config.get("prefer_dates_from")
+            self.settings["PREFER_DATES_FROM"] = component_config.get(
+                "prefer_dates_from"
+            )
 
     def train(
         self,
@@ -48,10 +49,6 @@ class DateparserEntityExtractor(EntityExtractor):
         config: Optional[RasaNLUModelConfig] = None,
         **kwargs: Any,
     ) -> None:
-        lookups = self._extract_lookups(
-            training_data,
-            use_only_entities=True,
-        )
         pass
 
     def process(self, message: Message, **kwargs: Any) -> None:
@@ -73,14 +70,16 @@ class DateparserEntityExtractor(EntityExtractor):
             for match in re.finditer(substr, message.get(TEXT)):
                 matches.append(
                     {
-                        ENTITY_ATTRIBUTE_TYPE: 'DATETIME_REFERENCE',
+                        ENTITY_ATTRIBUTE_TYPE: "DATETIME_REFERENCE",
                         ENTITY_ATTRIBUTE_START: match.start(),
                         ENTITY_ATTRIBUTE_END: match.end(),
-                        ENTITY_ATTRIBUTE_VALUE: message.get(TEXT)[match.start() : match.end()],
-                        "parsed_date": str(timestamp)
+                        ENTITY_ATTRIBUTE_VALUE: message.get(TEXT)[
+                            match.start() : match.end()
+                        ],
+                        "parsed_date": str(timestamp),
                     }
                 )
-        return matches 
+        return matches
 
     @classmethod
     def load(
@@ -95,7 +94,6 @@ class DateparserEntityExtractor(EntityExtractor):
             return cached_component
 
         return cls(meta)
-
 
     def persist(self, file_name: Text, model_dir: Text) -> Optional[Dict[Text, Any]]:
         pass
