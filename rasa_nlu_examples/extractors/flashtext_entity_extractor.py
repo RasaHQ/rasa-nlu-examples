@@ -109,6 +109,7 @@ class FlashTextEntityExtractor(EntityExtractor):
                 ENTITY_ATTRIBUTE_START: match[1],
                 ENTITY_ATTRIBUTE_END: match[2],
                 ENTITY_ATTRIBUTE_VALUE: message.get(TEXT)[match[1] : match[2]],
+                "confidence": 1.0,
             }
             for match in matches
         ]

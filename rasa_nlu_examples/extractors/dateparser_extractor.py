@@ -23,7 +23,8 @@ class DateparserEntityExtractor(EntityExtractor):
 
     defaults = {
         # text will be processed with case insensitive as default
-        "prefer_dates_from": None
+        "prefer_dates_from": None,
+        "languages": None,
     }
 
     def required_components(cls) -> List[Type[Component]]:
@@ -38,10 +39,13 @@ class DateparserEntityExtractor(EntityExtractor):
 
         super().__init__(component_config)
         self.settings = {}
+        # Dateparser is picky about the dictionary it receives, when value = None,
+        # there should be no entry in the dictionary.
         if component_config.get("prefer_dates_from"):
             self.settings["PREFER_DATES_FROM"] = component_config.get(
                 "prefer_dates_from"
             )
+        self.languages = component_config.get("languages")
 
     def train(
         self,
@@ -61,7 +65,11 @@ class DateparserEntityExtractor(EntityExtractor):
 
     def _extract_entities(self, message: Message) -> List[Dict[Text, Any]]:
         """Extract entities of the given type from the given user message."""
-        hits = search_dates(message.get(TEXT), settings=self.settings)
+        hits = search_dates(
+            message.get(TEXT),
+            languages=self.languages if self.languages else None,
+            settings=self.settings,
+        )
         if len(hits) == 0:
             return []
 
@@ -77,6 +85,7 @@ class DateparserEntityExtractor(EntityExtractor):
                             match.start() : match.end()
                         ],
                         "parsed_date": str(timestamp),
+                        "confidence": 1.0,
                     }
                 )
         return matches
