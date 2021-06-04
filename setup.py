@@ -17,8 +17,9 @@ dev_packages = [
     "pytype>=2020.0.0",
     "pytest>=4.0.2",
     "pytest-xdist==1.32.0",
-    "mkdocs>=1.1",
-    "mkdocs-material>=4.6.3",
+    "mkdocs==1.1",
+    "mkdocs-material==5.4.0",
+    "mkdocstrings==0.8.0",
     "pymdown-extensions>=7.1",
 ]
 

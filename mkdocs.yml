@@ -28,6 +28,7 @@ nav:
         - SparseNaiveBayes: docs/classifier/sparsenb.md
       - Entity Extractors:
         - FlashText: docs/extractors/flashtext.md
+        - DateParser: docs/extractors/dateparser.md
       - Jupyter:
         - Overview: docs/jupyter/tools.md
 
