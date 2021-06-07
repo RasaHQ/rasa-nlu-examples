@@ -1,0 +1,12 @@
+language: en
+
+pipeline:
+- name: WhitespaceTokenizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: rasa_nlu_examples.extractors.DateparserEntityExtractor
+- name: DIETClassifier
+  epochs: 1

@@ -4,6 +4,7 @@ import pytest
 import datetime as dt
 from rasa.shared.nlu.constants import TEXT, ENTITIES
 from rasa.shared.nlu.training_data.message import Message
+from rasa.shared.nlu.training_data.training_data import TrainingData
 
 from rasa_nlu_examples.extractors import DateparserEntityExtractor
 
@@ -39,3 +40,14 @@ def test_process_tomorrow(text: Text, expected: Text, lang: Text):
 
     parsed_date = message.get(ENTITIES)[0]["parsed_date"][:10]
     assert parsed_date == expected
+
+
+def test_do_not_overwrite_any_entities():
+    message = Message(data={TEXT: "Max lives in Berlin."})
+    message.set(ENTITIES, [{"entity": "person", "value": "Max", "start": 0, "end": 3}])
+
+    DateparserEntityExtractor({}).process(message)
+    entities = message.get(ENTITIES)
+    assert entities == [
+        {"entity": "person", "value": "Max", "start": 0, "end": 3},
+    ]

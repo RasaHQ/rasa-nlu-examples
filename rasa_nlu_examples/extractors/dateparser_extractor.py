@@ -70,7 +70,7 @@ class DateparserEntityExtractor(EntityExtractor):
             languages=self.languages if self.languages else None,
             settings=self.settings,
         )
-        if len(hits) == 0:
+        if not hits:
             return []
 
         matches = []
