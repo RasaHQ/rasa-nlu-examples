@@ -122,7 +122,8 @@ This ran on Friday the 4th of June, 2021.
 ## Configurable Variables
 
 - **languages**: pass a list of languages that you want the parser to focus on, can be `None` but this setting is likely to overfit on English assumptions
-- **prefer_dates_from**: can be either "future", "past or `None`
+- **prefer_dates_from**: can be either "future", "past" or `None`
+- **relative_base**: can be a datestring that represents a reference date, this is useful when a user mentions "tomorrow", default `None` points to todays date
 
 ## Base Usage
 
@@ -147,3 +148,23 @@ pipeline:
 
 Note that this entity extractor completely ignores the tokeniser. There might also be
 overlap with enities from other engines, like DIET and spaCy.
+
+## Relative Base Usage
+
+```yaml
+language: en
+
+pipeline:
+- name: WhitespaceTokenizer
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 100
+- name: rasa_nlu_examples.extractors.DateparserEntityExtractor
+  languages: ["en", "nl", "es"]
+  prefer_dates_from: "future"
+  relative_base: "2020-01-01"
+```

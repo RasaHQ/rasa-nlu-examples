@@ -1,4 +1,4 @@
-from typing import Text
+from typing import Text, Optional
 
 import pytest
 import datetime as dt
@@ -24,7 +24,7 @@ day_after_tomorrow_str = str(dt.datetime.now() + dt.timedelta(days=2))[:10]
         ("ich gehe gern ubermorgen", day_after_tomorrow_str, "de"),
     ],
 )
-def test_process_tomorrow(text: Text, expected: Text, lang: Text):
+def test_process_tomorrow(text: Text, expected: Text, lang: Optional[Text]):
     """
     This is a basic dateparser test. There is a known issue for "day after tomorrow"
     https://github.com/scrapinghub/dateparser/issues/933
@@ -50,3 +50,11 @@ def test_do_not_overwrite_any_entities():
     assert entities == [
         {"entity": "person", "value": "Max", "start": 0, "end": 3},
     ]
+
+
+def test_relative_base():
+    message = Message(data={TEXT: "I want a pizza tomorrow"})
+
+    DateparserEntityExtractor({"relative_base": "2010-01-01"}).process(message)
+    entities = message.get(ENTITIES)
+    assert entities[0]["parsed_date"][:10] == "2010-01-02"
