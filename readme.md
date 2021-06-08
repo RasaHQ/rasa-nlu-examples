@@ -25,6 +25,7 @@ Note that if you want to install optional dependencies as well that you'll need 
 
 ```python
 python -m pip install "rasa_nlu_examples[flashtext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
+python -m pip install "rasa_nlu_examples[dateparser] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
 python -m pip install "rasa_nlu_examples[stanza] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
 python -m pip install "rasa_nlu_examples[thai] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
 python -m pip install "rasa_nlu_examples[fasttext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
@@ -80,11 +81,11 @@ This project currently supports components for Rasa 2.0. For older versions, see
 
 ## **Tokenizers**
 
+![](docs/images/tokenisation.png)
+
 Tokenizers can split up the input text into tokens. Depending on the Tokenizer that you pick
 you can also choose to apply lemmatization. For languages that have rich grammatical features
 this might help reduce the size of all the possible tokens.
-
-![](docs/images/tokenisation.png)
 
 - **`rasa_nlu_examples.tokenizers.BlankSpacyTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/spacy_tokenizer/)
 - **`rasa_nlu_examples.tokenizers.StanzaTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/stanza/)
@@ -92,10 +93,10 @@ this might help reduce the size of all the possible tokens.
 
 ## **Featurizers**
 
+![](docs/images/dense_features.png)
+
 Dense featurizers attach dense numeric features per token as well as to the entire utterance. These
 features are picked up by intent classifiers and entity detectors later in the pipeline.
-
-![](docs/images/dense_features.png)
 
 - **`rasa_nlu_examples.featurizers.dense.FastTextFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/fasttext/)**
 - **`rasa_nlu_examples.featurizers.dense.BytePairFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/bytepair/)**
@@ -103,6 +104,9 @@ features are picked up by intent classifiers and entity detectors later in the p
 - **`rasa_nlu_examples.featurizers.sparse.SemanticMapFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/semantic_map/)**
 
 ## **Intent Classifiers**
+
+![](docs/images/classifier.png)
+
 
 Intent classifiers are models that predict an intent from a given user message
 text.  The default intent classifier in Rasa NLU is the [DIET
@@ -114,7 +118,10 @@ entities.  We provide some examples of alternative intent classifiers here.
 
 ## **Entity Extractors**
 
+![](docs/images/entity.png)
+
 - **`rasa_nlu_examples.extractor.FlashTextEntityExtractor`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/extractors/flashtext/)
+- **`rasa_nlu_examples.extractor.DateparserEntityExtractor`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/extractors/dateparser/)
 
 ## **Fallback Classifiers**
 

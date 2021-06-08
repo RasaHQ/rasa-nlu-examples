@@ -15,11 +15,11 @@ The following components are implemented.
 
 ## **Tokenizers**
 
+![](images/tokenisation.png)
+
 Tokenizers can split up the input text into tokens. Depending on the Tokenizer that you pick
 you can also choose to apply lemmatization. For languages that have rich grammatical features
 this might help reduce the size of all the possible tokens.
-
-![](images/tokenisation.png)
 
 - **`rasa_nlu_examples.tokenizers.BlankSpacyTokenizer`** [docs](docs/tokenizer/spacy_tokenizer/)
 - **`rasa_nlu_examples.tokenizers.StanzaTokenizer`** [docs](docs/tokenizer/stanza/)
@@ -27,10 +27,10 @@ this might help reduce the size of all the possible tokens.
 
 ## **Featurizers**
 
+![](images/dense_features.png)
+
 Dense featurizers attach dense numeric features per token as well as to the entire utterance. These
 features are picked up by intent classifiers and entity detectors later in the pipeline.
-
-![](images/dense_features.png)
 
 - **`rasa_nlu_examples.featurizers.dense.FastTextFeaturizer` [docs](docs/featurizer/fasttext/)**
 - **`rasa_nlu_examples.featurizers.dense.BytePairFeaturizer` [docs](docs/featurizer/bytepair/)**
@@ -40,18 +40,22 @@ features are picked up by intent classifiers and entity detectors later in the p
 
 ## **Intent Classifiers**
 
+![](images/classifier.png)
+
 Intent classifiers are models that predict an intent from a given user message
 text.  The default intent classifier in Rasa NLU is the [DIET
 model](https://rasa.com/docs/rasa/components#dietclassifier-2) which can be
 fairly computationally expensive, especially if you do not need to detect
 entities.  We provide some examples of alternative intent classifiers here.
 
-
 **`rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier` [docs](docs/classifier/sparsenb.md)**
 
 ## **Entity Extractors**
 
+![](images/entity.png)
+
 - **`rasa_nlu_examples.extractor.FlashTextEntityExtractor`** [docs](docs/extractors/flashtext/)
+- **`rasa_nlu_examples.extractor.DateparserEntityExtractor`** [docs](docs/extractors/dateparser/)
 
 ## **Fallback Classifiers**
 

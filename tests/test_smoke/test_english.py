@@ -11,6 +11,7 @@ english_yml_files = [
     "fasttext-config.yml",
     "bytepair-config.yml",
     "gensim-config.yml",
+    "dateparser-config.yml",
     "semantic_map-config.yml",
     "lang-detect-ft-config.yml",
     "sparse-naive-bayes-intent-classifier-config.yml",

@@ -25,6 +25,7 @@ from rasa_nlu_examples.extractors import FlashTextEntityExtractor
                     "value": "Berlin",
                     "start": 0,
                     "end": 6,
+                    "confidence": 1.0,
                     "extractor": "FlashTextEntityExtractor",
                 },
                 {
@@ -32,6 +33,7 @@ from rasa_nlu_examples.extractors import FlashTextEntityExtractor
                     "value": "London",
                     "start": 11,
                     "end": 17,
+                    "confidence": 1.0,
                     "extractor": "FlashTextEntityExtractor",
                 },
             ],
@@ -51,6 +53,7 @@ from rasa_nlu_examples.extractors import FlashTextEntityExtractor
                     "value": "Sophie",
                     "start": 0,
                     "end": 6,
+                    "confidence": 1.0,
                     "extractor": "FlashTextEntityExtractor",
                 },
                 {
@@ -58,6 +61,7 @@ from rasa_nlu_examples.extractors import FlashTextEntityExtractor
                     "value": "Berlin",
                     "start": 29,
                     "end": 35,
+                    "confidence": 1.0,
                     "extractor": "FlashTextEntityExtractor",
                 },
             ],
@@ -127,6 +131,7 @@ def test_process(
                     "value": "London",
                     "start": 11,
                     "end": 17,
+                    "confidence": 1.0,
                     "extractor": "FlashTextEntityExtractor",
                 }
             ],
@@ -146,6 +151,7 @@ def test_process(
                     "value": "berlin",
                     "start": 0,
                     "end": 6,
+                    "confidence": 1.0,
                     "extractor": "FlashTextEntityExtractor",
                 },
                 {
@@ -153,6 +159,7 @@ def test_process(
                     "value": "London",
                     "start": 11,
                     "end": 17,
+                    "confidence": 1.0,
                     "extractor": "FlashTextEntityExtractor",
                 },
             ],
@@ -229,6 +236,7 @@ def test_do_not_overwrite_any_entities():
             "value": "Berlin",
             "start": 13,
             "end": 19,
+            "confidence": 1.0,
             "extractor": "FlashTextEntityExtractor",
         },
     ]
