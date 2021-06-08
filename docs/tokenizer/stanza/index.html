@@ -661,6 +661,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extractors/dateparser/" title="DateParser" class="md-nav__link">
+      DateParser
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -787,7 +799,6 @@ languages <a href="https://stanfordnlp.github.io/stanza/available_models.html">h
 <p>In order to use this tool you'll need to ensure the correct dependencies are installed.</p>
 <div class="highlight"><pre><span></span><code>pip install &quot;rasa_nlu_examples[stanza] @ https://github.com/RasaHQ/rasa-nlu-examples.git&quot;
 </code></pre></div>
-
 </div>
 <h2 id="model-download">Model Download<a class="headerlink" href="#model-download" title="Permanent link">&para;</a></h2>
 <p>To use a Stanza model you'll first need to download it. This can be done from python.</p>
@@ -795,7 +806,6 @@ languages <a href="https://stanfordnlp.github.io/stanza/available_models.html">h
 <span class="c1"># download English model in the ~/stanza_resources dir</span>
 <span class="n">stanza</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s1">&#39;~/stanza_resources&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>lang</strong>: then two-letter abbreprivation of the language you want to use</li>
@@ -823,7 +833,6 @@ languages <a href="https://stanfordnlp.github.io/stanza/available_models.html">h
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
   <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
 </code></pre></div>
-
 <p>One thing to note here is that the <code>LexicalSyntacticFeaturizer</code> will be able to pick up
 the "pos" information with the <code>StanzaTokenizer</code> just like you're able to do that with spaCy.
 The <code>CountVectorsFeaturizer</code> is able to pick up the <code>lemma</code> features that are generated.</p>

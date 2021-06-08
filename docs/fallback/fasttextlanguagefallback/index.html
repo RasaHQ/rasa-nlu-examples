@@ -665,6 +665,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extractors/dateparser/" title="DateParser" class="md-nav__link">
+      DateParser
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -804,7 +816,6 @@ first want to download the <code>fasttext</code> library as well as the pretrain
 wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.ftz
 </code></pre></div>
 
-
 <p>Then from a notebook you should be able to interact with the model by running:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">fasttext</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">fasttext</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;lid.176.ftz&quot;</span><span class="p">)</span>
@@ -813,7 +824,6 @@ wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.ftz
 <span class="n">proba_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">))}</span>
 <span class="n">proba_dict</span>
 </code></pre></div>
-
 
 <h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
 <ul>
@@ -852,7 +862,6 @@ exists in the <code>downloaded</code> folder that is on the root path of your pr
   <span class="nt">protected_intents</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;greet&quot;</span><span class="p p-Indicator">]</span>
 </code></pre></div>
 
-
 <p>To get the most out of this tool you also need to add a rule to a <code>rules.yml</code> file.
 That way you can configure an appropriate action whenever a user is speaking in the
 wrong language. That might look something like this:</p>
@@ -863,7 +872,6 @@ wrong language. That might look something like this:</p>
   <span class="p p-Indicator">-</span> <span class="nt">intent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">non_english</span>
   <span class="p p-Indicator">-</span> <span class="nt">action</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">utter_non_english</span>
 </code></pre></div>
-
 
 <p>For more information on rules, see the <a href="https://rasa.com/docs/rasa/rules">docs</a>.</p>
                 

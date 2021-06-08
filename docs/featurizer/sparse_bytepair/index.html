@@ -661,6 +661,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extractors/dateparser/" title="DateParser" class="md-nav__link">
+      DateParser
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -785,9 +797,8 @@ to encode the received text. Since BytePair embeddings exist for <strong>277</st
 all of which also have a pretrained tokeniser we figured it worth sharing.</p>
 <p>The tokeniser won't actually cause tokens to appear in Rasa. Rather, it applies
 a tokenisation trick before doing a countvector-encoding.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">&quot;talking about geology&quot; -&gt; &#39;▁talk ing ▁about ▁ge ology&#39;</span>
+<div class="codehilite"><pre><span></span><code><span class="s">&quot;talking about geology&quot;</span> <span class="o">-&gt;</span> <span class="s">&#39;▁talk ing ▁about ▁ge ology&#39;</span>
 </code></pre></div>
-
 
 <p>Instead of encoding three words, this featurizer would encode 5 subtokens. Note
 that we also create features for each token. So the token "talking" will get the
@@ -835,7 +846,6 @@ with words being encoded as opposed to subwords.</p>
   <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
 </code></pre></div>
 
-
 <h2 id="cached-usage">Cached Usage<a class="headerlink" href="#cached-usage" title="Permanent link">&para;</a></h2>
 <p>If you're using pre-downloaded embedding files (in docker you might have this on a mounted disk)
 then you can prevent a download from happening. We'll be doing that in the example below.</p>
@@ -855,7 +865,6 @@ then you can prevent a download from happening. We'll be doing that in the examp
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
   <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
 </code></pre></div>
-
 
 <p>Note that in this case we expect a file to be present in the <code>tests/data/en</code> directory;</p>
 <ul>

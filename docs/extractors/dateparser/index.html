@@ -11,7 +11,7 @@
         <meta name="description" content="A collection of open source Rasa compatible NLU components.">
       
       
-        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/classifier/sparsenb/">
+        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/extractors/dateparser/">
       
       
         <meta name="author" content="Vincent D. Warmerdam @ Rasa Research">
@@ -21,7 +21,7 @@
     
     
       
-        <title>SparseNaiveBayes - Rasa NLU Examples</title>
+        <title>DateParser - Rasa NLU Examples</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sparsenaivebayesintentclassifier" class="md-skip">
+        <a href="#dateparserentityextractor" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              SparseNaiveBayes
+              DateParser
             
           </span>
         </div>
@@ -532,12 +532,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
     
     <label class="md-nav__link" for="nav-3-6">
       Intent Classifiers
@@ -559,60 +557,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        SparseNaiveBayes
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="SparseNaiveBayes" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../classifier/sparsenb/" title="SparseNaiveBayes" class="md-nav__link">
       SparseNaiveBayes
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#configurable-variables" class="md-nav__link">
-    Configurable Variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#base-usage" class="md-nav__link">
-    Base Usage
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -625,10 +574,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7" checked>
     
     <label class="md-nav__link" for="nav-3-7">
       Entity Extractors
@@ -652,7 +603,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../extractors/flashtext/" title="FlashText" class="md-nav__link">
+    <a href="../flashtext/" title="FlashText" class="md-nav__link">
       FlashText
     </a>
   </li>
@@ -662,11 +613,87 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../extractors/dateparser/" title="DateParser" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        DateParser
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="DateParser" class="md-nav__link md-nav__link--active">
       DateParser
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-it-do" class="md-nav__link">
+    What does it do?
+  </a>
+  
+    <nav class="md-nav" aria-label="What does it do?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#future-results" class="md-nav__link">
+    "Future" Results
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#past-results" class="md-nav__link">
+    "Past" Results
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurable-variables" class="md-nav__link">
+    Configurable Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-usage" class="md-nav__link">
+    Base Usage
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -748,6 +775,33 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#what-does-it-do" class="md-nav__link">
+    What does it do?
+  </a>
+  
+    <nav class="md-nav" aria-label="What does it do?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#future-results" class="md-nav__link">
+    "Future" Results
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#past-results" class="md-nav__link">
+    "Past" Results
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configurable-variables" class="md-nav__link">
     Configurable Variables
   </a>
@@ -773,7 +827,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/classifier/sparsenb.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/extractors/dateparser.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -781,29 +835,117 @@
                   
                 
                 
-                <h1 id="sparsenaivebayesintentclassifier">SparseNaiveBayesIntentClassifier<a class="headerlink" href="#sparsenaivebayesintentclassifier" title="Permanent link">&para;</a></h1>
-<p>This intent classifier is based on the Bernoulli-variant of the Na&iuml;ve
-Bayes classifier in
-<a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html">sklearn</a>.
-This classifier only looks at sparse features extracted from the Rasa NLU
-feature pipeline and is a faster alternative to neural models like
-<a href="https://rasa.com/docs/rasa/components#dietclassifier-2">DIET</a>. This model
-requires that there be some sparse featurizers in your pipeleine. If you config
-only has dense features it will throw an exception. </p>
+                <h1 id="dateparserentityextractor">DateparserEntityExtractor<a class="headerlink" href="#dateparserentityextractor" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to use this component, be sure to either install flashtext manually
+or use our convenience installer.</p>
+<p><code>python -m pip install "rasa_nlu_examples[dateparser] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"</code></p>
+</div>
+<h2 id="what-does-it-do">What does it do?<a class="headerlink" href="#what-does-it-do" title="Permanent link">&para;</a></h2>
+<p>This entity extractor uses the <a href="https://dateparser.readthedocs.io/en/latest/">dateparser</a> to extract
+entities that resemble dates. You can get a demo by running the code below.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">rasa.shared.nlu.training_data.message</span> <span class="kn">import</span> <span class="n">Message</span>
+<span class="kn">from</span> <span class="nn">rasa_nlu_examples.extractors.dateparser_extractor</span> <span class="kn">import</span> <span class="n">DateparserEntityExtractor</span>
+<span class="kn">from</span> <span class="nn">rich</span> <span class="kn">import</span> <span class="nb">print</span>
+
+<span class="n">msg</span> <span class="o">=</span> <span class="n">Message</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="s2">&quot;hello tomorrow, goodbye yesterday&quot;</span><span class="p">,)</span>
+<span class="n">extractor</span> <span class="o">=</span> <span class="n">DateparserEntityExtractor</span><span class="p">({})</span>
+<span class="n">extractor</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">as_dict_nlu</span><span class="p">())</span>
+</code></pre></div>
+
+<p>This will parse the following information.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;hello tomorrow, goodbye yesterday&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;entities&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;entity&#39;</span><span class="p">:</span> <span class="s1">&#39;DATETIME_REFERENCE&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+            <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;tomorrow&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;parsed_date&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-06-05 11:50:10.502082&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;confidence&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s1">&#39;extractor&#39;</span><span class="p">:</span> <span class="s1">&#39;DateparserEntityExtractor&#39;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;entity&#39;</span><span class="p">:</span> <span class="s1">&#39;DATETIME_REFERENCE&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+            <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;yesterday&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;parsed_date&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-06-03 11:50:10.503160&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;confidence&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s1">&#39;extractor&#39;</span><span class="p">:</span> <span class="s1">&#39;DateparserEntityExtractor&#39;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Note that we add an extra <code>parsed_date</code> key to the entity dictionary here. Another
+benefit of <code>dateparser</code> is that it also contains rules for Non-English languages. Here
+is a Dutch example.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;ik wil een pizza bestellen voor morgen&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;entities&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;entity&#39;</span><span class="p">:</span> <span class="s1">&#39;DATETIME_REFERENCE&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+            <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="mi">38</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;morgen&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;parsed_date&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-06-05 11:50:10.708588&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;confidence&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s1">&#39;extractor&#39;</span><span class="p">:</span> <span class="s1">&#39;DateparserEntityExtractor&#39;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>It's also possible to configure the <code>DateparserEntityExtractor</code> to prefer dates in the
+future or in the past. That way, if somebody talks about <code>Thursday</code> can be picked up as
+<em>next</em> Thursday, allowing us to still parse out a date.</p>
+<h3 id="future-results">"Future" Results<a class="headerlink" href="#future-results" title="Permanent link">&para;</a></h3>
+<p>This ran on Friday the 4th of June, 2021.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;i want a pizza thursday&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;entities&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;entity&#39;</span><span class="p">:</span> <span class="s1">&#39;DATETIME_REFERENCE&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+            <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;thursday&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;parsed_date&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-06-10 00:00:00&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;confidence&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s1">&#39;extractor&#39;</span><span class="p">:</span> <span class="s1">&#39;DateparserEntityExtractor&#39;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="past-results">"Past" Results<a class="headerlink" href="#past-results" title="Permanent link">&para;</a></h3>
+<p>This ran on Friday the 4th of June, 2021.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;i want to buy a pizza thursday&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;entities&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;entity&#39;</span><span class="p">:</span> <span class="s1">&#39;DATETIME_REFERENCE&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+            <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;thursday&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;parsed_date&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-06-03 00:00:00&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;confidence&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+            <span class="s1">&#39;extractor&#39;</span><span class="p">:</span> <span class="s1">&#39;DateparserEntityExtractor&#39;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>alpha</strong> (default: 1.0): Additive (Laplace/Lidstone) smoothing parameter (0 for no smoothing).</li>
-<li><strong>binarize</strong> (default: 0.0): Threshold for binarizing (mapping to booleans) of sample features. If None, input is presumed to already consist of binary vectors.</li>
-<li><strong>fit_prior</strong> (default: True): Whether to learn class prior probabilities or not. If false, a uniform prior will be used.</li>
-<li><strong>class_prior</strong> (default: None): Prior probabilities (as a list) of the classes. If specified the priors are not adjusted according to the data.</li>
+<li><strong>languages</strong>: pass a list of languages that you want the parser to focus on, can be <code>None</code> but this setting is likely to overfit on English assumptions</li>
+<li><strong>prefer_dates_from</strong>: can be either "future", "past or <code>None</code></li>
 </ul>
 <h2 id="base-usage">Base Usage<a class="headerlink" href="#base-usage" title="Permanent link">&para;</a></h2>
-<p>The configuration file below demonstrates how you might use the this component.
-In this example we are extracting sparse features with two
-CountVectorsFeaturizer instances, the first of which produces sparse
-bag-of-words features, and the second which produces sparse
-bags-of-character-ngram features. We've also set the alpha smoothing parameter
-to 0.1.</p>
+<p>The configuration below is an example of how you might use<code>FlashTextEntityExtractor</code>.</p>
 <div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
 
 <span class="nt">pipeline</span><span class="p">:</span>
@@ -813,28 +955,15 @@ to 0.1.</p>
   <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
   <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
   <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier</span>
-  <span class="nt">alpha</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.1</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
+  <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.extractors.DateparserEntityExtractor</span>
+  <span class="nt">languages</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;en&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;nl&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;es&quot;</span><span class="p p-Indicator">]</span>
+  <span class="nt">prefer_dates_from</span><span class="p">:</span> <span class="s">&quot;future&quot;</span>
 </code></pre></div>
 
-<p>Unlike <a href="https://rasa.com/docs/rasa/components#dietclassifier-2">DIET</a>, this
-classifier only predicts intents. If you also need entity extraction, you will
-have to add a separate entity extractor to your config. Below is an example
-where we have included the CRFEntityExtractor to extract entities.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
-
-<span class="nt">pipeline</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LexicalSyntacticFeaturizer</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
-  <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
-  <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-  <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier</span>
-  <span class="nt">alpha</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.1</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CRFEntityExtractor</span> 
-</code></pre></div>
+<p>Note that this entity extractor completely ignores the tokeniser. There might also be
+overlap with enities from other engines, like DIET and spaCy.</p>
                 
               
               
@@ -853,7 +982,7 @@ where we have included the CRFEntityExtractor to extract entities.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../featurizer/semantic_map/" title="SemanticMapFeaturizer" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../flashtext/" title="FlashText" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -862,19 +991,19 @@ where we have included the CRFEntityExtractor to extract entities.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                SemanticMapFeaturizer
+                FlashText
               </div>
             </div>
           </a>
         
         
-          <a href="../../extractors/flashtext/" title="FlashText" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../jupyter/tools/" title="Overview" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                FlashText
+                Overview
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

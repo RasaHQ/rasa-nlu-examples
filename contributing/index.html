@@ -686,6 +686,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../docs/extractors/dateparser/" title="DateParser" class="md-nav__link">
+      DateParser
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -882,21 +894,19 @@ help you.</li>
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
 <p>We run automated tests via GitHub actions but you can also run all the checking mechanisms locally.
 To run the tests locally you'll need to run a few scripts beforehand.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">python tests/scripts/prepare_fasttext.py</span>
-<span class="err">python tests/scripts/prepare_stanza.py</span>
+<div class="codehilite"><pre><span></span><code>python tests/scripts/prepare_fasttext.py
+python tests/scripts/prepare_stanza.py
 </code></pre></div>
-
 
 <p>This will prepare the filesystem for testing. We do this to prevent the need of downloading
 very large word embeddings locally and in CI. Fasttext can be 6-7 GB and we don't want to pull such a
 payload at every CI step. You can also prepare files locally by installing all dependencies
 via the <code>Makefile</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">make install</span>
+<div class="codehilite"><pre><span></span><code>make install
 </code></pre></div>
 
-
 <p>You can also run all style and type checking mechanisms locally via the <code>Makefile</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="err">make check</span>
+<div class="codehilite"><pre><span></span><code>make check
 </code></pre></div>
                 
               
