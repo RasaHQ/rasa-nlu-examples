@@ -1,4 +1,5 @@
 import re
+import datetime as dt
 from typing import List, Type, Optional, Dict, Text, Any
 
 from rasa.nlu.components import Component
@@ -22,8 +23,8 @@ from dateparser.search import search_dates
 class DateparserEntityExtractor(EntityExtractor):
 
     defaults = {
-        # text will be processed with case insensitive as default
         "prefer_dates_from": None,
+        "relative_base": None,
         "languages": None,
     }
 
@@ -39,12 +40,16 @@ class DateparserEntityExtractor(EntityExtractor):
 
         super().__init__(component_config)
         self.settings = {}
+
         # Dateparser is picky about the dictionary it receives, when value = None,
         # there should be no entry in the dictionary.
         if component_config.get("prefer_dates_from"):
             self.settings["PREFER_DATES_FROM"] = component_config.get(
                 "prefer_dates_from"
             )
+        if component_config.get("relative_base"):
+            base = component_config.get("relative_base")
+            self.settings["RELATIVE_BASE"] = dt.datetime.strptime(base, "%Y-%m-%d")
         self.languages = component_config.get("languages")
 
     def train(
