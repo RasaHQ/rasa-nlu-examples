@@ -11,7 +11,29 @@ The goal of these tools will be to be compatible with the most recent version of
 rasa only. You may need to point to an older release of the project if you want
 it to be compatible with an older version of Rasa.
 
-The following components are implemented.
+# Install
+
+To use these tools locally you need to install via git.
+
+```python
+python -m pip install "rasa_nlu_examples @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
+```
+
+Note that if you want to install optional dependencies as well that you'll need to run:
+
+```python
+python -m pip install "rasa_nlu_examples[flashtext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
+python -m pip install "rasa_nlu_examples[stanza] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
+python -m pip install "rasa_nlu_examples[thai] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
+python -m pip install "rasa_nlu_examples[fasttext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
+python -m pip install "rasa_nlu_examples[all] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
+```
+
+If you're using any models that depend on spaCy you'll need to install the Rasa dependencies for spaCy first.
+
+```python
+python -m pip install rasa[spacy]
+```
 
 ## **Tokenizers**
 
