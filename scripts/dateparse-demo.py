@@ -12,7 +12,7 @@ for txt in [
     print(msg.as_dict_nlu())
 
 print("lets prefer dates in the future")
-for txt in ["i want to buy a pizza thursday", "ik wil donderdag een pizza"]:
+for txt in ["i want a pizza thursday", "ik wil donderdag een pizza"]:
     msg = Message.build(txt)
     extractor = DateparserEntityExtractor({"prefer_dates_from": "future"})
     extractor.process(msg)
