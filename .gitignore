@@ -120,3 +120,4 @@ Untitled*.ipynb
 .DS_Store
 **/.DS_Store
 tests/data/stanza
+.vscode
