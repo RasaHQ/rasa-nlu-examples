@@ -237,91 +237,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Home
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
     <a href="." title="Home" class="md-nav__link md-nav__link--active">
       Home
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tokenizers" class="md-nav__link">
-    Tokenizers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#featurizers" class="md-nav__link">
-    Featurizers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#intent-classifiers" class="md-nav__link">
-    Intent Classifiers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#entity-extractors" class="md-nav__link">
-    Entity Extractors
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fallback-classifiers" class="md-nav__link">
-    Fallback Classifiers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meta" class="md-nav__link">
-    Meta
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#name-lists" class="md-nav__link">
-    Name Lists
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
-    Contributing
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -694,18 +612,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="docs/extractors/dateparser/" title="DateParser" class="md-nav__link">
-      DateParser
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -775,72 +681,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tokenizers" class="md-nav__link">
-    Tokenizers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#featurizers" class="md-nav__link">
-    Featurizers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#intent-classifiers" class="md-nav__link">
-    Intent Classifiers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#entity-extractors" class="md-nav__link">
-    Entity Extractors
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fallback-classifiers" class="md-nav__link">
-    Fallback Classifiers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meta" class="md-nav__link">
-    Meta
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#name-lists" class="md-nav__link">
-    Name Lists
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
-    Contributing
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -868,21 +708,37 @@ and some documentation but this is a community project, not something that is pa
 <p>The goal of these tools will be to be compatible with the most recent version of
 rasa only. You may need to point to an older release of the project if you want
 it to be compatible with an older version of Rasa.</p>
-<p>The following components are implemented.</p>
+<h1 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h1>
+<p>To use these tools locally you need to install via git.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;rasa_nlu_examples @ git+https://github.com/RasaHQ/rasa-nlu-examples.git&quot;</span>
+</code></pre></div>
+
+<p>Note that if you want to install optional dependencies as well that you'll need to run:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;rasa_nlu_examples[flashtext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git&quot;</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;rasa_nlu_examples[stanza] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git&quot;</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;rasa_nlu_examples[thai] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git&quot;</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;rasa_nlu_examples[fasttext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git&quot;</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;rasa_nlu_examples[all] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git&quot;</span>
+</code></pre></div>
+
+<p>If you're using any models that depend on spaCy you'll need to install the Rasa dependencies for spaCy first.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">rasa</span><span class="p">[</span><span class="n">spacy</span><span class="p">]</span>
+</code></pre></div>
+
 <h2 id="tokenizers"><strong>Tokenizers</strong><a class="headerlink" href="#tokenizers" title="Permanent link">&para;</a></h2>
-<p><img alt="" src="images/tokenisation.png" /></p>
 <p>Tokenizers can split up the input text into tokens. Depending on the Tokenizer that you pick
 you can also choose to apply lemmatization. For languages that have rich grammatical features
 this might help reduce the size of all the possible tokens.</p>
+<p><img alt="" src="images/tokenisation.png" /></p>
 <ul>
 <li><strong><code>rasa_nlu_examples.tokenizers.BlankSpacyTokenizer</code></strong> <a href="docs/tokenizer/spacy_tokenizer/">docs</a></li>
 <li><strong><code>rasa_nlu_examples.tokenizers.StanzaTokenizer</code></strong> <a href="docs/tokenizer/stanza/">docs</a></li>
 <li><strong><code>rasa_nlu_examples.tokenizers.ThaiTokenizer</code></strong> <a href="docs/tokenizer/thai_tokenizer/">docs</a></li>
 </ul>
 <h2 id="featurizers"><strong>Featurizers</strong><a class="headerlink" href="#featurizers" title="Permanent link">&para;</a></h2>
-<p><img alt="" src="images/dense_features.png" /></p>
 <p>Dense featurizers attach dense numeric features per token as well as to the entire utterance. These
 features are picked up by intent classifiers and entity detectors later in the pipeline.</p>
+<p><img alt="" src="images/dense_features.png" /></p>
 <ul>
 <li><strong><code>rasa_nlu_examples.featurizers.dense.FastTextFeaturizer</code> <a href="docs/featurizer/fasttext/">docs</a></strong></li>
 <li><strong><code>rasa_nlu_examples.featurizers.dense.BytePairFeaturizer</code> <a href="docs/featurizer/bytepair/">docs</a></strong></li>
@@ -891,7 +747,6 @@ features are picked up by intent classifiers and entity detectors later in the p
 <li><strong><code>rasa_nlu_examples.featurizers.sparse.SemanticMapFeaturizer</code> <a href="docs/featurizer/semantic_map/">docs</a></strong></li>
 </ul>
 <h2 id="intent-classifiers"><strong>Intent Classifiers</strong><a class="headerlink" href="#intent-classifiers" title="Permanent link">&para;</a></h2>
-<p><img alt="" src="images/classifier.png" /></p>
 <p>Intent classifiers are models that predict an intent from a given user message
 text.  The default intent classifier in Rasa NLU is the <a href="https://rasa.com/docs/rasa/components#dietclassifier-2">DIET
 model</a> which can be
@@ -899,10 +754,8 @@ fairly computationally expensive, especially if you do not need to detect
 entities.  We provide some examples of alternative intent classifiers here.</p>
 <p><strong><code>rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier</code> <a href="docs/classifier/sparsenb/">docs</a></strong></p>
 <h2 id="entity-extractors"><strong>Entity Extractors</strong><a class="headerlink" href="#entity-extractors" title="Permanent link">&para;</a></h2>
-<p><img alt="" src="images/entity.png" /></p>
 <ul>
 <li><strong><code>rasa_nlu_examples.extractor.FlashTextEntityExtractor</code></strong> <a href="docs/extractors/flashtext/">docs</a></li>
-<li><strong><code>rasa_nlu_examples.extractor.DateparserEntityExtractor</code></strong> <a href="docs/extractors/dateparser/">docs</a></li>
 </ul>
 <h2 id="fallback-classifiers"><strong>Fallback Classifiers</strong><a class="headerlink" href="#fallback-classifiers" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="images/fallback.png" /></p>
