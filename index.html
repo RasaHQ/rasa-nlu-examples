@@ -612,6 +612,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="docs/extractors/dateparser/" title="DateParser" class="md-nav__link">
+      DateParser
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -726,19 +738,19 @@ it to be compatible with an older version of Rasa.</p>
 </code></pre></div>
 
 <h2 id="tokenizers"><strong>Tokenizers</strong><a class="headerlink" href="#tokenizers" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="images/tokenisation.png" /></p>
 <p>Tokenizers can split up the input text into tokens. Depending on the Tokenizer that you pick
 you can also choose to apply lemmatization. For languages that have rich grammatical features
 this might help reduce the size of all the possible tokens.</p>
-<p><img alt="" src="images/tokenisation.png" /></p>
 <ul>
 <li><strong><code>rasa_nlu_examples.tokenizers.BlankSpacyTokenizer</code></strong> <a href="docs/tokenizer/spacy_tokenizer/">docs</a></li>
 <li><strong><code>rasa_nlu_examples.tokenizers.StanzaTokenizer</code></strong> <a href="docs/tokenizer/stanza/">docs</a></li>
 <li><strong><code>rasa_nlu_examples.tokenizers.ThaiTokenizer</code></strong> <a href="docs/tokenizer/thai_tokenizer/">docs</a></li>
 </ul>
 <h2 id="featurizers"><strong>Featurizers</strong><a class="headerlink" href="#featurizers" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="images/dense_features.png" /></p>
 <p>Dense featurizers attach dense numeric features per token as well as to the entire utterance. These
 features are picked up by intent classifiers and entity detectors later in the pipeline.</p>
-<p><img alt="" src="images/dense_features.png" /></p>
 <ul>
 <li><strong><code>rasa_nlu_examples.featurizers.dense.FastTextFeaturizer</code> <a href="docs/featurizer/fasttext/">docs</a></strong></li>
 <li><strong><code>rasa_nlu_examples.featurizers.dense.BytePairFeaturizer</code> <a href="docs/featurizer/bytepair/">docs</a></strong></li>
@@ -747,6 +759,7 @@ features are picked up by intent classifiers and entity detectors later in the p
 <li><strong><code>rasa_nlu_examples.featurizers.sparse.SemanticMapFeaturizer</code> <a href="docs/featurizer/semantic_map/">docs</a></strong></li>
 </ul>
 <h2 id="intent-classifiers"><strong>Intent Classifiers</strong><a class="headerlink" href="#intent-classifiers" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="images/classifier.png" /></p>
 <p>Intent classifiers are models that predict an intent from a given user message
 text.  The default intent classifier in Rasa NLU is the <a href="https://rasa.com/docs/rasa/components#dietclassifier-2">DIET
 model</a> which can be
@@ -754,8 +767,10 @@ fairly computationally expensive, especially if you do not need to detect
 entities.  We provide some examples of alternative intent classifiers here.</p>
 <p><strong><code>rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier</code> <a href="docs/classifier/sparsenb/">docs</a></strong></p>
 <h2 id="entity-extractors"><strong>Entity Extractors</strong><a class="headerlink" href="#entity-extractors" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="images/entity.png" /></p>
 <ul>
 <li><strong><code>rasa_nlu_examples.extractor.FlashTextEntityExtractor</code></strong> <a href="docs/extractors/flashtext/">docs</a></li>
+<li><strong><code>rasa_nlu_examples.extractor.DateparserEntityExtractor</code></strong> <a href="docs/extractors/dateparser/">docs</a></li>
 </ul>
 <h2 id="fallback-classifiers"><strong>Fallback Classifiers</strong><a class="headerlink" href="#fallback-classifiers" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="images/fallback.png" /></p>
