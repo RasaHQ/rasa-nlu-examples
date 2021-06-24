@@ -15,6 +15,7 @@ english_yml_files = [
     "semantic_map-config.yml",
     "lang-detect-ft-config.yml",
     "sparse-naive-bayes-intent-classifier-config.yml",
+    "sparse-logistic-regression-intent-classifier-config.yml",
     "flashtext-config.yml",
     "sparse-bytepair-config.yml",
 ]

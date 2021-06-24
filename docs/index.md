@@ -71,6 +71,7 @@ fairly computationally expensive, especially if you do not need to detect
 entities.  We provide some examples of alternative intent classifiers here.
 
 **`rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier` [docs](docs/classifier/sparsenb.md)**
+**`rasa_nlu_examples.classifiers.SparseLogisticRegressionIntentClassifier` [docs](docs/classifier/sparselr.md)**
 
 ## **Entity Extractors**
 
