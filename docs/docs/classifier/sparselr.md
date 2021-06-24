@@ -50,7 +50,6 @@ pipeline:
   analyzer: char_wb
   min_ngram: 1
   max_ngram: 4
-- name: rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier
-  alpha: 0.1
+- name: rasa_nlu_examples.classifiers.SparseLogisticRegressionIntentClassifier
 - name: CRFEntityExtractor
 ```
