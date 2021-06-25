@@ -10,7 +10,9 @@ only has dense features it will throw an exception.
 
 ## Configurable Variables
 
-This classifier supports the same parameters as those that are listed in the [sklearn documentation](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) (except the warm_start option).
+We classifier supports the same parameters as those that are listed in the [sklearn documentation](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html). The only difference is:
+- there is no `warm_start option`
+- the default `class_weight` is "balanced"
 
 ## Base Usage
 
@@ -18,7 +20,10 @@ The configuration file below demonstrates how you might use the this component.
 In this example we are extracting sparse features with two
 CountVectorsFeaturizer instances, the first of which produces sparse
 bag-of-words features, and the second which produces sparse
-bags-of-character-ngram features. We've also set the class_weight parameter to "balanced".
+bags-of-character-ngram features.
+
+Note that in the following example, setting the `class_weight` parameter to None
+explicitly does have an effect because our default value for this paramter is "balanced".
 
 ```yaml
 language: en
@@ -31,7 +36,7 @@ pipeline:
   min_ngram: 1
   max_ngram: 4
 - name: rasa_nlu_examples.classifiers.SparseLogisticRegressionIntentClassifier
-  class_weight: "balanced"
+  class_weight: None
 ```
 
 Unlike [DIET](https://rasa.com/docs/rasa/components#dietclassifier-2), this

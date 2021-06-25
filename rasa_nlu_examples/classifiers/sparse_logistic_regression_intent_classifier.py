@@ -18,7 +18,7 @@ class SparseLogisticRegressionIntentClassifier(SparseSklearnIntentClassifier):
         # these parameters and their defaults so, have a look at the scikit-learn docs:
         # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
         "C": 1.0,
-        "class_weight": None,
+        "class_weight": "balanced",
         "dual": False,
         "fit_intercept": True,
         "intercept_scaling": 1,
