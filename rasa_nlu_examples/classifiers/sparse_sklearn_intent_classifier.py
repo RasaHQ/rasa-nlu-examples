@@ -118,7 +118,7 @@ class SparseSklearnIntentClassifier(IntentClassifier):
         training_data: TrainingData,
     ) -> Tuple[scipy.sparse.spmatrix, np.ndarray, "sklearn.preprocessing.LabelEncoder"]:
         """
-        collects all intent examples from the given training data,
+        Collects all intent examples from the given training data,
         trains a label encoder and returns this encoder along
         with all sparse features from the intent examples and
         the transformed labels.
