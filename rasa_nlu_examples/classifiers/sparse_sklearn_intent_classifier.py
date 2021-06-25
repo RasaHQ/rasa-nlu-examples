@@ -35,7 +35,7 @@ if typing.TYPE_CHECKING:
 class SparseSklearnIntentClassifier(IntentClassifier):
     r"""Base class for intent classifiers using the sklearn framework with sparse features.
     Note that all sparse features will be used, i.e. there is no filtering for specific
-    featurizers yet."""
+    featurizers."""
 
     defaults = {}
 
