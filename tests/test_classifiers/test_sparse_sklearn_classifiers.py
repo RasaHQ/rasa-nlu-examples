@@ -1,5 +1,5 @@
 import copy
-from typing import Text, Type, Optional
+from typing import Type, Optional, Text
 
 import pytest
 import scipy.sparse
@@ -14,6 +14,7 @@ from rasa.shared.nlu.constants import (
     INTENT_NAME_KEY,
     FEATURE_TYPE_SENTENCE,
     PREDICTED_CONFIDENCE_KEY,
+    INTENT_RANKING_KEY,
 )
 
 from rasa_nlu_examples.classifiers.sparse_naive_bayes_intent_classifier import (
@@ -89,6 +90,46 @@ def test_creation_of_sklearn_classifier_with_defaults(
     assert sklearn_clf
 
 
+@pytest.mark.parametrize(
+    "scores,topk,expected_scores,expected_indices",
+    [
+        (np.array([[1, 2, 3]]), 3, np.array([[3, 2, 1]]), np.array([[2, 1, 0]])),
+        (
+            np.array([[1, 2, 3], [1, 2, 3]]),
+            4,
+            np.array([[3, 2, 1], [3, 2, 1]]),
+            np.array([[2, 1, 0], [2, 1, 0]]),
+        ),
+        (
+            np.array([[1, 2, 3], [1, 2, 3]]),
+            2,
+            np.array([[3, 2], [3, 2]]),
+            np.array([[2, 1], [2, 1]]),
+        ),
+    ],
+)
+def test_score_sorting(scores, topk, expected_scores, expected_indices):
+    out_ind, out_scores = SparseSklearnIntentClassifier.sort_by_scores(
+        scores=scores, topk=topk
+    )
+    assert np.allclose(out_ind, expected_indices)
+    assert np.allclose(out_scores, expected_scores)
+
+
+def test_score_sorting_raises():
+    arbitrary_topk = 10
+    # 1-dimensional input not expected
+    with pytest.raises(ValueError):
+        SparseSklearnIntentClassifier.sort_by_scores(
+            scores=np.ndarray([1, 2, 3]), topk=arbitrary_topk
+        )
+    # empty input not expected
+    with pytest.raises(ValueError):
+        SparseSklearnIntentClassifier.sort_by_scores(
+            scores=np.ndarray([]), topk=arbitrary_topk
+        )
+
+
 @pytest.mark.parametrize("cls,", SPARSE_SKLEARN_INTENT_CLASSIFIERS)
 def test_training_and_inference_on_dummy_data(
     dummy_data: TrainingData,
@@ -100,30 +141,24 @@ def test_training_and_inference_on_dummy_data(
     model.train(training_data=training_data)
     assert model.clf is not None
     assert model.le is not None
-    # predict (needs train)
-    dummy_message = training_data.intent_examples[0]
-    _, sparse_sentence_features = dummy_message.get_sparse_features(TEXT)
-    sparse_matrix = sparse_sentence_features.features
-    indices, probabilities = model.predict(sparse_matrix)
-    assert len(set(indices[0])) == len(model.clf.classes_)
-    assert np.isclose(np.sum(probabilities[0]), 1.0)
     # process (uses train)
     dummy_message = copy.deepcopy(
         training_data.intent_examples[0]
     )  # deepcopy to avoid side-effects
     model.process(dummy_message)
+    # TODO: use rasa for checking schema of message
     intent = dummy_message.get(INTENT)
-    assert intent is not None
-    assert isinstance(intent.get(INTENT_NAME_KEY), Text)
-    assert isinstance(intent.get(PREDICTED_CONFIDENCE_KEY), float)
+    assert intent
     confidence = intent.get(PREDICTED_CONFIDENCE_KEY)
     assert isinstance(confidence, float)
     assert 0 <= confidence <= 1
+    intent_ranking = dummy_message.get(INTENT_RANKING_KEY)
+    assert intent_ranking
     # process (missing features / empty message)
     dummy_message = Message()
     with pytest.raises(ValueError, match="No sparse sentence features present"):
         model.process(dummy_message)
-    assert dummy_message.get(INTENT) is None
+    assert dummy_message.get(INTENT_NAME_KEY) is None
 
 
 @pytest.mark.parametrize("cls,", SPARSE_SKLEARN_INTENT_CLASSIFIERS)

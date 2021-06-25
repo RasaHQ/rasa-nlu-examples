@@ -24,6 +24,7 @@ from rasa.shared.nlu.constants import (
     INTENT,
     INTENT_NAME_KEY,
     PREDICTED_CONFIDENCE_KEY,
+    INTENT_RANKING_KEY,
 )
 
 logger = logging.getLogger(__name__)
@@ -184,58 +185,79 @@ class SparseSklearnIntentClassifier(IntentClassifier):
             intent_ranking = []
         else:
             X = self._get_sentence_features(message)
-            intent_ids, probabilities = self.predict(X)
-            intents = self.le.inverse_transform(np.ravel(intent_ids))
-            # `predict` returns a matrix as it is supposed
-            # to work for multiple examples as well, hence we need to flatten
-            probabilities = probabilities.flatten()
-            if intents.size > 0 and probabilities.size > 0:
-                ranking = list(zip(list(intents), list(probabilities)))[
-                    :LABEL_RANKING_LENGTH
-                ]
+            # note that X is of shape (1, vocabulary_size)
+            assert len(X.shape) == 2 and X.shape[0] == 1, "Feature format has changed."
+            # hence, sklearn methods work without wrapping the single
+            # example into a list
+            probabilities = self.predict_proba(X)
+            assert LABEL_RANKING_LENGTH > 0, "Unexpected LABEL_RANKING_LENGTH setting."
+            intent_indices, intent_probabilities = self.sort_by_scores(
+                scores=probabilities, topk=LABEL_RANKING_LENGTH
+            )
 
-                intent = {
-                    INTENT_NAME_KEY: intents[0],
-                    PREDICTED_CONFIDENCE_KEY: probabilities[0],
-                }
+            # remember that X was of shape (1, vocabulary size)
+            # so we need to unravel them here...
+            intent_indices = list(intent_indices[0])
+            intent_probabilities = list(intent_probabilities[0])
 
-                intent_ranking = [
-                    {INTENT_NAME_KEY: intent_name, PREDICTED_CONFIDENCE_KEY: score}
-                    for intent_name, score in ranking
-                ]
-            else:
-                intent = {INTENT_NAME_KEY: None, PREDICTED_CONFIDENCE_KEY: 0.0}
-                intent_ranking = []
+            intents = self.le.inverse_transform(intent_indices)
+
+            intent_ranking = [
+                {INTENT_NAME_KEY: intent_name, PREDICTED_CONFIDENCE_KEY: score}
+                for intent_name, score in zip(intents, intent_probabilities)
+            ]
+            intent = {
+                INTENT_NAME_KEY: intents[0],
+                PREDICTED_CONFIDENCE_KEY: intent_probabilities[0],
+            }
 
         message.set(INTENT, intent, add_to_output=True)
-        message.set("intent_ranking", intent_ranking, add_to_output=True)
+        message.set(INTENT_RANKING_KEY, intent_ranking, add_to_output=True)
 
-    def predict_prob(self, X: scipy.sparse.spmatrix) -> np.ndarray:
+    @staticmethod
+    def sort_by_scores(scores: np.ndarray, topk: int) -> Tuple[np.ndarray, np.ndarray]:
         """
-        Given a bow vector of an input text, predict the intent label.
+        Given a matrix of scores that defines, for each sample,
+        scores for a fixed number of classes, sorts the classes
+        according to the respective scores (in decreasing order)
+        and returns this sorting along with the scores.
+        Moreover, if the topk parameter is specified only the
+        results for the top scoring results (per sample) are
+        returned.
 
-        Return probabilities for all labels.
+        :param scores: a matrix of shape (n_samples, n_classes)
+        :param topk: limits the number of results to the topk classes
+          with the highest scores; disable the limit by setting it to
+          a value <=0 or a value >= n_classes
+        :return: a tuple
+        """
+        if len(scores.shape) != 2:
+            raise ValueError("Expected 2 dimensional input for score matrix.")
+        sorted_indices = np.fliplr(np.argsort(scores, axis=1))
+        sorted_scores = np.array([a[b] for a, b in zip(scores, sorted_indices)])
+        limit = sorted_scores.shape[1]
+        if topk > -1:
+            limit = min(topk, limit)
+        return sorted_indices[:, :limit], sorted_scores[:, :limit]
+
+    def predict_proba(self, X: scipy.sparse.spmatrix) -> np.ndarray:
+        """
+        Given bow vectors, predict the probability of each
+        possible intent, for each bow vector.
+
         :param X: bow of input text; matrix of shape (n_samples, n_words)
-        :return: vector of probabilities containing one entry for each label
+        :return: probabilities per input text and possible intent; a matrix of shape (n_samples, n_intents)
         """
-
         return self.clf.predict_proba(X)
 
     def predict(self, X: scipy.sparse.spmatrix) -> Tuple[np.ndarray, np.ndarray]:
         """
-        Given a bow vector of an input text, predict the corresponding intent.
+        Given bow vectors, predict the intent label, for each bow vector.
 
-        Return intents and their probabilities, in decreasing order of likelihood.
         :param X: bow of input text; matrix of shape (n_examples, n_words)
-        :return: tuple of intent labels and intent probabilities; both are
-          matrices of shape (n_examples, n_intents)
+        :return: intent labels; a matrix of shape (n_examples,)
         """
-
-        pred_result = self.predict_prob(X)
-        # sort the probabilities retrieving the indices of
-        # the elements in sorted order
-        sorted_indices = np.fliplr(np.argsort(pred_result, axis=1))
-        return sorted_indices, pred_result[:, sorted_indices]
+        return self.clf.predict(X)
 
     def persist(self, file_name: Text, model_dir: Text) -> Optional[Dict[Text, Any]]:
         """Persist this model into the passed directory."""
