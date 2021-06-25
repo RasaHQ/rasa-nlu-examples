@@ -10,7 +10,7 @@ only has dense features it will throw an exception.
 
 ## Configurable Variables
 
-We classifier supports the same parameters as those that are listed in the [sklearn documentation](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) (except the warm_start option).
+This classifier supports the same parameters as those that are listed in the [sklearn documentation](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) (except the warm_start option).
 
 ## Base Usage
 
