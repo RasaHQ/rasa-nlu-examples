@@ -171,7 +171,7 @@ class SparseSklearnIntentClassifier(IntentClassifier):
         return sentence_features.features
 
     def process(self, message: Message, **kwargs: Any) -> None:
-        r"""computes the most likely intent and its probability for a message and
+        r"""Computes the most likely intent and its probability for a message and
         adds this information to the message.
 
         :param **kwargs: unused
