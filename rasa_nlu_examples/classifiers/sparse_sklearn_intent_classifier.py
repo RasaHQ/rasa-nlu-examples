@@ -1,12 +1,12 @@
 from abc import abstractmethod
 import logging
 import os
-import typing
 import warnings
 from typing import Any, Dict, List, Optional, Text, Tuple, Type
 
 import numpy as np
 import scipy.sparse
+import sklearn
 
 import rasa.shared.utils.io
 import rasa.utils.io as io_utils
@@ -29,9 +29,6 @@ from rasa.shared.nlu.constants import (
 
 logger = logging.getLogger(__name__)
 
-if typing.TYPE_CHECKING:
-    import sklearn
-
 
 class SparseSklearnIntentClassifier(IntentClassifier):
     r"""Base class for intent classifiers using the sklearn framework with sparse features.
@@ -51,8 +48,8 @@ class SparseSklearnIntentClassifier(IntentClassifier):
     def __init__(
         self,
         component_config: Optional[Dict[Text, Any]] = None,
-        clf: Optional["sklearn.base.ClassifierMixin"] = None,
-        le: Optional["sklearn.preprocessing.LabelEncoder"] = None,
+        clf: Optional[sklearn.base.ClassifierMixin] = None,
+        le: Optional[sklearn.preprocessing.LabelEncoder] = None,
     ) -> None:
         """Construct a new naive Bayes intent classifier using the sklearn framework."""
         super().__init__(component_config)
@@ -66,9 +63,7 @@ class SparseSklearnIntentClassifier(IntentClassifier):
         self.clf = clf
 
     @abstractmethod
-    def create_sklearn_classifier(
-        self, **kwargs: Any
-    ) -> "sklearn.base.ClassifierMixin":
+    def create_sklearn_classifier(self, **kwargs: Any) -> sklearn.base.ClassifierMixin:
         r"""Lazily imports the required sklearn classifier class and creates and
         instantiates the sklearn classifier using all the given keyword arguments.
 
@@ -117,7 +112,7 @@ class SparseSklearnIntentClassifier(IntentClassifier):
     @staticmethod
     def _collect_features_and_encode_labels(
         training_data: TrainingData,
-    ) -> Tuple[scipy.sparse.spmatrix, np.ndarray, "sklearn.preprocessing.LabelEncoder"]:
+    ) -> Tuple[scipy.sparse.spmatrix, np.ndarray, sklearn.preprocessing.LabelEncoder]:
         """
         Collects all intent examples from the given training data,
         trains a label encoder and returns this encoder along

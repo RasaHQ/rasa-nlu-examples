@@ -1,12 +1,11 @@
-import typing
 from typing import Any
+
+import sklearn
+from sklearn.linear_model import LogisticRegression
 
 from rasa_nlu_examples.classifiers.sparse_sklearn_intent_classifier import (
     SparseSklearnIntentClassifier,
 )
-
-if typing.TYPE_CHECKING:
-    import sklearn.linear_model
 
 
 class SparseLogisticRegressionIntentClassifier(SparseSklearnIntentClassifier):
@@ -33,14 +32,11 @@ class SparseLogisticRegressionIntentClassifier(SparseSklearnIntentClassifier):
         "verbose": 0,
     }
 
-    def create_sklearn_classifier(
-        self, **kwargs: Any
-    ) -> "sklearn.base.ClassifierMixin":
+    def create_sklearn_classifier(self, **kwargs: Any) -> sklearn.base.ClassifierMixin:
         r"""Lazily imports the required sklearn classifier class and creates and
         instantiates the sklearn classifier using all the given keyword arguments.
 
         :param **kwargs: see defaults dictionary
         """
-        from sklearn.linear_model import LogisticRegression
 
         return LogisticRegression(**kwargs)

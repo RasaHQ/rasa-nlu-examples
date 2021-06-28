@@ -1,12 +1,11 @@
-import typing
 from typing import Any
+
+import sklearn
+from sklearn.naive_bayes import BernoulliNB
 
 from rasa_nlu_examples.classifiers.sparse_sklearn_intent_classifier import (
     SparseSklearnIntentClassifier,
 )
-
-if typing.TYPE_CHECKING:
-    import sklearn
 
 
 class SparseNaiveBayesIntentClassifier(SparseSklearnIntentClassifier):
@@ -26,14 +25,10 @@ class SparseNaiveBayesIntentClassifier(SparseSklearnIntentClassifier):
         "class_prior": None,
     }
 
-    def create_sklearn_classifier(
-        self, **kwargs: Any
-    ) -> "sklearn.base.ClassifierMixin":
+    def create_sklearn_classifier(self, **kwargs: Any) -> sklearn.base.ClassifierMixin:
         r"""Lazily imports the required sklearn classifier class and creates and
         instantiates the sklearn classifier using all the given keyword arguments.
 
         :param **kwargs: see defaults dictionary
         """
-        from sklearn.naive_bayes import BernoulliNB
-
         return BernoulliNB(**kwargs)
