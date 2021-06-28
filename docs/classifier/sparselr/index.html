@@ -11,7 +11,7 @@
         <meta name="description" content="A collection of open source Rasa compatible NLU components.">
       
       
-        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/spacy_tokenizer/">
+        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/classifier/sparselr/">
       
       
         <meta name="author" content="Vincent D. Warmerdam @ Rasa Research">
@@ -21,7 +21,7 @@
     
     
       
-        <title>BlankSpacyTokenizer - Rasa NLU Examples</title>
+        <title>SparseLRBayes - Rasa NLU Examples</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configurable-variables" class="md-skip">
+        <a href="#sparselogisticregressionintentclassifier" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              BlankSpacyTokenizer
+              SparseLRBayes
             
           </span>
         </div>
@@ -334,12 +334,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
     
     <label class="md-nav__link" for="nav-3-3">
       Tokenizers
@@ -361,56 +359,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        BlankSpacyTokenizer
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="BlankSpacyTokenizer" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../tokenizer/spacy_tokenizer/" title="BlankSpacyTokenizer" class="md-nav__link">
       BlankSpacyTokenizer
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#configurable-variables" class="md-nav__link">
-    Configurable Variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#base-usage" class="md-nav__link">
-    Base Usage
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -420,7 +373,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../stanza/" title="StanzaTokenizer" class="md-nav__link">
+    <a href="../../tokenizer/stanza/" title="StanzaTokenizer" class="md-nav__link">
       StanzaTokenizer
     </a>
   </li>
@@ -432,7 +385,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../thai_tokenizer/" title="ThaiTokenizer" class="md-nav__link">
+    <a href="../../tokenizer/thai_tokenizer/" title="ThaiTokenizer" class="md-nav__link">
       ThaiTokenizer
     </a>
   </li>
@@ -579,10 +532,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6" checked>
     
     <label class="md-nav__link" for="nav-3-6">
       Intent Classifiers
@@ -606,7 +561,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classifier/sparsenb/" title="SparseNaiveBayes" class="md-nav__link">
+    <a href="../sparsenb/" title="SparseNaiveBayes" class="md-nav__link">
       SparseNaiveBayes
     </a>
   </li>
@@ -616,11 +571,60 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../classifier/sparselr/" title="SparseLRBayes" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        SparseLRBayes
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="SparseLRBayes" class="md-nav__link md-nav__link--active">
       SparseLRBayes
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configurable-variables" class="md-nav__link">
+    Configurable Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base-usage" class="md-nav__link">
+    Base Usage
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -744,6 +748,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -779,7 +785,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/tokenizer/spacy_tokenizer.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/classifier/sparselr.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -787,37 +793,55 @@
                   
                 
                 
-                  <h1>BlankSpacyTokenizer</h1>
-                
-                <p>Rasa natively supports spaCy models that have a language model attached. But spaCy
-also offers tokenizers without a model. We support these tokenisers with this
-component.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In order to use this tool you'll need to ensure that spaCy is installed with Rasa.</p>
-<div class="highlight"><pre><span></span><code>pip install rasa[spacy]
-</code></pre></div>
-<p>You should also be aware that for certain languages extra dependencies are required.
-More information is given on the <a href="https://spacy.io/usage/models#languages">spacy documentation</a>.</p>
-</div>
+                <h1 id="sparselogisticregressionintentclassifier">SparseLogisticRegressionIntentClassifier<a class="headerlink" href="#sparselogisticregressionintentclassifier" title="Permanent link">&para;</a></h1>
+<p>This intent classifier is based on the Logistic Regression Classifier from
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">sklearn</a>.
+This classifier only looks at sparse features extracted from the Rasa NLU
+feature pipeline and is a faster alternative to neural models like
+<a href="https://rasa.com/docs/rasa/components#dietclassifier-2">DIET</a>. This model
+requires that there be some sparse featurizers in your pipeleine. If you config
+only has dense features it will throw an exception.</p>
 <h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>lang</strong>: the two-letter <a href="https://spacy.io/usage/models#languages">abbreviation</a> of the language you want to use.</li>
-</ul>
+<p>We classifier supports the same parameters as those that are listed in the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">sklearn documentation</a>. The only difference is:
+- there is no <code>warm_start option</code>
+- the default <code>class_weight</code> is "balanced"</p>
 <h2 id="base-usage">Base Usage<a class="headerlink" href="#base-usage" title="Permanent link">&para;</a></h2>
-<p>Once downloaded it can be used in a Rasa configuration, like below;</p>
-<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
+<p>The configuration file below demonstrates how you might use the this component.
+In this example we are extracting sparse features with two
+CountVectorsFeaturizer instances, the first of which produces sparse
+bag-of-words features, and the second which produces sparse
+bags-of-character-ngram features.</p>
+<p>Note that in the following example, setting the <code>class_weight</code> parameter to None
+explicitly does have an effect because our default value for this paramter is "balanced".</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
 
 <span class="nt">pipeline</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.tokenizers.BlankSpacyTokenizer</span>
-  <span class="nt">lang</span><span class="p">:</span> <span class="s">&quot;en&quot;</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
   <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
   <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
   <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
-  <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.classifiers.SparseLogisticRegressionIntentClassifier</span>
+  <span class="nt">class_weight</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+</code></pre></div>
+
+<p>Unlike <a href="https://rasa.com/docs/rasa/components#dietclassifier-2">DIET</a>, this
+classifier only predicts intents. If you also need entity extraction, you will
+have to add a separate entity extractor to your config. Below is an example
+where we have included the CRFEntityExtractor to extract entities.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
+
+<span class="nt">pipeline</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LexicalSyntacticFeaturizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
+  <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
+  <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.classifiers.SparseLogisticRegressionIntentClassifier</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CRFEntityExtractor</span>
 </code></pre></div>
                 
               
@@ -837,7 +861,7 @@ More information is given on the <a href="https://spacy.io/usage/models#language
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../fallback/fasttextlanguagefallback/" title="FasttextLanguage" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../sparsenb/" title="SparseNaiveBayes" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -846,19 +870,19 @@ More information is given on the <a href="https://spacy.io/usage/models#language
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                FasttextLanguage
+                SparseNaiveBayes
               </div>
             </div>
           </a>
         
         
-          <a href="../stanza/" title="StanzaTokenizer" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../extractors/flashtext/" title="FlashText" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                StanzaTokenizer
+                FlashText
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
