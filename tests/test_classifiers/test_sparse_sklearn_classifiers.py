@@ -1,5 +1,5 @@
 import copy
-from typing import Type, Optional, Text
+from typing import Type, Optional
 
 import pytest
 import scipy.sparse
