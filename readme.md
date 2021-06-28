@@ -60,7 +60,8 @@ To get started locally you can run:
 ```
 python -m pip install -e ".[dev]"
 pre-commit install
-python tests/prepare_everything.py
+python tests/scripts/prepare_fasttext.py
+python tests/scripts/prepare_stanza.py
 ```
 
 Alternatively you may also run this via the `Makefile`:

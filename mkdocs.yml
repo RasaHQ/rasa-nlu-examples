@@ -26,6 +26,7 @@ nav:
         - SemanticMapFeaturizer: docs/featurizer/semantic_map.md
       - Intent Classifiers:
         - SparseNaiveBayes: docs/classifier/sparsenb.md
+        - SparseLRBayes: docs/classifier/sparselr.md
       - Entity Extractors:
         - FlashText: docs/extractors/flashtext.md
         - DateParser: docs/extractors/dateparser.md
