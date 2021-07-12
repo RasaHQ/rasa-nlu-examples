@@ -35,4 +35,4 @@ jobs:
       run: |
         python tests/scripts/prepare_fasttext.py
         chmod 775 tests/data/fasttext/custom_fasttext_model.bin
-        pytest
+        pytest -v --disable-warnings
