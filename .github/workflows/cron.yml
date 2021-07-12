@@ -28,6 +28,5 @@ jobs:
     - name: Test with pytest
       run: |
         python tests/scripts/prepare_fasttext.py
-        python tests/scripts/prepare_stanza.py
         chmod 775 tests/data/fasttext/custom_fasttext_model.bin
-        pytest
+        pytest -v
