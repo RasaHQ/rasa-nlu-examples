@@ -77,7 +77,7 @@ pipeline:
   analyzer: char_wb
   min_ngram: 1
   max_ngram: 4
-- name: rasa_nlu_examples.featurizers.dense.BytePairFeaturizer
+- name: rasa_nlu_examples.featurizers.SparseBytePairFeaturizer
   lang: en
   vs: 1000
   cache_dir: "tests/data"
