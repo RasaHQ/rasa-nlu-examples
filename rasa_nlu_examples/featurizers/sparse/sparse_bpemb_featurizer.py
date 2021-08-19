@@ -364,7 +364,7 @@ class SparseBytePairFeaturizer(SparseFeaturizer):
             model_path = (
                 Path(component_config["cache_dir"])
                 / self.component_config["lang"]
-                / f"en.wiki.bpe.vs{self.component_config['vs']}.model"
+                / f"{self.component_config['lang']}.wiki.bpe.vs{self.component_config['vs']}.model"
             )
             if not model_path.exists():
                 raise FileNotFoundError(
