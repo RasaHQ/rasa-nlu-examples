@@ -13,12 +13,13 @@ checks = [
     ("", ""),
     ("this is a stopword", "this is a"),
     ("stop that word", "that"),
-    ("words", "s"),
+    ("words", "words"),
 ]
 
 
 @pytest.mark.parametrize("goes_in, goes_out", checks)
 def test_leaves_empty_msg_alone(goes_in, goes_out):
-    message = Message(text="")
+    message = Message(text=goes_in)
     remover.process(message)
-    assert message.get("text") == ""
+    print(remover.stopwords)
+    assert message.get("text") == goes_out

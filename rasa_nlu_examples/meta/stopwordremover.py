@@ -39,7 +39,7 @@ class StopWordRemover(Component):
         )
         self.keyword_processor = KeywordProcessor(case_sensitive=False)
         for word in self.stopwords:
-            self.keyword_processor.add_keyword(word, "")
+            self.keyword_processor.add_keyword(word)
 
     def train(
         self,
@@ -50,7 +50,11 @@ class StopWordRemover(Component):
         pass
 
     def process(self, message: Message, **kwargs: Any) -> None:
-        message.set(TEXT, self.keyword_processor.replace_keywords(message.get(TEXT)))
+        txt = message.get(TEXT)
+        found_words = self.keyword_processor.extract_keywords(message.get(TEXT))
+        for word in found_words:
+            txt = txt.replace(word, "")
+        message.set(TEXT, txt.strip())
 
     def persist(self, file_name: Text, model_dir: Text) -> Optional[Dict[Text, Any]]:
         pass
