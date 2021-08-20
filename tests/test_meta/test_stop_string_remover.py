@@ -6,7 +6,9 @@ from rasa.shared.nlu.training_data.message import Message
 
 remover = StopWordRemover(
     component_config={
-        "path": pathlib.Path.cwd() / "tests" / "data" / "stopwords" / "stopwords.txt"
+        "path": str(
+            pathlib.Path.cwd() / "tests" / "data" / "stopwords" / "stopwords.txt"
+        )
     }
 )
 checks = [

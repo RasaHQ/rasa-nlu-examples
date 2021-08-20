@@ -9,6 +9,7 @@ from rasa.model_testing import test_nlu as run_nlu
 english_yml_files = [
     "printer-config.yml",
     "fasttext-config.yml",
+    "stopword-config.yml",
     "bytepair-config.yml",
     "gensim-config.yml",
     "dateparser-config.yml",
