@@ -18,6 +18,7 @@ nav:
           - ThaiTokenizer: docs/tokenizer/thai_tokenizer.md
       - Meta:
         - Printer: docs/meta/printer.md
+        - StopWordsRemover: docs/meta/stopwords.md
       - Featurizers:
         - GensimFeaturizer: docs/featurizer/gensim.md
         - FastTextFeaturizer: docs/featurizer/fasttext.md

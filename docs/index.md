@@ -88,10 +88,10 @@ entities.  We provide some examples of alternative intent classifiers here.
 
 ## **Meta**
 
-The components listed here won't effect the NLU pipeline but they might instead cause extra logs
-to appear to help with debugging.
+The components listed here are useful, but fall in the "other" category.
 
 - **`rasa_nlu_examples.meta.Printer` [docs](docs/meta/printer/)**
+- **`rasa_nlu_examples.meta.StopWordsRemover` [docs](docs/meta/stopwords/)**
 - **`rasa_nlu_examples.scikit.RasaClassifier` [docs](docs/jupyter/tools/#rasa_nlu_examples.scikit.classifier.RasaClassifier)**
 - **`rasa_nlu_examples.scikit.dataframe_to_nlu_file` [docs](docs/jupyter/tools/#rasa_nlu_examples.scikit.common.dataframe_to_nlu_file)**
 - **`rasa_nlu_examples.scikit.nlu_path_to_dataframe` [docs](docs/jupyter/tools/#rasa_nlu_examples.scikit.common.nlu_path_to_dataframe)**
