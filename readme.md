@@ -135,7 +135,7 @@ entities.  We provide some examples of alternative intent classifiers here.
 The components listed here are useful, but fall in the "other" category.
 
 - **`rasa_nlu_examples.meta.Printer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/meta/printer/)**
-- **`rasa_nlu_examples.meta.StopWordsRemover` [docs](docs/meta/stopwords/)**
+- **`rasa_nlu_examples.meta.StopWordsRemover` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/meta/stopwords/)**
 - **`rasa_nlu_examples.scikit.RasaClassifier` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/jupyter/tools/#rasa_nlu_examples.scikit.classifier.RasaClassifier)**
 - **`rasa_nlu_examples.scikit.dataframe_to_nlu_file` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/jupyter/tools/#rasa_nlu_examples.scikit.common.dataframe_to_nlu_file)**
 - **`rasa_nlu_examples.scikit.nlu_path_to_dataframe` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/jupyter/tools/#rasa_nlu_examples.scikit.common.nlu_path_to_dataframe)**
