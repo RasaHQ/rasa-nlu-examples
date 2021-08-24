@@ -1,6 +1,7 @@
 # Rasa NLU Examples
 
-<img src="square-logo.svg" width=200 height=200 align="right">
+<img src="icon.png" width=150 height=150 align="right">
+<img src="square-logo.svg" width=150 height=150 align="right">
 
 This repository contains Rasa compatible machine learning components. These components
 are open sourced in order to encourage experimentation and to quickly offer support to
