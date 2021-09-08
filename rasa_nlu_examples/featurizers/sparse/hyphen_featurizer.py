@@ -39,7 +39,7 @@ class HyphenFeaturizer(SparseFeaturizer):
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
         self.dic = pyphen.Pyphen(lang="en_GB")
-        
+
     def train(
         self,
         training_data: TrainingData,
@@ -57,7 +57,9 @@ class HyphenFeaturizer(SparseFeaturizer):
                 self.set_features(example, attribute)
 
     def create_word_vector(self, document: List[Text]) -> np.ndarray:
-        texts = [" ".join(self.dic.inserted(e.get("text").split("-", -1))) for e in document]
+        texts = [
+            " ".join(self.dic.inserted(e.get("text").split("-", -1))) for e in document
+        ]
         return self.countvectorizer.transform(texts).tocoo()
 
     def set_features(self, message: Message, attribute: Text = TEXT) -> None:
