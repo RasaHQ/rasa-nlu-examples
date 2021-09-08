@@ -1,0 +1,7 @@
+language: en
+
+pipeline:
+- name: WhitespaceTokenizer
+- name: rasa_nlu_examples.featurizers.sparse.HyphenFeaturizer
+- name: DIETClassifier
+  epochs: 1
