@@ -45,8 +45,9 @@ class HyphenFeaturizer(SparseFeaturizer):
         config: Optional[RasaNLUModelConfig] = None,
         **kwargs: Any,
     ) -> None:
+        print([e.get("text") for e in training_data.intent_examples])
         texts = [
-            " ".join(self.dic.inserted(e.get("text").split("-", -1)))
+            " ".join(self.dic.inserted(e.get("text")).split("-", -1))
             for e in training_data.intent_examples
         ]
         self.countvectorizer = CountVectorizer().fit(texts)
@@ -57,7 +58,7 @@ class HyphenFeaturizer(SparseFeaturizer):
 
     def create_word_vector(self, document: List[Text]) -> np.ndarray:
         texts = [
-            " ".join(self.dic.inserted(e.get("text").split("-", -1))) for e in document
+            " ".join(self.dic.inserted(e).split("-", -1)) for e in document
         ]
         return self.countvectorizer.transform(texts).tocoo()
 

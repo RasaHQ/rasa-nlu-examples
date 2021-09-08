@@ -6,12 +6,6 @@ from rasa.shared.nlu.training_data.message import Message
 from rasa_nlu_examples.scikit import load_interpreter
 
 
-config_man = dict(
-    lang="en",
-    vs=1000,
-    dim=25,
-    model_file="tests/data/bytepair/en/en.wiki.bpe.vs1000.model",
-)
 nlu_data = "tests/data/nlu/en/nlu.md"
 mod = train_nlu(
     nlu_data=nlu_data,
