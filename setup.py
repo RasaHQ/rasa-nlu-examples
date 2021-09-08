@@ -8,6 +8,7 @@ base_packages = [
     "rich>=9.2.0",
     "pandas>=1.0.5",
     "tensorflow>=2.3.0,<2.5",
+    "pyphen>=0.11.0",
 ]
 
 dev_packages = [
