@@ -1,0 +1,12 @@
+language: en
+
+pipeline:
+- name: WhitespaceTokenizer
+- name: rasa_nlu_examples.featurizers.sparse.HashingFeaturizer
+  norm: null  # use this here so the counts of token and sentence features can be compared in the unit test
+- name: DIETClassifier
+  epochs: 1
+  number_of_transformer_layers: 1
+  transformer_size: 12
+- name: rasa_nlu_examples.meta.Printer
+  alias: After DIET
