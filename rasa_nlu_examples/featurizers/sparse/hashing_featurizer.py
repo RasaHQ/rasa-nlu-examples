@@ -32,25 +32,26 @@ class HashingFeaturizer(SparseFeaturizer):
         return ["sklearn"]
 
     defaults = {
-        # The following parameters and defaults are the same as the ones used by
-        # scikit-learn version (0.24.2). For some nice explanations on what
-        # these parameters and their defaults so, have a look at the scikit-learn docs:
-        # https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.HashingVectorizer.html
+        # The following parameters and defaults are similar as the ones used by
+        # scikit-learn (version 0.24.2). For some nice explanations on these parameters and their defaults,
+        # have a look at the scikit-learn docs:
+        # https://scikit-learn.org/0.24/modules/generated/sklearn.feature_extraction.text.HashingVectorizer.html
         "strip_accents": None,
         "lowercase": True,
         "stop_words": None,
+        "token_pattern": r"(?u)\b\w+\b",  # do not limit words to >= 2 characters
         "ngram_range": (1, 1),
         "n_features": 2 ** 20,
         "binary": False,
         "norm": "l2",
         "alternate_sign": True,
-        # "dtype": np.float64,  #TODO: do we need this to be configurable? It lead to an error in the metadata serialization
     }
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
         self.hashing_vectorizer = HashingVectorizer(
-            **{key: self.component_config[key] for key in self.defaults}
+            **{key: self.component_config[key] for key in self.defaults},
+            dtype=np.float32,
         )
 
     def train(
