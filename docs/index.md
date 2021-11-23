@@ -59,6 +59,7 @@ features are picked up by intent classifiers and entity detectors later in the p
 - **`rasa_nlu_examples.featurizers.dense.GensimFeaturizer` [docs](docs/featurizer/gensim/)**
 - **`rasa_nlu_examples.featurizers.sparse.SparseBytePairFeaturizer` [docs](docs/featurizer/sparse_bytepair/)**
 - **`rasa_nlu_examples.featurizers.sparse.SemanticMapFeaturizer` [docs](docs/featurizer/semantic_map/)**
+- **`rasa_nlu_examples.featurizers.sparse.HashingFeaturizer` [docs](docs/featurizer/hashing/)**
 
 ## **Intent Classifiers**
 
