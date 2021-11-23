@@ -1,12 +1,12 @@
 import pathlib
+from typing import Callable, List, Text
+
 import pytest
 import scipy.sparse
-
 from rasa.model_training import train_nlu
-from rasa.shared.nlu.training_data.message import Message
-from rasa_nlu_examples.scikit import load_interpreter
-from rasa_nlu_examples.featurizers.sparse.hashing_featurizer import HashingFeaturizer
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
+from rasa.shared.nlu.training_data.message import Message
+from rasa_nlu_examples.featurizers.sparse.hashing_featurizer import HashingFeaturizer
 
 from .sparse_featurizer_checks import sparse_standard_test_combinations
 
@@ -14,14 +14,19 @@ component_config = dict(n_features=1024, norm=None)
 
 
 @pytest.mark.parametrize(
-    "test_fn,tok,feat,msg",
+    "test_fn,tokenizer,featurizer,messages",
     sparse_standard_test_combinations(
         tokenizer=WhitespaceTokenizer(),
         featurizer=HashingFeaturizer(component_config=component_config),
     ),
 )
-def test_auto_featurizer_checks(test_fn, tok, feat, msg):
-    test_fn(tok, feat, msg)
+def test_auto_featurizer_checks(
+    test_fn: Callable,
+    tokenizer: "Tokenizer",
+    featurizer: "Featurizer",
+    messages: List[Text],
+):
+    test_fn(tokenizer, featurizer, messages)
 
 
 @pytest.fixture
@@ -51,14 +56,18 @@ def test_feature_shapes(
     whitespace_tokenizer: WhitespaceTokenizer,
     hashing_featurizer: HashingFeaturizer,
 ):
-    message = Message.build("am I talking to a bot")
+    text = "am I talking to a bot"
+    message = Message.build(text)
 
     whitespace_tokenizer.process(message)
     hashing_featurizer.process(message)
 
     feat_tok, feat_sent = message.get_sparse_features("text")
-    assert feat_tok.features.shape == (6, 1024)
-    assert feat_sent.features.shape == (1, 1024)
+    assert feat_tok.features.shape == (
+        len(text.split()),
+        component_config["n_features"],
+    )
+    assert feat_sent.features.shape == (1, component_config["n_features"])
     assert feat_tok.features.sum() == feat_sent.features.sum()
 
 
