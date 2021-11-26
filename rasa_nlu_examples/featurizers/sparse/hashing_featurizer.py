@@ -20,8 +20,18 @@ from rasa.nlu.constants import (
 
 
 class HashingFeaturizer(SparseFeaturizer):
-    """This component adds sparse features by applying a hash function to map
-    the input text to indices of buckets."""
+    """
+    This component adds sparse features by applying a hashing vectorizer to the input tokens. Each token gets mapped
+    to an index in a sparse vector that is computed by applying a MurmurHash3 function and wrapping the resulting
+    integer to the number of columns in the vector.
+
+    The component is stateless and does not require training. For a small number of features, hash collisions get
+    more likely, meaning that multiple words get mapped to the same index. It is not possible to compute the inverse
+    transform to determine which tokens belong to a specific vector representation.
+
+    The implementation used is Scikit-Learn's HashingVectorizer class, which is described in detail here:
+    https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.HashingVectorizer.html
+    """
 
     @classmethod
     def required_components(cls) -> List[Type[Component]]:

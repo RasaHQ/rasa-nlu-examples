@@ -1,9 +1,7 @@
-import pathlib
 from typing import Callable, List, Text
 
 import pytest
 import scipy.sparse
-from rasa.model_training import train_nlu
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
 from rasa.shared.nlu.training_data.message import Message
 from rasa_nlu_examples.featurizers.sparse.hashing_featurizer import HashingFeaturizer
