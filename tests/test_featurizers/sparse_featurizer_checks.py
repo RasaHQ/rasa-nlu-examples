@@ -30,6 +30,7 @@ def test_component_adds_features(tokenizer, featurizer, msg):
     featurizer.process(message)
     seq_vecs, sen_vecs = message.get_sparse_features(TEXT, [])
     assert seq_vecs.features.shape[0] == len(tokens)
+    assert sen_vecs.features.shape[0] == 1
 
 
 def test_component_does_not_remove_features(tokenizer, featurizer, msg):

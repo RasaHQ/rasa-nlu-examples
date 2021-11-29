@@ -48,7 +48,7 @@ class HashingFeaturizer(SparseFeaturizer):
         # https://scikit-learn.org/0.24/modules/generated/sklearn.feature_extraction.text.HashingVectorizer.html
         #
         # the number of columns in the output vector
-        "n_features": 2 ** 20,  # int
+        "n_features": 2048,  # int
         # whether to use word or character n-grams
         # 'char_wb' creates character n-grams inside word boundaries
         # n-grams at the edges of words are padded with space.
