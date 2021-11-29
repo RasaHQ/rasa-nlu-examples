@@ -43,24 +43,40 @@ class HashingFeaturizer(SparseFeaturizer):
 
     defaults = {
         # The following parameters and defaults are similar as the ones used by
-        # scikit-learn (version 0.24.2). For some nice explanations on these parameters and their defaults,
-        # have a look at the scikit-learn docs:
+        # scikit-learn (version 0.24.2). For detailed explanations on these parameters
+        # and their defaults, have a look at the scikit-learn docs:
         # https://scikit-learn.org/0.24/modules/generated/sklearn.feature_extraction.text.HashingVectorizer.html
-        "strip_accents": None,
-        "lowercase": True,
-        "stop_words": None,
-        "token_pattern": r"(?u)\b\w+\b",  # do not limit words to >= 2 characters
+        #
+        # the number of columns in the output vector
+        "n_features": 2 ** 20,  # int
+        # whether to use word or character n-grams
+        # 'char_wb' creates character n-grams inside word boundaries
+        # n-grams at the edges of words are padded with space.
+        "analyzer": "word",  # use 'char' or 'char_wb' for character
+        # remove accents during the preprocessing step
+        "strip_accents": None,  # {'ascii', 'unicode', None}
+        # list of stop words
+        "stop_words": None,  # string {'english'}, list, or None (default)
+        # if `True` convert all characters to lowercase
+        "lowercase": True,  # bool
+        # set range of ngrams to be extracted
         "ngram_range": (1, 1),
-        "n_features": 2 ** 20,
-        "binary": False,
-        "norm": "l2",
-        "alternate_sign": True,
+        # if `True`, all non zero counts are set to 1.
+        "binary": False,  # bool
+        # the norm used to normalize term vectors
+        "norm": "l2",  # 'l1', 'l2', or None
+        # when `True`, an alternating sign is added to the features as to approximately
+        # conserve the inner product in the hashed space even for small n_features.
+        "alternate_sign": True,  # bool
     }
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
         self.hashing_vectorizer = HashingVectorizer(
             **{key: self.component_config[key] for key in self.defaults},
+            token_pattern=r"(?u)\b\w+\b"
+            if self.component_config["analyzer"] == "word"
+            else None,
             dtype=np.float32,
         )
 
