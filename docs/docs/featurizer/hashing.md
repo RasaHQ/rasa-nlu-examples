@@ -11,10 +11,12 @@ same index.
 ## Configurable Variables
 
 - **n_features**: the number of columns the input is mapped to
-- **lowercase**: apply lower casing to the input string
+- **analyzer**: how tokens are split. possible choices are `word`, `char` and `char_wb`
+- **lowercase**: convert input strings to lowercase
 - **strip_accents**: remove accents using one of the methods `ascii` or `unicode`
 - **stop_words**: filter by a list of stop words
-- **norm**: the normalization applied to each row vector (options are `l1` or `l2`)
+- **ngram_range**: the range of ngrams to extract, e.g. `(1, 2)` will featurizer unigrams and bigrams
+- **norm**: the normalization applied to each row vector (options are `l1`, `l2` or `null`)
 - **binary**: if `True`, all non-zero elements are mapped to `1`, instead of absolute counts
 - **alternate_sign**: apply the sign of the hashing function in order to reduce the effect of hash coalitions
 
