@@ -6,7 +6,7 @@ languages [here](https://stanfordnlp.github.io/stanza/available_models.html).
     In order to use this tool you'll need to ensure the correct dependencies are installed.
 
     ```
-    pip install "rasa_nlu_examples[stanza] @ https://github.com/RasaHQ/rasa-nlu-examples.git"
+    pip install "rasa_nlu_examples[stanza] @ https://github.com/RasaHQ/rasa-nlu-examples"
     ```
 
 ## Model Download

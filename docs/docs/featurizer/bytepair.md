@@ -6,17 +6,17 @@ A main feature of these types of embeddings is that they are relatively lightwei
 their availability in many languages. BytePair embeddings exist for **277** languages that are
 pretrained on wikipedia. There's also availability for a multi-language setting.
 
-More information on these embeddings can be found [here](https://nlp.h-its.org/bpemb/). When you scroll down you will
+More information on these embeddings can be found [here](https://bpemb.h-its.org/). When you scroll down you will
 notice a large of languages that are available. Here's some examples from that list that give a detailed view of available
 vectors:
 
-- [Abkhazian](https://nlp.h-its.org/bpemb/ab/)
-- [Zulu](https://nlp.h-its.org/bpemb/zu/)
-- [English](https://nlp.h-its.org/bpemb/en/)
-- [Hindi](https://nlp.h-its.org/bpemb/hi/)
-- [Chinese](https://nlp.h-its.org/bpemb/zh/)
-- [Esperanto](https://nlp.h-its.org/bpemb/eo/)
-- [Multi Language](https://nlp.h-its.org/bpemb/multi/)
+- [Abkhazian](https://bpemb.h-its.org/ab/)
+- [Zulu](https://bpemb.h-its.org/zu/)
+- [English](https://bpemb.h-its.org/en/)
+- [Hindi](https://bpemb.h-its.org/hi/)
+- [Chinese](https://bpemb.h-its.org/zh/)
+- [Esperanto](https://bpemb.h-its.org/eo/)
+- [Multi Language](https://bpemb.h-its.org/multi/)
 
 ## Configurable Variables
 

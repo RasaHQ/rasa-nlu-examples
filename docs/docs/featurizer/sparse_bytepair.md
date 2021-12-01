@@ -15,17 +15,17 @@ Instead of encoding three words, this featurizer would encode 5 subtokens. Note
 that we also create features for each token. So the token "talking" will get the
 features for "_talk" and "ing".
 
-More information on the available models can be found [here](https://nlp.h-its.org/bpemb/).
+More information on the available models can be found [here](https://bpemb.h-its.org/).
 When you scroll down you will  notice a large of languages that are available. Here's
 some examples from that list that give a detailed view of available languages:
 
-- [Abkhazian](https://nlp.h-its.org/bpemb/ab/)
-- [Zulu](https://nlp.h-its.org/bpemb/zu/)
-- [English](https://nlp.h-its.org/bpemb/en/)
-- [Hindi](https://nlp.h-its.org/bpemb/hi/)
-- [Chinese](https://nlp.h-its.org/bpemb/zh/)
-- [Esperanto](https://nlp.h-its.org/bpemb/eo/)
-- [Multi Language](https://nlp.h-its.org/bpemb/multi/)
+- [Abkhazian](https://bpemb.h-its.org/ab/)
+- [Zulu](https://bpemb.h-its.org/zu/)
+- [English](https://bpemb.h-its.org/en/)
+- [Hindi](https://bpemb.h-its.org/hi/)
+- [Chinese](https://bpemb.h-its.org/zh/)
+- [Esperanto](https://bpemb.h-its.org/eo/)
+- [Multi Language](https://bpemb.h-its.org/multi/)
 
 ## Configurable Variables
 

@@ -5,7 +5,7 @@
     or use our convenience installer.
 
     ```
-    python -m pip install "rasa_nlu_examples[flashtext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
+    python -m pip install "rasa_nlu_examples[flashtext] @ git+https://github.com/RasaHQ/rasa-nlu-examples"
     ```
 
 This entity extractor uses the [flashtext](https://flashtext.readthedocs.io/en/latest/) library

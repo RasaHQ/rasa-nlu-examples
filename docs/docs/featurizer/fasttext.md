@@ -5,7 +5,7 @@ Fasttext supports word embeddings for 157 languages and is trained on both Commo
     In order to use this tool you'll need to ensure the correct dependencies are installed.
 
     ```
-    pip install "rasa_nlu_examples[fasttext] @ https://github.com/RasaHQ/rasa-nlu-examples.git"
+    pip install "rasa_nlu_examples[fasttext] @ https://github.com/RasaHQ/rasa-nlu-examples"
     ```
 
 
