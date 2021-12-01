@@ -28,7 +28,7 @@ jobs:
         pip install flake8 black
     - name: Black
       run: |
-        black --check --diff --target-version py37 rasa_nlu_examples
+        make black
     - name: Flake8
       run: |
-        flake8 rasa_nlu_examples tests
+        make flake
