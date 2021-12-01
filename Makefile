@@ -3,6 +3,7 @@ install:
 	pre-commit install
 	python tests/scripts/prepare_fasttext.py
 	python tests/scripts/prepare_stanza.py
+	python -m pip install deadlink
 
 test:
 	pytest
@@ -15,7 +16,10 @@ flake:
 
 style: black flake
 
-check: style test
+links:
+	deadlink check readme.md docs
+
+check: style test links
 
 clean:
 	rm models/*.tar.gz
