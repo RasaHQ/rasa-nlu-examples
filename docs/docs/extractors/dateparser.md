@@ -5,7 +5,7 @@
     or use our convenience installer.
 
     ```
-    python -m pip install "rasa_nlu_examples[dateparser] @ git+https://github.com/RasaHQ/rasa-nlu-examples"
+    python -m pip install "rasa_nlu_examples[dateparser] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
     ```
 
 ## What does it do?

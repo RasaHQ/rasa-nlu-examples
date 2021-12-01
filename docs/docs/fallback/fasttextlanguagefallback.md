@@ -13,7 +13,7 @@ specify a minimum number of characters and tokens before this model triggers an 
     In order to use this tool you'll need to ensure the correct dependencies are installed.
 
     ```
-    pip install "rasa_nlu_examples[fasttext] @ https://github.com/RasaHQ/rasa-nlu-examples"
+    pip install "rasa_nlu_examples[fasttext] @ https://github.com/RasaHQ/rasa-nlu-examples.git"
     ```
 
 ## Understanding the Tool
