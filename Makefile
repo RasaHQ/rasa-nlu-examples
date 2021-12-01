@@ -7,9 +7,13 @@ install:
 test:
 	pytest
 
-style:
-	black --check --diff --target-version py37 rasa_nlu_examples
+black:
+	black --check --diff --target-version py37 rasa_nlu_examples tests
+
+flake:
 	flake8 rasa_nlu_examples tests
+
+style: black flake
 
 check: style test
 
