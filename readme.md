@@ -1,3 +1,5 @@
+**Note!** We're still in the process of supporting Rasa 3.0. The code, as-is, is meant for Rasa Open Source 2.x.
+
 # Rasa NLU Examples
 
 <img src="icon.png" width=150 height=150 align="right">
