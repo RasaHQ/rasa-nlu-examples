@@ -3,15 +3,23 @@ install:
 	pre-commit install
 	python tests/scripts/prepare_fasttext.py
 	python tests/scripts/prepare_stanza.py
+	python -m pip install deadlink
 
 test:
 	pytest
 
-style:
-	black --check --diff --target-version py37 rasa_nlu_examples
+black:
+	black --check --diff --target-version py37 rasa_nlu_examples tests
+
+flake:
 	flake8 rasa_nlu_examples tests
 
-check: style test
+style: black flake
+
+links:
+	deadlink check readme.md docs
+
+check: style test links
 
 clean:
 	rm models/*.tar.gz

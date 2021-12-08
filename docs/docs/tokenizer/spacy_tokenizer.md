@@ -10,12 +10,12 @@ component.
     ```
 
     You should also be aware that for certain languages extra dependencies are required.
-    More information is given on the [spacy documentation](https://spacy.io/usage/models#languages).
+    More information is given on the [spacy documentation](https://spacy.io/usage/models/#languages).
 
 
 ## Configurable Variables
 
-- **lang**: the two-letter [abbreviation](https://spacy.io/usage/models#languages) of the language you want to use.
+- **lang**: the two-letter [abbreviation](https://spacy.io/usage/models/#languages) of the language you want to use.
 
 ## Base Usage
 

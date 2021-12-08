@@ -23,7 +23,7 @@ class StopWordRemover(Component):
     def required_components(cls) -> List[Type[Component]]:
         return []
 
-    defaults = {"alias": None}
+    defaults = {"alias": None, "path": None}
     language_list = None
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:

@@ -1,3 +1,5 @@
+**Note!** We're still in the process of supporting Rasa 3.0. The code, as-is, is meant for Rasa Open Source 2.x.
+
 # Rasa NLU Examples
 
 <img src="icon.png" width=150 height=150 align="right">
@@ -80,6 +82,7 @@ You can find the documentation for this project [here](https://rasahq.github.io/
 This project currently supports components for Rasa 2.0. For older versions, see the list below.
 
 - [version 0.1.3](https://github.com/RasaHQ/rasa-nlu-examples/tree/0.1.3) is the final release for Rasa 1.10
+- [version 0.2.8](https://github.com/RasaHQ/rasa-nlu-examples/tree/0.2.8) is the final release for Rasa 2.8
 
 ## **Tokenizers**
 
@@ -90,8 +93,8 @@ you can also choose to apply lemmatization. For languages that have rich grammat
 this might help reduce the size of all the possible tokens.
 
 - **`rasa_nlu_examples.tokenizers.BlankSpacyTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/spacy_tokenizer/)
-- **`rasa_nlu_examples.tokenizers.StanzaTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/stanza/)
-- **`rasa_nlu_examples.tokenizers.ThaiTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/thai_tokenizer/)
+- **`rasa_nlu_examples.tokenizers.StanzaTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/stanza/)
+- **`rasa_nlu_examples.tokenizers.ThaiTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/thai_tokenizer/)
 
 ## **Featurizers**
 
@@ -129,7 +132,7 @@ entities.  We provide some examples of alternative intent classifiers here.
 
 ![](docs/images/fallback.png)
 
-- **`rasa_nlu_examples.fallback.FasttextLanguageFallbackClassifier` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/fallback/fasttextlanguagefallback.md)**
+- **`rasa_nlu_examples.fallback.FasttextLanguageFallbackClassifier` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/fallback/fasttextlanguagefallback/)**
 
 ## **Other**
 
@@ -150,7 +153,7 @@ thought French is used actively in both countries, the names of it's citizens mi
 be so different that you cannot assume that the benchmarks apply universally.
 
 To remedy this we've started collecting name lists. These can be used as a lookup table
-which can be picked up by Rasa's [RegexEntityExtractor](https://rasahq.github.io/rasa-nlu-examples/docs/rasa/components#regexentityextractor)
+which can be picked up by Rasa's [RegexEntityExtractor](https://rasa.com/docs/rasa/components#regexentityextractor)
 or our [FlashTextEntityExtractor](https://rasahq.github.io/rasa-nlu-examples/docs/extractors/flashtext/).
 It won't be 100% perfect but it should give a reasonable starting point.
 

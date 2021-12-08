@@ -2,12 +2,12 @@ from setuptools import setup, find_packages
 
 
 base_packages = [
-    "rasa>=2.2.0",
+    "rasa~=2.8.7",
     "bpemb>=0.3.2",
     "gensim~=3.8.3",
     "rich>=9.2.0",
+    "tensorflow>=2.6.0",
     "pandas>=1.0.5",
-    "tensorflow>=2.3.0,<2.5",
     "pyphen>=0.11.0",
 ]
 
