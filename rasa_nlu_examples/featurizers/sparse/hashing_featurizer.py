@@ -60,7 +60,8 @@ class HashingFeaturizer(SparseFeaturizer):
         # if `True` convert all characters to lowercase
         "lowercase": True,  # bool
         # set range of ngrams to be extracted
-        "ngram_range": (1, 1),
+        "min_ngram": 1,
+        "max_ngram": 1,
         # if `True`, all non zero counts are set to 1.
         "binary": False,  # bool
         # the norm used to normalize term vectors
@@ -73,10 +74,21 @@ class HashingFeaturizer(SparseFeaturizer):
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
         self.hashing_vectorizer = HashingVectorizer(
-            **{key: self.component_config[key] for key in self.defaults},
+            n_features=self.component_config["n_features"],
+            analyzer=self.component_config["analyzer"],
             token_pattern=r"(?u)\b\w+\b"
             if self.component_config["analyzer"] == "word"
             else None,
+            strip_accents=self.component_config["strip_accents"],
+            stop_words=self.component_config["stop_words"],
+            lowercase=self.component_config["lowercase"],
+            ngram_range=(
+                self.component_config["min_ngram"],
+                self.component_config["max_ngram"],
+            ),
+            binary=self.component_config["binary"],
+            norm=self.component_config["norm"],
+            alternate_sign=self.component_config["alternate_sign"],
             dtype=np.float32,
         )
 
