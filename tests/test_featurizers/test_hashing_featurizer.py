@@ -2,7 +2,8 @@ from typing import Callable, List, Text
 
 import pytest
 import scipy.sparse
-import numpy as np
+from rasa.nlu.tokenizers.tokenizer import Tokenizer
+from rasa.nlu.featurizers.featurizer import Featurizer
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
 from rasa.shared.nlu.training_data.message import Message
 from rasa_nlu_examples.featurizers.sparse.hashing_featurizer import HashingFeaturizer
@@ -21,8 +22,8 @@ component_config = dict(n_features=1024, norm=None, alternate_sign=False)
 )
 def test_auto_featurizer_checks(
     test_fn: Callable,
-    tokenizer: "Tokenizer",
-    featurizer: "Featurizer",
+    tokenizer: Tokenizer,
+    featurizer: Featurizer,
     messages: List[Text],
 ):
     test_fn(tokenizer, featurizer, messages)
