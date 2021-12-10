@@ -79,9 +79,7 @@ class HashingFeaturizer(SparseFeaturizer):
 
         self.hashing_vectorizer = HashingVectorizer(
             **params,
-            token_pattern=r"(?u)\b\w+\b"
-            if self.component_config["analyzer"] == "word"
-            else None,
+            token_pattern=r"(?u)\b\w+\b" if params["analyzer"] == "word" else None,
             ngram_range=ngram_range,
             dtype=np.float32,
         )
