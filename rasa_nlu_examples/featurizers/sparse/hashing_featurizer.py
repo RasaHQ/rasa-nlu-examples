@@ -73,22 +73,16 @@ class HashingFeaturizer(SparseFeaturizer):
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
         super().__init__(component_config)
+
+        params = {key: self.component_config[key] for key in self.defaults}
+        ngram_range = (params.pop("min_ngram"), params.pop("max_ngram"))
+
         self.hashing_vectorizer = HashingVectorizer(
-            n_features=self.component_config["n_features"],
-            analyzer=self.component_config["analyzer"],
+            **params,
             token_pattern=r"(?u)\b\w+\b"
             if self.component_config["analyzer"] == "word"
             else None,
-            strip_accents=self.component_config["strip_accents"],
-            stop_words=self.component_config["stop_words"],
-            lowercase=self.component_config["lowercase"],
-            ngram_range=(
-                self.component_config["min_ngram"],
-                self.component_config["max_ngram"],
-            ),
-            binary=self.component_config["binary"],
-            norm=self.component_config["norm"],
-            alternate_sign=self.component_config["alternate_sign"],
+            ngram_range=ngram_range,
             dtype=np.float32,
         )
 
