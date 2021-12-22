@@ -2,7 +2,6 @@ install:
 	python -m pip install -e .
 	pre-commit install
 	python tests/scripts/prepare_fasttext.py
-	python tests/scripts/prepare_stanza.py
 	python -m pip install deadlink
 
 test:
