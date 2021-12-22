@@ -20,7 +20,7 @@ examples = [
     {
         "text": "Trường đại học bách khoa hà nội",
         "lang": "vi",
-        "result": ["Trường", "đại học", "bách khoa", "hà nội"],
+        "result": ["Trường", "đại_học", "bách_khoa", "hà_nội"],
     },
 ]
 

@@ -5,8 +5,8 @@ from rasa.model_training import train_nlu
 
 def test_base_predict():
     mod = train_nlu(
-        nlu_data="tests/data/nlu/en/nlu.md",
-        config="tests/configs/printer-config.yml",
+        nlu_data="tests/data/nlu/en/nlu.yml",
+        config="tests/configs/bytepair-config.yml",
         output="models",
     )
     clf = RasaClassifier(model_path=f"{mod}")

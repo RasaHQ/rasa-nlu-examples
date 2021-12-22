@@ -12,7 +12,7 @@ config_man = dict(
     dim=25,
     model_file="tests/data/bytepair/en/en.wiki.bpe.vs1000.model",
 )
-nlu_data = "tests/data/nlu/en/nlu.md"
+nlu_data = "tests/data/nlu/en/nlu.yml"
 mod = train_nlu(
     nlu_data=nlu_data,
     config="tests/configs/sparse-bytepair-config.yml",
