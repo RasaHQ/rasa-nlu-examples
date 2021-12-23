@@ -1,122 +1,134 @@
-import os
-import typing
-from functools import reduce
-from typing import Any, Optional, Text, Dict, List, Type
+import logging
+import pathlib
+from typing import Any, Dict, List, Text, Type
 
 from gensim.models import KeyedVectors
-
 import numpy as np
-from rasa.nlu.components import Component
-from rasa.nlu.config import RasaNLUModelConfig
+from rasa.engine.graph import ExecutionContext, GraphComponent
+from rasa.engine.recipes.default_recipe import DefaultV1Recipe
+from rasa.engine.storage.resource import Resource
+from rasa.engine.storage.storage import ModelStorage
+from rasa.nlu.constants import DENSE_FEATURIZABLE_ATTRIBUTES, FEATURIZER_CLASS_ALIAS
+from rasa.nlu.featurizers.dense_featurizer.dense_featurizer import DenseFeaturizer
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
-from rasa.shared.nlu.constants import TEXT, FEATURE_TYPE_SENTENCE, FEATURE_TYPE_SEQUENCE
-from rasa.shared.nlu.training_data.message import Message
-from rasa.shared.nlu.training_data.features import Features
-from rasa.shared.nlu.training_data.training_data import TrainingData
-from rasa.nlu.featurizers.featurizer import DenseFeaturizer
-from rasa.nlu.constants import (
-    DENSE_FEATURIZABLE_ATTRIBUTES,
-    FEATURIZER_CLASS_ALIAS,
-    TOKENS_NAMES,
+from rasa.shared.nlu.constants import (
+    FEATURE_TYPE_SENTENCE,
+    FEATURE_TYPE_SEQUENCE,
+    TEXT,
+    TEXT_TOKENS,
 )
+from rasa.shared.nlu.training_data.features import Features
+from rasa.shared.nlu.training_data.message import Message
+from rasa.shared.nlu.training_data.training_data import TrainingData
 
-if typing.TYPE_CHECKING:
-    from rasa.nlu.model import Metadata
+logger = logging.getLogger(__name__)
 
 
-class GensimFeaturizer(DenseFeaturizer):
-    """This component adds gensim features."""
+@DefaultV1Recipe.register(
+    DefaultV1Recipe.ComponentType.MESSAGE_FEATURIZER, is_trainable=False
+)
+class GensimFeaturizer(DenseFeaturizer, GraphComponent):
+    """This component adds fasttext features."""
 
     @classmethod
-    def required_components(cls) -> List[Type[Component]]:
+    def required_components(cls) -> List[Type]:
+        """Components that should be included in the pipeline before this component."""
         return [Tokenizer]
 
-    @classmethod
-    def required_packages(cls) -> List[Text]:
+    @staticmethod
+    def required_packages() -> List[Text]:
+        """Any extra python dependencies required for this component to run."""
         return ["gensim"]
 
-    defaults = {"file": None, "cache_dir": None}
-    language_list = None
+    @staticmethod
+    def get_default_config() -> Dict[Text, Any]:
+        """Returns the component's default config."""
+        return {
+            **DenseFeaturizer.get_default_config(),
+            # specifies the language of the subword segmentation model
+            "cache_path": None,
+        }
 
-    def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
-        super().__init__(component_config)
-        if "cache_dir" not in component_config.keys():
-            raise ValueError("You need to set `cache_dir` for the GensimFeaturizer.")
-        if "file" not in component_config.keys():
-            raise ValueError("You need to set `file` for the GensimFeaturizer.")
-        path = os.path.join(component_config["cache_dir"], component_config["file"])
-
-        if not os.path.exists(component_config["cache_dir"]):
-            raise FileNotFoundError(
-                f"It seems that the cache dir {component_config['cache_dir']} does not exists. Please check config."
-            )
-        if not os.path.exists(path):
-            raise FileNotFoundError(
-                f"It seems that file {path} does not exists. Please check config."
-            )
-
-        self.kv = KeyedVectors.load(path)
-
-    def train(
+    def __init__(
         self,
-        training_data: TrainingData,
-        config: Optional[RasaNLUModelConfig] = None,
-        **kwargs: Any,
+        config: Dict[Text, Any],
+        name: Text,
     ) -> None:
-        for example in training_data.training_examples:
+        """Constructs a new byte pair vectorizer."""
+        config["alias"] = name if not config.get("alias") else config["alias"]
+        super().__init__(name, config)
+        # The configuration dictionary is saved in `self._config` for reference.
+        self.kv = KeyedVectors.load(config["cache_path"])
+
+    @classmethod
+    def create(
+        cls,
+        config: Dict[Text, Any],
+        model_storage: ModelStorage,
+        resource: Resource,
+        execution_context: ExecutionContext,
+    ) -> GraphComponent:
+        """Creates a new component (see parent class for full docstring)."""
+        return cls(config, execution_context.node_name)
+
+    def process(self, messages: List[Message]) -> List[Message]:
+        """Processes incoming messages and computes and sets features."""
+        for message in messages:
             for attribute in DENSE_FEATURIZABLE_ATTRIBUTES:
-                self.set_gensim_features(example, attribute)
+                self._set_features(message, attribute)
+        return messages
 
-    def set_gensim_features(self, message: Message, attribute: Text = TEXT) -> None:
-        tokens = message.get(TOKENS_NAMES[attribute])
+    def process_training_data(self, training_data: TrainingData) -> TrainingData:
+        """Processes the training examples in the given training data in-place."""
+        self.process(training_data.training_examples)
+        return training_data
 
+    def _create_word_vector(self, document: Text) -> np.ndarray:
+        """Creates a word vector from a text. Utility method."""
+        return (
+            self.kv[document] if document in self.kv else np.zeros(self.kv.vector_size)
+        )
+
+    def _set_features(self, message: Message, attribute: Text = TEXT) -> None:
+        """Sets the features on a single message. Utility method."""
+        tokens = message.get(TEXT_TOKENS)
+
+        # If the message doesn't have tokens, we can't create features.
         if not tokens:
             return None
 
-        # If the key is not available then we featurize it with an array of zeros
-        word_vectors = np.array(
-            [
-                self.kv[t.text] if t.text in self.kv else np.zeros(self.kv.vector_size)
-                for t in tokens
-            ]
+        # We need to reshape here such that the shape is equivalent to that of sparsely
+        # generated features. Without it, it'd be a 1D tensor. We need 2D (n_utterance, n_dim).
+        text_vector = self._create_word_vector(document=message.get(TEXT)).reshape(
+            1, -1
         )
-
-        # Sum up all the word vectors so that we have one for the complete utterance, e.g. sentence vector
-        text_vector = reduce(lambda a, b: a + b, word_vectors).reshape(1, -1)
+        word_vectors = np.array(
+            [self._create_word_vector(document=t.text) for t in tokens]
+        )
 
         final_sequence_features = Features(
             word_vectors,
             FEATURE_TYPE_SEQUENCE,
             attribute,
-            self.component_config[FEATURIZER_CLASS_ALIAS],
+            self._config[FEATURIZER_CLASS_ALIAS],
         )
         message.add_features(final_sequence_features)
         final_sentence_features = Features(
             text_vector,
             FEATURE_TYPE_SENTENCE,
             attribute,
-            self.component_config[FEATURIZER_CLASS_ALIAS],
+            self._config[FEATURIZER_CLASS_ALIAS],
         )
         message.add_features(final_sentence_features)
 
-    def process(self, message: Message, **kwargs: Any) -> None:
-        self.set_gensim_features(message)
-
-    def persist(self, file_name: Text, model_dir: Text) -> Optional[Dict[Text, Any]]:
-        return None
-
     @classmethod
-    def load(
-        cls,
-        meta: Dict[Text, Any],
-        model_dir: Optional[Text] = None,
-        model_metadata: Optional["Metadata"] = None,
-        cached_component: Optional["Component"] = None,
-        **kwargs: Any,
-    ) -> "Component":
-        """Load this component from file."""
-
-        if cached_component:
-            return cached_component
-
-        return cls(meta)
+    def validate_config(cls, config: Dict[Text, Any]) -> None:
+        """Validates that the component is configured properly."""
+        if "cache_path" not in config.keys():
+            raise ValueError(
+                "FastTextFeaturizer needs pre-trained cache file `cache_path`."
+            )
+        if not pathlib.Path(config["cache_path"]).exists():
+            raise FileNotFoundError(
+                f"FastTextFeaturizer `cache_path={config['cache_path']}` does not exist."
+            )
