@@ -20,7 +20,7 @@ examples = [
     {
         "text": "Trường đại học bách khoa hà nội",
         "lang": "vi",
-        "result": ["Trường", "đại học", "bách khoa", "hà nội"],
+        "result": ["Trường", "đại_học", "bách_khoa", "hà_nội"],
     },
 ]
 
@@ -28,7 +28,7 @@ examples = [
 @pytest.mark.parametrize("example", examples)
 def test_base_examples(example):
     message = Message({TEXT: example["text"]})
-    tok = BlankSpacyTokenizer(component_config={"lang": example["lang"]})
-    tok.process(message)
+    tok = BlankSpacyTokenizer(config={"lang": example["lang"]})
+    tok.process([message])
     tokens = message.get(TOKENS_NAMES[TEXT])
     assert [t.text for t in tokens] == example["result"]

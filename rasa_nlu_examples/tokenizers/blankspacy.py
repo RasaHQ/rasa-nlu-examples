@@ -24,17 +24,20 @@ class BlankSpacyTokenizer(Tokenizer):
     @staticmethod
     def get_default_config() -> Dict[Text, Any]:
         """Returns the component's default config."""
-        return {"lang": None}
+        return {
+            # This *must* be added due to the parent class.
+            "intent_tokenization_flag": False,
+            # This *must* be added due to the parent class.
+            "intent_split_symbol": "_",
+            # This is the spaCy language setting.
+            "lang": None,
+        }
 
     def __init__(self, config: Dict[Text, Any]) -> None:
         """Initialize the tokenizer."""
+        config = {**self.get_default_config(), "lang": config["lang"]}
         super().__init__(config)
-        self.nlp = spacy.blank(config["lang"])
-
-    def parse_string(self, s):
-        if self.only_alphanum:
-            return "".join([c for c in s if ((c == " ") or str.isalnum(c))])
-        return s
+        self.nlp = spacy.blank(name=config["lang"])
 
     @classmethod
     def create(
