@@ -29,7 +29,7 @@ from rasa_nlu_examples.classifiers.sparse_sklearn_intent_classifier import (
 
 SPARSE_SKLEARN_INTENT_CLASSIFIERS = [
     SparseNaiveBayesIntentClassifier,
-    SparseLogisticRegressionIntentClassifier,
+    LogisticRegressionIntentClassifier,
 ]
 
 
