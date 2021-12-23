@@ -21,4 +21,4 @@ links:
 check: style test links
 
 clean:
-	rm models/*.tar.gz
+	rm -rf */**/__pycache__ models/*.tar.gz __pycache__ .ipynb_checkpoints .pytest_cache
