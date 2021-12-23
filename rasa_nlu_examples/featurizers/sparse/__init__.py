@@ -1,7 +1,7 @@
-from .sparse_bpemb_featurizer import SparseBytePairFeaturizer
 from .hashing_featurizer import HashingFeaturizer
+from .tfidf_featurizer import TfIdfFeaturizer
 
 __all__ = [
-    "SparseBytePairFeaturizer",
+    "TfidfFeaturizer",
     "HashingFeaturizer",
 ]
