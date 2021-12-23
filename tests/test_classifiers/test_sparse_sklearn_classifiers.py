@@ -20,8 +20,8 @@ from rasa.shared.nlu.constants import (
 from rasa_nlu_examples.classifiers.sparse_naive_bayes_intent_classifier import (
     SparseNaiveBayesIntentClassifier,
 )
-from rasa_nlu_examples.classifiers.sparse_logistic_regression_intent_classifier import (
-    SparseLogisticRegressionIntentClassifier,
+from rasa_nlu_examples.classifiers.logistic_regression_intent_classifier import (
+    LogisticRegressionIntentClassifier,
 )
 from rasa_nlu_examples.classifiers.sparse_sklearn_intent_classifier import (
     SparseSklearnIntentClassifier,
