@@ -9,16 +9,10 @@ from rasa_nlu_examples.extractors import FlashTextEntityExtractor
 
 
 @pytest.mark.parametrize(
-    "text, lookup, expected_entities",
+    "text, expected_entities",
     [
         (
             "Berlin and London are cities.",
-            [
-                {
-                    "name": "city",
-                    "elements": ["Berlin", "Amsterdam", "New York", "London"],
-                }
-            ],
             [
                 {
                     "entity": "city",
@@ -42,13 +36,6 @@ from rasa_nlu_examples.extractors import FlashTextEntityExtractor
             "Sophie is visiting Thomas in Berlin.",
             [
                 {
-                    "name": "city",
-                    "elements": ["Berlin", "Amsterdam", "New York", "London"],
-                },
-                {"name": "person", "elements": ["Max", "John", "Sophie", "Lisa"]},
-            ],
-            [
-                {
                     "entity": "person",
                     "value": "Sophie",
                     "start": 0,
@@ -68,13 +55,6 @@ from rasa_nlu_examples.extractors import FlashTextEntityExtractor
         ),
         (
             "Rasa is great.",
-            [
-                {
-                    "name": "city",
-                    "elements": ["Berlin", "Amsterdam", "New York", "London"],
-                },
-                {"name": "person", "elements": ["Max", "John", "Sophie", "Lisa"]},
-            ],
             [],
         ),
     ],

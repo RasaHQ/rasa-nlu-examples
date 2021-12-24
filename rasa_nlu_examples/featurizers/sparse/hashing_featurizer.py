@@ -10,7 +10,6 @@ from rasa.shared.nlu.training_data.features import Features
 from rasa.nlu.featurizers.sparse_featurizer.sparse_featurizer import SparseFeaturizer
 from rasa.shared.nlu.constants import TEXT, FEATURE_TYPE_SENTENCE, FEATURE_TYPE_SEQUENCE
 from rasa.nlu.constants import (
-    DENSE_FEATURIZABLE_ATTRIBUTES,
     FEATURIZER_CLASS_ALIAS,
     TOKENS_NAMES,
 )

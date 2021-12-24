@@ -1,14 +1,12 @@
 from typing import Any
 
-import sklearn
 from sklearn.naive_bayes import BernoulliNB
 
 import logging
-from typing import Any, Text, Dict, List, Type
+from typing import Text, Dict, List, Type
 
 from joblib import dump, load
-from scipy.sparse import hstack, vstack, csr_matrix
-from sklearn.linear_model import LogisticRegression
+from scipy.sparse import vstack, csr_matrix
 
 from rasa.engine.storage.resource import Resource
 from rasa.engine.storage.storage import ModelStorage

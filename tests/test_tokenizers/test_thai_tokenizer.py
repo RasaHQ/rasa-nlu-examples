@@ -4,11 +4,7 @@ import itertools as it
 
 from rasa.shared.nlu.constants import TEXT
 from rasa.shared.nlu.training_data.message import Message
-from rasa.shared.nlu.training_data.training_data import TrainingData
 from rasa.nlu.constants import TOKENS_NAMES
-from rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer import (
-    CountVectorsFeaturizer,
-)
 from rasa_nlu_examples.tokenizers import ThaiTokenizer
 
 

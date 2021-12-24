@@ -11,14 +11,6 @@ from rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer import (
     CountVectorsFeaturizer,
 )
 from rasa_nlu_examples.classifiers import SparseNaiveBayesClassifier
-from rasa.shared.nlu.constants import (
-    TEXT,
-    INTENT,
-    INTENT_NAME_KEY,
-    FEATURE_TYPE_SENTENCE,
-    PREDICTED_CONFIDENCE_KEY,
-    INTENT_RANKING_KEY,
-)
 
 
 @pytest.fixture

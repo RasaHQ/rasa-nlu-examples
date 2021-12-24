@@ -11,7 +11,6 @@ from rasa.nlu.extractors.extractor import EntityExtractorMixin
 from rasa.shared.nlu.training_data.message import Message
 from rasa.shared.nlu.constants import (
     TEXT,
-    TEXT_TOKENS,
     ENTITY_ATTRIBUTE_TYPE,
     ENTITY_ATTRIBUTE_START,
     ENTITY_ATTRIBUTE_END,
