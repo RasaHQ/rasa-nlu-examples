@@ -98,6 +98,12 @@ class LogisticRegressionClassifier(IntentClassifier, GraphComponent):
 
     def train(self, training_data: TrainingData) -> Resource:
         X, y = self._create_training_matrix(training_data)
+        if X.shape[0] == 0:
+            logger.debug(
+                f"Cannot train '{self.__class__.__name__}'. No data was provided. "
+                f"Skipping training of the classifier."
+            )
+            return self._resource
 
         self.clf.fit(X, y)
         self.persist()
