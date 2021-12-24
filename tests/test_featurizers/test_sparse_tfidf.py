@@ -7,8 +7,7 @@ from rasa.engine.storage.local_model_storage import LocalModelStorage
 from rasa.engine.graph import ExecutionContext
 from rasa.shared.nlu.training_data.training_data import TrainingData
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
-
-from .nlu_sparse import TfIdfFeaturizer
+from rasa_nlu_examples.featurizers.sparse import TfIdfFeaturizer
 
 
 @pytest.fixture
