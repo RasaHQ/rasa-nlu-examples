@@ -18,7 +18,10 @@ style: black flake
 links:
 	deadlink check readme.md docs
 
-check: style test links
+smoketest:
+	python scripts/smoketests.py
+
+check: style test links smoketest clean
 
 clean:
 	rm -rf */**/__pycache__ models/*.tar.gz __pycache__ .ipynb_checkpoints .pytest_cache
