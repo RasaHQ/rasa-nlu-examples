@@ -28,12 +28,8 @@ def test_run_train_test_command_english(fp):
 
     rasa train nlu -u tests/data/nlu/en/nlu.yml --config tests/configs/sparse-bytepair-config.yml --out models
     """
-    if "flashtext" in fp:
-        nlu_data = "tests/data/nlu/en/nlu_w_lookups.yml"
-    else:
-        nlu_data = "tests/data/nlu/en-yml/nlu.yml"
     mod = train_nlu(
-        nlu_data=nlu_data,
+        nlu_data="tests/data/nlu/en-yml/nlu.yml",
         config=f"tests/configs/{fp}",
         output="models",
     )

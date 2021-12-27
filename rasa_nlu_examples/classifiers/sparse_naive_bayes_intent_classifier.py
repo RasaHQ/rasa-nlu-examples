@@ -92,7 +92,6 @@ class SparseNaiveBayesClassifier(IntentClassifier, GraphComponent):
                 if e.get("text"):
                     # First element is sequence features, second is sentence features
                     sparse_feats = e.get_sparse_features(attribute=TEXT)[1]
-                    print(sparse_feats)
                     X.append(csr_matrix(sparse_feats.features if sparse_feats else []))
                     y.append(e.get(INTENT))
         return vstack(X), y

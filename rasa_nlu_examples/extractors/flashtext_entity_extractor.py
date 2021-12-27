@@ -54,11 +54,8 @@ class FlashTextEntityExtractor(EntityExtractorMixin, GraphComponent):
         model_storage: ModelStorage,
         resource: Resource,
     ) -> None:
+        self.validate_config(config=config)
         config = {**self.get_default_config(), **config}
-        if not config.get("entity_name"):
-            raise ValueError("FlashTextEntityExtractor requires a `entity_name`.")
-        if not config.get("path"):
-            raise ValueError("FlashTextEntityExtractor requires a `path`.")
         self.entity_name = config.get("entity_name")
         self.path = config.get("path")
         self.keyword_processor = KeywordProcessor(
@@ -121,4 +118,7 @@ class FlashTextEntityExtractor(EntityExtractorMixin, GraphComponent):
     @classmethod
     def validate_config(cls, config: Dict[Text, Any]) -> None:
         """Validates that the component is configured properly."""
-        pass
+        if not config.get("entity_name"):
+            raise ValueError("FlashTextEntityExtractor requires a `entity_name`.")
+        if not config.get("path"):
+            raise ValueError("FlashTextEntityExtractor requires a `path`.")

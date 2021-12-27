@@ -44,8 +44,6 @@ def test_process_tomorrow(text: Text, expected: Text, lang: Optional[Text], tmpd
     )
     entity_extractor.process([message])
 
-    print(message.get(ENTITIES))
-
     parsed_date = message.get(ENTITIES)[0]["parsed_date"][:10]
     assert parsed_date == expected
 

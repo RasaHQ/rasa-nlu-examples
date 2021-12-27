@@ -47,7 +47,6 @@ def test_sparse_feats_added(tfidf_featurizer, text, expected):
     tfidf_featurizer.process([msg])
     # Check that the message has been processed correctly
     seq_feats, sent_feats = msg.get_sparse_features("text")
-    print(seq_feats.features.shape, sent_feats.features.shape)
     # We should have a feature per token
     assert seq_feats.features.shape[0] == expected
     # Sentence features should be have single row of data
