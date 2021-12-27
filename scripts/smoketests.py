@@ -1,3 +1,10 @@
+"""
+The asyncio library (which we need here) does not play nice with pytest. That's
+a bummer, because we really need to have smoke tests. That's why we've made this
+script. If it runs to completion, we know that the configuration files defined in
+tests/configs are working as we expect!
+"""
+
 import asyncio
 from rich.traceback import install
 from rich.console import Console
@@ -10,6 +17,8 @@ install()
 
 if __name__ == "__main__":
     english_yml_files = [
+        # Tokenizers
+        "spacy-tok.yml",
         # Sparse Featurizers
         "hashing-config.yml",
         "tfidf-config.yml",
@@ -37,4 +46,5 @@ if __name__ == "__main__":
                 model=mod, nlu_data="tests/data/nlu/en/nlu.yml", additional_arguments={}
             )
         )
-        console.log(f"Done! Moving on!")
+        console.log(f"Moving on!")
+    console.log(f"Done.")

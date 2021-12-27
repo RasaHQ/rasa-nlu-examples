@@ -1,0 +1,38 @@
+name: Smoke Tests
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: [3.7]
+        rasa-version: [3.0]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip setuptools wheel
+        pip install -e ".[all]" --use-deprecated=legacy-resolver
+        pip install --upgrade rasa[spacy]==${{ matrix.rasa-version }}
+        pip install pytest pyvi
+    - name: Versions of Dependencies
+      run: pip freeze | grep -E 'stanza|gensim|bpemb|fasttext'
+    - name: Run Smoke Tests
+      run: |
+        python tests/scripts/prepare_fasttext.py
+        chmod 775 tests/data/fasttext/custom_fasttext_model.bin
+        python scripts/smoketests.py
