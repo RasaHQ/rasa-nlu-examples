@@ -8,7 +8,7 @@ from rasa.engine.graph import ExecutionContext, GraphComponent
 from rasa.engine.recipes.default_recipe import DefaultV1Recipe
 from rasa.engine.storage.resource import Resource
 from rasa.engine.storage.storage import ModelStorage
-from rasa.nlu.constants import DENSE_FEATURIZABLE_ATTRIBUTES, FEATURIZER_CLASS_ALIAS
+from rasa.nlu.constants import DENSE_FEATURIZABLE_ATTRIBUTES
 from rasa.nlu.featurizers.dense_featurizer.dense_featurizer import DenseFeaturizer
 from rasa.nlu.tokenizers.tokenizer import Tokenizer
 from rasa.shared.nlu.constants import (
@@ -55,6 +55,7 @@ class FastTextFeaturizer(DenseFeaturizer, GraphComponent):
         name: Text,
     ) -> None:
         """Constructs a new byte pair vectorizer."""
+        self.validate_config(config)
         self.alias = name if not config.get("alias") else config["alias"]
         # The configuration dictionary is saved in `self._config` for reference.
         self.model = fasttext.load_model(config["cache_path"])
