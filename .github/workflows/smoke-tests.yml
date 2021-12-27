@@ -28,7 +28,7 @@ jobs:
         pip install --upgrade pip setuptools wheel
         pip install -e ".[all]" --use-deprecated=legacy-resolver
         pip install --upgrade rasa[spacy]==${{ matrix.rasa-version }}
-        pip install pytest pyvi
+        pip install pytest pyvi rich
     - name: Versions of Dependencies
       run: pip freeze | grep -E 'stanza|gensim|bpemb|fasttext'
     - name: Run Smoke Tests
