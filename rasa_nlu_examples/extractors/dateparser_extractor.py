@@ -97,7 +97,7 @@ class DateparserEntityExtractor(EntityExtractorMixin, GraphComponent):
             for match in re.finditer(substr, message.get(TEXT)):
                 matches.append(
                     {
-                        ENTITY_ATTRIBUTE_TYPE: "DATETIME_REFERENCE",
+                        ENTITY_ATTRIBUTE_TYPE: "datetime_reference",
                         ENTITY_ATTRIBUTE_START: match.start(),
                         ENTITY_ATTRIBUTE_END: match.end(),
                         ENTITY_ATTRIBUTE_VALUE: message.get(TEXT)[
@@ -105,6 +105,7 @@ class DateparserEntityExtractor(EntityExtractorMixin, GraphComponent):
                         ],
                         "parsed_date": str(timestamp),
                         "confidence": 1.0,
+                        "extractor": "DateparserEntityExtractor",
                     }
                 )
         return matches

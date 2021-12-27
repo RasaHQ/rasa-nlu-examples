@@ -55,8 +55,7 @@ class FastTextFeaturizer(DenseFeaturizer, GraphComponent):
         name: Text,
     ) -> None:
         """Constructs a new byte pair vectorizer."""
-        config["alias"] = name if not config.get("alias") else config["alias"]
-        super().__init__(name, config)
+        self.alias = name if not config.get("alias") else config["alias"]
         # The configuration dictionary is saved in `self._config` for reference.
         self.model = fasttext.load_model(config["cache_path"])
 
@@ -108,14 +107,14 @@ class FastTextFeaturizer(DenseFeaturizer, GraphComponent):
             word_vectors,
             FEATURE_TYPE_SEQUENCE,
             attribute,
-            self._config[FEATURIZER_CLASS_ALIAS],
+            self.alias,
         )
         message.add_features(final_sequence_features)
         final_sentence_features = Features(
             text_vector,
             FEATURE_TYPE_SENTENCE,
             attribute,
-            self._config[FEATURIZER_CLASS_ALIAS],
+            self.alias,
         )
         message.add_features(final_sentence_features)
 

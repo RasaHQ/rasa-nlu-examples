@@ -7,6 +7,8 @@ pipeline:
   min_ngram: 1
   max_ngram: 4
 - name: rasa_nlu_examples.extractors.FlashTextEntityExtractor
-  case_sensitive: False
+  entity_name: city
+  case_sensitive: false
+  path: tests/data/flashtext/cities.txt
 - name: DIETClassifier
   epochs: 1

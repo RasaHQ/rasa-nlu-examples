@@ -1,4 +1,5 @@
 import pytest
+import asyncio
 
 from rasa.model_training import train_nlu
 
@@ -22,6 +23,7 @@ english_yml_files = [
 
 @pytest.mark.fasttext
 @pytest.mark.parametrize("fp", english_yml_files)
+@pytest.mark.asyncio
 def test_run_train_test_command_english(fp):
     """
     This smoke test is like running;
@@ -33,4 +35,8 @@ def test_run_train_test_command_english(fp):
         config=f"tests/configs/{fp}",
         output="models",
     )
-    run_nlu(model=f"models/{mod}", nlu_data="tests/data/nlu/en/nlu.yml")
+    asyncio.run(
+        run_nlu(
+            model=mod, nlu_data="tests/data/nlu/en/nlu.yml", additional_arguments={}
+        )
+    )

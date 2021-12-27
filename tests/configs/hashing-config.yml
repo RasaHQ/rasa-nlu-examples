@@ -2,7 +2,7 @@ language: en
 
 pipeline:
 - name: WhitespaceTokenizer
-- name: rasa_nlu_examples.featurizers.sparse.SparseBytePairFeaturizer
+- name: rasa_nlu_examples.featurizers.sparse.HashingFeaturizer
   lang: en
   vs: 1000
   cache_dir: "tests/data/bytepair"
