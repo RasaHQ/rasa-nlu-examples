@@ -43,6 +43,8 @@ class FlashTextEntityExtractor(EntityExtractorMixin, GraphComponent):
             # text will be processed with case insensitive as default
             "case_sensitive": False,
             "non_word_boundaries": "",
+            "path": None,
+            "entity_name": None,
         }
 
     def __init__(
@@ -52,23 +54,25 @@ class FlashTextEntityExtractor(EntityExtractorMixin, GraphComponent):
         model_storage: ModelStorage,
         resource: Resource,
     ) -> None:
+        config = {**self.get_default_config(), **config}
+        if not config.get("entity_name"):
+            raise ValueError("FlashTextEntityExtractor requires a `entity_name`.")
+        if not config.get("path"):
+            raise ValueError("FlashTextEntityExtractor requires a `path`.")
         self.entity_name = config.get("entity_name")
         self.path = config.get("path")
         self.keyword_processor = KeywordProcessor(
-            case_sensitive=self.component_config["case_sensitive"]
+            case_sensitive=config["case_sensitive"]
         )
-        for non_word_boundary in self.component_config["non_word_boundaries"]:
+        for non_word_boundary in config["non_word_boundaries"]:
             self.keyword_processor.add_non_word_boundary(non_word_boundary)
         words = pathlib.Path(self.path).read_text().split("\n")
         if len(words) == 0:
             rasa.shared.utils.io.raise_warning(
-                "No lookup tables defined in the training data that have a "
-                "name equal to any entity in the training data. In order for "
-                "this component to work you need to define valid lookup tables "
-                "in the training data."
+                f"No words found in the {pathlib.Path(self.path)} file."
             )
         for word in words:
-            self.keyword_processor.add_keywords(word)
+            self.keyword_processor.add_keyword(word)
 
     def train(self, training_data: TrainingData) -> Resource:
         pass
@@ -98,14 +102,14 @@ class FlashTextEntityExtractor(EntityExtractorMixin, GraphComponent):
         matches = self.keyword_processor.extract_keywords(
             message.get(TEXT), span_info=True
         )
-        print(matches)
         return [
             {
-                ENTITY_ATTRIBUTE_TYPE: match[0],
+                ENTITY_ATTRIBUTE_TYPE: self.entity_name,
                 ENTITY_ATTRIBUTE_START: match[1],
                 ENTITY_ATTRIBUTE_END: match[2],
-                ENTITY_ATTRIBUTE_VALUE: message.get(TEXT)[match[1] : match[2]],
+                ENTITY_ATTRIBUTE_VALUE: match[0],
                 "confidence": 1.0,
+                "extractor": "FlashTextEntityExtractor",
             }
             for match in matches
         ]
