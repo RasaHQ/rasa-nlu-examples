@@ -88,8 +88,8 @@ Tokenizers can split up the input text into tokens. Depending on the Tokenizer t
 you can also choose to apply lemmatization. For languages that have rich grammatical features
 this might help reduce the size of all the possible tokens.
 
-- **`rasa_nlu_examples.tokenizers.BlankSpacyTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/spacy_tokenizer/)
-- **`rasa_nlu_examples.tokenizers.ThaiTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/thai_tokenizer/)
+- **`rasa_nlu_examples.tokenizers.BlankSpacyTokenizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/spacy_tokenizer/)**
+- **`rasa_nlu_examples.tokenizers.ThaiTokenizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/thai_tokenizer/)**
 
 ## **Featurizers**
 
@@ -101,8 +101,8 @@ features are picked up by intent classifiers and entity detectors later in the p
 - **`rasa_nlu_examples.featurizers.dense.FastTextFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/fasttext/)**
 - **`rasa_nlu_examples.featurizers.dense.BytePairFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/bytepair/)**
 - **`rasa_nlu_examples.featurizers.dense.GensimFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/gensim/)**
-- **`rasa_nlu_examples.featurizers.sparse.TfIdfFeaturizer` [docs]()**
-- **`rasa_nlu_examples.featurizers.sparse.HashingFeaturizer` [docs]()**
+- **`rasa_nlu_examples.featurizers.sparse.TfIdfFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/tfidf/)**
+- **`rasa_nlu_examples.featurizers.sparse.HashingFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/hashing/)**
 
 ## **Intent Classifiers**
 
@@ -112,10 +112,10 @@ Intent classifiers are models that predict an intent from a given user message
 text.  The default intent classifier in Rasa NLU is the [DIET
 model](https://rasa.com/docs/rasa/components#dietclassifier-2) which can be
 fairly computationally expensive, especially if you do not need to detect
-entities.  We provide some examples of alternative intent classifiers here.
+entities. We provide some examples of alternative intent classifiers here.
 
-- **`rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier` [docs]()**
-- **`rasa_nlu_examples.classifiers.LogisticRegressionClassifier` [docs]()**
+- **`rasa_nlu_examples.classifiers.NaiveBayesClassifier` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/extractors/naive-bayes/)**
+- **`rasa_nlu_examples.classifiers.LogisticRegressionClassifier` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/extractors/logistic-regression/)**
 
 ## **Entity Extractors**
 

@@ -39,8 +39,8 @@ features are picked up by intent classifiers and entity detectors later in the p
 - **`rasa_nlu_examples.featurizers.dense.FastTextFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/fasttext/)**
 - **`rasa_nlu_examples.featurizers.dense.BytePairFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/bytepair/)**
 - **`rasa_nlu_examples.featurizers.dense.GensimFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/gensim/)**
-- **`rasa_nlu_examples.featurizers.sparse.TfIdfFeaturizer` [docs]()**
-- **`rasa_nlu_examples.featurizers.sparse.HashingFeaturizer` [docs]()**
+- **`rasa_nlu_examples.featurizers.sparse.TfIdfFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/tfidf/)**
+- **`rasa_nlu_examples.featurizers.sparse.HashingFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/hashing/)**
 
 ## **Intent Classifiers**
 
@@ -52,8 +52,8 @@ model](https://rasa.com/docs/rasa/components#dietclassifier-2) which can be
 fairly computationally expensive, especially if you do not need to detect
 entities.  We provide some examples of alternative intent classifiers here.
 
-- **`rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier` [docs]()**
-- **`rasa_nlu_examples.classifiers.LogisticRegressionClassifier` [docs]()**
+- **`rasa_nlu_examples.classifiers.NaiveBayesClassifier` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/extractors/naive-bayes/)**
+- **`rasa_nlu_examples.classifiers.LogisticRegressionClassifier` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/extractors/logistic-regression/)**
 
 ## **Entity Extractors**
 
