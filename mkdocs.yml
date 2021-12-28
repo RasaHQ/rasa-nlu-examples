@@ -7,33 +7,25 @@ site_author: Vincent D. Warmerdam @ Rasa Research
 
 nav:
   - Home: index.md
-  - Contributing: contributing.md
   - Usage:
       - Benchmarking Guide: benchmarking.md
-      - Fallback:
-          - FasttextLanguage: docs/fallback/fasttextlanguagefallback.md
       - Tokenizers:
-          - BlankSpacyTokenizer: docs/tokenizer/spacy_tokenizer.md
-          - StanzaTokenizer: docs/tokenizer/stanza.md
-          - ThaiTokenizer: docs/tokenizer/thai_tokenizer.md
-      - Meta:
-        - Printer: docs/meta/printer.md
-        - StopWordsRemover: docs/meta/stopwords.md
+          - BlankSpacyTokenizer: docs/tokenizer/spacy-tokenizer.md
+          - ThaiTokenizer: docs/tokenizer/thai-tokenizer.md
       - Featurizers:
-        - GensimFeaturizer: docs/featurizer/gensim.md
-        - FastTextFeaturizer: docs/featurizer/fasttext.md
         - BytePairFeaturizer: docs/featurizer/bytepair.md
-        - SparseBytePairFeaturizer: docs/featurizer/sparse_bytepair.md
-        - SemanticMapFeaturizer: docs/featurizer/semantic_map.md
+        - HashingFeaturizer: docs/featurizer/hashing.md
+        - TfIdfFeaturizer: docs/featurizer/tfidf.md
+        - FastTextFeaturizer: docs/featurizer/fasttext.md
+        - GensimFeaturizer: docs/featurizer/gensim.md
       - Intent Classifiers:
-        - SparseNaiveBayes: docs/classifier/sparsenb.md
-        - SparseLRBayes: docs/classifier/sparselr.md
+        - SparseNaiveBayes: docs/classifier/naive-bayes.md
+        - LogisticRegression: docs/classifier/logistic-regression.md
       - Entity Extractors:
         - FlashText: docs/extractors/flashtext.md
         - DateParser: docs/extractors/dateparser.md
-      - Jupyter:
-        - Overview: docs/jupyter/tools.md
-
+  - Contributing:
+    - Contribute: contributing.md
 plugins:
   - search
   - mkdocstrings:

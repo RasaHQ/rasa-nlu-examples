@@ -41,7 +41,7 @@ dateparser_deps = [
 
 setup(
     name="rasa_nlu_examples",
-    version="0.2.5",
+    version="0.3.0",
     packages=find_packages(exclude=["notebooks", "data"]),
     install_requires=base_packages,
     extras_require={

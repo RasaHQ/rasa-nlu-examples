@@ -108,7 +108,6 @@ features are picked up by intent classifiers and entity detectors later in the p
 
 ![](docs/images/classifier.png)
 
-
 Intent classifiers are models that predict an intent from a given user message
 text.  The default intent classifier in Rasa NLU is the [DIET
 model](https://rasa.com/docs/rasa/components#dietclassifier-2) which can be
@@ -127,10 +126,10 @@ entities.  We provide some examples of alternative intent classifiers here.
 
 ## **Name Lists**
 
-Language models in spaCy are typically trained on Western news datasets. That means
+Language models are typically trained on Western datasets. That means
 that the reported benchmarks might not apply to your use-case. For example; detecting
 names in texts from France is not the same thing as detecting names in Madagascar. Even
-thought French is used actively in both countries, the names of it's citizens might
+though French is used actively in both countries, the names of it's citizens might
 be so different that you cannot assume that the benchmarks apply universally.
 
 To remedy this we've started collecting name lists. These can be used as a lookup table
