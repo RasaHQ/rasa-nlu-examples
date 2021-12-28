@@ -33,8 +33,7 @@ file that you can pass on to this component.
 
 ## Configurable Variables
 
-- **cache_dir**: pass it the name of the directory where you've downloaded/saved the embeddings
-- **file**: pass it the name of the `.kv` file that contains the word embeddings
+- **cache_path**: pass it the name of the filepath where you've downloaded/saved the embeddings
 
 ## Base Usage
 
@@ -53,8 +52,7 @@ pipeline:
   min_ngram: 1
   max_ngram: 4
 - name: rasa_nlu_examples.featurizers.dense.GensimFeaturizer
-  cache_dir: saved/beforehand
-  file: filename.kv
+  cache_path: path/to/filename.kv
 - name: DIETClassifier
   epochs: 100
 ```

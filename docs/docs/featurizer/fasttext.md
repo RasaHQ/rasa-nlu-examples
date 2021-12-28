@@ -1,5 +1,5 @@
 Fasttext supports word embeddings for 157 languages and is trained on both Common Crawl and Wikipedia. You can download the embeddings
-[here](https://fasttext.cc/docs/en/crawl-vectors.html#models). Note that this featurizer is a *dense* featurizer. Beware that these embedding files tend to be big: about 6-7Gb.
+[here](https://fasttext.cc/docs/en/crawl-vectors.html#models). Note that this featurizer is a *dense* featurizer. Beware that these embedding files tend to be big: about 6-7Gb. It may be a better idea to train your own fasttext embeddings on your own data to save on disk space.
 
 !!! note
     In order to use this tool you'll need to ensure the correct dependencies are installed.
@@ -11,8 +11,7 @@ Fasttext supports word embeddings for 157 languages and is trained on both Commo
 
 ## Configurable Variables
 
-- **cache_dir**: pass it the name of the directory where you've downloaded the embeddings
-- **file**: pass it the name of the file that contains the word embeddings
+- **cache_path**: pass it the name of the filepath where you've downloaded/saved the embeddings
 
 ## Base Usage
 
@@ -31,8 +30,7 @@ pipeline:
   min_ngram: 1
   max_ngram: 4
 - name: rasa_nlu_examples.featurizers.dense.FastTextFeaturizer
-  cache_dir: downloaded/beforehand
-  file: cc.nl.300.bin
+  cache_path: path/to/cc.nl.300.bin
 - name: DIETClassifier
   epochs: 100
 ```
