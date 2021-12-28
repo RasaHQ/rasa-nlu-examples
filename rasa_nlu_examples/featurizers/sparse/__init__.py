@@ -2,6 +2,6 @@ from .hashing_featurizer import HashingFeaturizer
 from .tfidf_featurizer import TfIdfFeaturizer
 
 __all__ = [
-    "TfidfFeaturizer",
+    "TfIdfFeaturizer",
     "HashingFeaturizer",
 ]
