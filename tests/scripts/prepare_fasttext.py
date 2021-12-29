@@ -1,5 +1,8 @@
+from rich.console import Console
 import fasttext
 import pathlib
+
+console = Console()
 
 if __name__ == "__main__":
     # This script adds a small fasttext model that is used in testing.
@@ -11,6 +14,6 @@ if __name__ == "__main__":
             "tests/data/fasttext/fasttext-dummy-data.txt", model="cbow", dim=10
         )
         model.save_model("tests/data/fasttext/custom_fasttext_model.bin")
-        print("local model saved for fasttext")
+        console.log("local model saved for fasttext")
     else:
-        print("found local fasttext model")
+        console.log("found local fasttext model")

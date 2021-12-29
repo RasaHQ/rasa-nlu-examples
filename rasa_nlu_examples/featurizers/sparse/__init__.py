@@ -1,11 +1,7 @@
-from .semantic_map_featurizer import SemanticMapFeaturizer
-from .sparse_bpemb_featurizer import SparseBytePairFeaturizer
-from .hyphen_featurizer import HyphenFeaturizer
 from .hashing_featurizer import HashingFeaturizer
+from .tfidf_featurizer import TfIdfFeaturizer
 
 __all__ = [
-    "SemanticMapFeaturizer",
-    "SparseBytePairFeaturizer",
-    "HyphenFeaturizer",
+    "TfIdfFeaturizer",
     "HashingFeaturizer",
 ]

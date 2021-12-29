@@ -1,17 +1,21 @@
-name: Cron Test Dependencies
+name: Smoke Tests
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
 
 jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
         python-version: [3.7]
-        rasa-version: [2.7]
+        rasa-version: [3.0]
 
     steps:
     - uses: actions/checkout@v2
@@ -24,15 +28,15 @@ jobs:
         pip install --upgrade pip setuptools wheel
         pip install -e ".[all]" --use-deprecated=legacy-resolver
         pip install --upgrade rasa[spacy]==${{ matrix.rasa-version }}
+        pip install pytest pyvi rich
         # The sanic version is set manually here because at the time
         # of writing, this issue persisted:
         # https://github.com/RasaHQ/rasa/issues/10585
         pip install pytest pyvi sanic==21.9.3
-    - name: Test with pytest
+    - name: Versions of Dependencies
+      run: pip freeze | grep -E 'stanza|gensim|bpemb|fasttext'
+    - name: Run Smoke Tests
       run: |
         python tests/scripts/prepare_fasttext.py
         chmod 775 tests/data/fasttext/custom_fasttext_model.bin
-        pytest -v --disable-warnings
-    - name: Confirm Smoketests
-      run: |
         python scripts/smoketests.py

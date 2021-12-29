@@ -25,6 +25,10 @@ jobs:
       run: |
         pip install -e "."
         pip install pytest
+        # The sanic version is set manually here because at the time
+        # of writing, this issue persisted:
+        # https://github.com/RasaHQ/rasa/issues/10585
+        pip install pytest pyvi sanic==21.9.3
     - name: Run Tests Non FastText Featurizer Tests
       run: |
         pytest tests/test_featurizers/test_gensim_featurizer.py

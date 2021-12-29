@@ -16,7 +16,7 @@ from this library. You can glance over some examples below.
 
 === "Basic Config"
     Here's a very basic configuartion file.
-    <pre><code>language: en
+    <pre lang="yaml"><code>language: en
     pipeline:
     - name: WhitespaceTokenizer
     - name: CountVectorsFeaturizer

@@ -2,13 +2,11 @@ from setuptools import setup, find_packages
 
 
 base_packages = [
-    "rasa~=2.8.7",
+    "rasa~=3.0.0",
     "bpemb>=0.3.2",
     "gensim~=3.8.3",
-    "rich>=9.2.0",
     "tensorflow>=2.6.0",
-    "pandas>=1.0.5",
-    "pyphen>=0.11.0",
+    "pandas>=1.0.0",
 ]
 
 dev_packages = [
@@ -22,14 +20,12 @@ dev_packages = [
     "mkdocs-material==5.4.0",
     "mkdocstrings==0.8.0",
     "pymdown-extensions>=7.1",
-]
-
-stanza_deps = [
-    "stanza>=1.1.1",
+    "flake8-print==4.0.0",
+    "rich==10.2.2",
 ]
 
 thai_deps = [
-    "pythainlp>=2.2.3",
+    "pythainlp>=2.3.2",
 ]
 
 fasttext_deps = [
@@ -46,7 +42,7 @@ dateparser_deps = [
 
 setup(
     name="rasa_nlu_examples",
-    version="0.2.5",
+    version="0.3.0",
     packages=find_packages(exclude=["notebooks", "data"]),
     install_requires=base_packages,
     extras_require={
@@ -56,10 +52,8 @@ setup(
         + thai_deps
         + fasttext_deps
         + flashtext_deps
-        + stanza_deps
         + dateparser_deps,
         "thai": base_packages + thai_deps,
-        "stanza": base_packages + stanza_deps,
         "fasttext": base_packages + fasttext_deps,
         "flashtext": base_packages + flashtext_deps,
         "dateparser": base_packages + dateparser_deps,

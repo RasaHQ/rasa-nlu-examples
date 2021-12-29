@@ -10,15 +10,16 @@ same index.
 
 ## Configurable Variables
 
-- **n_features**: the number of columns the input is mapped to
-- **analyzer**: how tokens are split. possible choices are `word`, `char` and `char_wb`
-- **lowercase**: convert input strings to lowercase
-- **strip_accents**: remove accents using one of the methods `ascii` or `unicode`
-- **stop_words**: filter by a list of stop words
-- **ngram_range**: the range of ngrams to extract, e.g. `(1, 2)` will featurizer unigrams and bigrams
-- **norm**: the normalization applied to each row vector (options are `l1`, `l2` or `null`)
-- **binary**: if `True`, all non-zero elements are mapped to `1`, instead of absolute counts
-- **alternate_sign**: apply the sign of the hashing function in order to reduce the effect of hash coalitions
+- **n_features**: the number of columns the input is mapped to.
+- **analyzer**: determines how tokens are split. possible choices are `word`, `char` and `char_wb`.
+- **lowercase**: convert input strings to lowercase.
+- **strip_accents**: remove accents using one of the methods `ascii` or `unicode`.
+- **stop_words**: filter by a list of stop words.
+- **min_ngram**: the lower boundary of the range of n-values for different word n-grams or char n-grams to be extracted.
+- **max_ngram**: the upper boundary of the range of n-values for different word n-grams or char n-grams to be extracted.
+- **norm**: the normalization applied to each row vector (options are `l1`, `l2` or `null`).
+- **binary**: if `True`, all non-zero elements are mapped to `1`, instead of absolute counts.
+- **alternate_sign**: apply the sign of the hashing function in order to reduce the effect of hash coalitions.
 
 ## Base Usage
 
@@ -30,7 +31,6 @@ pipeline:
 - name: LexicalSyntacticFeaturizer
 - name: rasa_nlu_examples.featurizers.sparse.HashingFeaturizer
   n_features: 1024
-  norm: null  # do not normalize
 - name: DIETClassifier
   epochs: 100
 ```

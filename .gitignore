@@ -121,3 +121,4 @@ Untitled*.ipynb
 **/.DS_Store
 tests/data/stanza
 .vscode
+.rasa

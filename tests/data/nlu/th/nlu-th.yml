@@ -1,0 +1,131 @@
+version: "2.0"
+nlu:
+- intent: alarm-set_alarm
+  examples: |
+    - ตั้ง นาฬิกา ปลุก [ทุกๆ 10 นาที]{"entity": "datetime"}
+    - ตั้ง นาฬิกา ปลุก [สําหรับ วัน อังคาร ตี 4]{"entity": "datetime"}
+    - ตั้ง นาฬิกา ปลุก [สําหรับ 6 โมง เช้า วัน จันทร์ ถึง วัน ศุกร์]{"entity": "datetime"}
+    - ตั้ง นาฬิกา ปลุก [สําหรับ บ่าย 2 โมง พรุ่ง นี้]{"entity": "datetime"}
+    - ตั้ง นาฬิกา ปลุก [สําหรับ 7 โมง พรุ่ง นี้]{"entity": "datetime"}
+    - ตั้ง นาฬิกา ปลุก [สําหรับ 6 โมง เช้า พรุ่ง นี้]{"entity": "datetime"}
+    - ตั้ง นาฬิกา ปลุก [สําหรับ 9 โมง เช้า]{"entity": "datetime"}
+    - ตั้ง นาฬิกา ปลุก [สําหรับ บ่าย โมง ทุกๆ วัน]{"entity": "datetime"}
+    - ตั้ง นาฬิกา ปลุก [สําหรับ พรุ่ง นี้ เช้า 7 : 55]{"entity": "datetime"}
+    - ตั้ง นาฬิกา ปลุก [สําหรับ 6 โมง เช้า วัน เสาร์]{"entity": "datetime"}
+    - ตั้ง นาฬิกา ปลุก [ตอน บ่าย วัน นี้]{"entity": "datetime"}
+    - ตั้ง นาฬิกา ปลุก [สําหรับ เที่ยง คืน คืน นี้]{"entity": "datetime"}
+    - ตั้ง นาฬิกา ปลุก อัน ใหม่ [สําหรับ 5 นาที]{"entity": "datetime"}
+
+- intent: intent:alarm-cancel_alarm
+  examples: |
+    - ยกเลิก นาฬิกา ปลุก ครั้ง สุดท้าย
+    - ลบ นาฬิกา ปลุก ที่ 2
+    - ยกเลิก นาฬิกา ปลุก ฉัน
+    - ยกเลิก นาฬิกา ปลุก ฉัน
+    - ยกเลิก นาฬิกา ปลุก ฉัน [สําหรับ พรุ่ง นี้ เช้า]{"entity": "datetime"}
+    - คุณ ช่วย ลบ นาฬิกา ปลุก ครั้ง ล่าสุด หน่อย
+    - ยกเลิก นาฬิกา ปลุก [สําหรับ 4 ทุ่ม]{"entity": "datetime"}
+    - หยุด นาฬิกา ปลุก ฉัน
+    - ลบ นาฬิกา ปลุก ครั้ง ล่าสุด
+    - ยกเลิก นาฬิกา ปลุก [วัน สุด สัปดาห์]{"entity": "datetime"}
+    - หยุด นาฬิกา ปลุก [สําหรับ 6 โมง เช้า]{"entity": "datetime"}
+    - ยกเลิก นาฬิกา ปลุก [วัน อาทิตย์]{"entity": "datetime"}
+    - ลบ นาฬิกา ปลุก ทั้งหมด
+    - ปิด นาฬิกา ปลุก [8 โมง เช้า]{"entity": "datetime"}
+
+- intent: alarm-show_alarms
+  examples: |
+    - นาฬิกา ปลุก ตั้ง ไว้ กี่ โมง [สําหรับ พรุ่ง นี้ เช้า]{"entity": "datetime"}
+    - แสดง รายการ นาฬิกา ปลุก ที่ ใช้ งาน ทั้งหมด ของ ฉัน
+    - อ่าน นาฬิกา ปลุก ทั้งหมด ของ ฉัน
+    - บอก ฉัน ว่า ฉัน ตั้ง นาฬิกา ปลุก อะไร ไว้
+    - แสดง นาฬิกา ปลุก ทั้งหมด
+    - แสดง นาฬิกา ปลุก ทั้งหมด
+    - แสดง นาฬิกา ปลุก [สําหรับ พรุ่ง นี้]{"entity": "datetime"}
+    - ฉัน ตั้ง นาฬิกา ปลุก ไว้ กี่ อัน
+    - ตั้ง นาฬิกา ปลุก ไว้ ตอน ไหน
+
+- intent: alarm-snooze_alarm
+  examples: |
+    - เลื่อน นาฬิกา ปลุก ไป [30 นาที]{"entity": "datetime"}
+    - เลื่อน นาฬิกา ปลุก ไป [1 ชั่วโมง]{"entity": "datetime"}
+    - ใส่ นาฬิกา ปลุก เป็น เลื่อน ปลุก
+    - เลื่อน นาฬิกา ปลุก [20 นาที]{"entity": "datetime"}
+    - หยุด นาฬิกา ปลุก ของ ฉัน ไว้ ชั่วคราว หลัง จาก2นาที
+    - ปิด เสียง ชั่วคราว [สําหรับ15นาที]{"entity": "datetime"}
+    - ปิด เสียง ชั่วคราว นาฬิกา ปลุก
+    - หยุด นาฬิกา ปลุก ชั่วคราว
+
+- intent: alarm-time_left_on_alarm
+  examples: |
+    - มี เวลา เท่า ไหร่ กว่า นาฬิกา ปลุก ฉัน จะ ดัง
+    - มี เวลา เหลือ เท่า ไหร่ กว่า จะ ถึง นาฬิกา ปลุก ของ ฉัน
+    - มี เวลา เหลือ เท่า ไหร่ กว่า จะ ถึง นาฬิกา ปลุก ของ ฉัน ดัง ?
+    - มี เวลา เหลือ เท่า ไหร่ กว่า จะ ถึง นาฬิกา ปลุก ของ ฉัน
+
+- intent: alarm-modify_alarm
+  examples: |
+    - เปลี่ยน นาฬิกา ปลุก สําหรับ งีบ [1 ชั่วโมง]{"entity": "datetime"}
+    - ตั้ง นาฬิกา ปลุก นาฬิกา ปลุก [ภายใน 40 นาที]{"entity": "datetime"}
+    - สวัสดี bot ! เปลี่ยน นาฬิกา ปลุก ใน [วัน เสาร์]{"entity": "datetime"} ได้ ไหม
+    - เปลี่ยน นาฬิกา ปลุก ใน [วัน พรุ่ง นี้ ถึง 9 โมง เช้า]{"entity": "datetime"}
+    - เพิ่ม เวลา [2 นาที]{"entity": "datetime"} นาฬิกา ปลุก
+    - เปลี่ยน เวลา ปลุก
+
+- intent: reminder-set_reminder
+  examples: |
+    - ตั้ง การ [เตือน ความ จํา]{"entity": "reminder/noun"} [นัด หมาย แพทย์]{"entity": "reminder/todo"} ใน [วัน จันทร์]{"entity": "datetime"}
+    - เตือน ฉัน ให้ [ไป ที่ ร้าน ขาย ของชํา]{"entity": "reminder/todo"} [วัน พรุ่ง นี้ เวลา บ่าย โมง]{"entity": "datetime"}
+    - เตือน ฉัน เกี่ยว กับ [การ นัด แพทย์]{"entity": "reminder/todo"} ใน [วัน ศุกร์]{"entity": "datetime"}
+    - โปรด ตั้ง การ [เตือน ความ จํา]{"entity": "reminder/noun"} ให้ [ไป รับ ขนมปัง จาก ร้าน]{"entity": "reminder/todo"} [วัน นี้]{"entity": "datetime"}
+    - เตือน ฉัน ให้ [ตั้ง นาฬิกา ปลุก]{"entity": "reminder/todo"} [วัน พรุ่ง นี้]{"entity": "datetime"}
+    - เตือน ฉัน ให้ [ซื้อ อาหาร สัตว์ เลี้ยง]{"entity": "reminder/todo"}
+    - เตือน ฉัน ให้ [ไป รับ นม ที่ ร้าน ขาย ของชํา]{"entity": "reminder/todo"} [คืน นี้]{"entity": "datetime"}
+    - เตือน ฉัน ให้ [ส่ง การ์ด อวยพร เจน นี่]{"entity": "reminder/todo"}
+    - เตือน ฉัน ให้ [แต่ง กาย สบายๆ ไป ทํางาน]{"entity": "reminder/todo"} ใน [เช้า วัน พรุ่ง นี้]{"entity": "datetime"}
+
+- intent: reminder-cancel_reminder
+  examples: |
+    - ยกเลิก การ [เตือน ความ จํา]{"entity": "reminder/noun"} ของ ฉัน เพื่อ ที่ [จะ ไป ร้าน ซักแห้ง]{"entity": "reminder/todo"}
+    - ลบ การ [เตือน ความ จํา]{"entity": "reminder/noun"} [สําหรับ เดือน สิงหาคม]{"entity": "datetime"}
+    - หยุด การ [เตือน ความ จํา]{"entity": "reminder/noun"} [สําหรับ วัน พรุ่ง นี้]{"entity": "datetime"}
+    - ยกเลิก การ [เตือน ความ จํา]{"entity": "reminder/noun"} [งาน เลี้ยง ผู้ เกษียณ อายุ]{"entity": "reminder/todo"}
+    - ยกเลิก การ [เตือน ความ จํา]{"entity": "reminder/noun"} ของ ฉัน เพื่อ [ไป รับ rob]{"entity": "reminder/todo"}
+    - ลบ การ [เตือน ความ จํา]{"entity": "reminder/noun"} ของ ฉัน
+    - ยกเลิก การ [เตือน ความ จํา]{"entity": "reminder/noun"} เพื่อ [นัด หมาย ให้ ทันตแพทย์]{"entity": "reminder/todo"}
+    - ลบ [เตือน ความ จํา]{"entity": "reminder/noun"} ของ ฉัน ใน [วัน พรุ่ง นี้]{"entity": "datetime"}
+    - ยกเลิก การ [เตือน ความ จํา]{"entity": "reminder/noun"} ของ ฉัน [สําหรับ สัปดาห์ หน้า]{"entity": "datetime"}
+    - ยกเลิก [เตือน ความ จํา]{"entity": "reminder/noun"} อัน นั้น
+    - ยกเลิก [เตือน ความ จํา]{"entity": "reminder/noun"} เพื่อ [ซื้อ ผ้า อ้อม เด็ก]{"entity": "reminder/todo"}
+    - ลบ [เตือน ความ จํา]{"entity": "reminder/noun"} ทุก อัน
+    - ยกเลิก [เตือน ความ จํา]{"entity": "reminder/noun"} [นัด หมอ ของ ฉัน]{"entity": "reminder/todo"}
+    - ยกเลิก การ [เตือน ความ จํา]{"entity": "reminder/noun"} ของ ฉัน ให้ [ซื้อ เสื้อผ้า]{"entity": "reminder/todo"} ใน [วัน พรุ่ง นี้]{"entity": "datetime"}
+    - ยกเลิก [เตือน ความ จํา]{"entity": "reminder/noun"} ก่อน [นัด หมอ ตา ของ ฉัน]{"entity": "reminder/todo"}
+    - ยกเลิก [เตือน ความ จํา]{"entity": "reminder/noun"} [ไป หา หมอ]{"entity": "reminder/todo"} [วัน พุธ เวลา บ่าย โมง]{"entity": "datetime"}
+
+- intent: reminder-show_reminders
+  examples: |
+    - มี การ [เตือน ความ จํา]{"entity": "reminder/noun"} อะไร ฉัน เหลือ บ้าง ?
+    - ฉัน มี การ [เตือน ความ จํา]{"entity": "reminder/noun"} [สําหรับ วัน นี้]{"entity": "datetime"} หรือ ไม่ ?
+    - แสดง [เตือน ความ จํา]{"entity": "reminder/noun"} [ร้าน ขาย ของชํา ของ ฉัน]{"entity": "reminder/todo"}
+    - แสดง [เตือน ความ จํา]{"entity": "reminder/noun"} ของ ฉัน
+    - ดึง [เตือน ความ จํา]{"entity": "reminder/noun"} ออก มา ดู ซิ
+    - แสดง การ [เตือน ความ จํา]{"entity": "reminder/noun"} ทั้งหมด [สําหรับ สัปดาห์ หน้า]{"entity": "datetime"}
+    - [วัน นี้]{"entity": "datetime"} มี [เตือน ความ จํา]{"entity": "reminder/noun"} อะไร บ้าง
+    - โปรด ระบุ รายการ [เตือน ความ จํา]{"entity": "reminder/noun"} ที่ ตั้ง ไว้ ทั้งหมด ของ ฉัน
+    - [เตือน ความ จํา]{"entity": "reminder/noun"} [สําหรับ พรุ่ง นี้]{"entity": "datetime"} คือ อะไร ?
+    - ฉัน ตั้ง [เตือน ความ จํา]{"entity": "reminder/noun"} อะไร ใน [สัปดาห์ นี้]{"entity": "datetime"}
+    - ฉัน สามารถ ดู [เตือน ความ จํา]{"entity": "reminder/noun"} ได้ หรือ ไม่ ?
+
+- intent: weather-find
+  examples: |
+    - ฉัน ขอ การ ปรับปรุง แก้ไข [สภาพ อากาศ]{"entity": "weather/noun"} ของ [orlando]{"entity": "location"} ได้ หรือ ไม่
+    - [วัน นี้]{"entity": "datetime"} ฉัน ต้องการ [ร่ม]{"entity": "weather/attribute"} หรือ ไม่ ?
+    - ฉัน ควร จะ ใส่ [รองเท้า กัน ฝน]{"entity": "weather/attribute"} ใน [วัน นี้]{"entity": "datetime"} หรือ ไม่
+    - [พยากรณ์ อากาศ]{"entity": "weather/noun"} [7 วัน]{"entity": "datetime"} สําหรับ [los angeles]{"entity": "location"} คือ อะไร ?
+    - [วัน นี้]{"entity": "datetime"} จะ มี [แดด]{"entity": "weather/attribute"} หรือ ไม่ ?
+    - จะ มี [แดด]{"entity": "weather/attribute"} [ตลอด ทั้ง วัน]{"entity": "datetime"} ไหม
+    - ฉัน ควร จะ ใส่ [ผ้า พัน คอ]{"entity": "weather/attribute"} ไหม ?
+    - [สภาพ อา กาศ]{"entity": "weather/noun"} ใน [ไม อา มี]{"entity": "location"} เป็น อย่างไร ?
+    - มี [พายุ ฝน ฟ้า คะนอง]{"entity": "weather/attribute"} มุ่ง หน้า ไป ยัง [sedona]{"entity": "location"} หรือ ไม่ ?
+    - [ฝน]{"entity": "weather/attribute"} จะ ตก ที่ [ทู ซอน]{"entity": "location"} ใน [วัน พรุ่ง นี้]{"entity": "datetime"} ไหม

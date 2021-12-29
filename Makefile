@@ -2,7 +2,6 @@ install:
 	python -m pip install -e .
 	pre-commit install
 	python tests/scripts/prepare_fasttext.py
-	python tests/scripts/prepare_stanza.py
 	python -m pip install deadlink
 
 test:
@@ -19,7 +18,10 @@ style: black flake
 links:
 	deadlink check readme.md docs
 
-check: style test links
+smoketest:
+	python scripts/smoketests.py
+
+check: style test links smoketest clean
 
 clean:
-	rm models/*.tar.gz
+	rm -rf */**/__pycache__ models/*.tar.gz __pycache__ .ipynb_checkpoints .pytest_cache

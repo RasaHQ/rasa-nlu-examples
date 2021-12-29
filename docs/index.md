@@ -11,29 +11,12 @@ The goal of these tools will be to be compatible with the most recent version of
 rasa only. You may need to point to an older release of the project if you want
 it to be compatible with an older version of Rasa.
 
-# Install
+# Compatibility
 
-To use these tools locally you need to install via git.
+This project currently supports components for Rasa 3.0. For older versions, see the list below.
 
-```python
-python -m pip install "rasa_nlu_examples @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
-```
-
-Note that if you want to install optional dependencies as well that you'll need to run:
-
-```python
-python -m pip install "rasa_nlu_examples[flashtext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
-python -m pip install "rasa_nlu_examples[stanza] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
-python -m pip install "rasa_nlu_examples[thai] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
-python -m pip install "rasa_nlu_examples[fasttext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
-python -m pip install "rasa_nlu_examples[all] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"
-```
-
-If you're using any models that depend on spaCy you'll need to install the Rasa dependencies for spaCy first.
-
-```python
-python -m pip install rasa[spacy]
-```
+- [version 0.1.3](https://github.com/RasaHQ/rasa-nlu-examples/tree/0.1.3) is the final release for Rasa 1.10
+- [version 0.2.8](https://github.com/RasaHQ/rasa-nlu-examples/tree/0.2.8) is the final release for Rasa 2.8
 
 ## **Tokenizers**
 
@@ -43,9 +26,8 @@ Tokenizers can split up the input text into tokens. Depending on the Tokenizer t
 you can also choose to apply lemmatization. For languages that have rich grammatical features
 this might help reduce the size of all the possible tokens.
 
-- **`rasa_nlu_examples.tokenizers.BlankSpacyTokenizer`** [docs](docs/tokenizer/spacy_tokenizer/)
-- **`rasa_nlu_examples.tokenizers.StanzaTokenizer`** [docs](docs/tokenizer/stanza/)
-- **`rasa_nlu_examples.tokenizers.ThaiTokenizer`** [docs](docs/tokenizer/thai_tokenizer/)
+- **`rasa_nlu_examples.tokenizers.BlankSpacyTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/spacy_tokenizer/)
+- **`rasa_nlu_examples.tokenizers.ThaiTokenizer`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/thai_tokenizer/)
 
 ## **Featurizers**
 
@@ -54,12 +36,11 @@ this might help reduce the size of all the possible tokens.
 Dense featurizers attach dense numeric features per token as well as to the entire utterance. These
 features are picked up by intent classifiers and entity detectors later in the pipeline.
 
-- **`rasa_nlu_examples.featurizers.dense.FastTextFeaturizer` [docs](docs/featurizer/fasttext/)**
-- **`rasa_nlu_examples.featurizers.dense.BytePairFeaturizer` [docs](docs/featurizer/bytepair/)**
-- **`rasa_nlu_examples.featurizers.dense.GensimFeaturizer` [docs](docs/featurizer/gensim/)**
-- **`rasa_nlu_examples.featurizers.sparse.SparseBytePairFeaturizer` [docs](docs/featurizer/sparse_bytepair/)**
-- **`rasa_nlu_examples.featurizers.sparse.SemanticMapFeaturizer` [docs](docs/featurizer/semantic_map/)**
-- **`rasa_nlu_examples.featurizers.sparse.HashingFeaturizer` [docs](docs/featurizer/hashing/)**
+- **`rasa_nlu_examples.featurizers.dense.FastTextFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/fasttext/)**
+- **`rasa_nlu_examples.featurizers.dense.BytePairFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/bytepair/)**
+- **`rasa_nlu_examples.featurizers.dense.GensimFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/gensim/)**
+- **`rasa_nlu_examples.featurizers.sparse.TfIdfFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/tfidf/)**
+- **`rasa_nlu_examples.featurizers.sparse.HashingFeaturizer` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/hashing/)**
 
 ## **Intent Classifiers**
 
@@ -71,43 +52,27 @@ model](https://rasa.com/docs/rasa/components#dietclassifier-2) which can be
 fairly computationally expensive, especially if you do not need to detect
 entities.  We provide some examples of alternative intent classifiers here.
 
-**`rasa_nlu_examples.classifiers.SparseNaiveBayesIntentClassifier` [docs](docs/classifier/sparsenb.md)**
-**`rasa_nlu_examples.classifiers.SparseLogisticRegressionIntentClassifier` [docs](docs/classifier/sparselr.md)**
+- **`rasa_nlu_examples.classifiers.NaiveBayesClassifier` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/extractors/naive-bayes/)**
+- **`rasa_nlu_examples.classifiers.LogisticRegressionClassifier` [docs](https://rasahq.github.io/rasa-nlu-examples/docs/extractors/logistic-regression/)**
 
 ## **Entity Extractors**
 
 ![](images/entity.png)
 
-- **`rasa_nlu_examples.extractor.FlashTextEntityExtractor`** [docs](docs/extractors/flashtext/)
-- **`rasa_nlu_examples.extractor.DateparserEntityExtractor`** [docs](docs/extractors/dateparser/)
-
-## **Fallback Classifiers**
-
-![](images/fallback.png)
-
-- **`rasa_nlu_examples.fallback.FasttextLanguageFallbackClassifier` [docs](docs/fallback/fasttextlanguagefallback.md)**
-
-## **Meta**
-
-The components listed here are useful, but fall in the "other" category.
-
-- **`rasa_nlu_examples.meta.Printer` [docs](docs/meta/printer/)**
-- **`rasa_nlu_examples.meta.StopWordsRemover` [docs](docs/meta/stopwords/)**
-- **`rasa_nlu_examples.scikit.RasaClassifier` [docs](docs/jupyter/tools/#rasa_nlu_examples.scikit.classifier.RasaClassifier)**
-- **`rasa_nlu_examples.scikit.dataframe_to_nlu_file` [docs](docs/jupyter/tools/#rasa_nlu_examples.scikit.common.dataframe_to_nlu_file)**
-- **`rasa_nlu_examples.scikit.nlu_path_to_dataframe` [docs](docs/jupyter/tools/#rasa_nlu_examples.scikit.common.nlu_path_to_dataframe)**
+- **`rasa_nlu_examples.extractor.FlashTextEntityExtractor`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/extractors/flashtext/)
+- **`rasa_nlu_examples.extractor.DateparserEntityExtractor`** [docs](https://rasahq.github.io/rasa-nlu-examples/docs/extractors/dateparser/)
 
 ## **Name Lists**
 
-Language models in spaCy are typically trained on Western news datasets. That means
+Language models are typically trained on Western datasets. That means
 that the reported benchmarks might not apply to your use-case. For example; detecting
 names in texts from France is not the same thing as detecting names in Madagascar. Even
-thought French is used actively in both countries, the names of it's citizens might
+though French is used actively in both countries, the names of it's citizens might
 be so different that you cannot assume that the benchmarks apply universally.
 
 To remedy this we've started collecting name lists. These can be used as a lookup table
 which can be picked up by Rasa's [RegexEntityExtractor](https://rasa.com/docs/rasa/components#regexentityextractor)
-or our [FlashTextEntityExtractor](docs/extractors/flashtext/).
+or our [FlashTextEntityExtractor](https://rasahq.github.io/rasa-nlu-examples/docs/extractors/flashtext/).
 It won't be 100% perfect but it should give a reasonable starting point.
 
 You can find the namelists [here](https://github.com/RasaHQ/rasa-nlu-examples/tree/master/data/namelists).

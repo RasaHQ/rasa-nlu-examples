@@ -1,12 +1,9 @@
-from typing import Any
-
-from sklearn.naive_bayes import BernoulliNB
-
 import logging
-from typing import Text, Dict, List, Type
+from typing import Any, Text, Dict, List, Type
 
 from joblib import dump, load
-from scipy.sparse import vstack, csr_matrix
+from scipy.sparse import hstack, vstack, csr_matrix
+from sklearn.linear_model import LogisticRegression
 
 from rasa.engine.storage.resource import Resource
 from rasa.engine.storage.storage import ModelStorage
@@ -26,7 +23,7 @@ logger = logging.getLogger(__name__)
 @DefaultV1Recipe.register(
     DefaultV1Recipe.ComponentType.INTENT_CLASSIFIER, is_trainable=True
 )
-class SparseNaiveBayesClassifier(IntentClassifier, GraphComponent):
+class LogisticRegressionClassifier(IntentClassifier, GraphComponent):
     @classmethod
     def required_components(cls) -> List[Type]:
         return [Featurizer]
@@ -38,19 +35,7 @@ class SparseNaiveBayesClassifier(IntentClassifier, GraphComponent):
 
     @staticmethod
     def get_default_config() -> Dict[Text, Any]:
-        return {
-            # Additive (Laplace/Lidstone) smoothing parameter (0 for no smoothing).
-            "alpha": 1.0,
-            # Threshold for binarizing (mapping to booleans) of sample features.
-            # If None, input is presumed to already consist of binary vectors.
-            "binarize": 0.0,
-            # Whether to learn class prior probabilities or not.
-            # If false, a uniform prior will be used.
-            "fit_prior": True,
-            # Prior probabilities of the classes.
-            # If specified the priors are not adjusted according to the data.
-            "class_prior": None,
-        }
+        return {"class_weight": "balanced", "max_iter": 100, "solver": "lbfgs"}
 
     def __init__(
         self,
@@ -60,11 +45,10 @@ class SparseNaiveBayesClassifier(IntentClassifier, GraphComponent):
         resource: Resource,
     ) -> None:
         self.name = name
-        self.clf = BernoulliNB(
-            alpha=config["alpha"],
-            binarize=config["binarize"],
-            fit_prior=config["fit_prior"],
-            class_prior=config["class_prior"],
+        self.clf = LogisticRegression(
+            solver=config["solver"],
+            max_iter=config["max_iter"],
+            class_weight=config["class_weight"],
         )
 
         # We need to use these later when saving the trained component.
@@ -77,13 +61,21 @@ class SparseNaiveBayesClassifier(IntentClassifier, GraphComponent):
         for e in messages:
             # First element is sequence features, second is sentence features
             sparse_feats = e.get_sparse_features(attribute=TEXT)[1]
-            X.append(csr_matrix(sparse_feats.features if sparse_feats else []))
+            # First element is sequence features, second is sentence features
+            dense_feats = e.get_dense_features(attribute=TEXT)[1]
+            together = hstack(
+                [
+                    csr_matrix(sparse_feats.features if sparse_feats else []),
+                    csr_matrix(dense_feats.features if dense_feats else []),
+                ]
+            )
+            X.append(together)
         return vstack(X)
 
     def _create_training_matrix(self, training_data: TrainingData):
         """
         This method creates a scikit-learn compatible (X, y)-pair for training
-        the naive bayes model.
+        the logistic regression model.
         """
         X = []
         y = []
@@ -92,7 +84,15 @@ class SparseNaiveBayesClassifier(IntentClassifier, GraphComponent):
                 if e.get("text"):
                     # First element is sequence features, second is sentence features
                     sparse_feats = e.get_sparse_features(attribute=TEXT)[1]
-                    X.append(csr_matrix(sparse_feats.features if sparse_feats else []))
+                    # First element is sequence features, second is sentence features
+                    dense_feats = e.get_dense_features(attribute=TEXT)[1]
+                    together = hstack(
+                        [
+                            csr_matrix(sparse_feats.features if sparse_feats else []),
+                            csr_matrix(dense_feats.features if dense_feats else []),
+                        ]
+                    )
+                    X.append(together)
                     y.append(e.get(INTENT))
         return vstack(X), y
 

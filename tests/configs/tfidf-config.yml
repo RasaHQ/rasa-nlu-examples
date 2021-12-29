@@ -1,0 +1,10 @@
+language: en
+
+pipeline:
+- name: WhitespaceTokenizer
+- name: rasa_nlu_examples.featurizers.sparse.TfIdfFeaturizer
+  lang: en
+  vs: 1000
+  cache_dir: "tests/data/bytepair"
+- name: DIETClassifier
+  epochs: 1

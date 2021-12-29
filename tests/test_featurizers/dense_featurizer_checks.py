@@ -15,7 +15,7 @@ def test_component_requires_tokenizer(tokenizer, featurizer, msg):
 def test_component_no_features_on_no_tokens(tokenizer, featurizer, msg):
     """The component does not set any dense features if there are no tokens."""
     message = Message({TEXT: msg})
-    featurizer.process(message)
+    featurizer.process([message])
     seq_vecs, sen_vecs = message.get_dense_features(TEXT, [])
     assert not seq_vecs
     assert not sen_vecs
@@ -24,10 +24,10 @@ def test_component_no_features_on_no_tokens(tokenizer, featurizer, msg):
 def test_component_adds_features(tokenizer, featurizer, msg):
     """If there are no features we need to add them"""
     message = Message({TEXT: msg})
-    tokenizer.process(message)
+    tokenizer.process([message])
     tokens = message.get(TOKENS_NAMES[TEXT])
 
-    featurizer.process(message)
+    featurizer.process([message])
     seq_vecs, sen_vecs = message.get_dense_features(TEXT, [])
     assert len(seq_vecs.features) == len(tokens)
 
@@ -35,11 +35,11 @@ def test_component_adds_features(tokenizer, featurizer, msg):
 def test_component_does_not_remove_features(tokenizer, featurizer, msg):
     """If there are features we need to add not remove them"""
     message = Message({TEXT: msg})
-    tokenizer.process(message)
-    featurizer.process(message)
+    tokenizer.process([message])
+    featurizer.process([message])
     seq_vecs1, sen_vecs1 = message.get_dense_features(TEXT, [])
 
-    featurizer.process(message)
+    featurizer.process([message])
     seq_vecs2, sen_vecs2 = message.get_dense_features(TEXT, [])
 
     assert (seq_vecs1.features.shape[1] * 2) == seq_vecs2.features.shape[1]

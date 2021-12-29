@@ -7,17 +7,23 @@ from rasa.nlu.featurizers.featurizer import Featurizer
 from rasa.nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
 from rasa.shared.nlu.training_data.message import Message
 from rasa_nlu_examples.featurizers.sparse.hashing_featurizer import HashingFeaturizer
+from rasa.engine.storage.resource import Resource
+from rasa.engine.storage.local_model_storage import LocalModelStorage
+from rasa.engine.graph import ExecutionContext
 
 from .sparse_featurizer_checks import sparse_standard_test_combinations
 
-component_config = dict(n_features=1024, norm=None, alternate_sign=False)
+node_storage = LocalModelStorage("tmp/storage")
+node_resource = Resource("tokenizer")
+context = ExecutionContext(node_storage, node_resource)
+config = dict(n_features=1024, norm=None, alternate_sign=False)
 
 
 @pytest.mark.parametrize(
     "test_fn,tokenizer,featurizer,messages",
     sparse_standard_test_combinations(
-        tokenizer=WhitespaceTokenizer(),
-        featurizer=HashingFeaturizer(component_config=component_config),
+        tokenizer=WhitespaceTokenizer(config=WhitespaceTokenizer.get_default_config()),
+        featurizer=HashingFeaturizer(config=config, name=context.node_name),
     ),
 )
 def test_auto_featurizer_checks(
@@ -31,12 +37,12 @@ def test_auto_featurizer_checks(
 
 @pytest.fixture
 def whitespace_tokenizer() -> WhitespaceTokenizer:
-    return WhitespaceTokenizer()
+    return WhitespaceTokenizer(config=WhitespaceTokenizer.get_default_config())
 
 
 @pytest.fixture
 def hashing_featurizer() -> HashingFeaturizer:
-    return HashingFeaturizer(component_config=component_config)
+    return HashingFeaturizer(config=config, name=context.node_name)
 
 
 def test_features_are_sparse(
@@ -45,8 +51,8 @@ def test_features_are_sparse(
 ):
     message = Message.build("am I talking to a bot")
 
-    whitespace_tokenizer.process(message)
-    hashing_featurizer.process(message)
+    whitespace_tokenizer.process([message])
+    hashing_featurizer.process([message])
 
     for feature in message.features:
         assert scipy.sparse.issparse(feature.features)
@@ -59,15 +65,15 @@ def test_feature_shapes(
     text = "am I talking to a bot"
     message = Message.build(text)
 
-    whitespace_tokenizer.process(message)
-    hashing_featurizer.process(message)
+    whitespace_tokenizer.process([message])
+    hashing_featurizer.process([message])
 
     feat_tok, feat_sent = message.get_sparse_features("text")
     assert feat_tok.features.shape == (
         len(text.split()),
-        component_config["n_features"],
+        config["n_features"],
     )
-    assert feat_sent.features.shape == (1, component_config["n_features"])
+    assert feat_sent.features.shape == (1, config["n_features"])
     assert feat_tok.features.sum() == feat_sent.features.sum()
 
 
@@ -76,16 +82,16 @@ def test_feature_overlap(
     hashing_featurizer: HashingFeaturizer,
 ):
     message_1 = Message.build("am I talking to a bot")
-    whitespace_tokenizer.process(message_1)
-    hashing_featurizer.process(message_1)
+    whitespace_tokenizer.process([message_1])
+    hashing_featurizer.process([message_1])
 
     message_2 = Message.build("sharing a subset of words")
-    whitespace_tokenizer.process(message_2)
-    hashing_featurizer.process(message_2)
+    whitespace_tokenizer.process([message_2])
+    hashing_featurizer.process([message_2])
 
     message_3 = Message.build("completely different message")
-    whitespace_tokenizer.process(message_3)
-    hashing_featurizer.process(message_3)
+    whitespace_tokenizer.process([message_3])
+    hashing_featurizer.process([message_3])
 
     _, feat_sent_1 = message_1.get_sparse_features("text")
     _, feat_sent_2 = message_2.get_sparse_features("text")
@@ -100,15 +106,15 @@ def test_feature_overlap(
 def test_char_wb_analyzer(
     whitespace_tokenizer: WhitespaceTokenizer,
 ):
-    config = component_config.copy()
+    config = dict(n_features=1024, norm=None, alternate_sign=False)
     config["analyzer"] = "char_wb"  # extract n-grams within word boundaries
-    hashing_featurizer = HashingFeaturizer(component_config=config)
+    hashing_featurizer = HashingFeaturizer(config=config, name=context.node_name)
 
     text = "am I talking to a bot"
     message = Message.build(text)
 
-    whitespace_tokenizer.process(message)
-    hashing_featurizer.process(message)
+    whitespace_tokenizer.process([message])
+    hashing_featurizer.process([message])
 
     feat_tok, feat_sent = message.get_sparse_features("text")
 
@@ -118,12 +124,12 @@ def test_char_wb_analyzer(
     # entry per character n-gram. Here we use unigrams only, since `ngram_range=(1, 1)`.
     assert feat_tok.features.shape == (
         len(text.split()),
-        component_config["n_features"],
+        config["n_features"],
     )
     for row_idx, token in enumerate(text.split()):
         assert (
             feat_tok.features.tocsr()[row_idx].sum() == len(token) + 2
         )  # words are padded with spaces on each side
 
-    assert feat_sent.features.shape == (1, component_config["n_features"])
+    assert feat_sent.features.shape == (1, config["n_features"])
     assert feat_tok.features.sum() == feat_sent.features.sum()

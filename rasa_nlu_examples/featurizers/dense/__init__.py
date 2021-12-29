@@ -6,6 +6,8 @@ except ImportError:
     FastTextFeaturizer = NotInstalled("fasttext", "fasttext")
 
 from .bpemb_featurizer import BytePairFeaturizer
+
 from .gensim_featurizer import GensimFeaturizer
 
-__all__ = ["FastTextFeaturizer", "BytePairFeaturizer", "GensimFeaturizer"]
+
+__all__ = ["BytePairFeaturizer", "FastTextFeaturizer", "GensimFeaturizer"]
