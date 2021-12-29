@@ -17,11 +17,6 @@ examples = [
         "lang": "hi",
         "result": ["कृतिदेव", "से", "यूनिकोड", "फॉन्ट", "कन्वर्शन"],
     },
-    {
-        "text": "Trường đại học bách khoa hà nội",
-        "lang": "vi",
-        "result": ["Trường", "đại_học", "bách_khoa", "hà_nội"],
-    },
 ]
 
 
