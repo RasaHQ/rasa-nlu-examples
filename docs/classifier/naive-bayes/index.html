@@ -11,7 +11,7 @@
         <meta name="description" content="A collection of open source Rasa compatible NLU components.">
       
       
-        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/meta/stopwords/">
+        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/classifier/naive-bayes/">
       
       
         <meta name="author" content="Vincent D. Warmerdam @ Rasa Research">
@@ -21,7 +21,7 @@
     
     
       
-        <title>StopWordsRemover - Rasa NLU Examples</title>
+        <title>SparseNaiveBayes - Rasa NLU Examples</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configurable-variables" class="md-skip">
+        <a href="#sparsenaivebayesintentclassifier" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              StopWordsRemover
+              SparseNaiveBayes
             
           </span>
         </div>
@@ -173,14 +173,25 @@
 
       
         
-      
-        
   
   
     <li class="md-tabs__item">
       
         <a href="../../../benchmarking/" class="md-tabs__link md-tabs__link--active">
           Usage
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../contributing/" class="md-tabs__link">
+          Contributing
         </a>
       
     </li>
@@ -241,33 +252,21 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../../../contributing/" title="Contributing" class="md-nav__link">
-      Contributing
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-2">
       Usage
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Usage" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-2">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
@@ -295,20 +294,20 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
     
-    <label class="md-nav__link" for="nav-3-2">
-      Fallback
+    <label class="md-nav__link" for="nav-2-2">
+      Tokenizers
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="Fallback" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
+    <nav class="md-nav" aria-label="Tokenizers" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        Fallback
+        Tokenizers
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -319,8 +318,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../fallback/fasttextlanguagefallback/" title="FasttextLanguage" class="md-nav__link">
-      FasttextLanguage
+    <a href="../../tokenizer/spacy-tokenizer/" title="BlankSpacyTokenizer" class="md-nav__link">
+      BlankSpacyTokenizer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tokenizer/thai-tokenizer/" title="ThaiTokenizer" class="md-nav__link">
+      ThaiTokenizer
     </a>
   </li>
 
@@ -337,20 +348,20 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
     
-    <label class="md-nav__link" for="nav-3-3">
-      Tokenizers
+    <label class="md-nav__link" for="nav-2-3">
+      Featurizers
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="Tokenizers" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-3">
+    <nav class="md-nav" aria-label="Featurizers" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        Tokenizers
+        Featurizers
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -361,8 +372,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tokenizer/spacy_tokenizer/" title="BlankSpacyTokenizer" class="md-nav__link">
-      BlankSpacyTokenizer
+    <a href="../../featurizer/bytepair/" title="BytePairFeaturizer" class="md-nav__link">
+      BytePairFeaturizer
     </a>
   </li>
 
@@ -373,8 +384,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tokenizer/stanza/" title="StanzaTokenizer" class="md-nav__link">
-      StanzaTokenizer
+    <a href="../../featurizer/hashing/" title="HashingFeaturizer" class="md-nav__link">
+      HashingFeaturizer
     </a>
   </li>
 
@@ -385,8 +396,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tokenizer/thai_tokenizer/" title="ThaiTokenizer" class="md-nav__link">
-      ThaiTokenizer
+    <a href="../../featurizer/tfidf/" title="TfIdfFeaturizer" class="md-nav__link">
+      TfIdfFeaturizer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../featurizer/fasttext/" title="FastTextFeaturizer" class="md-nav__link">
+      FastTextFeaturizer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../featurizer/gensim/" title="GensimFeaturizer" class="md-nav__link">
+      GensimFeaturizer
     </a>
   </li>
 
@@ -405,35 +440,23 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" checked>
     
-    <label class="md-nav__link" for="nav-3-4">
-      Meta
+    <label class="md-nav__link" for="nav-2-4">
+      Intent Classifiers
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="Meta" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
+    <nav class="md-nav" aria-label="Intent Classifiers" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        Meta
+        Intent Classifiers
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../printer/" title="Printer" class="md-nav__link">
-      Printer
-    </a>
-  </li>
-
         
           
           
@@ -446,21 +469,25 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        StopWordsRemover
+        SparseNaiveBayes
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
         </span>
       </label>
     
-    <a href="./" title="StopWordsRemover" class="md-nav__link md-nav__link--active">
-      StopWordsRemover
+    <a href="./" title="SparseNaiveBayes" class="md-nav__link md-nav__link--active">
+      SparseNaiveBayes
     </a>
     
       
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -492,92 +519,14 @@
   </li>
 
         
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
-    
-    <label class="md-nav__link" for="nav-3-5">
-      Featurizers
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Featurizers" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-5">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Featurizers
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
           
           
           
 
 
   <li class="md-nav__item">
-    <a href="../../featurizer/gensim/" title="GensimFeaturizer" class="md-nav__link">
-      GensimFeaturizer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../featurizer/fasttext/" title="FastTextFeaturizer" class="md-nav__link">
-      FastTextFeaturizer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../featurizer/bytepair/" title="BytePairFeaturizer" class="md-nav__link">
-      BytePairFeaturizer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../featurizer/sparse_bytepair/" title="SparseBytePairFeaturizer" class="md-nav__link">
-      SparseBytePairFeaturizer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../featurizer/semantic_map/" title="SemanticMapFeaturizer" class="md-nav__link">
-      SemanticMapFeaturizer
+    <a href="../logistic-regression/" title="LogisticRegression" class="md-nav__link">
+      LogisticRegression
     </a>
   </li>
 
@@ -594,70 +543,16 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5">
     
-    <label class="md-nav__link" for="nav-3-6">
-      Intent Classifiers
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Intent Classifiers" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-6">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Intent Classifiers
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../classifier/sparsenb/" title="SparseNaiveBayes" class="md-nav__link">
-      SparseNaiveBayes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../classifier/sparselr/" title="SparseLRBayes" class="md-nav__link">
-      SparseLRBayes
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
-    
-    <label class="md-nav__link" for="nav-3-7">
+    <label class="md-nav__link" for="nav-2-5">
       Entity Extractors
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Entity Extractors" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-7">
+      <label class="md-nav__title" for="nav-2-5">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
@@ -695,27 +590,32 @@
   </li>
 
         
-          
-          
-          
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
 
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-3-8">
-      Jupyter
+    <label class="md-nav__link" for="nav-3">
+      Contributing
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="Jupyter" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-8">
+    <nav class="md-nav" aria-label="Contributing" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        Jupyter
+        Contributing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -726,14 +626,9 @@
 
 
   <li class="md-nav__item">
-    <a href="../../jupyter/tools/" title="Overview" class="md-nav__link">
-      Overview
+    <a href="../../../contributing/" title="Contribute" class="md-nav__link">
+      Contribute
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -755,6 +650,8 @@
                     
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -791,7 +688,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/meta/stopwords.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/classifier/naive-bayes.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -799,32 +696,60 @@
                   
                 
                 
-                  <h1>StopWordsRemover</h1>
-                
-                <p>This component can remove stopwords from the text. The idea is to filter
-out words before the text is passed to the tokeniser. This way we prevent
-many alignment mishaps between the tokens en the found entities.</p>
+                <h1 id="sparsenaivebayesintentclassifier">SparseNaiveBayesIntentClassifier<a class="headerlink" href="#sparsenaivebayesintentclassifier" title="Permanent link">&para;</a></h1>
+<p>This intent classifier is based on the Bernoulli-variant of the Na&iuml;ve
+Bayes classifier in
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html">sklearn</a>.
+This classifier only looks at sparse features extracted from the Rasa NLU
+feature pipeline and is a faster alternative to neural models like
+<a href="https://rasa.com/docs/rasa/components#dietclassifier-2">DIET</a>. This model
+requires that there be some sparse featurizers in your pipeleine. If you config
+only has dense features it will throw an exception.</p>
 <h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>path</strong>: path to a file that contains a stopword on each line</li>
+<li><strong>alpha</strong> (default: 1.0): Additive (Laplace/Lidstone) smoothing parameter (0 for no smoothing).</li>
+<li><strong>binarize</strong> (default: 0.0): Threshold for binarizing (mapping to booleans) of sample features. If None, input is presumed to already consist of binary vectors.</li>
+<li><strong>fit_prior</strong> (default: True): Whether to learn class prior probabilities or not. If false, a uniform prior will be used.</li>
+<li><strong>class_prior</strong> (default: None): Prior probabilities (as a list) of the classes. If specified the priors are not adjusted according to the data.</li>
 </ul>
 <h2 id="base-usage">Base Usage<a class="headerlink" href="#base-usage" title="Permanent link">&para;</a></h2>
-<p>Here's an example configuration.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
+<p>The configuration file below demonstrates how you might use the this component.
+In this example we are extracting sparse features with two
+CountVectorsFeaturizer instances, the first of which produces sparse
+bag-of-words features, and the second which produces sparse
+bags-of-character-ngram features. We've also set the alpha smoothing parameter
+to 0.1.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
 
 <span class="nt">pipeline</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.meta.StopWordRemover</span>
-  <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tests/data/stopwords/stopwords.txt</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LexicalSyntacticFeaturizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
   <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
   <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
   <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
-  <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.classifier.SparseNaiveBayesClassifier</span>
+  <span class="nt">alpha</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.1</span>
 </code></pre></div>
-<p>Note that you <em>must</em> place the <code>StopWordRemover</code> component before the tokeniser.</p>
+
+<p>Unlike <a href="https://rasa.com/docs/rasa/components#dietclassifier-2">DIET</a>, this
+classifier only predicts intents. If you also need entity extraction, you will
+have to add a separate entity extractor to your config. Below is an example
+where we have included the CRFEntityExtractor to extract entities.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
+
+<span class="nt">pipeline</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LexicalSyntacticFeaturizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
+  <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
+  <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.classifier.SparseNaiveBayesClassifier</span>
+  <span class="nt">alpha</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.1</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CRFEntityExtractor</span>
+</code></pre></div>
                 
               
               
@@ -843,7 +768,7 @@ many alignment mishaps between the tokens en the found entities.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../printer/" title="Printer" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../featurizer/gensim/" title="GensimFeaturizer" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -852,19 +777,19 @@ many alignment mishaps between the tokens en the found entities.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Printer
+                GensimFeaturizer
               </div>
             </div>
           </a>
         
         
-          <a href="../../featurizer/gensim/" title="GensimFeaturizer" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../logistic-regression/" title="LogisticRegression" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                GensimFeaturizer
+                LogisticRegression
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

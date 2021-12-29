@@ -11,7 +11,7 @@
         <meta name="description" content="A collection of open source Rasa compatible NLU components.">
       
       
-        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/tokenizer/spacy_tokenizer/">
+        <link rel="canonical" href="https://rasahq.github.io/rasa-nlu-examples/docs/featurizer/hashing/">
       
       
         <meta name="author" content="Vincent D. Warmerdam @ Rasa Research">
@@ -21,7 +21,7 @@
     
     
       
-        <title>BlankSpacyTokenizer - Rasa NLU Examples</title>
+        <title>HashingFeaturizer - Rasa NLU Examples</title>
       
     
     
@@ -94,7 +94,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              BlankSpacyTokenizer
+              HashingFeaturizer
             
           </span>
         </div>
@@ -173,14 +173,25 @@
 
       
         
-      
-        
   
   
     <li class="md-tabs__item">
       
         <a href="../../../benchmarking/" class="md-tabs__link md-tabs__link--active">
           Usage
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../contributing/" class="md-tabs__link">
+          Contributing
         </a>
       
     </li>
@@ -241,33 +252,21 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../../../contributing/" title="Contributing" class="md-nav__link">
-      Contributing
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-2">
       Usage
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Usage" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-2">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
@@ -295,20 +294,20 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
     
-    <label class="md-nav__link" for="nav-3-2">
-      Fallback
+    <label class="md-nav__link" for="nav-2-2">
+      Tokenizers
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="Fallback" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
+    <nav class="md-nav" aria-label="Tokenizers" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        Fallback
+        Tokenizers
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -319,8 +318,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../fallback/fasttextlanguagefallback/" title="FasttextLanguage" class="md-nav__link">
-      FasttextLanguage
+    <a href="../../tokenizer/spacy-tokenizer/" title="BlankSpacyTokenizer" class="md-nav__link">
+      BlankSpacyTokenizer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tokenizer/thai-tokenizer/" title="ThaiTokenizer" class="md-nav__link">
+      ThaiTokenizer
     </a>
   </li>
 
@@ -339,23 +350,35 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
     
-    <label class="md-nav__link" for="nav-3-3">
-      Tokenizers
+    <label class="md-nav__link" for="nav-2-3">
+      Featurizers
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="Tokenizers" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-3">
+    <nav class="md-nav" aria-label="Featurizers" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        Tokenizers
+        Featurizers
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bytepair/" title="BytePairFeaturizer" class="md-nav__link">
+      BytePairFeaturizer
+    </a>
+  </li>
+
         
           
           
@@ -370,14 +393,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        BlankSpacyTokenizer
+        HashingFeaturizer
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
         </span>
       </label>
     
-    <a href="./" title="BlankSpacyTokenizer" class="md-nav__link md-nav__link--active">
-      BlankSpacyTokenizer
+    <a href="./" title="HashingFeaturizer" class="md-nav__link md-nav__link--active">
+      HashingFeaturizer
     </a>
     
       
@@ -407,6 +430,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#combining-several-hashing-featurizers" class="md-nav__link">
+    Combining several hashing featurizers
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -420,8 +450,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../stanza/" title="StanzaTokenizer" class="md-nav__link">
-      StanzaTokenizer
+    <a href="../tfidf/" title="TfIdfFeaturizer" class="md-nav__link">
+      TfIdfFeaturizer
     </a>
   </li>
 
@@ -432,115 +462,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../thai_tokenizer/" title="ThaiTokenizer" class="md-nav__link">
-      ThaiTokenizer
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Meta
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Meta" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Meta
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../meta/printer/" title="Printer" class="md-nav__link">
-      Printer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../meta/stopwords/" title="StopWordsRemover" class="md-nav__link">
-      StopWordsRemover
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
-    
-    <label class="md-nav__link" for="nav-3-5">
-      Featurizers
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Featurizers" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-5">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Featurizers
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../featurizer/gensim/" title="GensimFeaturizer" class="md-nav__link">
-      GensimFeaturizer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../featurizer/fasttext/" title="FastTextFeaturizer" class="md-nav__link">
+    <a href="../fasttext/" title="FastTextFeaturizer" class="md-nav__link">
       FastTextFeaturizer
     </a>
   </li>
@@ -552,32 +474,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../featurizer/bytepair/" title="BytePairFeaturizer" class="md-nav__link">
-      BytePairFeaturizer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../featurizer/sparse_bytepair/" title="SparseBytePairFeaturizer" class="md-nav__link">
-      SparseBytePairFeaturizer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../featurizer/semantic_map/" title="SemanticMapFeaturizer" class="md-nav__link">
-      SemanticMapFeaturizer
+    <a href="../gensim/" title="GensimFeaturizer" class="md-nav__link">
+      GensimFeaturizer
     </a>
   </li>
 
@@ -594,16 +492,16 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
     
-    <label class="md-nav__link" for="nav-3-6">
+    <label class="md-nav__link" for="nav-2-4">
       Intent Classifiers
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Intent Classifiers" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-6">
+      <label class="md-nav__title" for="nav-2-4">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
@@ -618,7 +516,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classifier/sparsenb/" title="SparseNaiveBayes" class="md-nav__link">
+    <a href="../../classifier/naive-bayes/" title="SparseNaiveBayes" class="md-nav__link">
       SparseNaiveBayes
     </a>
   </li>
@@ -630,8 +528,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classifier/sparselr/" title="SparseLRBayes" class="md-nav__link">
-      SparseLRBayes
+    <a href="../../classifier/logistic-regression/" title="LogisticRegression" class="md-nav__link">
+      LogisticRegression
     </a>
   </li>
 
@@ -648,16 +546,16 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5">
     
-    <label class="md-nav__link" for="nav-3-7">
+    <label class="md-nav__link" for="nav-2-5">
       Entity Extractors
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Entity Extractors" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-7">
+      <label class="md-nav__title" for="nav-2-5">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
@@ -695,27 +593,32 @@
   </li>
 
         
-          
-          
-          
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
 
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-3-8">
-      Jupyter
+    <label class="md-nav__link" for="nav-3">
+      Contributing
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="Jupyter" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-8">
+    <nav class="md-nav" aria-label="Contributing" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        Jupyter
+        Contributing
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -726,14 +629,9 @@
 
 
   <li class="md-nav__item">
-    <a href="../../jupyter/tools/" title="Overview" class="md-nav__link">
-      Overview
+    <a href="../../../contributing/" title="Contribute" class="md-nav__link">
+      Contribute
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -779,6 +677,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#combining-several-hashing-featurizers" class="md-nav__link">
+    Combining several hashing featurizers
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -791,7 +696,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/tokenizer/spacy_tokenizer.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/RasaHQ/rasa-nlu-examples/edit/master/docs/docs/featurizer/hashing.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -799,35 +704,59 @@
                   
                 
                 
-                  <h1>BlankSpacyTokenizer</h1>
+                  <h1>HashingFeaturizer</h1>
                 
-                <p>Rasa natively supports spaCy models that have a language model attached. But spaCy
-also offers tokenizers without a model. We support these tokenisers with this
-component.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In order to use this tool you'll need to ensure that spaCy is installed with Rasa.</p>
-<div class="highlight"><pre><span></span><code>pip install rasa[spacy]
-</code></pre></div>
-<p>You should also be aware that for certain languages extra dependencies are required.
-More information is given on the <a href="https://spacy.io/usage/models#languages">spacy documentation</a>.</p>
-</div>
+                <p>This page discusses some properties of the <code>HashingFeaturizer</code>.
+Note that this featurizer is a <em>sparse</em> featurizer.</p>
+<p>The featurizer is a wrapper a around scikit-learn's
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.HashingVectorizer.html">HashingVectorizer</a>.
+It uses the "hashing trick" to transform input texts to a sparse vector by mapping each token to a column index using a
+fixed hash function. The featurizer has no state and cannot be trained. For a small number of columns (defined by the
+<code>n_features</code> parameter), hash coalitions are more likely, meaning that two words can get mapped to the
+same index.</p>
 <h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>lang</strong>: the two-letter <a href="https://spacy.io/usage/models#languages">abbreviation</a> of the language you want to use.</li>
+<li><strong>n_features</strong>: the number of columns the input is mapped to.</li>
+<li><strong>analyzer</strong>: determines how tokens are split. possible choices are <code>word</code>, <code>char</code> and <code>char_wb</code>.</li>
+<li><strong>lowercase</strong>: convert input strings to lowercase.</li>
+<li><strong>strip_accents</strong>: remove accents using one of the methods <code>ascii</code> or <code>unicode</code>.</li>
+<li><strong>stop_words</strong>: filter by a list of stop words.</li>
+<li><strong>min_ngram</strong>: the lower boundary of the range of n-values for different word n-grams or char n-grams to be extracted.</li>
+<li><strong>max_ngram</strong>: the upper boundary of the range of n-values for different word n-grams or char n-grams to be extracted.</li>
+<li><strong>norm</strong>: the normalization applied to each row vector (options are <code>l1</code>, <code>l2</code> or <code>null</code>).</li>
+<li><strong>binary</strong>: if <code>True</code>, all non-zero elements are mapped to <code>1</code>, instead of absolute counts.</li>
+<li><strong>alternate_sign</strong>: apply the sign of the hashing function in order to reduce the effect of hash coalitions.</li>
 </ul>
 <h2 id="base-usage">Base Usage<a class="headerlink" href="#base-usage" title="Permanent link">&para;</a></h2>
-<p>Once downloaded it can be used in a Rasa configuration, like below;</p>
-<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span>
+<p>The configuration file below demonstrates how you might use the hashing featurizer.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">pipeline</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LexicalSyntacticFeaturizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.featurizers.sparse.HashingFeaturizer</span>
+  <span class="nt">n_features</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1024</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
+  <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+</code></pre></div>
 
-<span class="nt">pipeline</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.tokenizers.BlankSpacyTokenizer</span>
-  <span class="nt">lang</span><span class="p">:</span> <span class="s">&quot;en&quot;</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CountVectorsFeaturizer</span>
-  <span class="nt">analyzer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">char_wb</span>
-  <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-  <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+<h2 id="combining-several-hashing-featurizers">Combining several hashing featurizers<a class="headerlink" href="#combining-several-hashing-featurizers" title="Permanent link">&para;</a></h2>
+<p>In order to use a combination of several hash functions,  multiple <code>HashingFeaturizer</code> instances can be
+added to the pipeline. However, note that since the hash function is deterministic, one needs to set a
+varying number of <code>n_features</code> for each. Otherwise one would end up with the same sparse vector being
+concatenated multiple times. See the discussion
+<a href="https://github.com/RasaHQ/rasa-nlu-examples/issues/148#issuecomment-975335531">here</a>
+how this, in combination with <code>DIETClassifier</code>, is related to
+<a href="https://support.prodi.gy/t/can-you-explain-how-exactly-hashembed-works/564/2">Bloom embeddings</a>.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">pipeline</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WhitespaceTokenizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LexicalSyntacticFeaturizer</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.featurizers.sparse.HashingFeaturizer</span>
+  <span class="nt">n_features</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1021</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.featurizers.sparse.HashingFeaturizer</span>
+  <span class="nt">n_features</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1022</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.featurizers.sparse.HashingFeaturizer</span>
+  <span class="nt">n_features</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1023</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.featurizers.sparse.HashingFeaturizer</span>
+  <span class="nt">n_features</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1024</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
   <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
 </code></pre></div>
@@ -849,7 +778,7 @@ More information is given on the <a href="https://spacy.io/usage/models#language
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../fallback/fasttextlanguagefallback/" title="FasttextLanguage" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../bytepair/" title="BytePairFeaturizer" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -858,19 +787,19 @@ More information is given on the <a href="https://spacy.io/usage/models#language
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                FasttextLanguage
+                BytePairFeaturizer
               </div>
             </div>
           </a>
         
         
-          <a href="../stanza/" title="StanzaTokenizer" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../tfidf/" title="TfIdfFeaturizer" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                StanzaTokenizer
+                TfIdfFeaturizer
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
