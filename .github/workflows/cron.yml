@@ -33,3 +33,6 @@ jobs:
         python tests/scripts/prepare_fasttext.py
         chmod 775 tests/data/fasttext/custom_fasttext_model.bin
         pytest -v --disable-warnings
+    - name: Confirm Smoketests
+      run: |
+        python scripts/smoketests.py

@@ -29,6 +29,10 @@ jobs:
         pip install -e ".[all]" --use-deprecated=legacy-resolver
         pip install --upgrade rasa[spacy]==${{ matrix.rasa-version }}
         pip install pytest pyvi rich
+        # The sanic version is set manually here because at the time
+        # of writing, this issue persisted:
+        # https://github.com/RasaHQ/rasa/issues/10585
+        pip install pytest pyvi sanic==21.9.3
     - name: Versions of Dependencies
       run: pip freeze | grep -E 'stanza|gensim|bpemb|fasttext'
     - name: Run Smoke Tests
