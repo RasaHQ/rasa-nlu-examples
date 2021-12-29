@@ -39,34 +39,6 @@ for spaCy first.
 python -m pip install rasa[spacy]
 ```
 
-# Contribute
-
-There are many ways you can contribute to this project.
-
-- You can suggest new features.
-- You can let us know if there are bugs.
-- You can share the results of an experiment you ran using these tools.
-- You can let us know if the components in this library help you.
-
-Feel free to start the discussion by opening an issue on this repository. Before submitting code
-to the repository it would help if you first create an issue so that the maintainers can disucss
-the changes you would like to contribute. A more in-depth contribution guide can be found
-[here](https://rasahq.github.io/rasa-nlu-examples/contributing/).
-
-To get started locally you can run:
-
-```
-python -m pip install -e ".[dev]"
-pre-commit install
-python tests/scripts/prepare_fasttext.py
-```
-
-Alternatively you may also run this via the `Makefile`:
-
-```
-make install
-```
-
 # Documentation
 
 You can find the documentation for this project [here](https://rasahq.github.io/rasa-nlu-examples/).
@@ -197,3 +169,31 @@ rasa test nlu --config basic-bytepair-config.yml \
 If you've spotted a bug then you can submit an issue [here](https://github.com/RasaHQ/rasa-nlu-examples/issues).
 GitHub issues allow us to keep track of a conversation about this repository and it is the preferred
 communication channel for bugs related to this project.
+
+# Contribute
+
+There are many ways you can contribute to this project.
+
+- You can suggest new features.
+- You can let us know if there are bugs.
+- You can share the results of an experiment you ran using these tools.
+- You can let us know if the components in this library help you.
+
+Feel free to start the discussion by opening an issue on this repository. Before submitting code
+to the repository it would help if you first create an issue so that the maintainers can disucss
+the changes you would like to contribute. A more in-depth contribution guide can be found
+[here](https://rasahq.github.io/rasa-nlu-examples/contributing/).
+
+To get started locally you can run:
+
+```
+python -m pip install -e ".[dev]"
+pre-commit install
+python tests/scripts/prepare_fasttext.py
+```
+
+Alternatively you may also run this via the `Makefile`:
+
+```
+make install
+```
