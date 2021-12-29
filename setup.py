@@ -21,6 +21,7 @@ dev_packages = [
     "mkdocstrings==0.8.0",
     "pymdown-extensions>=7.1",
     "flake8-print==4.0.0",
+    "rich==10.2.2",
 ]
 
 thai_deps = [
