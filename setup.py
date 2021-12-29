@@ -25,7 +25,7 @@ dev_packages = [
 ]
 
 thai_deps = [
-    "pythainlp>=2.2.3",
+    "pythainlp>=2.3.2",
 ]
 
 fasttext_deps = [
