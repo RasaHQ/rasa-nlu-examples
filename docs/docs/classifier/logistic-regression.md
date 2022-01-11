@@ -34,7 +34,7 @@ pipeline:
   analyzer: char_wb
   min_ngram: 1
   max_ngram: 4
-- name: rasa_nlu_examples.classifier.LogisticRegressionClassifier
+- name: rasa_nlu_examples.classifiers.LogisticRegressionClassifier
   class_weight: None
 ```
 
@@ -54,6 +54,6 @@ pipeline:
   analyzer: char_wb
   min_ngram: 1
   max_ngram: 4
-- name: rasa_nlu_examples.classifier.LogisticRegressionClassifier
+- name: rasa_nlu_examples.classifiers.LogisticRegressionClassifier
 - name: CRFEntityExtractor
 ```
