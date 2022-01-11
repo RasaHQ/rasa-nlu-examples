@@ -35,7 +35,7 @@ pipeline:
   analyzer: char_wb
   min_ngram: 1
   max_ngram: 4
-- name: rasa_nlu_examples.classifier.SparseNaiveBayesClassifier
+- name: rasa_nlu_examples.classifiers.SparseNaiveBayesClassifier
   alpha: 0.1
 ```
 
@@ -55,7 +55,7 @@ pipeline:
   analyzer: char_wb
   min_ngram: 1
   max_ngram: 4
-- name: rasa_nlu_examples.classifier.SparseNaiveBayesClassifier
+- name: rasa_nlu_examples.classifiers.SparseNaiveBayesClassifier
   alpha: 0.1
 - name: CRFEntityExtractor
 ```
