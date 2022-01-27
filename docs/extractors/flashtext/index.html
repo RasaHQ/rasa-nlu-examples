@@ -704,11 +704,11 @@ or use our convenience installer.</p>
 <p><code>python -m pip install "rasa_nlu_examples[flashtext] @ git+https://github.com/RasaHQ/rasa-nlu-examples.git"</code></p>
 </div>
 <p>This entity extractor uses the <a href="https://flashtext.readthedocs.io/en/latest/">flashtext</a> library
-to extract entities using <a href="https://rasa.com/docs/rasa/nlu-training-data#lookup-tables">lookup tables</a>.</p>
+to extract entities.</p>
 <p>This is similar to <a href="https://rasa.com/docs/rasa/components#regexentityextractor">RegexEntityExtractor</a>, but
 different in a few ways:</p>
 <ol>
-<li><code>FlashTextEntityExtractor</code> takes only <code>lookups</code>, <strong>not</strong> regex patterns</li>
+<li><code>FlashTextEntityExtractor</code> uses token-matching to find entities, <strong>not</strong> regex patterns</li>
 <li><code>FlashTextEntityExtractor</code> matches using whitespace word boundaries. You cannot set it
 to match words regardless of boundaries.</li>
 <li><code>FlashTextEntityExtractor</code> is <em>much</em> faster than <code>RegexEntityExtractor</code>. This is especially true
@@ -718,6 +718,8 @@ for large lookup tables.</li>
 use the parameter <code>non_word_boundaries</code></p>
 <h2 id="configurable-variables">Configurable Variables<a class="headerlink" href="#configurable-variables" title="Permanent link">&para;</a></h2>
 <ul>
+<li><strong>path</strong>: the path to the lookup text file</li>
+<li><strong>entity_name</strong>: the name of the entity to attach to the message</li>
 <li><strong>case_sensitive</strong>: whether to consider case when matching entities. <code>False</code> by default.</li>
 <li><strong>non_word_boundaries</strong>: characters which shouldn't be considered word boundaries.</li>
 </ul>
@@ -733,33 +735,29 @@ use the parameter <code>non_word_boundaries</code></p>
   <span class="nt">min_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
   <span class="nt">max_ngram</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rasa_nlu_examples.extractors.FlashTextEntityExtractor</span>
-  <span class="nt">case_sensitive</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
-  <span class="nt">non_word_boundary</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="s">&quot;_&quot;</span>
-  <span class="p p-Indicator">-</span> <span class="s">&quot;,&quot;</span>
+  <span class="nt">case_sensitive</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+  <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">path/to/file.txt</span>
+  <span class="nt">entity_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">country</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIETClassifier</span>
   <span class="nt">epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
 </code></pre></div>
 
-<p>You must include <a href="https://rasa.com/docs/rasa/nlu-training-data#lookup-tables">lookup tables</a> in your NLU data. This
-might look like:</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">nlu</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="nt">lookup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">country</span>
-  <span class="nt">examples</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-    <span class="no">- Afghanistan</span>
-    <span class="no">- Albania</span>
-    <span class="no">- ...</span>
-    <span class="no">- Zambia</span>
-    <span class="no">- Zimbabwe</span>
+<p>You must include a plain text file that contains the tokens to detect.
+Such a file might look like:</p>
+<div class="codehilite"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">Afghanistan</span>
+<span class="l l-Scalar l-Scalar-Plain">Albania</span>
+<span class="nn">...</span>
+<span class="l l-Scalar l-Scalar-Plain">Zambia</span>
+<span class="l l-Scalar l-Scalar-Plain">Zimbabwe</span>
 </code></pre></div>
 
-<p>In this example, anytime a user's utterance contains an exact match for a country from the lookup table above,
+<p>In this example, anytime a user's utterance contains an exact match for a country,
 <code>FlashTextEntityExtractor</code> will extract this as an entity with type <code>country</code>. You should include a few examples with
 this entity in your intent data, like so:</p>
 <div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">intent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">inform_home_country</span>
   <span class="nt">examples</span><span class="p">:</span> <span class="p p-Indicator">|</span>
     <span class="no">- I am from [Afghanistan](country)</span>
-    <span class="no">- My family is from [Albania](country</span>
+    <span class="no">- My family is from [Albania](country)</span>
 </code></pre></div>
                 
               
