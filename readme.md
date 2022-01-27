@@ -197,3 +197,19 @@ Alternatively you may also run this via the `Makefile`:
 ```
 make install
 ```
+
+## Documentation 
+
+If you want to build the documentation locally you can do so via; 
+
+```
+mkdocs serve
+```
+
+If you want to deplot the docs to GitHub you can run; 
+
+```
+mkdocs gh-deploy
+```
+
+This will deploy a new version to the `docs` branch, which is picked up by GitHub pages. 
