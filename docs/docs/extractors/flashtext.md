@@ -29,6 +29,7 @@ use the parameter `non_word_boundaries`
 - **entity_name**: the name of the entity to attach to the message
 - **case_sensitive**: whether to consider case when matching entities. `False` by default.
 - **non_word_boundaries**: characters which shouldn't be considered word boundaries.
+- **encoding**: the name of the encoding used to read the lookup text file. 
 
 ## Base Usage
 
