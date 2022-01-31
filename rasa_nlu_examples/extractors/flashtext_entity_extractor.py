@@ -64,7 +64,9 @@ class FlashTextEntityExtractor(EntityExtractorMixin, GraphComponent):
         )
         for non_word_boundary in config["non_word_boundaries"]:
             self.keyword_processor.add_non_word_boundary(non_word_boundary)
-        words = pathlib.Path(self.path).read_text(encoding=config["encoding"]).split("\n")
+        words = (
+            pathlib.Path(self.path).read_text(encoding=config["encoding"]).split("\n")
+        )
         if len(words) == 0:
             rasa.shared.utils.io.raise_warning(
                 f"No words found in the {pathlib.Path(self.path)} file."
