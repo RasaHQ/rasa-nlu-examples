@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 base_packages = [
     "rasa~=3.5.8",
     "bpemb>=0.3.2",
-    "gensim~=3.8.3",
+    "gensim~=4.3.1",
     "tensorflow>=2.6.0",
     "pandas>=1.0.0",
 ]
