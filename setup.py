@@ -3,25 +3,26 @@ from setuptools import setup, find_packages
 
 base_packages = [
     "rasa~=3.5.8",
-    "bpemb>=0.3.2",
+    "bpemb>=0.3.4",
     "gensim~=4.3.1",
-    "tensorflow>=2.11.0",
-    "pandas>=1.0.0",
+    "tensorflow-macos~=2.11.0",
+    "pandas~=2.0.1",
 ]
 
+
 dev_packages = [
-    "flake8>=3.6.0",
-    "black>=19.10b0",
-    "pre-commit>=2.5.1",
-    "pytype>=2020.0.0",
-    "pytest>=4.0.2",
-    "pytest-xdist==1.32.0",
-    "mkdocs==1.1",
-    "mkdocs-material==5.4.0",
-    "mkdocstrings==0.8.0",
-    "pymdown-extensions>=7.1",
-    "flake8-print==4.0.0",
-    "rich==10.2.2",
+    "flake8>=6.0.0",
+    "black=23.3.0",
+    "pre-commit>=3.3.2",
+    "pytype>=2023.5.24",
+    "pytest>=7.3.1",
+    "pytest-xdist==3.3.1",
+    "mkdocs==1.4.3",
+    "mkdocs-material==9.1.14",
+    "mkdocstrings==0.21.2",
+    "pymdown-extensions>=10.0.1",
+    "flake8-print==5.0.0",
+    "rich==13.3.5",
 ]
 
 thai_deps = [

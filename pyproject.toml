@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "rasa-nlu-examples"
+version = "0.3.1"
+description = "Rasa compatible machine learning components"
+authors = ["Florian Over <over@axxessio.com>"]
+readme = "README.md"
+packages = [{include = "rasa_nlu_examples"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<=3.10"
+rasa = {version = ">=3.5.8,<3.6.0", python = ">=3.9,<=3.11.3"}
+bpemb = ">=0.3.4"
+gensim = ">=4.3.1,<4.4.0"
+#tensorflow = ">=2.11.0,<2.12.0" # Shouldn't this come through rasa?
+pandas = ">=2.0.1,<2.1.0"
+botocore = "^1.29.141"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.0.0"
+pre-commit = "^3.3.2"
+pytype = "^2023.5.24"
+pytest = "^7.3.1"
+pytest-xdist = "^3.3.1"
+mkdocs = "^1.4.3"
+mkdocs-material = "^9.1.14"
+mkdocstrings = "^0.21.2"
+pymdown-extensions = "^10.0.1"
+flake8-print = "^5.0.0"
+rich = "^13.3.5"
+flashtext = "^2.7.0"
+dateparser = "^1.1.8"
+fasttext = { git = "https://github.com/cfculhane/fastText.git" }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
